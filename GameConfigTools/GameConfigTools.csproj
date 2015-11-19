@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DECE62F8-385D-446A-B414-4CAC94B35E29}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GameConfigTools</RootNamespace>
+    <AssemblyName>GameConfigTools</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AIForm\ActionNode.cs" />
+    <Compile Include="AIForm\Action\AttackedActionNode.cs" />
+    <Compile Include="AIForm\Action\AttackedActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\AttackedActionPanel.Designer.cs">
+      <DependentUpon>AttackedActionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Action\PositionActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\PositionActionPanel.Designer.cs">
+      <DependentUpon>PositionActionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Action\PositionActionNode.cs" />
+    <Compile Include="AIForm\Action\SkillPriorityDecisionActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\SkillPriorityDecisionActionPanel.Designer.cs">
+      <DependentUpon>SkillPriorityDecisionActionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Action\SkillPriorityDecisionActionNode.cs" />
+    <Compile Include="AIForm\Action\ChaseActionNode.cs" />
+    <Compile Include="AIForm\Action\ChaseActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\ChaseActionPanel.Designer.cs">
+      <DependentUpon>ChaseActionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Action\AttackActionNode.cs" />
+    <Compile Include="AIForm\Action\IdleActionNode.cs" />
+    <Compile Include="AIForm\Action\AttackActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\AttackActionPanel.Designer.cs">
+      <DependentUpon>AttackActionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Action\IdleActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\IdleActionPanel.Designer.cs">
+      <DependentUpon>IdleActionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Action\RetreatActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\RetreatActionPanel.Designer.cs">
+      <DependentUpon>RetreatActionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Action\RetreatActionNode.cs" />
+    <Compile Include="AIForm\Action\SeekActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\SeekActionPanel.Designer.cs">
+      <DependentUpon>SeekActionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Action\SeekActionNode.cs" />
+    <Compile Include="AIForm\Action\PatrolActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\PatrolActionPanel.Designer.cs">
+      <DependentUpon>PatrolActionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Action\MoveActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\MoveActionPanel.Designer.cs">
+      <DependentUpon>MoveActionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Action\MoveNode.cs" />
+    <Compile Include="AIForm\Action\PatrolActionNode.cs" />
+    <Compile Include="AIForm\AddBTRootForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AIForm\AddBTRootForm.Designer.cs">
+      <DependentUpon>AddBTRootForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\AddNodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AIForm\AddNodeForm.Designer.cs">
+      <DependentUpon>AddNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\BTConstants.cs" />
+    <Compile Include="AIForm\BTNode.cs" />
+    <Compile Include="AIForm\BTParam.cs" />
+    <Compile Include="AIForm\CompositeNode.cs" />
+    <Compile Include="AIForm\Composite\ParallelPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Composite\ParallelPanel.Designer.cs">
+      <DependentUpon>ParallelPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Composite\PrioritySelectorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Composite\PrioritySelectorPanel.Designer.cs">
+      <DependentUpon>PrioritySelectorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Composite\SequencePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Composite\SequencePanel.Designer.cs">
+      <DependentUpon>SequencePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Composite\SelectorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Composite\SelectorPanel.Designer.cs">
+      <DependentUpon>SelectorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\ConditionNode.cs" />
+    <Compile Include="AIForm\Condition\ConditionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Condition\ConditionPanel.Designer.cs">
+      <DependentUpon>ConditionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\DecoratorNode.cs" />
+    <Compile Include="AIForm\Decorator\InverterDecoratorNode.cs" />
+    <Compile Include="AIForm\Decorator\InverterDecoratorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Decorator\InverterDecoratorPanel.Designer.cs">
+      <DependentUpon>InverterDecoratorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\ParallelNode.cs" />
+    <Compile Include="AIForm\PrioritySelectorNode.cs" />
+    <Compile Include="AIForm\RootNode.cs" />
+    <Compile Include="AIForm\SelectorNode.cs" />
+    <Compile Include="AIForm\SequenceNode.cs" />
+    <Compile Include="Collections\TCollections.cs" />
+    <Compile Include="Collections\THashSet.cs" />
+    <Compile Include="ConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigForm.Designer.cs">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Constant\SysConstant.cs" />
+    <Compile Include="AIForm\EditAIConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AIForm\EditAIConfigForm.Designer.cs">
+      <DependentUpon>EditAIConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Export\AbstractExcelExporter.cs" />
+    <Compile Include="Export\ExporterManager.cs" />
+    <Compile Include="Export\Exporter.cs" />
+    <Compile Include="Export\MessageExporter.cs" />
+    <Compile Include="Export\AbstractXmlExporter.cs" />
+    <Compile Include="Export\ServerSystemExporter.cs" />
+    <Compile Include="Import\AbstractExcelImporter.cs" />
+    <Compile Include="Import\AbstractXmlImporter.cs" />
+    <Compile Include="Import\mmAdvImport\ActionImporter.cs" />
+    <Compile Include="Import\mmAdvImport\CharactorImporter.cs" />
+    <Compile Include="Import\mmAdvImport\DialogImporter.cs" />
+    <Compile Include="Import\mmAdvImport\FuncImporter.cs" />
+    <Compile Include="Import\Importer.cs" />
+    <Compile Include="Import\ImporterManager.cs" />
+    <Compile Include="Import\mmAdvImport\LimitImporter.cs" />
+    <Compile Include="Import\mmAdvImport\MainMissionImporter.cs" />
+    <Compile Include="Import\mmAdvImport\MessageImporter.cs" />
+    <Compile Include="Import\mmAdvImport\MissionStepImporter.cs" />
+    <Compile Include="Import\mmAdvImport\NpcImporter.cs" />
+    <Compile Include="Import\mmAdvImport\StageImporter.cs" />
+    <Compile Include="Import\mmAdvImport\TargetImporter.cs" />
+    <Compile Include="Import\mmAdvImport\TerrainImporter.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mmAdv\Config\CharactorConfig.cs" />
+    <Compile Include="mmAdv\Config\DialogConfig.cs" />
+    <Compile Include="mmAdv\Config\DownloadAssetType.cs" />
+    <Compile Include="mmAdv\Config\FuncData.cs" />
+    <Compile Include="mmAdv\Config\FuncGroup.cs" />
+    <Compile Include="mmAdv\Config\LimitData.cs" />
+    <Compile Include="mmAdv\Config\LimitGroup.cs" />
+    <Compile Include="mmAdv\Config\MainMissionConfig.cs" />
+    <Compile Include="mmAdv\Config\MissionStepConfig.cs" />
+    <Compile Include="mmAdv\Config\NpcConfig.cs" />
+    <Compile Include="mmAdv\Config\StageConfig.cs" />
+    <Compile Include="mmAdv\Config\StateConflictConfig.cs" />
+    <Compile Include="mmAdv\Config\StateConflictConfigElement.cs" />
+    <Compile Include="mmAdv\Config\Table\CharactorConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\DialogConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\FuncConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\LimitConfgTable.cs" />
+    <Compile Include="mmAdv\Config\Table\MainMissionConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\MessageConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\MissionStepConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\NpcConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\StageConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\StateConflictTable.cs" />
+    <Compile Include="mmAdv\Config\Table\TargetConfigTable.cs" />
+    <Compile Include="mmAdv\Config\TargetData.cs" />
+    <Compile Include="mmAdv\Config\TargetGroup.cs" />
+    <Compile Include="mmAdv\Config\ThriftVector3.cs" />
+    <Compile Include="mmAdv\Config\VersionConfig.cs" />
+    <Compile Include="mmAdv\Config\VersionConfigElement.cs" />
+    <Compile Include="Model\SysConfig.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocol\TAbstractBase.cs" />
+    <Compile Include="Protocol\TBase.cs" />
+    <Compile Include="Protocol\TBase64Utils.cs" />
+    <Compile Include="Protocol\TBinaryProtocol.cs" />
+    <Compile Include="Protocol\TCompactProtocol.cs" />
+    <Compile Include="Protocol\TField.cs" />
+    <Compile Include="Protocol\TJSONProtocol.cs" />
+    <Compile Include="Protocol\TList.cs" />
+    <Compile Include="Protocol\TMap.cs" />
+    <Compile Include="Protocol\TMessage.cs" />
+    <Compile Include="Protocol\TMessageType.cs" />
+    <Compile Include="Protocol\TMultiplexedProcessor.cs" />
+    <Compile Include="Protocol\TMultiplexedProtocol.cs" />
+    <Compile Include="Protocol\TProtocol.cs" />
+    <Compile Include="Protocol\TProtocolDecorator.cs" />
+    <Compile Include="Protocol\TProtocolException.cs" />
+    <Compile Include="Protocol\TProtocolFactory.cs" />
+    <Compile Include="Protocol\TProtocolUtil.cs" />
+    <Compile Include="Protocol\TSet.cs" />
+    <Compile Include="Protocol\TStruct.cs" />
+    <Compile Include="Protocol\TType.cs" />
+    <Compile Include="TApplicationException.cs" />
+    <Compile Include="TException.cs" />
+    <Compile Include="ThriftSerialize.cs" />
+    <Compile Include="TProcessor.cs" />
+    <Compile Include="Transport\TBufferedTransport.cs" />
+    <Compile Include="Transport\TFramedTransport.cs" />
+    <Compile Include="Transport\THttpClient.cs" />
+    <Compile Include="Transport\THttpHandler.cs" />
+    <Compile Include="Transport\TMemoryBuffer.cs" />
+    <Compile Include="Transport\TServerSocket.cs" />
+    <Compile Include="Transport\TServerTransport.cs" />
+    <Compile Include="Transport\TSocket.cs" />
+    <Compile Include="Transport\TStreamTransport.cs" />
+    <Compile Include="Transport\TTransport.cs" />
+    <Compile Include="Transport\TTransportException.cs" />
+    <Compile Include="Transport\TTransportFactory.cs" />
+    <Compile Include="Util\Context.cs" />
+    <Compile Include="Util\HttpUtil.cs" />
+    <Compile Include="Util\LogQueue.cs" />
+    <Compile Include="Util\ProcessUtil.cs" />
+    <Compile Include="Util\GameRandom.cs" />
+    <Compile Include="Util\VaildUtil.cs" />
+    <EmbeddedResource Include="AIForm\Action\AttackedActionPanel.resx">
+      <DependentUpon>AttackedActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Action\PositionActionPanel.resx">
+      <DependentUpon>PositionActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Action\SkillPriorityDecisionActionPanel.resx">
+      <DependentUpon>SkillPriorityDecisionActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Action\ChaseActionPanel.resx">
+      <DependentUpon>ChaseActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Action\AttackActionPanel.resx">
+      <DependentUpon>AttackActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Action\IdleActionPanel.resx">
+      <DependentUpon>IdleActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Action\RetreatActionPanel.resx">
+      <DependentUpon>RetreatActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Action\SeekActionPanel.resx">
+      <DependentUpon>SeekActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Action\PatrolActionPanel.resx">
+      <DependentUpon>PatrolActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Action\MoveActionPanel.resx">
+      <DependentUpon>MoveActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\AddBTRootForm.resx">
+      <DependentUpon>AddBTRootForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\AddNodeForm.resx">
+      <DependentUpon>AddNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Composite\ParallelPanel.resx">
+      <DependentUpon>ParallelPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Composite\PrioritySelectorPanel.resx">
+      <DependentUpon>PrioritySelectorPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Composite\SequencePanel.resx">
+      <DependentUpon>SequencePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Composite\SelectorPanel.resx">
+      <DependentUpon>SelectorPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Condition\ConditionPanel.resx">
+      <DependentUpon>ConditionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Decorator\InverterDecoratorPanel.resx">
+      <DependentUpon>InverterDecoratorPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigForm.resx">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\EditAIConfigForm.resx">
+      <DependentUpon>EditAIConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

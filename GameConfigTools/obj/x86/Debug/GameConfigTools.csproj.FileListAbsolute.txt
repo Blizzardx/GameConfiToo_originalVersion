@@ -1,0 +1,80 @@
+c:\documents and settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.exe
+c:\documents and settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.pdb
+c:\documents and settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\documents and settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.MainForm.resources
+c:\documents and settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.Properties.Resources.resources
+c:\documents and settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\documents and settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\documents and settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.exe
+c:\documents and settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.pdb
+c:\documents and settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.ConfigForm.resources
+C:\Documents and Settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.exe.config
+C:\Documents and Settings\chong.sun\my documents\visual studio 2010\Projects\GameConfigTools\GameConfigTools\bin\Debug\log4net.xml
+C:\Users\sunchong\Documents\Visual Studio 2010\Projects\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.exe.config
+C:\Users\sunchong\Documents\Visual Studio 2010\Projects\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.exe
+C:\Users\sunchong\Documents\Visual Studio 2010\Projects\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.pdb
+C:\Users\sunchong\Documents\Visual Studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.csprojResolveAssemblyReference.cache
+C:\Users\sunchong\Documents\Visual Studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.ConfigForm.resources
+C:\Users\sunchong\Documents\Visual Studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.MainForm.resources
+C:\Users\sunchong\Documents\Visual Studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.Properties.Resources.resources
+C:\Users\sunchong\Documents\Visual Studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.csproj.GenerateResource.Cache
+C:\Users\sunchong\Documents\Visual Studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.exe
+C:\Users\sunchong\Documents\Visual Studio 2010\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.pdb
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.AttackedActionPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.PositionActionPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.SkillPriorityDecisionActionPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.ChaseActionPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.AttackActionPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.IdleActionPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.RetreatActionPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.SeekActionPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.PatrolActionPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.MoveActionPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.AddBTRootForm.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.AddNodeForm.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Composite.ParallelPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Composite.PrioritySelectorPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Composite.SequencePanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Composite.SelectorPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Condition.ConditionPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Decorator.InverterDecoratorPanel.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.ConfigForm.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.EditAIConfigForm.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.MainForm.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.Properties.Resources.resources
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.csproj.GenerateResource.Cache
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.exe.config
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.csprojResolveAssemblyReference.cache
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.exe
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.pdb
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.exe
+C:\Users\sunchong\Documents\Visual Studio 2013\Projects\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.pdb
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.exe.config
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.exe
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.pdb
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.csprojResolveAssemblyReference.cache
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.AttackedActionPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.PositionActionPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.SkillPriorityDecisionActionPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.ChaseActionPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.AttackActionPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.IdleActionPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.RetreatActionPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.SeekActionPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.PatrolActionPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Action.MoveActionPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.AddBTRootForm.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.AddNodeForm.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Composite.ParallelPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Composite.PrioritySelectorPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Composite.SequencePanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Composite.SelectorPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Condition.ConditionPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.Decorator.InverterDecoratorPanel.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.ConfigForm.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.AIForm.EditAIConfigForm.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.MainForm.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.Properties.Resources.resources
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\obj\x86\Debug\GameConfigTools.csproj.GenerateResource.Cache
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.exe
+E:\BAOXUE\Project\GameConfigTools\GameConfigTools\bin\Debug\GameConfigTools.pdb
