@@ -58,7 +58,7 @@ namespace GameConfigTools.Import
         {
             externalConfigDic.Add(SysConstant.TERRAIN_CONFIG, SysConstant.TERRAIN_CONFIG+"_txtpkg.bytes");
             //externalConfigDic.Add(SysConstant.FORMATION_EDITOR_CONFIG, "formation_txtpkg.bytes");
-            externalConfigDic.Add(SysConstant.ACTION_CONFIG, SysConstant.TERRAIN_CONFIG + "_txtpkg.bytes");
+            externalConfigDic.Add(SysConstant.ACTION_CONFIG, SysConstant.ACTION_CONFIG + "_txtpkg.bytes");
         }
 
         public Importer GetImporter(string configName)
