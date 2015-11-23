@@ -66,6 +66,8 @@ namespace GameConfigTools.Constant
 
         public static readonly string STAGE_CONFIG = "stageConfig";
 
+        public static readonly string SKILL_CONFIG = "skillConfig";
+
     }
 }
 

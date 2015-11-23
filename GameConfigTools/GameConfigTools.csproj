@@ -242,6 +242,7 @@
     <Compile Include="Import\mmAdvImport\MessageImporter.cs" />
     <Compile Include="Import\mmAdvImport\MissionStepImporter.cs" />
     <Compile Include="Import\mmAdvImport\NpcImporter.cs" />
+    <Compile Include="Import\mmAdvImport\SkillImporter.cs" />
     <Compile Include="Import\mmAdvImport\StageImporter.cs" />
     <Compile Include="Import\mmAdvImport\TargetImporter.cs" />
     <Compile Include="Import\mmAdvImport\TerrainImporter.cs" />
@@ -261,6 +262,7 @@
     <Compile Include="mmAdv\Config\MainMissionConfig.cs" />
     <Compile Include="mmAdv\Config\MissionStepConfig.cs" />
     <Compile Include="mmAdv\Config\NpcConfig.cs" />
+    <Compile Include="mmAdv\Config\SkillConfig.cs" />
     <Compile Include="mmAdv\Config\StageConfig.cs" />
     <Compile Include="mmAdv\Config\StateConflictConfig.cs" />
     <Compile Include="mmAdv\Config\StateConflictConfigElement.cs" />
@@ -272,6 +274,7 @@
     <Compile Include="mmAdv\Config\Table\MessageConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MissionStepConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\NpcConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\SkillConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\StageConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\StateConflictTable.cs" />
     <Compile Include="mmAdv\Config\Table\TargetConfigTable.cs" />

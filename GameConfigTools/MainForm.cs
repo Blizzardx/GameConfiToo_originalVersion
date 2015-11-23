@@ -384,10 +384,7 @@ namespace GameConfigTools
             {
                 tmpList.Add(item.ToString());
             }
-            tmpList.Add("dialogConfig");
-            tmpList.Add("missionStepConfig");
-            tmpList.Add("stageConfig");
-            tmpList.Add("mainMissionConfig");
+            tmpList.Add("skillConfig");
             foreach (object item in tmpList)
             {
                 importAllBwg.ReportProgress(index, "开始导入第" + (index + 1) + "个配置:" + item.ToString());
