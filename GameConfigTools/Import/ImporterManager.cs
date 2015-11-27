@@ -45,6 +45,8 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.MAIN_MISSION_CONFIG, new MainMissionImporter());
             importerDic.Add(SysConstant.STAGE_CONFIG, new StageImporter());
             importerDic.Add(SysConstant.SKILL_CONFIG, new SkillImporter());
+            importerDic.Add(SysConstant.CHAT_DIRTY_WORD_CONFIG, new ChatDirtyWordImporter());
+            importerDic.Add(SysConstant.NAME_DIRTY_WORD_CONFIG, new NameDirtyWordImporter());
         }
         /// <summary>
         /// 加载关联导入
