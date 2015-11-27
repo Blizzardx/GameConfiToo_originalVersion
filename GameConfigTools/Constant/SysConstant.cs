@@ -68,11 +68,11 @@ namespace GameConfigTools.Constant
 
         public static readonly string SKILL_CONFIG = "skillConfig";
 
-        public static readonly string CHAT_DIRTY_WORD_CONFIG = "chatDirtywordConfig";
 
-        public static readonly string NAME_DIRTY_WORD_CONFIG = "nameDirtywordConfig";
+        public static readonly string RATIOGAME_CONFIG = "ratioGameConfig";        
+public static readonly string CHAT_DIRTY_WORD_CONFIG = "chatDirtywordConfig";
 
-    }
+        public static readonly string NAME_DIRTY_WORD_CONFIG = "nameDirtywordConfig";    }
 }
 
 
