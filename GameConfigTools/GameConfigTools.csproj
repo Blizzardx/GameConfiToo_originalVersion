@@ -233,6 +233,7 @@
     <Compile Include="Import\AbstractXmlImporter.cs" />
     <Compile Include="Import\mmAdvImport\ActionImporter.cs" />
     <Compile Include="Import\mmAdvImport\CharactorImporter.cs" />
+    <Compile Include="Import\mmAdvImport\ChatDirtyWordImporter.cs" />
     <Compile Include="Import\mmAdvImport\DialogImporter.cs" />
     <Compile Include="Import\mmAdvImport\FuncImporter.cs" />
     <Compile Include="Import\Importer.cs" />
@@ -241,6 +242,7 @@
     <Compile Include="Import\mmAdvImport\MainMissionImporter.cs" />
     <Compile Include="Import\mmAdvImport\MessageImporter.cs" />
     <Compile Include="Import\mmAdvImport\MissionStepImporter.cs" />
+    <Compile Include="Import\mmAdvImport\NameDirtyWordImporter.cs" />
     <Compile Include="Import\mmAdvImport\NpcImporter.cs" />
     <Compile Include="Import\mmAdvImport\SkillImporter.cs" />
     <Compile Include="Import\mmAdvImport\StageImporter.cs" />
@@ -268,6 +270,7 @@
     <Compile Include="mmAdv\Config\StateConflictConfigElement.cs" />
     <Compile Include="mmAdv\Config\Table\CharactorConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\DialogConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\DirtywordConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\FuncConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\LimitConfgTable.cs" />
     <Compile Include="mmAdv\Config\Table\MainMissionConfigTable.cs" />
