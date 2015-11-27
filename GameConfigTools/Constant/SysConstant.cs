@@ -68,6 +68,8 @@ namespace GameConfigTools.Constant
 
         public static readonly string SKILL_CONFIG = "skillConfig";
 
+        public static readonly string RATIOGAME_CONFIG = "ratioGameConfig";
+
     }
 }
 

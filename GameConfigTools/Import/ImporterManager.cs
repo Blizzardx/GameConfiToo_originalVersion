@@ -45,6 +45,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.MAIN_MISSION_CONFIG, new MainMissionImporter());
             importerDic.Add(SysConstant.STAGE_CONFIG, new StageImporter());
             importerDic.Add(SysConstant.SKILL_CONFIG, new SkillImporter());
+            importerDic.Add(SysConstant.RATIOGAME_CONFIG, new RatioGameImporter());
         }
         /// <summary>
         /// 加载关联导入

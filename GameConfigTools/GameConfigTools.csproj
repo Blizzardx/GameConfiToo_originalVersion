@@ -233,6 +233,7 @@
     <Compile Include="Import\AbstractXmlImporter.cs" />
     <Compile Include="Import\mmAdvImport\ActionImporter.cs" />
     <Compile Include="Import\mmAdvImport\CharactorImporter.cs" />
+    <Compile Include="Import\mmAdvImport\RatioGameImporter.cs" />
     <Compile Include="Import\mmAdvImport\DialogImporter.cs" />
     <Compile Include="Import\mmAdvImport\FuncImporter.cs" />
     <Compile Include="Import\Importer.cs" />
@@ -252,6 +253,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="mmAdv\Config\BallData.cs" />
     <Compile Include="mmAdv\Config\CharactorConfig.cs" />
     <Compile Include="mmAdv\Config\DialogConfig.cs" />
     <Compile Include="mmAdv\Config\DownloadAssetType.cs" />
@@ -262,6 +264,7 @@
     <Compile Include="mmAdv\Config\MainMissionConfig.cs" />
     <Compile Include="mmAdv\Config\MissionStepConfig.cs" />
     <Compile Include="mmAdv\Config\NpcConfig.cs" />
+    <Compile Include="mmAdv\Config\RatioGameConfig.cs" />
     <Compile Include="mmAdv\Config\SkillConfig.cs" />
     <Compile Include="mmAdv\Config\StageConfig.cs" />
     <Compile Include="mmAdv\Config\StateConflictConfig.cs" />
@@ -274,6 +277,7 @@
     <Compile Include="mmAdv\Config\Table\MessageConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MissionStepConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\NpcConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\RatioGameConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\SkillConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\StageConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\StateConflictTable.cs" />
@@ -441,7 +445,35 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel1">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
