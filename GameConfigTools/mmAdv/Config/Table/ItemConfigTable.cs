@@ -21,20 +21,20 @@ namespace Config.Table
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class ItemsConfigTable : TBase
+  public partial class ItemConfigTable : TBase
   {
-    private Dictionary<int, Config.ItemsConfig> _propsConfigMap;
+    private Dictionary<int, Config.ItemConfig> _itemConfigMap;
 
-    public Dictionary<int, Config.ItemsConfig> PropsConfigMap
+    public Dictionary<int, Config.ItemConfig> ItemConfigMap
     {
       get
       {
-        return _propsConfigMap;
+        return _itemConfigMap;
       }
       set
       {
-        __isset.propsConfigMap = true;
-        this._propsConfigMap = value;
+        __isset.itemConfigMap = true;
+        this._itemConfigMap = value;
       }
     }
 
@@ -44,10 +44,10 @@ namespace Config.Table
     [Serializable]
     #endif
     public struct Isset {
-      public bool propsConfigMap;
+      public bool itemConfigMap;
     }
 
-    public ItemsConfigTable() {
+    public ItemConfigTable() {
     }
 
     public void Read (TProtocol iprot)
@@ -65,16 +65,16 @@ namespace Config.Table
           case 1:
             if (field.Type == TType.Map) {
               {
-                PropsConfigMap = new Dictionary<int, Config.ItemsConfig>();
+                ItemConfigMap = new Dictionary<int, Config.ItemConfig>();
                 TMap _map74 = iprot.ReadMapBegin();
                 for( int _i75 = 0; _i75 < _map74.Count; ++_i75)
                 {
                   int _key76;
-                  Config.ItemsConfig _val77;
+                  Config.ItemConfig _val77;
                   _key76 = iprot.ReadI32();
-                  _val77 = new Config.ItemsConfig();
+                  _val77 = new Config.ItemConfig();
                   _val77.Read(iprot);
-                  PropsConfigMap[_key76] = _val77;
+                  ItemConfigMap[_key76] = _val77;
                 }
                 iprot.ReadMapEnd();
               }
@@ -92,20 +92,20 @@ namespace Config.Table
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("ItemsConfigTable");
+      TStruct struc = new TStruct("ItemConfigTable");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (PropsConfigMap != null && __isset.propsConfigMap) {
-        field.Name = "propsConfigMap";
+      if (ItemConfigMap != null && __isset.itemConfigMap) {
+        field.Name = "itemConfigMap";
         field.Type = TType.Map;
         field.ID = 1;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, PropsConfigMap.Count));
-          foreach (int _iter78 in PropsConfigMap.Keys)
+          oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, ItemConfigMap.Count));
+          foreach (int _iter78 in ItemConfigMap.Keys)
           {
             oprot.WriteI32(_iter78);
-            PropsConfigMap[_iter78].Write(oprot);
+            ItemConfigMap[_iter78].Write(oprot);
           }
           oprot.WriteMapEnd();
         }
@@ -116,9 +116,9 @@ namespace Config.Table
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("ItemsConfigTable(");
-      sb.Append("PropsConfigMap: ");
-      sb.Append(PropsConfigMap);
+      StringBuilder sb = new StringBuilder("ItemConfigTable(");
+      sb.Append("ItemConfigMap: ");
+      sb.Append(ItemConfigMap);
       sb.Append(")");
       return sb.ToString();
     }

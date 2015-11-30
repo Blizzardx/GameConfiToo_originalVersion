@@ -21,7 +21,7 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class ItemsConfig : TBase
+  public partial class ItemConfig : TBase
   {
     private int _id;
     private int _nameMessageId;
@@ -182,7 +182,7 @@ namespace Config
       public bool accessMessageId;
     }
 
-    public ItemsConfig() {
+    public ItemConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -277,7 +277,7 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("ItemsConfig");
+      TStruct struc = new TStruct("ItemConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
       if (__isset.id) {
@@ -365,7 +365,7 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("ItemsConfig(");
+      StringBuilder sb = new StringBuilder("ItemConfig(");
       sb.Append("Id: ");
       sb.Append(Id);
       sb.Append(",NameMessageId: ");

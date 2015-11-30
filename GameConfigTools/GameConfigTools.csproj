@@ -262,7 +262,7 @@
     <Compile Include="mmAdv\Config\DownloadAssetType.cs" />
     <Compile Include="mmAdv\Config\FuncData.cs" />
     <Compile Include="mmAdv\Config\FuncGroup.cs" />
-    <Compile Include="mmAdv\Config\ItemsConfig.cs" />
+    <Compile Include="mmAdv\Config\ItemConfig.cs" />
     <Compile Include="mmAdv\Config\LimitData.cs" />
     <Compile Include="mmAdv\Config\LimitGroup.cs" />
     <Compile Include="mmAdv\Config\MainMissionConfig.cs" />
@@ -277,7 +277,7 @@
     <Compile Include="mmAdv\Config\Table\DialogConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\DirtywordConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\FuncConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\ItemsConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\ItemConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\LimitConfgTable.cs" />
     <Compile Include="mmAdv\Config\Table\MainMissionConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MessageConfigTable.cs" />

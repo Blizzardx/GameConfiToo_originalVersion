@@ -25,9 +25,9 @@ namespace GameConfigTools.Import
             }
             root = new XElement("root");
 
-            ItemsConfigTable config = new ItemsConfigTable();
+            ItemConfigTable config = new ItemConfigTable();
             tbase = config;
-            config.PropsConfigMap = new Dictionary<int, ItemsConfig>();
+            config.ItemConfigMap = new Dictionary<int, ItemConfig>();
 
             string[] sheetNames = this.GetSheetNames();
             for (int sheetIndex = 0; sheetIndex < sheetValues.Count; sheetIndex++)
@@ -117,7 +117,7 @@ namespace GameConfigTools.Import
                     propsE.Add(new XAttribute("useLimitId", useLimitId));
                     propsE.Add(new XAttribute("useFuncId", useFuncId));
 
-                    ItemsConfig c = new ItemsConfig();
+                    ItemConfig c = new ItemConfig();
                     c.Id = id;
                     c.NameMessageId = nameMessageId;
                     c.DescMessageId = descMessageId;
@@ -128,7 +128,7 @@ namespace GameConfigTools.Import
                     c.UseLimitId = useLimitId;
                     c.UseFuncId = useFuncId;
                     c.AccessMessageId = Accessmessage;
-                    config.PropsConfigMap.Add(c.Id, c);
+                    config.ItemConfigMap.Add(c.Id, c);
                 }
             }
         }
