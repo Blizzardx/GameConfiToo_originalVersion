@@ -124,7 +124,7 @@ namespace GameConfigTools.Import
                     attribute |= canSell << pos++;
                     attribute |= canUse << pos++;
 
-                    XElement propsE = new XElement("props");
+                    XElement propsE = new XElement("item");
                     root.Add(propsE);
                     propsE.Add(new XAttribute("id", id));
                     propsE.Add(new XAttribute("name", name));
