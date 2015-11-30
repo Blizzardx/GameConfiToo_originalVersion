@@ -26,15 +26,13 @@ namespace Config
     private int _id;
     private int _nameMessageId;
     private int _descMessageId;
-    private sbyte _firstType;
-    private sbyte _secondType;
     private string _icon;
     private string _dropIcon;
     private sbyte _quality;
     private int _sellGold;
     private int _useLimitId;
     private int _useFuncId;
-    private int _attribute;
+    private int _accessMessageId;
 
     public int Id
     {
@@ -72,32 +70,6 @@ namespace Config
       {
         __isset.descMessageId = true;
         this._descMessageId = value;
-      }
-    }
-
-    public sbyte FirstType
-    {
-      get
-      {
-        return _firstType;
-      }
-      set
-      {
-        __isset.firstType = true;
-        this._firstType = value;
-      }
-    }
-
-    public sbyte SecondType
-    {
-      get
-      {
-        return _secondType;
-      }
-      set
-      {
-        __isset.secondType = true;
-        this._secondType = value;
       }
     }
 
@@ -179,16 +151,16 @@ namespace Config
       }
     }
 
-    public int Attribute
+    public int AccessMessageId
     {
       get
       {
-        return _attribute;
+        return _accessMessageId;
       }
       set
       {
-        __isset.attribute = true;
-        this._attribute = value;
+        __isset.accessMessageId = true;
+        this._accessMessageId = value;
       }
     }
 
@@ -201,15 +173,13 @@ namespace Config
       public bool id;
       public bool nameMessageId;
       public bool descMessageId;
-      public bool firstType;
-      public bool secondType;
       public bool icon;
       public bool dropIcon;
       public bool quality;
       public bool sellGold;
       public bool useLimitId;
       public bool useFuncId;
-      public bool attribute;
+      public bool accessMessageId;
     }
 
     public ItemsConfig() {
@@ -244,20 +214,6 @@ namespace Config
           case 30:
             if (field.Type == TType.I32) {
               DescMessageId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 39:
-            if (field.Type == TType.Byte) {
-              FirstType = iprot.ReadByte();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 40:
-            if (field.Type == TType.Byte) {
-              SecondType = iprot.ReadByte();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -306,7 +262,7 @@ namespace Config
             break;
           case 100:
             if (field.Type == TType.I32) {
-              Attribute = iprot.ReadI32();
+              AccessMessageId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -346,22 +302,6 @@ namespace Config
         field.ID = 30;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(DescMessageId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.firstType) {
-        field.Name = "firstType";
-        field.Type = TType.Byte;
-        field.ID = 39;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteByte(FirstType);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.secondType) {
-        field.Name = "secondType";
-        field.Type = TType.Byte;
-        field.ID = 40;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteByte(SecondType);
         oprot.WriteFieldEnd();
       }
       if (Icon != null && __isset.icon) {
@@ -412,12 +352,12 @@ namespace Config
         oprot.WriteI32(UseFuncId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.attribute) {
-        field.Name = "attribute";
+      if (__isset.accessMessageId) {
+        field.Name = "accessMessageId";
         field.Type = TType.I32;
         field.ID = 100;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Attribute);
+        oprot.WriteI32(AccessMessageId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -432,10 +372,6 @@ namespace Config
       sb.Append(NameMessageId);
       sb.Append(",DescMessageId: ");
       sb.Append(DescMessageId);
-      sb.Append(",FirstType: ");
-      sb.Append(FirstType);
-      sb.Append(",SecondType: ");
-      sb.Append(SecondType);
       sb.Append(",Icon: ");
       sb.Append(Icon);
       sb.Append(",DropIcon: ");
@@ -448,8 +384,8 @@ namespace Config
       sb.Append(UseLimitId);
       sb.Append(",UseFuncId: ");
       sb.Append(UseFuncId);
-      sb.Append(",Attribute: ");
-      sb.Append(Attribute);
+      sb.Append(",AccessMessageId: ");
+      sb.Append(AccessMessageId);
       sb.Append(")");
       return sb.ToString();
     }

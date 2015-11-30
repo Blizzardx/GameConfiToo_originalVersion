@@ -63,18 +63,6 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，道具描述ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int firstType;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out firstType, 1, 100))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，道具一级分类必须为1 - 100整型", this.GetConfigName(), sheetName, row, index);
-                        return;
-                    }
-                    int secondType;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out secondType, 1, 100))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，道具二级分类必须为1 - 100整型", this.GetConfigName(), sheetName, row, index);
-                        return;
-                    }
                     string icon = values[i][index++];
                     string dropIcon = values[i][index++];
                     int quality;
@@ -119,36 +107,27 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，道具能否使用必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
-                    int pos = 0;
-                    int attribute = 0;
-                    attribute |= canSell << pos++;
-                    attribute |= canUse << pos++;
 
                     XElement propsE = new XElement("item");
                     root.Add(propsE);
                     propsE.Add(new XAttribute("id", id));
                     propsE.Add(new XAttribute("name", name));
-                    propsE.Add(new XAttribute("firstType", firstType));
-                    propsE.Add(new XAttribute("secondType", secondType));
                     propsE.Add(new XAttribute("quality", quality));
                     propsE.Add(new XAttribute("sellGold", sellGold));
                     propsE.Add(new XAttribute("useLimitId", useLimitId));
                     propsE.Add(new XAttribute("useFuncId", useFuncId));
-                    propsE.Add(new XAttribute("attribute", attribute));
 
                     ItemsConfig c = new ItemsConfig();
                     c.Id = id;
                     c.NameMessageId = nameMessageId;
                     c.DescMessageId = descMessageId;
-                    c.FirstType = (sbyte)firstType;
-                    c.SecondType = (sbyte)secondType;
                     c.Icon = icon;
                     c.DropIcon = dropIcon;
                     c.Quality = (sbyte)quality;
                     c.SellGold = sellGold;
                     c.UseLimitId = useLimitId;
                     c.UseFuncId = useFuncId;
-                    c.Attribute = attribute;
+                    c.AccessMessageId = Accessmessage;
                     config.PropsConfigMap.Add(c.Id, c);
                 }
             }
