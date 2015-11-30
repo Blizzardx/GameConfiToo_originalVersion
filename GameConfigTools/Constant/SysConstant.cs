@@ -25,7 +25,9 @@ namespace GameConfigTools.Constant
         //获取游戏的配置列表
         public static readonly string LIST_CONFIG = "/config/list_config.do?game_type={0}&server_version={1}";
         //获取最新的配置信息
-        public static readonly string GET_NEW_CONFIG_INFO = "/config/get_new_config_info.do?game_type={0}&server_version={1}&name={2}";
+        public static readonly string GET_NEW_CONFIG_INFO =
+            "/config/get_new_config_info.do?game_type={0}&server_version={1}&name={2}";
+
         //上传配置
         public static readonly string UPDATE_CONFIG = "/config/updateConfig.do";
 
@@ -69,10 +71,13 @@ namespace GameConfigTools.Constant
         public static readonly string SKILL_CONFIG = "skillConfig";
 
 
-        public static readonly string RATIOGAME_CONFIG = "ratioGameConfig";        
-public static readonly string CHAT_DIRTY_WORD_CONFIG = "chatDirtywordConfig";
+        public static readonly string RATIOGAME_CONFIG = "ratioGameConfig";
+        public static readonly string CHAT_DIRTY_WORD_CONFIG = "chatDirtywordConfig";
 
-        public static readonly string NAME_DIRTY_WORD_CONFIG = "nameDirtywordConfig";    }
+        public static readonly string NAME_DIRTY_WORD_CONFIG = "nameDirtywordConfig";
+
+        public static readonly string ITEMS_CONFIG = "itemsConfig";
+    }
 }
 
 
