@@ -104,12 +104,7 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，完成功能函数ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int stageId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out stageId, 0, int.MaxValue))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，stageID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
-                        return;
-                    }
+
                     XElement buffE = new XElement("mission");
                     root.Add(buffE);
 
@@ -117,7 +112,6 @@ namespace GameConfigTools.Import
                     buffE.Add(new XAttribute("name", name));
                     buffE.Add(new XAttribute("nextMissionId", nextMissionId));
                     buffE.Add(new XAttribute("completeFuncId", completeFuncId));
-                    buffE.Add(new XAttribute("stageId", stageId));
 
                     MainMissionConfig c = new MainMissionConfig();
                     c.Id = id;
@@ -127,7 +121,6 @@ namespace GameConfigTools.Import
                     c.DesAudioId = descAudioId;
                     c.NextMissionId = nextMissionId;
                     c.CompleteFuncId = completeFuncId;
-                    c.StageId = stageId;
                     config.MainMissionConfigMap.Add(c.Id, c);
                 }
             }

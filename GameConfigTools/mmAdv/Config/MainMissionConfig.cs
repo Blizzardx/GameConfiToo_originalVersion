@@ -32,7 +32,6 @@ namespace Config
     private int _desMessionId;
     private string _desAudioId;
     private int _acceptLimitId;
-    private int _stageId;
 
     public int Id
     {
@@ -151,19 +150,6 @@ namespace Config
       }
     }
 
-    public int StageId
-    {
-      get
-      {
-        return _stageId;
-      }
-      set
-      {
-        __isset.stageId = true;
-        this._stageId = value;
-      }
-    }
-
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -179,7 +165,6 @@ namespace Config
       public bool desMessionId;
       public bool desAudioId;
       public bool acceptLimitId;
-      public bool stageId;
     }
 
     public MainMissionConfig() {
@@ -256,13 +241,6 @@ namespace Config
           case 80:
             if (field.Type == TType.I32) {
               AcceptLimitId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 90:
-            if (field.Type == TType.I32) {
-              StageId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -352,14 +330,6 @@ namespace Config
         oprot.WriteI32(AcceptLimitId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.stageId) {
-        field.Name = "stageId";
-        field.Type = TType.I32;
-        field.ID = 90;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(StageId);
-        oprot.WriteFieldEnd();
-      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -384,8 +354,6 @@ namespace Config
       sb.Append(DesAudioId);
       sb.Append(",AcceptLimitId: ");
       sb.Append(AcceptLimitId);
-      sb.Append(",StageId: ");
-      sb.Append(StageId);
       sb.Append(")");
       return sb.ToString();
     }
