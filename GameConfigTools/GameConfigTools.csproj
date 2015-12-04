@@ -232,6 +232,7 @@
     <Compile Include="Import\AbstractExcelImporter.cs" />
     <Compile Include="Import\AbstractXmlImporter.cs" />
     <Compile Include="Import\mmAdvImport\ActionImporter.cs" />
+    <Compile Include="Import\mmAdvImport\AIConfigImporter.cs" />
     <Compile Include="Import\mmAdvImport\CharactorImporter.cs" />
     <Compile Include="Import\mmAdvImport\ChatDirtyWordImporter.cs" />
     <Compile Include="Import\mmAdvImport\DialogImporter.cs" />
@@ -273,6 +274,7 @@
     <Compile Include="mmAdv\Config\StageConfig.cs" />
     <Compile Include="mmAdv\Config\StateConflictConfig.cs" />
     <Compile Include="mmAdv\Config\StateConflictConfigElement.cs" />
+    <Compile Include="mmAdv\Config\Table\AIConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\CharactorConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\DialogConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\DirtywordConfigTable.cs" />

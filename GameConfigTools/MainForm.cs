@@ -384,7 +384,7 @@ namespace GameConfigTools
             {
                 tmpList.Add(item.ToString());
             }
-           // tmpList.Add("itemsConfig");
+            //tmpList.Add("aiConfig");
             foreach (object item in tmpList)
             {
                 importAllBwg.ReportProgress(index, "开始导入第" + (index + 1) + "个配置:" + item.ToString());

@@ -48,7 +48,8 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.CHAT_DIRTY_WORD_CONFIG, new ChatDirtyWordImporter());
             importerDic.Add(SysConstant.NAME_DIRTY_WORD_CONFIG, new NameDirtyWordImporter());
             importerDic.Add(SysConstant.RATIOGAME_CONFIG, new RatioGameImporter());
-            importerDic.Add(SysConstant.ITEMS_CONFIG, new ItemsImporter());       
+            importerDic.Add(SysConstant.ITEMS_CONFIG, new ItemsImporter());
+            importerDic.Add(SysConstant.AI_CONFIG, new AIConfigImporter());       
         }
         /// <summary>
         /// 加载关联导入
