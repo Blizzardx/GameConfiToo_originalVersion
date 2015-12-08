@@ -5,6 +5,7 @@ using System.Text;
 using GameConfigTools.Constant;
 using Thrift.Protocol;
 using System.Xml.Linq;
+using GameConfigTools.Import.mmAdvImport;
 
 namespace GameConfigTools.Import
 {
@@ -49,7 +50,8 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.NAME_DIRTY_WORD_CONFIG, new NameDirtyWordImporter());
             importerDic.Add(SysConstant.RATIOGAME_CONFIG, new RatioGameImporter());
             importerDic.Add(SysConstant.ITEMS_CONFIG, new ItemsImporter());
-            importerDic.Add(SysConstant.AI_CONFIG, new AIConfigImporter());       
+            importerDic.Add(SysConstant.AI_CONFIG, new AIConfigImporter());
+            importerDic.Add(SysConstant.ARITHMETIC_CONFIG, new ArithmeticImporter());
         }
         /// <summary>
         /// 加载关联导入

@@ -77,6 +77,8 @@ namespace GameConfigTools.Constant
         public static readonly string NAME_DIRTY_WORD_CONFIG = "nameDirtywordConfig";
 
         public static readonly string ITEMS_CONFIG = "itemConfig";
+
+        public static readonly string ARITHMETIC_CONFIG = "arithmeticConfig";
     }
 }
 
