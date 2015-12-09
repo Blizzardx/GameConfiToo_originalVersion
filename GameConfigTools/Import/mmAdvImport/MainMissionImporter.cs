@@ -91,8 +91,8 @@ namespace GameConfigTools.Import
                     }
 
 
-                    int nextMissionId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out nextMissionId))
+                    int completeLimitId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out completeLimitId))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，任务 下一个任务ID 必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
@@ -110,16 +110,16 @@ namespace GameConfigTools.Import
 
                     buffE.Add(new XAttribute("id", id));
                     buffE.Add(new XAttribute("name", name));
-                    buffE.Add(new XAttribute("nextMissionId", nextMissionId));
+                    buffE.Add(new XAttribute("completeLimitId", completeLimitId));
                     buffE.Add(new XAttribute("completeFuncId", completeFuncId));
 
                     MainMissionConfig c = new MainMissionConfig();
                     c.Id = id;
                     c.NameMessageId = nameMessageId;
                     c.NameAudioId = nameAudioId;
-                    c.DesMessionId = descMessageId;
+                    c.DesMessageId = descMessageId;
                     c.DesAudioId = descAudioId;
-                    c.NextMissionId = nextMissionId;
+                    c.CompleteLimitId = completeLimitId;
                     c.CompleteFuncId = completeFuncId;
                     config.MainMissionConfigMap.Add(c.Id, c);
                 }

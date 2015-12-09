@@ -25,7 +25,8 @@ namespace GameConfigTools.Import
 
             MissionStepConfigTable config = new MissionStepConfigTable();
             tbase = config;
-            config.MissionStepConfigMap = new  Dictionary<int,List<MissionStepConfig>>();
+            config.MissionStepByMissionIdConfigMap = new Dictionary<int, List<MissionStepConfig>>();
+            config.MissionStepByStepIdConfigMap = new Dictionary<int, MissionStepConfig>();
 
 
             string[] sheetNames = this.GetSheetNames();
@@ -127,12 +128,19 @@ namespace GameConfigTools.Import
                     c.GuideMessageId = guideMessageId;
                     c.GuideAudioId = guideAudioId;
                     
-                    if (!config.MissionStepConfigMap.ContainsKey(c.MissionId))
+                    if (!config.MissionStepByMissionIdConfigMap.ContainsKey(c.MissionId))
                     {
-                        config.MissionStepConfigMap.Add(c.MissionId, new List<MissionStepConfig>());
+                        config.MissionStepByMissionIdConfigMap.Add(c.MissionId, new List<MissionStepConfig>());
                     }
-                    List<MissionStepConfig> tmp = config.MissionStepConfigMap[c.MissionId];
+                    List<MissionStepConfig> tmp = config.MissionStepByMissionIdConfigMap[c.MissionId];
                     tmp.Add(c);
+
+                    if (config.MissionStepByStepIdConfigMap.ContainsKey(c.Id))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] 任务阶段表，任务阶段id:[{2}]读取出现错误，ID不唯一", this.GetConfigName(), sheetName, c.Id);
+                        return;
+                    }
+                    config.MissionStepByStepIdConfigMap.Add(c.Id, c);
                 }
             }
         }

@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 RatioGameConfigMap = new Dictionary<int, Config.RatioGameConfig>();
-                TMap _map69 = iprot.ReadMapBegin();
-                for( int _i70 = 0; _i70 < _map69.Count; ++_i70)
+                TMap _map74 = iprot.ReadMapBegin();
+                for( int _i75 = 0; _i75 < _map74.Count; ++_i75)
                 {
-                  int _key71;
-                  Config.RatioGameConfig _val72;
-                  _key71 = iprot.ReadI32();
-                  _val72 = new Config.RatioGameConfig();
-                  _val72.Read(iprot);
-                  RatioGameConfigMap[_key71] = _val72;
+                  int _key76;
+                  Config.RatioGameConfig _val77;
+                  _key76 = iprot.ReadI32();
+                  _val77 = new Config.RatioGameConfig();
+                  _val77.Read(iprot);
+                  RatioGameConfigMap[_key76] = _val77;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, RatioGameConfigMap.Count));
-          foreach (int _iter73 in RatioGameConfigMap.Keys)
+          foreach (int _iter78 in RatioGameConfigMap.Keys)
           {
-            oprot.WriteI32(_iter73);
-            RatioGameConfigMap[_iter73].Write(oprot);
+            oprot.WriteI32(_iter78);
+            RatioGameConfigMap[_iter78].Write(oprot);
           }
           oprot.WriteMapEnd();
         }
