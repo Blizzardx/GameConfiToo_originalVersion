@@ -382,9 +382,9 @@ namespace GameConfigTools
             List<string> tmpList = new List<string>();
             foreach (object item in configComboBox.Items)
             {
-                tmpList.Add(item.ToString());
+                //tmpList.Add(item.ToString());
             }
-            //tmpList.Add("aiConfig");
+            tmpList.Add("regularityConfig");
             foreach (object item in tmpList)
             {
                 importAllBwg.ReportProgress(index, "开始导入第" + (index + 1) + "个配置:" + item.ToString());

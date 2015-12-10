@@ -52,6 +52,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.ITEMS_CONFIG, new ItemsImporter());
             importerDic.Add(SysConstant.AI_CONFIG, new AIConfigImporter());
             importerDic.Add(SysConstant.ARITHMETIC_CONFIG, new ArithmeticImporter());
+            importerDic.Add(SysConstant.REGULARITY_CONFIG, new RegularityImporter());
         }
         /// <summary>
         /// 加载关联导入

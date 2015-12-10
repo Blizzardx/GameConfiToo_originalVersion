@@ -79,6 +79,8 @@ namespace GameConfigTools.Constant
         public static readonly string ITEMS_CONFIG = "itemConfig";
 
         public static readonly string ARITHMETIC_CONFIG = "arithmeticConfig";
+
+        public static readonly string REGULARITY_CONFIG = "regularityConfig";
     }
 }
 

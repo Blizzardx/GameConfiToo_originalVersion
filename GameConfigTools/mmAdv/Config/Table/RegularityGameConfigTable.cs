@@ -21,20 +21,20 @@ namespace Config.Table
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class ArithmeticConfigTable : TBase
+  public partial class RegularityGameConfigTable : TBase
   {
-    private Dictionary<int, Config.ArithmeticConfig> _arithmeticConfigMap;
+    private List<Config.RegularityGameConfig> _regularityConfigMap;
 
-    public Dictionary<int, Config.ArithmeticConfig> ArithmeticConfigMap
+    public List<Config.RegularityGameConfig> RegularityConfigMap
     {
       get
       {
-        return _arithmeticConfigMap;
+        return _regularityConfigMap;
       }
       set
       {
-        __isset.arithmeticConfigMap = true;
-        this._arithmeticConfigMap = value;
+        __isset.regularityConfigMap = true;
+        this._regularityConfigMap = value;
       }
     }
 
@@ -44,10 +44,10 @@ namespace Config.Table
     [Serializable]
     #endif
     public struct Isset {
-      public bool arithmeticConfigMap;
+      public bool regularityConfigMap;
     }
 
-    public ArithmeticConfigTable() {
+    public RegularityGameConfigTable() {
     }
 
     public void Read (TProtocol iprot)
@@ -63,20 +63,18 @@ namespace Config.Table
         switch (field.ID)
         {
           case 1:
-            if (field.Type == TType.Map) {
+            if (field.Type == TType.List) {
               {
-                ArithmeticConfigMap = new Dictionary<int, Config.ArithmeticConfig>();
-                TMap _map84 = iprot.ReadMapBegin();
-                for( int _i85 = 0; _i85 < _map84.Count; ++_i85)
+                RegularityConfigMap = new List<Config.RegularityGameConfig>();
+                TList _list89 = iprot.ReadListBegin();
+                for( int _i90 = 0; _i90 < _list89.Count; ++_i90)
                 {
-                  int _key86;
-                  Config.ArithmeticConfig _val87;
-                  _key86 = iprot.ReadI32();
-                  _val87 = new Config.ArithmeticConfig();
-                  _val87.Read(iprot);
-                  ArithmeticConfigMap[_key86] = _val87;
+                  Config.RegularityGameConfig _elem91 = new Config.RegularityGameConfig();
+                  _elem91 = new Config.RegularityGameConfig();
+                  _elem91.Read(iprot);
+                  RegularityConfigMap.Add(_elem91);
                 }
-                iprot.ReadMapEnd();
+                iprot.ReadListEnd();
               }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
@@ -92,22 +90,21 @@ namespace Config.Table
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("ArithmeticConfigTable");
+      TStruct struc = new TStruct("RegularityGameConfigTable");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (ArithmeticConfigMap != null && __isset.arithmeticConfigMap) {
-        field.Name = "arithmeticConfigMap";
-        field.Type = TType.Map;
+      if (RegularityConfigMap != null && __isset.regularityConfigMap) {
+        field.Name = "regularityConfigMap";
+        field.Type = TType.List;
         field.ID = 1;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, ArithmeticConfigMap.Count));
-          foreach (int _iter88 in ArithmeticConfigMap.Keys)
+          oprot.WriteListBegin(new TList(TType.Struct, RegularityConfigMap.Count));
+          foreach (Config.RegularityGameConfig _iter92 in RegularityConfigMap)
           {
-            oprot.WriteI32(_iter88);
-            ArithmeticConfigMap[_iter88].Write(oprot);
+            _iter92.Write(oprot);
           }
-          oprot.WriteMapEnd();
+          oprot.WriteListEnd();
         }
         oprot.WriteFieldEnd();
       }
@@ -116,9 +113,9 @@ namespace Config.Table
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("ArithmeticConfigTable(");
-      sb.Append("ArithmeticConfigMap: ");
-      sb.Append(ArithmeticConfigMap);
+      StringBuilder sb = new StringBuilder("RegularityGameConfigTable(");
+      sb.Append("RegularityConfigMap: ");
+      sb.Append(RegularityConfigMap);
       sb.Append(")");
       return sb.ToString();
     }
