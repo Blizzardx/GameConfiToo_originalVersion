@@ -384,7 +384,7 @@ namespace GameConfigTools
             {
                 //tmpList.Add(item.ToString());
             }
-            tmpList.Add("regularityConfig");
+            tmpList.Add("regularitySettingConfig");
             foreach (object item in tmpList)
             {
                 importAllBwg.ReportProgress(index, "开始导入第" + (index + 1) + "个配置:" + item.ToString());
