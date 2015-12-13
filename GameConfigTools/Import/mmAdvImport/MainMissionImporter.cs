@@ -104,6 +104,17 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，完成功能函数ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    int nextMissionId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out nextMissionId, 0, int.MaxValue))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，下一个任务ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    if (nextMissionId == id)
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，下一个任务ID与当前任务ID重复", this.GetConfigName(), sheetName, row, index);
+                        return;
+                    }
 
                     XElement buffE = new XElement("mission");
                     root.Add(buffE);
@@ -112,6 +123,7 @@ namespace GameConfigTools.Import
                     buffE.Add(new XAttribute("name", name));
                     buffE.Add(new XAttribute("completeLimitId", completeLimitId));
                     buffE.Add(new XAttribute("completeFuncId", completeFuncId));
+                    buffE.Add(new XAttribute("nextMissionId", nextMissionId));
 
                     MainMissionConfig c = new MainMissionConfig();
                     c.Id = id;
@@ -121,6 +133,7 @@ namespace GameConfigTools.Import
                     c.DesAudioId = descAudioId;
                     c.CompleteLimitId = completeLimitId;
                     c.CompleteFuncId = completeFuncId;
+                    c.NextMissiosnId = nextMissionId;
                     config.MainMissionConfigMap.Add(c.Id, c);
                 }
             }

@@ -31,6 +31,7 @@ namespace Config
     private int _acceptLimitId;
     private int _completeLimitId;
     private int _completeFuncId;
+    private int _nextMissiosnId;
 
     public int Id
     {
@@ -136,6 +137,19 @@ namespace Config
       }
     }
 
+    public int NextMissiosnId
+    {
+      get
+      {
+        return _nextMissiosnId;
+      }
+      set
+      {
+        __isset.nextMissiosnId = true;
+        this._nextMissiosnId = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -150,6 +164,7 @@ namespace Config
       public bool acceptLimitId;
       public bool completeLimitId;
       public bool completeFuncId;
+      public bool nextMissiosnId;
     }
 
     public MainMissionConfig() {
@@ -219,6 +234,13 @@ namespace Config
           case 80:
             if (field.Type == TType.I32) {
               CompleteFuncId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 90:
+            if (field.Type == TType.I32) {
+              NextMissiosnId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -300,6 +322,14 @@ namespace Config
         oprot.WriteI32(CompleteFuncId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.nextMissiosnId) {
+        field.Name = "nextMissiosnId";
+        field.Type = TType.I32;
+        field.ID = 90;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(NextMissiosnId);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -322,6 +352,8 @@ namespace Config
       sb.Append(CompleteLimitId);
       sb.Append(",CompleteFuncId: ");
       sb.Append(CompleteFuncId);
+      sb.Append(",NextMissiosnId: ");
+      sb.Append(NextMissiosnId);
       sb.Append(")");
       return sb.ToString();
     }
