@@ -142,6 +142,7 @@ namespace GameConfigTools.Import.mmAdvImport
                     }
                 }
                 arithmeticQuestion.Difficulty = difficulty;
+                arithmeticQuestion.OptionContent = optionContent;
                 config.QuestionList.Add(arithmeticQuestion);
             }
             return true;
