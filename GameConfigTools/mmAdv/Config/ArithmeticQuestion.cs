@@ -24,6 +24,7 @@ namespace Config
   public partial class ArithmeticQuestion : TBase
   {
     private double _difficulty;
+    private string _optionContent;
     private List<ArithmeticItem> _itemList;
 
     public double Difficulty
@@ -36,6 +37,19 @@ namespace Config
       {
         __isset.difficulty = true;
         this._difficulty = value;
+      }
+    }
+
+    public string OptionContent
+    {
+      get
+      {
+        return _optionContent;
+      }
+      set
+      {
+        __isset.optionContent = true;
+        this._optionContent = value;
       }
     }
 
@@ -59,6 +73,7 @@ namespace Config
     #endif
     public struct Isset {
       public bool difficulty;
+      public bool optionContent;
       public bool itemList;
     }
 
@@ -85,6 +100,13 @@ namespace Config
             }
             break;
           case 20:
+            if (field.Type == TType.String) {
+              OptionContent = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 30:
             if (field.Type == TType.List) {
               {
                 ItemList = new List<ArithmeticItem>();
@@ -123,10 +145,18 @@ namespace Config
         oprot.WriteDouble(Difficulty);
         oprot.WriteFieldEnd();
       }
+      if (OptionContent != null && __isset.optionContent) {
+        field.Name = "optionContent";
+        field.Type = TType.String;
+        field.ID = 20;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(OptionContent);
+        oprot.WriteFieldEnd();
+      }
       if (ItemList != null && __isset.itemList) {
         field.Name = "itemList";
         field.Type = TType.List;
-        field.ID = 20;
+        field.ID = 30;
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, ItemList.Count));
@@ -146,6 +176,8 @@ namespace Config
       StringBuilder sb = new StringBuilder("ArithmeticQuestion(");
       sb.Append("Difficulty: ");
       sb.Append(Difficulty);
+      sb.Append(",OptionContent: ");
+      sb.Append(OptionContent);
       sb.Append(",ItemList: ");
       sb.Append(ItemList);
       sb.Append(")");

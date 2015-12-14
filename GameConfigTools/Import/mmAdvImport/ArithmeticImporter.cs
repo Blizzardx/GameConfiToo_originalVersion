@@ -30,12 +30,12 @@ namespace GameConfigTools.Import.mmAdvImport
             config.TimerList = new List<ArithmeticTimer>();
             config.QuestionList = new List<ArithmeticQuestion>();
             string[] sheetNames = this.GetSheetNames();
-            
+
             for (int sheetIndex = 0; sheetIndex < sheetValues.Count; sheetIndex++)
             {
                 string sheetName = sheetNames[sheetIndex];
                 string[][] values = sheetValues[sheetIndex];
-                if (sheetIndex.Equals(1))
+                if (sheetIndex.Equals(0))
                 {
                     if (!QuestionList(config, sheetName, values, ref errMsg))
                     {
@@ -76,6 +76,7 @@ namespace GameConfigTools.Import.mmAdvImport
                 }
                 arithmeticTimer.Difficulty = difficulty;
                 arithmeticTimer.Timer = timer;
+                config.TimerList.Add(arithmeticTimer);
             }
             return true;
         }
@@ -99,6 +100,13 @@ namespace GameConfigTools.Import.mmAdvImport
                     errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，难度级别(ID)必须为0 - {4}浮点型", this.GetConfigName(), sheetName, row, index, float.MaxValue);
                     return false;
                 }
+                string optionContent = values[i][index++];
+                if (optionContent.Equals(""))
+                {
+                    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误", this.GetConfigName(), sheetName, row, index) + optionContent + "为空";
+                    return false;
+                }
+                
                 while (true)
                 {
                     int expression;
@@ -107,6 +115,15 @@ namespace GameConfigTools.Import.mmAdvImport
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，表达式必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return false;
                     }
+                    if (index >= values[i].Length)
+                    {
+                        ArithmeticItem item = new ArithmeticItem();
+                        item.Expression = expression;
+                        item.Operation = "";
+                        arithmeticQuestion.ItemList.Add(item);
+                        break;
+                    }
+                       
                     string operation = values[i][index++];
                    
                     if (!operation.Equals("+") && !operation.Equals("-"))
