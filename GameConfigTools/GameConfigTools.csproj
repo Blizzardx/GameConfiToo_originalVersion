@@ -248,6 +248,8 @@
     <Compile Include="Import\mmAdvImport\NpcImporter.cs" />
     <Compile Include="Import\mmAdvImport\ItemsImporter.cs" />
     <Compile Include="Import\mmAdvImport\RatioGameImporter.cs" />
+    <Compile Include="Import\mmAdvImport\RegularityImporter.cs" />
+    <Compile Include="Import\mmAdvImport\RegularitySettingImporter.cs" />
     <Compile Include="Import\mmAdvImport\SkillImporter.cs" />
     <Compile Include="Import\mmAdvImport\StageImporter.cs" />
     <Compile Include="Import\mmAdvImport\TargetImporter.cs" />
