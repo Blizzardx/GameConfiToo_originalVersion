@@ -27,71 +27,107 @@ namespace GameConfigTools.Import.mmAdvImport
 
             ArithmeticConfigTable config = new ArithmeticConfigTable();
             tbase = config;
-            config.ArithmeticConfigMap = new Dictionary<int, ArithmeticConfig>();
-
+            config.TimerList = new List<ArithmeticTimer>();
+            config.QuestionList = new List<ArithmeticQuestion>();
             string[] sheetNames = this.GetSheetNames();
             
             for (int sheetIndex = 0; sheetIndex < sheetValues.Count; sheetIndex++)
             {
                 string sheetName = sheetNames[sheetIndex];
                 string[][] values = sheetValues[sheetIndex];
-                for (int i = 0; i < values.Length; i++)
+                if (sheetIndex.Equals(1))
                 {
-                    if (!this.IsLineNotNull(values[i]))
+                    if (!QuestionList(config, sheetName, values, ref errMsg))
                     {
-                        continue;
-                    }
-                    int row = i + 1;
-                    int index = 0;
-
-                    int difficultyid;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out difficultyid))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，难度级别(ID)必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int platecount;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out platecount))
+                }else{
+                    if (!TimerList(config, sheetName, values, ref errMsg))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，盘子数量必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
-                    }
-                    int timer;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out timer))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，时间单位必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
-                        return;
-                    }
-                    int maximum;
-                    if(!VaildUtil.TryConvertInt(values[i][index++], out maximum))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，计算最大值必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
-                        return;
-                    }
-                    int rule;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out rule))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，规则说明值必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
-                        return;
-                    }
-
-                    XElement propsE = new XElement("item");
-                    root.Add(propsE);
-                    propsE.Add(new XAttribute("difficultyid", difficultyid));
-                    propsE.Add(new XAttribute("platecount", platecount));
-                    propsE.Add(new XAttribute("timer", timer));
-                    propsE.Add(new XAttribute("maximum", maximum));
-                    propsE.Add(new XAttribute("rule", rule));
-
-                    ArithmeticConfig c = new ArithmeticConfig();
-                    c.Difficultyid = difficultyid;
-                    c.Platecount = platecount;
-                    c.Timer = timer;
-                    c.Maximum = maximum;
-                    c.Rule = rule;
-                    config.ArithmeticConfigMap.Add(c.Difficultyid, c);
+                    } 
                 }
             }
+        }
+
+        bool TimerList(ArithmeticConfigTable config, string sheetName, string[][] values, ref string errMsg)
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                ArithmeticTimer arithmeticTimer = new ArithmeticTimer();
+                if (!this.IsLineNotNull(values[i]))
+                {
+                    continue;
+                }
+                int row = i + 1;
+                int index = 0;
+
+                float difficulty;
+                if (!VaildUtil.TryConvertFloat(values[i][index++], out difficulty))
+                {
+                    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，难度级别(ID)必须为0 - {4}浮点型", this.GetConfigName(), sheetName, row, index, float.MaxValue);
+                    return false;
+                }
+                int timer;
+                if (!VaildUtil.TryConvertInt(values[i][index++] ,out timer))
+                {
+                    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，难度级别(ID)必须为0 - {4}整数型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                    return false;
+                }
+                arithmeticTimer.Difficulty = difficulty;
+                arithmeticTimer.Timer = timer;
+            }
+            return true;
+        }
+
+        bool QuestionList(ArithmeticConfigTable config, string sheetName, string[][] values, ref string errMsg)
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                ArithmeticQuestion arithmeticQuestion = new ArithmeticQuestion();
+                arithmeticQuestion.ItemList = new List<ArithmeticItem>();
+                if (!this.IsLineNotNull(values[i]))
+                {
+                    continue;
+                }
+                int row = i + 1;
+                int index = 0;
+
+                float difficulty;
+                if (!VaildUtil.TryConvertFloat(values[i][index++], out difficulty))
+                {
+                    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，难度级别(ID)必须为0 - {4}浮点型", this.GetConfigName(), sheetName, row, index, float.MaxValue);
+                    return false;
+                }
+                while (true)
+                {
+                    int expression;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out expression))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，表达式必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return false;
+                    }
+                    string operation = values[i][index++];
+                   
+                    if (!operation.Equals("+") && !operation.Equals("-"))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误", this.GetConfigName(), sheetName, row, index) + operation + "为非法符号";
+                        return false;
+                    }
+
+                    ArithmeticItem item1 = new ArithmeticItem();
+                    item1.Expression = expression;
+                    item1.Operation = operation;
+                    arithmeticQuestion.ItemList.Add(item1);
+                    if (string.IsNullOrEmpty(operation))
+                    {
+                        break;
+                    }
+                }
+                arithmeticQuestion.Difficulty = difficulty;
+                config.QuestionList.Add(arithmeticQuestion);
+            }
+            return true;
         }
         protected override string GetConfigName()
         {
