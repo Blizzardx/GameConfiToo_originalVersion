@@ -23,18 +23,32 @@ namespace Config.Table
   #endif
   public partial class ArithmeticConfigTable : TBase
   {
-    private Dictionary<int, Config.ArithmeticConfig> _arithmeticConfigMap;
+    private List<Config.ArithmeticTimer> _timerList;
+    private List<Config.ArithmeticQuestion> _questionList;
 
-    public Dictionary<int, Config.ArithmeticConfig> ArithmeticConfigMap
+    public List<Config.ArithmeticTimer> TimerList
     {
       get
       {
-        return _arithmeticConfigMap;
+        return _timerList;
       }
       set
       {
-        __isset.arithmeticConfigMap = true;
-        this._arithmeticConfigMap = value;
+        __isset.timerList = true;
+        this._timerList = value;
+      }
+    }
+
+    public List<Config.ArithmeticQuestion> QuestionList
+    {
+      get
+      {
+        return _questionList;
+      }
+      set
+      {
+        __isset.questionList = true;
+        this._questionList = value;
       }
     }
 
@@ -44,7 +58,8 @@ namespace Config.Table
     [Serializable]
     #endif
     public struct Isset {
-      public bool arithmeticConfigMap;
+      public bool timerList;
+      public bool questionList;
     }
 
     public ArithmeticConfigTable() {
@@ -62,21 +77,37 @@ namespace Config.Table
         }
         switch (field.ID)
         {
-          case 1:
-            if (field.Type == TType.Map) {
+          case 10:
+            if (field.Type == TType.List) {
               {
-                ArithmeticConfigMap = new Dictionary<int, Config.ArithmeticConfig>();
-                TMap _map79 = iprot.ReadMapBegin();
-                for( int _i80 = 0; _i80 < _map79.Count; ++_i80)
+                TimerList = new List<Config.ArithmeticTimer>();
+                TList _list84 = iprot.ReadListBegin();
+                for( int _i85 = 0; _i85 < _list84.Count; ++_i85)
                 {
-                  int _key81;
-                  Config.ArithmeticConfig _val82;
-                  _key81 = iprot.ReadI32();
-                  _val82 = new Config.ArithmeticConfig();
-                  _val82.Read(iprot);
-                  ArithmeticConfigMap[_key81] = _val82;
+                  Config.ArithmeticTimer _elem86 = new Config.ArithmeticTimer();
+                  _elem86 = new Config.ArithmeticTimer();
+                  _elem86.Read(iprot);
+                  TimerList.Add(_elem86);
                 }
-                iprot.ReadMapEnd();
+                iprot.ReadListEnd();
+              }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 20:
+            if (field.Type == TType.List) {
+              {
+                QuestionList = new List<Config.ArithmeticQuestion>();
+                TList _list87 = iprot.ReadListBegin();
+                for( int _i88 = 0; _i88 < _list87.Count; ++_i88)
+                {
+                  Config.ArithmeticQuestion _elem89 = new Config.ArithmeticQuestion();
+                  _elem89 = new Config.ArithmeticQuestion();
+                  _elem89.Read(iprot);
+                  QuestionList.Add(_elem89);
+                }
+                iprot.ReadListEnd();
               }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
@@ -95,19 +126,33 @@ namespace Config.Table
       TStruct struc = new TStruct("ArithmeticConfigTable");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (ArithmeticConfigMap != null && __isset.arithmeticConfigMap) {
-        field.Name = "arithmeticConfigMap";
-        field.Type = TType.Map;
-        field.ID = 1;
+      if (TimerList != null && __isset.timerList) {
+        field.Name = "timerList";
+        field.Type = TType.List;
+        field.ID = 10;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, ArithmeticConfigMap.Count));
-          foreach (int _iter83 in ArithmeticConfigMap.Keys)
+          oprot.WriteListBegin(new TList(TType.Struct, TimerList.Count));
+          foreach (Config.ArithmeticTimer _iter90 in TimerList)
           {
-            oprot.WriteI32(_iter83);
-            ArithmeticConfigMap[_iter83].Write(oprot);
+            _iter90.Write(oprot);
           }
-          oprot.WriteMapEnd();
+          oprot.WriteListEnd();
+        }
+        oprot.WriteFieldEnd();
+      }
+      if (QuestionList != null && __isset.questionList) {
+        field.Name = "questionList";
+        field.Type = TType.List;
+        field.ID = 20;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.Struct, QuestionList.Count));
+          foreach (Config.ArithmeticQuestion _iter91 in QuestionList)
+          {
+            _iter91.Write(oprot);
+          }
+          oprot.WriteListEnd();
         }
         oprot.WriteFieldEnd();
       }
@@ -117,8 +162,10 @@ namespace Config.Table
 
     public override string ToString() {
       StringBuilder sb = new StringBuilder("ArithmeticConfigTable(");
-      sb.Append("ArithmeticConfigMap: ");
-      sb.Append(ArithmeticConfigMap);
+      sb.Append("TimerList: ");
+      sb.Append(TimerList);
+      sb.Append(",QuestionList: ");
+      sb.Append(QuestionList);
       sb.Append(")");
       return sb.ToString();
     }

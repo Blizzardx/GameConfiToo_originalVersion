@@ -259,6 +259,9 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="mmAdv\Config\ArithmeticConfig.cs" />
+    <Compile Include="mmAdv\Config\ArithmeticItem.cs" />
+    <Compile Include="mmAdv\Config\ArithmeticQuestion.cs" />
+    <Compile Include="mmAdv\Config\ArithmeticTimer.cs" />
     <Compile Include="mmAdv\Config\BallData.cs" />
     <Compile Include="mmAdv\Config\CharactorConfig.cs" />
     <Compile Include="mmAdv\Config\DialogConfig.cs" />
