@@ -55,6 +55,8 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.DEFAULT_TALENT_CONFIG, new DefaultUserTalentImporter());
             importerDic.Add(SysConstant.DIFFICULTY_CONFIG, new DifficultyControlImporter());
             importerDic.Add(SysConstant.TALENT_CONFIG, new TalentControlImpoort());
+            importerDic.Add(SysConstant.REGULARITY_CONFIG, new RegularityImporter());
+            importerDic.Add(SysConstant.REGULARITY_SETTING_CONFIG, new RegularitySettingImporter());
         }
         /// <summary>
         /// 加载关联导入
