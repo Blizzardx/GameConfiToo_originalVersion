@@ -236,6 +236,7 @@
     <Compile Include="Import\mmAdvImport\ArithmeticImporter.cs" />
     <Compile Include="Import\mmAdvImport\CharactorImporter.cs" />
     <Compile Include="Import\mmAdvImport\ChatDirtyWordImporter.cs" />
+    <Compile Include="Import\mmAdvImport\AdaptiveDifficultyImporter.cs" />
     <Compile Include="Import\mmAdvImport\DialogImporter.cs" />
     <Compile Include="Import\mmAdvImport\FuncImporter.cs" />
     <Compile Include="Import\Importer.cs" />
