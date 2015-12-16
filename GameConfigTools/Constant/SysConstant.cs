@@ -60,6 +60,10 @@ namespace GameConfigTools.Constant
 
         public static readonly string ACTION_CONFIG = "actionConfig";
 
+        public static readonly string DEFAULT_TALENT_CONFIG = "defaultTalentConfig";
+        public static readonly string DIFFICULTY_CONFIG = "difficultyConfig";
+        public static readonly string TALENT_CONFIG = "talentConfig";
+
         public static readonly string DIALOG_CONFIG = "dialogConfig";
 
         public static readonly string MAIN_MISSION_CONFIG = "mainMissionConfig";

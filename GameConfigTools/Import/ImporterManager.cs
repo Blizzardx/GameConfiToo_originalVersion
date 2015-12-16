@@ -52,6 +52,9 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.ITEMS_CONFIG, new ItemsImporter());
             importerDic.Add(SysConstant.AI_CONFIG, new AIConfigImporter());
             importerDic.Add(SysConstant.ARITHMETIC_CONFIG, new ArithmeticImporter());
+            importerDic.Add(SysConstant.DEFAULT_TALENT_CONFIG, new DefaultUserTalentImporter());
+            importerDic.Add(SysConstant.DIFFICULTY_CONFIG, new DifficultyControlImporter());
+            importerDic.Add(SysConstant.TALENT_CONFIG, new TalentControlImpoort());
         }
         /// <summary>
         /// 加载关联导入
@@ -67,6 +70,11 @@ namespace GameConfigTools.Import
             externalConfigDic.Add(SysConstant.TERRAIN_CONFIG, SysConstant.TERRAIN_CONFIG+"_txtpkg.bytes");
             //externalConfigDic.Add(SysConstant.FORMATION_EDITOR_CONFIG, "formation_txtpkg.bytes");
             externalConfigDic.Add(SysConstant.ACTION_CONFIG, SysConstant.ACTION_CONFIG + "_txtpkg.bytes");
+
+            externalConfigDic.Add(SysConstant.DEFAULT_TALENT_CONFIG, SysConstant.DEFAULT_TALENT_CONFIG + "_txtpkg.bytes");
+            externalConfigDic.Add(SysConstant.DIFFICULTY_CONFIG, SysConstant.DIFFICULTY_CONFIG + "_txtpkg.bytes");
+            externalConfigDic.Add(SysConstant.TALENT_CONFIG, SysConstant.TALENT_CONFIG + "_txtpkg.bytes");
+
         }
 
         public Importer GetImporter(string configName)
