@@ -115,7 +115,7 @@ namespace GameConfigTools.Import
                         List<string> columnList = new List<string>();
                         sheetList.Add(columnList);
                         int tempColumnCount = dataRow.ItemArray.Length;
-                        for (int i = 0; i < tempColumnCount; i++)
+                        for (int i = 0; i < columnCount; i++)
                         {
                             //如果注释了，一整行都为空
                             if (annotation)

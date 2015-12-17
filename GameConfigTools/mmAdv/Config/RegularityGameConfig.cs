@@ -103,13 +103,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 OptionList = new List<RegularityGameOption>();
-                TList _list49 = iprot.ReadListBegin();
-                for( int _i50 = 0; _i50 < _list49.Count; ++_i50)
+                TList _list53 = iprot.ReadListBegin();
+                for( int _i54 = 0; _i54 < _list53.Count; ++_i54)
                 {
-                  RegularityGameOption _elem51 = new RegularityGameOption();
-                  _elem51 = new RegularityGameOption();
-                  _elem51.Read(iprot);
-                  OptionList.Add(_elem51);
+                  RegularityGameOption _elem55 = new RegularityGameOption();
+                  _elem55 = new RegularityGameOption();
+                  _elem55.Read(iprot);
+                  OptionList.Add(_elem55);
                 }
                 iprot.ReadListEnd();
               }
@@ -121,12 +121,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 AnswerList = new List<string>();
-                TList _list52 = iprot.ReadListBegin();
-                for( int _i53 = 0; _i53 < _list52.Count; ++_i53)
+                TList _list56 = iprot.ReadListBegin();
+                for( int _i57 = 0; _i57 < _list56.Count; ++_i57)
                 {
-                  string _elem54 = null;
-                  _elem54 = iprot.ReadString();
-                  AnswerList.Add(_elem54);
+                  string _elem58 = null;
+                  _elem58 = iprot.ReadString();
+                  AnswerList.Add(_elem58);
                 }
                 iprot.ReadListEnd();
               }
@@ -162,9 +162,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, OptionList.Count));
-          foreach (RegularityGameOption _iter55 in OptionList)
+          foreach (RegularityGameOption _iter59 in OptionList)
           {
-            _iter55.Write(oprot);
+            _iter59.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -177,9 +177,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.String, AnswerList.Count));
-          foreach (string _iter56 in AnswerList)
+          foreach (string _iter60 in AnswerList)
           {
-            oprot.WriteString(_iter56);
+            oprot.WriteString(_iter60);
           }
           oprot.WriteListEnd();
         }

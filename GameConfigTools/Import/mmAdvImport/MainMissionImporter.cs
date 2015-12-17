@@ -89,12 +89,10 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，任务 描述声音文件不能为空", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
-
-
-                    int nextMissionId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out nextMissionId))
+                    int completeLimitId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out completeLimitId, 0, int.MaxValue))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，任务 下一个任务ID 必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，完成功能函数ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
 
@@ -104,12 +102,19 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，完成功能函数ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    int nextMissionId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out nextMissionId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，任务 下一个任务ID 必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
 
                     XElement buffE = new XElement("mission");
                     root.Add(buffE);
 
                     buffE.Add(new XAttribute("id", id));
                     buffE.Add(new XAttribute("name", name));
+                    buffE.Add(new XAttribute("completeLimitId", completeLimitId));
                     buffE.Add(new XAttribute("nextMissionId", nextMissionId));
                     buffE.Add(new XAttribute("completeFuncId", completeFuncId));
 
@@ -117,10 +122,11 @@ namespace GameConfigTools.Import
                     c.Id = id;
                     c.NameMessageId = nameMessageId;
                     c.NameAudioId = nameAudioId;
-                    c.DesMessionId = descMessageId;
+                    c.CompleteLimitId = completeLimitId;
                     c.DesAudioId = descAudioId;
                     c.NextMissionId = nextMissionId;
                     c.CompleteFuncId = completeFuncId;
+                    
                     config.MainMissionConfigMap.Add(c.Id, c);
                 }
             }

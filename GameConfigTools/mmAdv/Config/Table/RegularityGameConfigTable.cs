@@ -66,13 +66,13 @@ namespace Config.Table
             if (field.Type == TType.List) {
               {
                 RegularityConfigMap = new List<Config.RegularityGameConfig>();
-                TList _list89 = iprot.ReadListBegin();
-                for( int _i90 = 0; _i90 < _list89.Count; ++_i90)
+                TList _list92 = iprot.ReadListBegin();
+                for( int _i93 = 0; _i93 < _list92.Count; ++_i93)
                 {
-                  Config.RegularityGameConfig _elem91 = new Config.RegularityGameConfig();
-                  _elem91 = new Config.RegularityGameConfig();
-                  _elem91.Read(iprot);
-                  RegularityConfigMap.Add(_elem91);
+                  Config.RegularityGameConfig _elem94 = new Config.RegularityGameConfig();
+                  _elem94 = new Config.RegularityGameConfig();
+                  _elem94.Read(iprot);
+                  RegularityConfigMap.Add(_elem94);
                 }
                 iprot.ReadListEnd();
               }
@@ -100,9 +100,9 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, RegularityConfigMap.Count));
-          foreach (Config.RegularityGameConfig _iter92 in RegularityConfigMap)
+          foreach (Config.RegularityGameConfig _iter95 in RegularityConfigMap)
           {
-            _iter92.Write(oprot);
+            _iter95.Write(oprot);
           }
           oprot.WriteListEnd();
         }
