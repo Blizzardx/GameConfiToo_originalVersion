@@ -57,6 +57,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.TALENT_CONFIG, new TalentControlImpoort());
             importerDic.Add(SysConstant.REGULARITY_CONFIG, new RegularityImporter());
             importerDic.Add(SysConstant.REGULARITY_SETTING_CONFIG, new RegularitySettingImporter());
+            importerDic.Add(SysConstant.FLIGHT_CONFIG, new FlightImporter());
         }
         /// <summary>
         /// 加载关联导入

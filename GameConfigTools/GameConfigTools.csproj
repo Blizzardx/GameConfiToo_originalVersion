@@ -238,6 +238,7 @@
     <Compile Include="Import\mmAdvImport\ChatDirtyWordImporter.cs" />
     <Compile Include="Import\mmAdvImport\AdaptiveDifficultyImporter.cs" />
     <Compile Include="Import\mmAdvImport\DialogImporter.cs" />
+    <Compile Include="Import\mmAdvImport\FlightImporter.cs" />
     <Compile Include="Import\mmAdvImport\FuncImporter.cs" />
     <Compile Include="Import\Importer.cs" />
     <Compile Include="Import\ImporterManager.cs" />
@@ -269,6 +270,7 @@
     <Compile Include="mmAdv\Config\CharactorConfig.cs" />
     <Compile Include="mmAdv\Config\DialogConfig.cs" />
     <Compile Include="mmAdv\Config\DownloadAssetType.cs" />
+    <Compile Include="mmAdv\Config\FlightGameConfig.cs" />
     <Compile Include="mmAdv\Config\FuncData.cs" />
     <Compile Include="mmAdv\Config\FuncGroup.cs" />
     <Compile Include="mmAdv\Config\ItemConfig.cs" />
@@ -289,6 +291,7 @@
     <Compile Include="mmAdv\Config\Table\CharactorConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\DialogConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\DirtywordConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\FlightGameConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\FuncConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\ItemConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\LimitConfgTable.cs" />
