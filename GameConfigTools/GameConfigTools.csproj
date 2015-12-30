@@ -246,6 +246,8 @@
     <Compile Include="Import\mmAdvImport\MainMissionImporter.cs" />
     <Compile Include="Import\mmAdvImport\MessageImporter.cs" />
     <Compile Include="Import\mmAdvImport\MissionStepImporter.cs" />
+    <Compile Include="Import\mmAdvImport\MusicGameImporter.cs" />
+    <Compile Include="Import\mmAdvImport\MusicGameSettingImporter.cs" />
     <Compile Include="Import\mmAdvImport\NameDirtyWordImporter.cs" />
     <Compile Include="Import\mmAdvImport\NpcImporter.cs" />
     <Compile Include="Import\mmAdvImport\ItemsImporter.cs" />
@@ -278,6 +280,11 @@
     <Compile Include="mmAdv\Config\LimitGroup.cs" />
     <Compile Include="mmAdv\Config\MainMissionConfig.cs" />
     <Compile Include="mmAdv\Config\MissionStepConfig.cs" />
+    <Compile Include="mmAdv\Config\MusicGameErrorConfig.cs" />
+    <Compile Include="mmAdv\Config\MusicGameNoteKey.cs" />
+    <Compile Include="mmAdv\Config\MusicGameNoteKeyConfig.cs" />
+    <Compile Include="mmAdv\Config\MusicGameRangeConfig.cs" />
+    <Compile Include="mmAdv\Config\MusicGameSpeedConfig.cs" />
     <Compile Include="mmAdv\Config\NpcConfig.cs" />
     <Compile Include="mmAdv\Config\RatioGameConfig.cs" />
     <Compile Include="mmAdv\Config\RegularityGameConfig.cs" />
@@ -298,6 +305,8 @@
     <Compile Include="mmAdv\Config\Table\MainMissionConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MessageConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MissionStepConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\MusicGameConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\MusicGameSettingTable.cs" />
     <Compile Include="mmAdv\Config\Table\NpcConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\RatioGameConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\RegularityGameConfigTable.cs" />

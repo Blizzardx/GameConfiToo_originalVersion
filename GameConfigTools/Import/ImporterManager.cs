@@ -58,6 +58,8 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.REGULARITY_CONFIG, new RegularityImporter());
             importerDic.Add(SysConstant.REGULARITY_SETTING_CONFIG, new RegularitySettingImporter());
             importerDic.Add(SysConstant.FLIGHT_CONFIG, new FlightImporter());
+            importerDic.Add(SysConstant.MUSICGAME_SETTING_CONFIG, new MusicGameSettingImporter());
+            importerDic.Add(SysConstant.MUSICGAME_CONFIG, new MusicGameImporter());
         }
         /// <summary>
         /// 加载关联导入

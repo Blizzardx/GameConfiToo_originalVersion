@@ -88,6 +88,9 @@ namespace GameConfigTools.Constant
         public static readonly string REGULARITY_SETTING_CONFIG = "regularitySettingConfig";
 
         public static readonly string FLIGHT_CONFIG = "flightConfig";
+
+        public static readonly string MUSICGAME_CONFIG = "musicGameConfig";
+        public static readonly string MUSICGAME_SETTING_CONFIG = "musicGameSettingConfig";
     }
 }
 
