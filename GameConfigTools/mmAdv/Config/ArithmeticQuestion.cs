@@ -110,13 +110,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 ItemList = new List<ArithmeticItem>();
-                TList _list49 = iprot.ReadListBegin();
-                for( int _i50 = 0; _i50 < _list49.Count; ++_i50)
+                TList _list45 = iprot.ReadListBegin();
+                for( int _i46 = 0; _i46 < _list45.Count; ++_i46)
                 {
-                  ArithmeticItem _elem51 = new ArithmeticItem();
-                  _elem51 = new ArithmeticItem();
-                  _elem51.Read(iprot);
-                  ItemList.Add(_elem51);
+                  ArithmeticItem _elem47 = new ArithmeticItem();
+                  _elem47 = new ArithmeticItem();
+                  _elem47.Read(iprot);
+                  ItemList.Add(_elem47);
                 }
                 iprot.ReadListEnd();
               }
@@ -160,9 +160,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, ItemList.Count));
-          foreach (ArithmeticItem _iter52 in ItemList)
+          foreach (ArithmeticItem _iter48 in ItemList)
           {
-            _iter52.Write(oprot);
+            _iter48.Write(oprot);
           }
           oprot.WriteListEnd();
         }

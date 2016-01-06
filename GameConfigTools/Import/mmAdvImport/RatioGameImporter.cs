@@ -25,6 +25,170 @@ namespace GameConfigTools.Import
 
             RatioGameConfigTable config = new RatioGameConfigTable();
             tbase = config;
+
+            config.BallCount = new List<MiniGameHardConfig>();
+            config.BallColor = new List<MiniGameHardConfig>();
+            config.BallMaterial = new List<MiniGameHardConfig>();
+            config.BallSpeed = new List<MiniGameHardConfig>();
+            string[] sheetNames = this.GetSheetNames();
+            for (int sheetIndex = 0; sheetIndex < sheetValues.Count; sheetIndex++)
+            {
+                string sheetName = sheetNames[sheetIndex];
+
+                if (sheetName == "BallCount")
+                {
+                    string[][] values = sheetValues[sheetIndex];
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        if (!this.IsLineNotNull(values[i]))
+                        {
+                            continue;
+                        }
+                        int row = i + 1;
+                        int index = 0;
+
+                        float hard;
+                        int count;
+
+                        if (!VaildUtil.TryConvertFloat(values[i][index++], out hard))
+                        {
+                            errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，目标函数组ID必须为float浮点型", this.GetConfigName(), sheetName, row, index);
+                            return;
+                        }
+                        if (!VaildUtil.TryConvertInt(values[i][index++], out count))
+                        {
+                            errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，目标函数组ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                            return;
+                        }
+                        XElement levelXE = new XElement("BallCount", new XAttribute("hard", hard));
+                        root.Add(levelXE);
+
+                        MiniGameHardConfig hardConfig = new MiniGameHardConfig();
+                        hardConfig.Hard = hard;
+                        hardConfig.Count = count;
+
+                        XElement countXE = new XElement("count", count);
+                        levelXE.Add(countXE);
+
+                        config.BallCount.Add(hardConfig);
+                    }
+                }
+                else if (sheetName == "BallColor")
+                {
+                    string[][] values = sheetValues[sheetIndex];
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        if (!this.IsLineNotNull(values[i]))
+                        {
+                            continue;
+                        }
+                        int row = i + 1;
+                        int index = 0;
+
+                        float hard;
+                        int count;
+
+                        if (!VaildUtil.TryConvertFloat(values[i][index++], out hard))
+                        {
+                            errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，目标函数组ID必须为float浮点型", this.GetConfigName(), sheetName, row, index);
+                            return;
+                        }
+                        if (!VaildUtil.TryConvertInt(values[i][index++], out count))
+                        {
+                            errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，目标函数组ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                            return;
+                        }
+                        XElement levelXE = new XElement("BallCount", new XAttribute("hard", hard));
+                        root.Add(levelXE);
+
+                        MiniGameHardConfig hardConfig = new MiniGameHardConfig();
+                        hardConfig.Hard = hard;
+                        hardConfig.Count = count;
+
+                        XElement countXE = new XElement("count", count);
+                        levelXE.Add(countXE);
+
+                        config.BallColor.Add(hardConfig);
+                    }
+                }
+                else if (sheetName == "BallMaterial")
+                {
+                    string[][] values = sheetValues[sheetIndex];
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        if (!this.IsLineNotNull(values[i]))
+                        {
+                            continue;
+                        }
+                        int row = i + 1;
+                        int index = 0;
+
+                        float hard;
+                        int count;
+
+                        if (!VaildUtil.TryConvertFloat(values[i][index++], out hard))
+                        {
+                            errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，目标函数组ID必须为float浮点型", this.GetConfigName(), sheetName, row, index);
+                            return;
+                        }
+                        if (!VaildUtil.TryConvertInt(values[i][index++], out count))
+                        {
+                            errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，目标函数组ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                            return;
+                        }
+                        XElement levelXE = new XElement("BallCount", new XAttribute("hard", hard));
+                        root.Add(levelXE);
+
+                        MiniGameHardConfig hardConfig = new MiniGameHardConfig();
+                        hardConfig.Hard = hard;
+                        hardConfig.Count = count;
+
+                        XElement countXE = new XElement("count", count);
+                        levelXE.Add(countXE);
+
+                        config.BallMaterial.Add(hardConfig);
+                    }
+                }
+                else if(sheetName == "BallSpeed")
+                {
+                    string[][] values = sheetValues[sheetIndex];
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        if (!this.IsLineNotNull(values[i]))
+                        {
+                            continue;
+                        }
+                        int row = i + 1;
+                        int index = 0;
+
+                        float hard;
+                        int count;
+
+                        if (!VaildUtil.TryConvertFloat(values[i][index++], out hard))
+                        {
+                            errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，目标函数组ID必须为float浮点型", this.GetConfigName(), sheetName, row, index);
+                            return;
+                        }
+                        if (!VaildUtil.TryConvertInt(values[i][index++], out count))
+                        {
+                            errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，目标函数组ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                            return;
+                        }
+                        XElement levelXE = new XElement("BallCount", new XAttribute("hard", hard));
+                        root.Add(levelXE);
+
+                        MiniGameHardConfig hardConfig = new MiniGameHardConfig();
+                        hardConfig.Hard = hard;
+                        hardConfig.Count = count;
+
+                        XElement countXE = new XElement("count", count);
+                        levelXE.Add(countXE);
+
+                        config.BallSpeed.Add(hardConfig);
+                    }
+                }
+            }
+            /*
             config.RatioGameConfigMap = new Dictionary<int, RatioGameConfig>();
 
             string[] sheetNames = this.GetSheetNames();
@@ -98,6 +262,7 @@ namespace GameConfigTools.Import
                     config.RatioGameConfigMap.Add(level, ratioGame);
                 }
             }
+            */
         }
         protected override string GetConfigName()
         {

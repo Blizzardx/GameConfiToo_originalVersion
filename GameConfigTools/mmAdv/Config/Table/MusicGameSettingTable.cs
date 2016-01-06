@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 MusicConfigMap = new Dictionary<int, Config.MusicGameNoteKeyConfig>();
-                TMap _map112 = iprot.ReadMapBegin();
-                for( int _i113 = 0; _i113 < _map112.Count; ++_i113)
+                TMap _map123 = iprot.ReadMapBegin();
+                for( int _i124 = 0; _i124 < _map123.Count; ++_i124)
                 {
-                  int _key114;
-                  Config.MusicGameNoteKeyConfig _val115;
-                  _key114 = iprot.ReadI32();
-                  _val115 = new Config.MusicGameNoteKeyConfig();
-                  _val115.Read(iprot);
-                  MusicConfigMap[_key114] = _val115;
+                  int _key125;
+                  Config.MusicGameNoteKeyConfig _val126;
+                  _key125 = iprot.ReadI32();
+                  _val126 = new Config.MusicGameNoteKeyConfig();
+                  _val126.Read(iprot);
+                  MusicConfigMap[_key125] = _val126;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, MusicConfigMap.Count));
-          foreach (int _iter116 in MusicConfigMap.Keys)
+          foreach (int _iter127 in MusicConfigMap.Keys)
           {
-            oprot.WriteI32(_iter116);
-            MusicConfigMap[_iter116].Write(oprot);
+            oprot.WriteI32(_iter127);
+            MusicConfigMap[_iter127].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

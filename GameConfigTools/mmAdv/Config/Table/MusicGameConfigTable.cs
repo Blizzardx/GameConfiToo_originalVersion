@@ -96,13 +96,13 @@ namespace Config.Table
             if (field.Type == TType.List) {
               {
                 MusicRangeConfigMap = new List<Config.MusicGameRangeConfig>();
-                TList _list100 = iprot.ReadListBegin();
-                for( int _i101 = 0; _i101 < _list100.Count; ++_i101)
+                TList _list111 = iprot.ReadListBegin();
+                for( int _i112 = 0; _i112 < _list111.Count; ++_i112)
                 {
-                  Config.MusicGameRangeConfig _elem102 = new Config.MusicGameRangeConfig();
-                  _elem102 = new Config.MusicGameRangeConfig();
-                  _elem102.Read(iprot);
-                  MusicRangeConfigMap.Add(_elem102);
+                  Config.MusicGameRangeConfig _elem113 = new Config.MusicGameRangeConfig();
+                  _elem113 = new Config.MusicGameRangeConfig();
+                  _elem113.Read(iprot);
+                  MusicRangeConfigMap.Add(_elem113);
                 }
                 iprot.ReadListEnd();
               }
@@ -114,13 +114,13 @@ namespace Config.Table
             if (field.Type == TType.List) {
               {
                 MusicSpeedConfigMap = new List<Config.MusicGameSpeedConfig>();
-                TList _list103 = iprot.ReadListBegin();
-                for( int _i104 = 0; _i104 < _list103.Count; ++_i104)
+                TList _list114 = iprot.ReadListBegin();
+                for( int _i115 = 0; _i115 < _list114.Count; ++_i115)
                 {
-                  Config.MusicGameSpeedConfig _elem105 = new Config.MusicGameSpeedConfig();
-                  _elem105 = new Config.MusicGameSpeedConfig();
-                  _elem105.Read(iprot);
-                  MusicSpeedConfigMap.Add(_elem105);
+                  Config.MusicGameSpeedConfig _elem116 = new Config.MusicGameSpeedConfig();
+                  _elem116 = new Config.MusicGameSpeedConfig();
+                  _elem116.Read(iprot);
+                  MusicSpeedConfigMap.Add(_elem116);
                 }
                 iprot.ReadListEnd();
               }
@@ -132,13 +132,13 @@ namespace Config.Table
             if (field.Type == TType.List) {
               {
                 MusicErrorConfigMap = new List<Config.MusicGameErrorConfig>();
-                TList _list106 = iprot.ReadListBegin();
-                for( int _i107 = 0; _i107 < _list106.Count; ++_i107)
+                TList _list117 = iprot.ReadListBegin();
+                for( int _i118 = 0; _i118 < _list117.Count; ++_i118)
                 {
-                  Config.MusicGameErrorConfig _elem108 = new Config.MusicGameErrorConfig();
-                  _elem108 = new Config.MusicGameErrorConfig();
-                  _elem108.Read(iprot);
-                  MusicErrorConfigMap.Add(_elem108);
+                  Config.MusicGameErrorConfig _elem119 = new Config.MusicGameErrorConfig();
+                  _elem119 = new Config.MusicGameErrorConfig();
+                  _elem119.Read(iprot);
+                  MusicErrorConfigMap.Add(_elem119);
                 }
                 iprot.ReadListEnd();
               }
@@ -166,9 +166,9 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, MusicRangeConfigMap.Count));
-          foreach (Config.MusicGameRangeConfig _iter109 in MusicRangeConfigMap)
+          foreach (Config.MusicGameRangeConfig _iter120 in MusicRangeConfigMap)
           {
-            _iter109.Write(oprot);
+            _iter120.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -181,9 +181,9 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, MusicSpeedConfigMap.Count));
-          foreach (Config.MusicGameSpeedConfig _iter110 in MusicSpeedConfigMap)
+          foreach (Config.MusicGameSpeedConfig _iter121 in MusicSpeedConfigMap)
           {
-            _iter110.Write(oprot);
+            _iter121.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -196,9 +196,9 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, MusicErrorConfigMap.Count));
-          foreach (Config.MusicGameErrorConfig _iter111 in MusicErrorConfigMap)
+          foreach (Config.MusicGameErrorConfig _iter122 in MusicErrorConfigMap)
           {
-            _iter111.Write(oprot);
+            _iter122.Write(oprot);
           }
           oprot.WriteListEnd();
         }

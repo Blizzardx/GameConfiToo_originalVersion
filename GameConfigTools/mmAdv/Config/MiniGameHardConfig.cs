@@ -21,20 +21,34 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class MusicGameNoteKeyConfig : TBase
+  public partial class MiniGameHardConfig : TBase
   {
-    private List<MusicGameNoteKey> _noteKeyList;
+    private double _hard;
+    private int _count;
 
-    public List<MusicGameNoteKey> NoteKeyList
+    public double Hard
     {
       get
       {
-        return _noteKeyList;
+        return _hard;
       }
       set
       {
-        __isset.noteKeyList = true;
-        this._noteKeyList = value;
+        __isset.hard = true;
+        this._hard = value;
+      }
+    }
+
+    public int Count
+    {
+      get
+      {
+        return _count;
+      }
+      set
+      {
+        __isset.count = true;
+        this._count = value;
       }
     }
 
@@ -44,10 +58,11 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool noteKeyList;
+      public bool hard;
+      public bool count;
     }
 
-    public MusicGameNoteKeyConfig() {
+    public MiniGameHardConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -62,20 +77,16 @@ namespace Config
         }
         switch (field.ID)
         {
+          case 10:
+            if (field.Type == TType.Double) {
+              Hard = iprot.ReadDouble();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           case 20:
-            if (field.Type == TType.List) {
-              {
-                NoteKeyList = new List<MusicGameNoteKey>();
-                TList _list57 = iprot.ReadListBegin();
-                for( int _i58 = 0; _i58 < _list57.Count; ++_i58)
-                {
-                  MusicGameNoteKey _elem59 = new MusicGameNoteKey();
-                  _elem59 = new MusicGameNoteKey();
-                  _elem59.Read(iprot);
-                  NoteKeyList.Add(_elem59);
-                }
-                iprot.ReadListEnd();
-              }
+            if (field.Type == TType.I32) {
+              Count = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -90,22 +101,23 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("MusicGameNoteKeyConfig");
+      TStruct struc = new TStruct("MiniGameHardConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (NoteKeyList != null && __isset.noteKeyList) {
-        field.Name = "noteKeyList";
-        field.Type = TType.List;
+      if (__isset.hard) {
+        field.Name = "hard";
+        field.Type = TType.Double;
+        field.ID = 10;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteDouble(Hard);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.count) {
+        field.Name = "count";
+        field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteListBegin(new TList(TType.Struct, NoteKeyList.Count));
-          foreach (MusicGameNoteKey _iter60 in NoteKeyList)
-          {
-            _iter60.Write(oprot);
-          }
-          oprot.WriteListEnd();
-        }
+        oprot.WriteI32(Count);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -113,9 +125,11 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("MusicGameNoteKeyConfig(");
-      sb.Append("NoteKeyList: ");
-      sb.Append(NoteKeyList);
+      StringBuilder sb = new StringBuilder("MiniGameHardConfig(");
+      sb.Append("Hard: ");
+      sb.Append(Hard);
+      sb.Append(",Count: ");
+      sb.Append(Count);
       sb.Append(")");
       return sb.ToString();
     }

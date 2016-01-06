@@ -66,13 +66,13 @@ namespace Config.Table
             if (field.Type == TType.List) {
               {
                 FlightConfigList = new List<Config.FlightGameConfig>();
-                TList _list96 = iprot.ReadListBegin();
-                for( int _i97 = 0; _i97 < _list96.Count; ++_i97)
+                TList _list107 = iprot.ReadListBegin();
+                for( int _i108 = 0; _i108 < _list107.Count; ++_i108)
                 {
-                  Config.FlightGameConfig _elem98 = new Config.FlightGameConfig();
-                  _elem98 = new Config.FlightGameConfig();
-                  _elem98.Read(iprot);
-                  FlightConfigList.Add(_elem98);
+                  Config.FlightGameConfig _elem109 = new Config.FlightGameConfig();
+                  _elem109 = new Config.FlightGameConfig();
+                  _elem109.Read(iprot);
+                  FlightConfigList.Add(_elem109);
                 }
                 iprot.ReadListEnd();
               }
@@ -100,9 +100,9 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, FlightConfigList.Count));
-          foreach (Config.FlightGameConfig _iter99 in FlightConfigList)
+          foreach (Config.FlightGameConfig _iter110 in FlightConfigList)
           {
-            _iter99.Write(oprot);
+            _iter110.Write(oprot);
           }
           oprot.WriteListEnd();
         }

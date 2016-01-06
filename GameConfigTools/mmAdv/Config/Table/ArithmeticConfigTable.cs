@@ -81,13 +81,13 @@ namespace Config.Table
             if (field.Type == TType.List) {
               {
                 TimerList = new List<Config.ArithmeticTimer>();
-                TList _list84 = iprot.ReadListBegin();
-                for( int _i85 = 0; _i85 < _list84.Count; ++_i85)
+                TList _list95 = iprot.ReadListBegin();
+                for( int _i96 = 0; _i96 < _list95.Count; ++_i96)
                 {
-                  Config.ArithmeticTimer _elem86 = new Config.ArithmeticTimer();
-                  _elem86 = new Config.ArithmeticTimer();
-                  _elem86.Read(iprot);
-                  TimerList.Add(_elem86);
+                  Config.ArithmeticTimer _elem97 = new Config.ArithmeticTimer();
+                  _elem97 = new Config.ArithmeticTimer();
+                  _elem97.Read(iprot);
+                  TimerList.Add(_elem97);
                 }
                 iprot.ReadListEnd();
               }
@@ -99,13 +99,13 @@ namespace Config.Table
             if (field.Type == TType.List) {
               {
                 QuestionList = new List<Config.ArithmeticQuestion>();
-                TList _list87 = iprot.ReadListBegin();
-                for( int _i88 = 0; _i88 < _list87.Count; ++_i88)
+                TList _list98 = iprot.ReadListBegin();
+                for( int _i99 = 0; _i99 < _list98.Count; ++_i99)
                 {
-                  Config.ArithmeticQuestion _elem89 = new Config.ArithmeticQuestion();
-                  _elem89 = new Config.ArithmeticQuestion();
-                  _elem89.Read(iprot);
-                  QuestionList.Add(_elem89);
+                  Config.ArithmeticQuestion _elem100 = new Config.ArithmeticQuestion();
+                  _elem100 = new Config.ArithmeticQuestion();
+                  _elem100.Read(iprot);
+                  QuestionList.Add(_elem100);
                 }
                 iprot.ReadListEnd();
               }
@@ -133,9 +133,9 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, TimerList.Count));
-          foreach (Config.ArithmeticTimer _iter90 in TimerList)
+          foreach (Config.ArithmeticTimer _iter101 in TimerList)
           {
-            _iter90.Write(oprot);
+            _iter101.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -148,9 +148,9 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, QuestionList.Count));
-          foreach (Config.ArithmeticQuestion _iter91 in QuestionList)
+          foreach (Config.ArithmeticQuestion _iter102 in QuestionList)
           {
-            _iter91.Write(oprot);
+            _iter102.Write(oprot);
           }
           oprot.WriteListEnd();
         }

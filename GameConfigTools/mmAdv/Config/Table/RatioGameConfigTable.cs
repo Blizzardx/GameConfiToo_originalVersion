@@ -23,18 +23,60 @@ namespace Config.Table
   #endif
   public partial class RatioGameConfigTable : TBase
   {
-    private Dictionary<int, Config.RatioGameConfig> _ratioGameConfigMap;
+    private List<Config.MiniGameHardConfig> _ballCount;
+    private List<Config.MiniGameHardConfig> _ballColor;
+    private List<Config.MiniGameHardConfig> _ballMaterial;
+    private List<Config.MiniGameHardConfig> _ballSpeed;
 
-    public Dictionary<int, Config.RatioGameConfig> RatioGameConfigMap
+    public List<Config.MiniGameHardConfig> BallCount
     {
       get
       {
-        return _ratioGameConfigMap;
+        return _ballCount;
       }
       set
       {
-        __isset.ratioGameConfigMap = true;
-        this._ratioGameConfigMap = value;
+        __isset.ballCount = true;
+        this._ballCount = value;
+      }
+    }
+
+    public List<Config.MiniGameHardConfig> BallColor
+    {
+      get
+      {
+        return _ballColor;
+      }
+      set
+      {
+        __isset.ballColor = true;
+        this._ballColor = value;
+      }
+    }
+
+    public List<Config.MiniGameHardConfig> BallMaterial
+    {
+      get
+      {
+        return _ballMaterial;
+      }
+      set
+      {
+        __isset.ballMaterial = true;
+        this._ballMaterial = value;
+      }
+    }
+
+    public List<Config.MiniGameHardConfig> BallSpeed
+    {
+      get
+      {
+        return _ballSpeed;
+      }
+      set
+      {
+        __isset.ballSpeed = true;
+        this._ballSpeed = value;
       }
     }
 
@@ -44,7 +86,10 @@ namespace Config.Table
     [Serializable]
     #endif
     public struct Isset {
-      public bool ratioGameConfigMap;
+      public bool ballCount;
+      public bool ballColor;
+      public bool ballMaterial;
+      public bool ballSpeed;
     }
 
     public RatioGameConfigTable() {
@@ -63,20 +108,72 @@ namespace Config.Table
         switch (field.ID)
         {
           case 1:
-            if (field.Type == TType.Map) {
+            if (field.Type == TType.List) {
               {
-                RatioGameConfigMap = new Dictionary<int, Config.RatioGameConfig>();
-                TMap _map74 = iprot.ReadMapBegin();
-                for( int _i75 = 0; _i75 < _map74.Count; ++_i75)
+                BallCount = new List<Config.MiniGameHardConfig>();
+                TList _list74 = iprot.ReadListBegin();
+                for( int _i75 = 0; _i75 < _list74.Count; ++_i75)
                 {
-                  int _key76;
-                  Config.RatioGameConfig _val77;
-                  _key76 = iprot.ReadI32();
-                  _val77 = new Config.RatioGameConfig();
-                  _val77.Read(iprot);
-                  RatioGameConfigMap[_key76] = _val77;
+                  Config.MiniGameHardConfig _elem76 = new Config.MiniGameHardConfig();
+                  _elem76 = new Config.MiniGameHardConfig();
+                  _elem76.Read(iprot);
+                  BallCount.Add(_elem76);
                 }
-                iprot.ReadMapEnd();
+                iprot.ReadListEnd();
+              }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 2:
+            if (field.Type == TType.List) {
+              {
+                BallColor = new List<Config.MiniGameHardConfig>();
+                TList _list77 = iprot.ReadListBegin();
+                for( int _i78 = 0; _i78 < _list77.Count; ++_i78)
+                {
+                  Config.MiniGameHardConfig _elem79 = new Config.MiniGameHardConfig();
+                  _elem79 = new Config.MiniGameHardConfig();
+                  _elem79.Read(iprot);
+                  BallColor.Add(_elem79);
+                }
+                iprot.ReadListEnd();
+              }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 3:
+            if (field.Type == TType.List) {
+              {
+                BallMaterial = new List<Config.MiniGameHardConfig>();
+                TList _list80 = iprot.ReadListBegin();
+                for( int _i81 = 0; _i81 < _list80.Count; ++_i81)
+                {
+                  Config.MiniGameHardConfig _elem82 = new Config.MiniGameHardConfig();
+                  _elem82 = new Config.MiniGameHardConfig();
+                  _elem82.Read(iprot);
+                  BallMaterial.Add(_elem82);
+                }
+                iprot.ReadListEnd();
+              }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 4:
+            if (field.Type == TType.List) {
+              {
+                BallSpeed = new List<Config.MiniGameHardConfig>();
+                TList _list83 = iprot.ReadListBegin();
+                for( int _i84 = 0; _i84 < _list83.Count; ++_i84)
+                {
+                  Config.MiniGameHardConfig _elem85 = new Config.MiniGameHardConfig();
+                  _elem85 = new Config.MiniGameHardConfig();
+                  _elem85.Read(iprot);
+                  BallSpeed.Add(_elem85);
+                }
+                iprot.ReadListEnd();
               }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
@@ -95,19 +192,63 @@ namespace Config.Table
       TStruct struc = new TStruct("RatioGameConfigTable");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (RatioGameConfigMap != null && __isset.ratioGameConfigMap) {
-        field.Name = "ratioGameConfigMap";
-        field.Type = TType.Map;
+      if (BallCount != null && __isset.ballCount) {
+        field.Name = "ballCount";
+        field.Type = TType.List;
         field.ID = 1;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, RatioGameConfigMap.Count));
-          foreach (int _iter78 in RatioGameConfigMap.Keys)
+          oprot.WriteListBegin(new TList(TType.Struct, BallCount.Count));
+          foreach (Config.MiniGameHardConfig _iter86 in BallCount)
           {
-            oprot.WriteI32(_iter78);
-            RatioGameConfigMap[_iter78].Write(oprot);
+            _iter86.Write(oprot);
           }
-          oprot.WriteMapEnd();
+          oprot.WriteListEnd();
+        }
+        oprot.WriteFieldEnd();
+      }
+      if (BallColor != null && __isset.ballColor) {
+        field.Name = "ballColor";
+        field.Type = TType.List;
+        field.ID = 2;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.Struct, BallColor.Count));
+          foreach (Config.MiniGameHardConfig _iter87 in BallColor)
+          {
+            _iter87.Write(oprot);
+          }
+          oprot.WriteListEnd();
+        }
+        oprot.WriteFieldEnd();
+      }
+      if (BallMaterial != null && __isset.ballMaterial) {
+        field.Name = "ballMaterial";
+        field.Type = TType.List;
+        field.ID = 3;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.Struct, BallMaterial.Count));
+          foreach (Config.MiniGameHardConfig _iter88 in BallMaterial)
+          {
+            _iter88.Write(oprot);
+          }
+          oprot.WriteListEnd();
+        }
+        oprot.WriteFieldEnd();
+      }
+      if (BallSpeed != null && __isset.ballSpeed) {
+        field.Name = "ballSpeed";
+        field.Type = TType.List;
+        field.ID = 4;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.Struct, BallSpeed.Count));
+          foreach (Config.MiniGameHardConfig _iter89 in BallSpeed)
+          {
+            _iter89.Write(oprot);
+          }
+          oprot.WriteListEnd();
         }
         oprot.WriteFieldEnd();
       }
@@ -117,8 +258,14 @@ namespace Config.Table
 
     public override string ToString() {
       StringBuilder sb = new StringBuilder("RatioGameConfigTable(");
-      sb.Append("RatioGameConfigMap: ");
-      sb.Append(RatioGameConfigMap);
+      sb.Append("BallCount: ");
+      sb.Append(BallCount);
+      sb.Append(",BallColor: ");
+      sb.Append(BallColor);
+      sb.Append(",BallMaterial: ");
+      sb.Append(BallMaterial);
+      sb.Append(",BallSpeed: ");
+      sb.Append(BallSpeed);
       sb.Append(")");
       return sb.ToString();
     }
