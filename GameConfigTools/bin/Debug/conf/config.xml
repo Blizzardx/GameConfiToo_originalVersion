@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <serverConfigPath>D:\mmAdv</serverConfigPath>
-  <clientConfigPath>E:\BAOXUE\Project\GameClient_config\outPut</clientConfigPath>
-  <excelPath>E:\BAOXUE\Project\GameClient_config\cytx\游戏客户端配置\config</excelPath>
-  <configCenterUrl>http://112.126.74.237:8080/config-manager-server</configCenterUrl>
-  <uploadUrl>http://112.126.74.237:8080/client-upload-tools</uploadUrl>
-</root>
