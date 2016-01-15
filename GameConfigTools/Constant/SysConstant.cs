@@ -91,6 +91,8 @@ namespace GameConfigTools.Constant
 
         public static readonly string MUSICGAME_CONFIG = "musicGameConfig";
         public static readonly string MUSICGAME_SETTING_CONFIG = "musicGameSettingConfig";
+
+        public static readonly string RUNNERGAME_SETTING_CONFIG = "runnerGameSettingConfig";
     }
 }
 

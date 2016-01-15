@@ -254,6 +254,7 @@
     <Compile Include="Import\mmAdvImport\RatioGameImporter.cs" />
     <Compile Include="Import\mmAdvImport\RegularityImporter.cs" />
     <Compile Include="Import\mmAdvImport\RegularitySettingImporter.cs" />
+    <Compile Include="Import\mmAdvImport\RunngerGameSettingImporter.cs" />
     <Compile Include="Import\mmAdvImport\SkillImporter.cs" />
     <Compile Include="Import\mmAdvImport\StageImporter.cs" />
     <Compile Include="Import\mmAdvImport\TargetImporter.cs" />
@@ -312,6 +313,7 @@
     <Compile Include="mmAdv\Config\Table\RatioGameConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\RegularityGameConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\RegularityGameSettingTable.cs" />
+    <Compile Include="mmAdv\Config\Table\RunnerGameSettingTable.cs" />
     <Compile Include="mmAdv\Config\Table\SkillConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\StageConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\StateConflictTable.cs" />

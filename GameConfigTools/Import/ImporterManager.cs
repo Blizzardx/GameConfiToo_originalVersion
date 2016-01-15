@@ -60,6 +60,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.FLIGHT_CONFIG, new FlightImporter());
             importerDic.Add(SysConstant.MUSICGAME_SETTING_CONFIG, new MusicGameSettingImporter());
             importerDic.Add(SysConstant.MUSICGAME_CONFIG, new MusicGameImporter());
+            importerDic.Add(SysConstant.RUNNERGAME_SETTING_CONFIG, new RunnerGameSettingImporter());
         }
         /// <summary>
         /// 加载关联导入
