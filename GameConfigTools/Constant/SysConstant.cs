@@ -93,6 +93,8 @@ namespace GameConfigTools.Constant
         public static readonly string MUSICGAME_SETTING_CONFIG = "musicGameSettingConfig";
 
         public static readonly string RUNNERGAME_SETTING_CONFIG = "runnerGameSettingConfig";
+
+        public static readonly string LIMIT_FUNC_SCENE_CONFIG = "limitFuncSceneConfig";
     }
 }
 

@@ -242,6 +242,7 @@
     <Compile Include="Import\mmAdvImport\FuncImporter.cs" />
     <Compile Include="Import\Importer.cs" />
     <Compile Include="Import\ImporterManager.cs" />
+    <Compile Include="Import\mmAdvImport\LimitFuncSceneImporter.cs" />
     <Compile Include="Import\mmAdvImport\LimitImporter.cs" />
     <Compile Include="Import\mmAdvImport\MainMissionImporter.cs" />
     <Compile Include="Import\mmAdvImport\MessageImporter.cs" />
@@ -278,6 +279,7 @@
     <Compile Include="mmAdv\Config\FuncGroup.cs" />
     <Compile Include="mmAdv\Config\ItemConfig.cs" />
     <Compile Include="mmAdv\Config\LimitData.cs" />
+    <Compile Include="mmAdv\Config\LimitFuncSceneConfig.cs" />
     <Compile Include="mmAdv\Config\LimitGroup.cs" />
     <Compile Include="mmAdv\Config\MainMissionConfig.cs" />
     <Compile Include="mmAdv\Config\MiniGameHardConfig.cs" />
@@ -304,6 +306,7 @@
     <Compile Include="mmAdv\Config\Table\FuncConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\ItemConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\LimitConfgTable.cs" />
+    <Compile Include="mmAdv\Config\Table\LimitFuncSceneConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MainMissionConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MessageConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MissionStepConfigTable.cs" />

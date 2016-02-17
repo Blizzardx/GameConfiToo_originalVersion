@@ -61,6 +61,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.MUSICGAME_SETTING_CONFIG, new MusicGameSettingImporter());
             importerDic.Add(SysConstant.MUSICGAME_CONFIG, new MusicGameImporter());
             importerDic.Add(SysConstant.RUNNERGAME_SETTING_CONFIG, new RunnerGameSettingImporter());
+            importerDic.Add(SysConstant.LIMIT_FUNC_SCENE_CONFIG, new LimitFuncSceneImporter());
         }
         /// <summary>
         /// 加载关联导入
