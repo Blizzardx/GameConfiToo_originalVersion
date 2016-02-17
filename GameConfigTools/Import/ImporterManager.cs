@@ -62,6 +62,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.MUSICGAME_CONFIG, new MusicGameImporter());
             importerDic.Add(SysConstant.RUNNERGAME_SETTING_CONFIG, new RunnerGameSettingImporter());
             importerDic.Add(SysConstant.LIMIT_FUNC_SCENE_CONFIG, new LimitFuncSceneImporter());
+            importerDic.Add(SysConstant.RUNNER_TRUNK_CONFIG, new RunnerTrunkImporter());
         }
         /// <summary>
         /// 加载关联导入
@@ -81,6 +82,7 @@ namespace GameConfigTools.Import
             externalConfigDic.Add(SysConstant.DEFAULT_TALENT_CONFIG, SysConstant.DEFAULT_TALENT_CONFIG + "_txtpkg.bytes");
             externalConfigDic.Add(SysConstant.DIFFICULTY_CONFIG, SysConstant.DIFFICULTY_CONFIG + "_txtpkg.bytes");
             externalConfigDic.Add(SysConstant.TALENT_CONFIG, SysConstant.TALENT_CONFIG + "_txtpkg.bytes");
+            externalConfigDic.Add(SysConstant.RUNNER_TRUNK_CONFIG, SysConstant.RUNNER_TRUNK_CONFIG + "_txtpkg.bytes");
 
         }
 

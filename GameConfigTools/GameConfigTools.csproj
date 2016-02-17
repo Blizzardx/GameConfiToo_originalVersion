@@ -255,6 +255,7 @@
     <Compile Include="Import\mmAdvImport\RatioGameImporter.cs" />
     <Compile Include="Import\mmAdvImport\RegularityImporter.cs" />
     <Compile Include="Import\mmAdvImport\RegularitySettingImporter.cs" />
+    <Compile Include="Import\mmAdvImport\RunnerTrunkImporter.cs" />
     <Compile Include="Import\mmAdvImport\RunngerGameSettingImporter.cs" />
     <Compile Include="Import\mmAdvImport\SkillImporter.cs" />
     <Compile Include="Import\mmAdvImport\StageImporter.cs" />
