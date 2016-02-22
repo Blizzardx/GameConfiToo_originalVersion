@@ -259,6 +259,7 @@
     <Compile Include="Import\mmAdvImport\RunngerGameSettingImporter.cs" />
     <Compile Include="Import\mmAdvImport\SkillImporter.cs" />
     <Compile Include="Import\mmAdvImport\StageImporter.cs" />
+    <Compile Include="Import\mmAdvImport\StoryImporter.cs" />
     <Compile Include="Import\mmAdvImport\TargetImporter.cs" />
     <Compile Include="Import\mmAdvImport\TerrainImporter.cs" />
     <Compile Include="MainForm.cs">
@@ -298,6 +299,7 @@
     <Compile Include="mmAdv\Config\StageConfig.cs" />
     <Compile Include="mmAdv\Config\StateConflictConfig.cs" />
     <Compile Include="mmAdv\Config\StateConflictConfigElement.cs" />
+    <Compile Include="mmAdv\Config\StoryConfig.cs" />
     <Compile Include="mmAdv\Config\Table\AIConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\ArithmeticConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\CharactorConfigTable.cs" />
@@ -321,7 +323,9 @@
     <Compile Include="mmAdv\Config\Table\SkillConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\StageConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\StateConflictTable.cs" />
+    <Compile Include="mmAdv\Config\Table\StoryConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\TargetConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\TrunkConfigTable.cs" />
     <Compile Include="mmAdv\Config\TargetData.cs" />
     <Compile Include="mmAdv\Config\TargetGroup.cs" />
     <Compile Include="mmAdv\Config\ThriftVector3.cs" />

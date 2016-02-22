@@ -97,6 +97,8 @@ namespace GameConfigTools.Constant
         public static readonly string LIMIT_FUNC_SCENE_CONFIG = "limitFuncSceneConfig";
 
         public static readonly string RUNNER_TRUNK_CONFIG = "runnerTrunkConfig";
+
+        public static readonly string STORY_CONFIG = "storyConfig";
     }
 }
 

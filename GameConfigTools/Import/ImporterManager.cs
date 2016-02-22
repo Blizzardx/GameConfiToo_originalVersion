@@ -63,6 +63,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.RUNNERGAME_SETTING_CONFIG, new RunnerGameSettingImporter());
             importerDic.Add(SysConstant.LIMIT_FUNC_SCENE_CONFIG, new LimitFuncSceneImporter());
             importerDic.Add(SysConstant.RUNNER_TRUNK_CONFIG, new RunnerTrunkImporter());
+            importerDic.Add(SysConstant.STORY_CONFIG, new StoryImporter());
         }
         /// <summary>
         /// 加载关联导入
