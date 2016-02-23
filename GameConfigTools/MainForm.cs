@@ -465,5 +465,10 @@ namespace GameConfigTools
             EditAIConfigForm aiForm = new EditAIConfigForm();
             aiForm.Show();
         }
+
+        private void 剧情文件上传ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

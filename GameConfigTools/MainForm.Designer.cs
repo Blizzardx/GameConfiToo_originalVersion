@@ -53,6 +53,7 @@
             this.exportAllBgw = new System.ComponentModel.BackgroundWorker();
             this.importAllBwg = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.剧情文件上传ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +95,8 @@
             // 特殊配置ToolStripMenuItem
             // 
             this.特殊配置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aIToolStripMenuItem});
+            this.aIToolStripMenuItem,
+            this.剧情文件上传ToolStripMenuItem});
             this.特殊配置ToolStripMenuItem.Name = "特殊配置ToolStripMenuItem";
             this.特殊配置ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.特殊配置ToolStripMenuItem.Text = "特殊配置";
@@ -103,7 +105,7 @@
             // 
             this.aIToolStripMenuItem.Enabled = false;
             this.aIToolStripMenuItem.Name = "aIToolStripMenuItem";
-            this.aIToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.aIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aIToolStripMenuItem.Text = "编辑AI";
             this.aIToolStripMenuItem.Click += new System.EventHandler(this.编辑AIToolStripMenuItem_Click);
             // 
@@ -266,6 +268,13 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // 剧情文件上传ToolStripMenuItem
+            // 
+            this.剧情文件上传ToolStripMenuItem.Name = "剧情文件上传ToolStripMenuItem";
+            this.剧情文件上传ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.剧情文件上传ToolStripMenuItem.Text = "剧情文件上传";
+            this.剧情文件上传ToolStripMenuItem.Click += new System.EventHandler(this.剧情文件上传ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -314,6 +323,7 @@
         private System.Windows.Forms.ToolStripMenuItem 编辑客户端资源版本ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 特殊配置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 剧情文件上传ToolStripMenuItem;
     }
 }
 
