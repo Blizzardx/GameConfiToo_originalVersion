@@ -66,6 +66,34 @@ public class RunnerGameSettingImporter : AbstractExcelImporter
                     return;
                 }
 
+                float jumpGlideTime;
+                if (!VaildUtil.TryConvertFloat(values[i][index++], out jumpGlideTime))
+                {
+                    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，没有获取正确的 jumpGlideTime", this.GetConfigName(), sheetName, row, index);
+                    return;
+                }
+
+                float superJumpSpeed;
+                if (!VaildUtil.TryConvertFloat(values[i][index++], out superJumpSpeed))
+                {
+                    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，没有获取正确的 superJumpSpeed", this.GetConfigName(), sheetName, row, index);
+                    return;
+                }
+
+                float superJumpStartRiseTime;
+                if (!VaildUtil.TryConvertFloat(values[i][index++], out superJumpStartRiseTime))
+                {
+                    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，没有获取正确的 superJumpStartRiseTime", this.GetConfigName(), sheetName, row, index);
+                    return;
+                }
+
+                float superJumpGlideTime;
+                if (!VaildUtil.TryConvertFloat(values[i][index++], out superJumpGlideTime))
+                {
+                    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，没有获取正确的 superJumpGlideTime", this.GetConfigName(), sheetName, row, index);
+                    return;
+                }
+
                 float jumpEndDelayTime;
                 if (!VaildUtil.TryConvertFloat(values[i][index++], out jumpEndDelayTime))
                 {
@@ -73,11 +101,23 @@ public class RunnerGameSettingImporter : AbstractExcelImporter
                     return;
                 }
 
+                int trunkLoopCount;
+                if (!VaildUtil.TryConvertInt(values[i][index++], out trunkLoopCount))
+                {
+                    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，没有获取正确的 trunkLoopCount", this.GetConfigName(), sheetName, row, index);
+                    return;
+                }
+
                 config.InitSpeed = initSpeed;
                 config.Gravity = gravity;
                 config.JumpSpeed = jumpSpeed;
                 config.JumpStartRiseTime = jumpStartRiseTime;
+                config.JumpGlideTime = jumpGlideTime;
+                config.SuperJumpSpeed = superJumpSpeed;
+                config.SuperJumpStartRiseTime = superJumpStartRiseTime;
+                config.SuperJumpGlideTime = superJumpGlideTime;
                 config.JumpEndDelayTime = jumpEndDelayTime;
+                config.TrunkLoopCount = trunkLoopCount;
             }
         }
     }

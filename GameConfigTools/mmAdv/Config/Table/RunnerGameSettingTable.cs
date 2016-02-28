@@ -27,7 +27,12 @@ namespace Config.Table
     private double _gravity;
     private double _jumpSpeed;
     private double _jumpStartRiseTime;
+    private double _jumpGlideTime;
+    private double _superJumpSpeed;
+    private double _superJumpStartRiseTime;
+    private double _superJumpGlideTime;
     private double _jumpEndDelayTime;
+    private int _trunkLoopCount;
 
     public double InitSpeed
     {
@@ -81,6 +86,58 @@ namespace Config.Table
       }
     }
 
+    public double JumpGlideTime
+    {
+      get
+      {
+        return _jumpGlideTime;
+      }
+      set
+      {
+        __isset.jumpGlideTime = true;
+        this._jumpGlideTime = value;
+      }
+    }
+
+    public double SuperJumpSpeed
+    {
+      get
+      {
+        return _superJumpSpeed;
+      }
+      set
+      {
+        __isset.superJumpSpeed = true;
+        this._superJumpSpeed = value;
+      }
+    }
+
+    public double SuperJumpStartRiseTime
+    {
+      get
+      {
+        return _superJumpStartRiseTime;
+      }
+      set
+      {
+        __isset.superJumpStartRiseTime = true;
+        this._superJumpStartRiseTime = value;
+      }
+    }
+
+    public double SuperJumpGlideTime
+    {
+      get
+      {
+        return _superJumpGlideTime;
+      }
+      set
+      {
+        __isset.superJumpGlideTime = true;
+        this._superJumpGlideTime = value;
+      }
+    }
+
     public double JumpEndDelayTime
     {
       get
@@ -94,6 +151,19 @@ namespace Config.Table
       }
     }
 
+    public int TrunkLoopCount
+    {
+      get
+      {
+        return _trunkLoopCount;
+      }
+      set
+      {
+        __isset.trunkLoopCount = true;
+        this._trunkLoopCount = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -104,7 +174,12 @@ namespace Config.Table
       public bool gravity;
       public bool jumpSpeed;
       public bool jumpStartRiseTime;
+      public bool jumpGlideTime;
+      public bool superJumpSpeed;
+      public bool superJumpStartRiseTime;
+      public bool superJumpGlideTime;
       public bool jumpEndDelayTime;
+      public bool trunkLoopCount;
     }
 
     public RunnerGameSettingTable() {
@@ -152,7 +227,42 @@ namespace Config.Table
             break;
           case 5:
             if (field.Type == TType.Double) {
+              JumpGlideTime = iprot.ReadDouble();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 6:
+            if (field.Type == TType.Double) {
+              SuperJumpSpeed = iprot.ReadDouble();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 7:
+            if (field.Type == TType.Double) {
+              SuperJumpStartRiseTime = iprot.ReadDouble();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 8:
+            if (field.Type == TType.Double) {
+              SuperJumpGlideTime = iprot.ReadDouble();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 9:
+            if (field.Type == TType.Double) {
               JumpEndDelayTime = iprot.ReadDouble();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 10:
+            if (field.Type == TType.I32) {
+              TrunkLoopCount = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -202,12 +312,52 @@ namespace Config.Table
         oprot.WriteDouble(JumpStartRiseTime);
         oprot.WriteFieldEnd();
       }
-      if (__isset.jumpEndDelayTime) {
-        field.Name = "jumpEndDelayTime";
+      if (__isset.jumpGlideTime) {
+        field.Name = "jumpGlideTime";
         field.Type = TType.Double;
         field.ID = 5;
         oprot.WriteFieldBegin(field);
+        oprot.WriteDouble(JumpGlideTime);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.superJumpSpeed) {
+        field.Name = "superJumpSpeed";
+        field.Type = TType.Double;
+        field.ID = 6;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteDouble(SuperJumpSpeed);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.superJumpStartRiseTime) {
+        field.Name = "superJumpStartRiseTime";
+        field.Type = TType.Double;
+        field.ID = 7;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteDouble(SuperJumpStartRiseTime);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.superJumpGlideTime) {
+        field.Name = "superJumpGlideTime";
+        field.Type = TType.Double;
+        field.ID = 8;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteDouble(SuperJumpGlideTime);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.jumpEndDelayTime) {
+        field.Name = "jumpEndDelayTime";
+        field.Type = TType.Double;
+        field.ID = 9;
+        oprot.WriteFieldBegin(field);
         oprot.WriteDouble(JumpEndDelayTime);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.trunkLoopCount) {
+        field.Name = "trunkLoopCount";
+        field.Type = TType.I32;
+        field.ID = 10;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(TrunkLoopCount);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -224,8 +374,18 @@ namespace Config.Table
       sb.Append(JumpSpeed);
       sb.Append(",JumpStartRiseTime: ");
       sb.Append(JumpStartRiseTime);
+      sb.Append(",JumpGlideTime: ");
+      sb.Append(JumpGlideTime);
+      sb.Append(",SuperJumpSpeed: ");
+      sb.Append(SuperJumpSpeed);
+      sb.Append(",SuperJumpStartRiseTime: ");
+      sb.Append(SuperJumpStartRiseTime);
+      sb.Append(",SuperJumpGlideTime: ");
+      sb.Append(SuperJumpGlideTime);
       sb.Append(",JumpEndDelayTime: ");
       sb.Append(JumpEndDelayTime);
+      sb.Append(",TrunkLoopCount: ");
+      sb.Append(TrunkLoopCount);
       sb.Append(")");
       return sb.ToString();
     }
