@@ -69,25 +69,25 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 LimitFuncSceneConfigMap = new Dictionary<int, List<Config.LimitFuncSceneConfig>>();
-                TMap _map128 = iprot.ReadMapBegin();
-                for( int _i129 = 0; _i129 < _map128.Count; ++_i129)
+                TMap _map132 = iprot.ReadMapBegin();
+                for( int _i133 = 0; _i133 < _map132.Count; ++_i133)
                 {
-                  int _key130;
-                  List<Config.LimitFuncSceneConfig> _val131;
-                  _key130 = iprot.ReadI32();
+                  int _key134;
+                  List<Config.LimitFuncSceneConfig> _val135;
+                  _key134 = iprot.ReadI32();
                   {
-                    _val131 = new List<Config.LimitFuncSceneConfig>();
-                    TList _list132 = iprot.ReadListBegin();
-                    for( int _i133 = 0; _i133 < _list132.Count; ++_i133)
+                    _val135 = new List<Config.LimitFuncSceneConfig>();
+                    TList _list136 = iprot.ReadListBegin();
+                    for( int _i137 = 0; _i137 < _list136.Count; ++_i137)
                     {
-                      Config.LimitFuncSceneConfig _elem134 = new Config.LimitFuncSceneConfig();
-                      _elem134 = new Config.LimitFuncSceneConfig();
-                      _elem134.Read(iprot);
-                      _val131.Add(_elem134);
+                      Config.LimitFuncSceneConfig _elem138 = new Config.LimitFuncSceneConfig();
+                      _elem138 = new Config.LimitFuncSceneConfig();
+                      _elem138.Read(iprot);
+                      _val135.Add(_elem138);
                     }
                     iprot.ReadListEnd();
                   }
-                  LimitFuncSceneConfigMap[_key130] = _val131;
+                  LimitFuncSceneConfigMap[_key134] = _val135;
                 }
                 iprot.ReadMapEnd();
               }
@@ -115,14 +115,14 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.List, LimitFuncSceneConfigMap.Count));
-          foreach (int _iter135 in LimitFuncSceneConfigMap.Keys)
+          foreach (int _iter139 in LimitFuncSceneConfigMap.Keys)
           {
-            oprot.WriteI32(_iter135);
+            oprot.WriteI32(_iter139);
             {
-              oprot.WriteListBegin(new TList(TType.Struct, LimitFuncSceneConfigMap[_iter135].Count));
-              foreach (Config.LimitFuncSceneConfig _iter136 in LimitFuncSceneConfigMap[_iter135])
+              oprot.WriteListBegin(new TList(TType.Struct, LimitFuncSceneConfigMap[_iter139].Count));
+              foreach (Config.LimitFuncSceneConfig _iter140 in LimitFuncSceneConfigMap[_iter139])
               {
-                _iter136.Write(oprot);
+                _iter140.Write(oprot);
               }
               oprot.WriteListEnd();
             }

@@ -66,25 +66,25 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 StoryConfigMap = new Dictionary<int, List<Config.StoryConfig>>();
-                TMap _map137 = iprot.ReadMapBegin();
-                for( int _i138 = 0; _i138 < _map137.Count; ++_i138)
+                TMap _map141 = iprot.ReadMapBegin();
+                for( int _i142 = 0; _i142 < _map141.Count; ++_i142)
                 {
-                  int _key139;
-                  List<Config.StoryConfig> _val140;
-                  _key139 = iprot.ReadI32();
+                  int _key143;
+                  List<Config.StoryConfig> _val144;
+                  _key143 = iprot.ReadI32();
                   {
-                    _val140 = new List<Config.StoryConfig>();
-                    TList _list141 = iprot.ReadListBegin();
-                    for( int _i142 = 0; _i142 < _list141.Count; ++_i142)
+                    _val144 = new List<Config.StoryConfig>();
+                    TList _list145 = iprot.ReadListBegin();
+                    for( int _i146 = 0; _i146 < _list145.Count; ++_i146)
                     {
-                      Config.StoryConfig _elem143 = new Config.StoryConfig();
-                      _elem143 = new Config.StoryConfig();
-                      _elem143.Read(iprot);
-                      _val140.Add(_elem143);
+                      Config.StoryConfig _elem147 = new Config.StoryConfig();
+                      _elem147 = new Config.StoryConfig();
+                      _elem147.Read(iprot);
+                      _val144.Add(_elem147);
                     }
                     iprot.ReadListEnd();
                   }
-                  StoryConfigMap[_key139] = _val140;
+                  StoryConfigMap[_key143] = _val144;
                 }
                 iprot.ReadMapEnd();
               }
@@ -112,14 +112,14 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.List, StoryConfigMap.Count));
-          foreach (int _iter144 in StoryConfigMap.Keys)
+          foreach (int _iter148 in StoryConfigMap.Keys)
           {
-            oprot.WriteI32(_iter144);
+            oprot.WriteI32(_iter148);
             {
-              oprot.WriteListBegin(new TList(TType.Struct, StoryConfigMap[_iter144].Count));
-              foreach (Config.StoryConfig _iter145 in StoryConfigMap[_iter144])
+              oprot.WriteListBegin(new TList(TType.Struct, StoryConfigMap[_iter148].Count));
+              foreach (Config.StoryConfig _iter149 in StoryConfigMap[_iter148])
               {
-                _iter145.Write(oprot);
+                _iter149.Write(oprot);
               }
               oprot.WriteListEnd();
             }

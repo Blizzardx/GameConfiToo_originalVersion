@@ -108,6 +108,24 @@ public class RunnerGameSettingImporter : AbstractExcelImporter
                     return;
                 }
 
+                List<double> stepFloatList = new List<double>();
+
+                if (values[i][index++] == "(")
+                {
+                    string value = values[i][index++];
+                    while (value != ")")
+                    {
+                        float stepFloat;
+                        if (!VaildUtil.TryConvertFloat(value, out stepFloat))
+                        {
+                            errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，没有获取正确的 step float", this.GetConfigName(), sheetName, row, index);
+                            return;
+                        }
+                        stepFloatList.Add(stepFloat);
+                        value = values[i][index++];
+                    }
+                }
+
                 config.InitSpeed = initSpeed;
                 config.Gravity = gravity;
                 config.JumpSpeed = jumpSpeed;
@@ -118,6 +136,7 @@ public class RunnerGameSettingImporter : AbstractExcelImporter
                 config.SuperJumpGlideTime = superJumpGlideTime;
                 config.JumpEndDelayTime = jumpEndDelayTime;
                 config.TrunkLoopCount = trunkLoopCount;
+                config.HitWaitTimeList = stepFloatList;
             }
         }
     }

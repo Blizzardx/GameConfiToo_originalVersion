@@ -33,6 +33,7 @@ namespace Config.Table
     private double _superJumpGlideTime;
     private double _jumpEndDelayTime;
     private int _trunkLoopCount;
+    private List<double> _hitWaitTimeList;
 
     public double InitSpeed
     {
@@ -164,6 +165,19 @@ namespace Config.Table
       }
     }
 
+    public List<double> HitWaitTimeList
+    {
+      get
+      {
+        return _hitWaitTimeList;
+      }
+      set
+      {
+        __isset.hitWaitTimeList = true;
+        this._hitWaitTimeList = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -180,6 +194,7 @@ namespace Config.Table
       public bool superJumpGlideTime;
       public bool jumpEndDelayTime;
       public bool trunkLoopCount;
+      public bool hitWaitTimeList;
     }
 
     public RunnerGameSettingTable() {
@@ -263,6 +278,23 @@ namespace Config.Table
           case 10:
             if (field.Type == TType.I32) {
               TrunkLoopCount = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 11:
+            if (field.Type == TType.List) {
+              {
+                HitWaitTimeList = new List<double>();
+                TList _list128 = iprot.ReadListBegin();
+                for( int _i129 = 0; _i129 < _list128.Count; ++_i129)
+                {
+                  double _elem130 = (double)0;
+                  _elem130 = iprot.ReadDouble();
+                  HitWaitTimeList.Add(_elem130);
+                }
+                iprot.ReadListEnd();
+              }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -360,6 +392,21 @@ namespace Config.Table
         oprot.WriteI32(TrunkLoopCount);
         oprot.WriteFieldEnd();
       }
+      if (HitWaitTimeList != null && __isset.hitWaitTimeList) {
+        field.Name = "hitWaitTimeList";
+        field.Type = TType.List;
+        field.ID = 11;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.Double, HitWaitTimeList.Count));
+          foreach (double _iter131 in HitWaitTimeList)
+          {
+            oprot.WriteDouble(_iter131);
+          }
+          oprot.WriteListEnd();
+        }
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -386,6 +433,8 @@ namespace Config.Table
       sb.Append(JumpEndDelayTime);
       sb.Append(",TrunkLoopCount: ");
       sb.Append(TrunkLoopCount);
+      sb.Append(",HitWaitTimeList: ");
+      sb.Append(HitWaitTimeList);
       sb.Append(")");
       return sb.ToString();
     }

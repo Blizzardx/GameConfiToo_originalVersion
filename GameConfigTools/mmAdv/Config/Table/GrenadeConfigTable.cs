@@ -66,13 +66,13 @@ namespace Config.Table
             if (field.Type == TType.List) {
               {
                 GrenadeConfig = new List<Config.GrenadeConfig>();
-                TList _list146 = iprot.ReadListBegin();
-                for( int _i147 = 0; _i147 < _list146.Count; ++_i147)
+                TList _list150 = iprot.ReadListBegin();
+                for( int _i151 = 0; _i151 < _list150.Count; ++_i151)
                 {
-                  Config.GrenadeConfig _elem148 = new Config.GrenadeConfig();
-                  _elem148 = new Config.GrenadeConfig();
-                  _elem148.Read(iprot);
-                  GrenadeConfig.Add(_elem148);
+                  Config.GrenadeConfig _elem152 = new Config.GrenadeConfig();
+                  _elem152 = new Config.GrenadeConfig();
+                  _elem152.Read(iprot);
+                  GrenadeConfig.Add(_elem152);
                 }
                 iprot.ReadListEnd();
               }
@@ -100,9 +100,9 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, GrenadeConfig.Count));
-          foreach (Config.GrenadeConfig _iter149 in GrenadeConfig)
+          foreach (Config.GrenadeConfig _iter153 in GrenadeConfig)
           {
-            _iter149.Write(oprot);
+            _iter153.Write(oprot);
           }
           oprot.WriteListEnd();
         }
