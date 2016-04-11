@@ -103,6 +103,8 @@ namespace GameConfigTools.Constant
         public static readonly string GRENADE_CONFIG = "grenadeConfig";
 
         public static readonly string FLIPCARD_LEVEL_CONFIG = "flipCardLevelConfig";
+
+        public static readonly string PUZZLEGAME_LEVEL_CONFIG = "puzzleGameLevelConfig";
     }
 }
 

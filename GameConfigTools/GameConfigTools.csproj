@@ -251,6 +251,7 @@
     <Compile Include="Import\mmAdvImport\NameDirtyWordImporter.cs" />
     <Compile Include="Import\mmAdvImport\NpcImporter.cs" />
     <Compile Include="Import\mmAdvImport\ItemsImporter.cs" />
+    <Compile Include="Import\mmAdvImport\PuzzleGameLevelImporter.cs" />
     <Compile Include="Import\mmAdvImport\RatioGameImporter.cs" />
     <Compile Include="Import\mmAdvImport\RegularityImporter.cs" />
     <Compile Include="Import\mmAdvImport\RegularitySettingImporter.cs" />
