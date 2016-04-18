@@ -67,6 +67,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.GRENADE_CONFIG, new GrenadeImporter());
             importerDic.Add(SysConstant.FLIPCARD_LEVEL_CONFIG, new FlipCardLevelImporter());
             importerDic.Add(SysConstant.PUZZLEGAME_LEVEL_CONFIG, new PuzzleGameLevelImporter());
+            importerDic.Add(SysConstant.LINEGAME_LEVEL_CONFIG, new LineGameLevelImporter());
         }
         /// <summary>
         /// 加载关联导入
@@ -91,6 +92,7 @@ namespace GameConfigTools.Import
             externalConfigDic.Add(SysConstant.FLIPCARD_LEVEL_CONFIG, SysConstant.FLIPCARD_LEVEL_CONFIG + "_txtpkg.bytes");
 
             externalConfigDic.Add(SysConstant.PUZZLEGAME_LEVEL_CONFIG, SysConstant.PUZZLEGAME_LEVEL_CONFIG + "_txtpkg.bytes");
+            externalConfigDic.Add(SysConstant.LINEGAME_LEVEL_CONFIG, SysConstant.LINEGAME_LEVEL_CONFIG + "_txtpkg.bytes");
         }
 
         public Importer GetImporter(string configName)

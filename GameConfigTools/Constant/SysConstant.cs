@@ -105,6 +105,8 @@ namespace GameConfigTools.Constant
         public static readonly string FLIPCARD_LEVEL_CONFIG = "flipCardLevelConfig";
 
         public static readonly string PUZZLEGAME_LEVEL_CONFIG = "puzzleGameLevelConfig";
+
+        public static readonly string LINEGAME_LEVEL_CONFIG = "lineGameLevelConfig";
     }
 }
 

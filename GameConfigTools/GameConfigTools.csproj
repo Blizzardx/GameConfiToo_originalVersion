@@ -243,6 +243,7 @@
     <Compile Include="Import\mmAdvImport\GrenadeImporter.cs" />
     <Compile Include="Import\mmAdvImport\LimitFuncSceneImporter.cs" />
     <Compile Include="Import\mmAdvImport\LimitImporter.cs" />
+    <Compile Include="Import\mmAdvImport\LineGameLevelImporter.cs" />
     <Compile Include="Import\mmAdvImport\MainMissionImporter.cs" />
     <Compile Include="Import\mmAdvImport\MessageImporter.cs" />
     <Compile Include="Import\mmAdvImport\MissionStepImporter.cs" />
@@ -307,14 +308,17 @@
     <Compile Include="mmAdv\Config\Table\DialogConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\DirtywordConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\FlightGameConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\FlipCardLevelConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\FuncConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\GrenadeConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\ItemConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\LimitConfgTable.cs" />
     <Compile Include="mmAdv\Config\Table\LimitFuncSceneConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\LineGameLevelConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MainMissionConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MessageConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MissionStepConfigTable.cs" />
+    <Compile Include="mmAdv\Config\Table\MoleAttackLevelConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MusicGameConfigTable.cs" />
     <Compile Include="mmAdv\Config\Table\MusicGameSettingTable.cs" />
     <Compile Include="mmAdv\Config\Table\NpcConfigTable.cs" />
