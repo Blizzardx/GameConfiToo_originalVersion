@@ -92,7 +92,7 @@ namespace GameConfigTools.Import
             externalConfigDic.Add(SysConstant.FLIPCARD_LEVEL_CONFIG, SysConstant.FLIPCARD_LEVEL_CONFIG + "_txtpkg.bytes");
 
             externalConfigDic.Add(SysConstant.PUZZLEGAME_LEVEL_CONFIG, SysConstant.PUZZLEGAME_LEVEL_CONFIG + "_txtpkg.bytes");
-            externalConfigDic.Add(SysConstant.LINEGAME_LEVEL_CONFIG, SysConstant.LINEGAME_LEVEL_CONFIG + "_txtpkg.bytes");
+            //externalConfigDic.Add(SysConstant.LINEGAME_LEVEL_CONFIG, SysConstant.LINEGAME_LEVEL_CONFIG + "_txtpkg.bytes");
         }
 
         public Importer GetImporter(string configName)
