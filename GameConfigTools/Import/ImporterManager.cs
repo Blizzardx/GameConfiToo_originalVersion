@@ -68,6 +68,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.FLIPCARD_LEVEL_CONFIG, new FlipCardLevelImporter());
             importerDic.Add(SysConstant.PUZZLEGAME_LEVEL_CONFIG, new PuzzleGameLevelImporter());
             importerDic.Add(SysConstant.LINEGAME_LEVEL_CONFIG, new LineGameLevelImporter());
+            importerDic.Add(SysConstant.MOLEATTACK_LEVEL_CONFIG, new MoleAttackLevelImporter());
         }
         /// <summary>
         /// 加载关联导入

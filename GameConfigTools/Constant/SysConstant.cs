@@ -107,6 +107,7 @@ namespace GameConfigTools.Constant
         public static readonly string PUZZLEGAME_LEVEL_CONFIG = "puzzleGameLevelConfig";
 
         public static readonly string LINEGAME_LEVEL_CONFIG = "lineGameLevelConfig";
+        public static readonly string MOLEATTACK_LEVEL_CONFIG = "moleAttackLevelConfig";
     }
 }
 

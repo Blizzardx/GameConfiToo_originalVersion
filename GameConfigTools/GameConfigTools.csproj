@@ -247,6 +247,7 @@
     <Compile Include="Import\mmAdvImport\MainMissionImporter.cs" />
     <Compile Include="Import\mmAdvImport\MessageImporter.cs" />
     <Compile Include="Import\mmAdvImport\MissionStepImporter.cs" />
+    <Compile Include="Import\mmAdvImport\MoleAttackLevelImporter.cs" />
     <Compile Include="Import\mmAdvImport\MusicGameImporter.cs" />
     <Compile Include="Import\mmAdvImport\MusicGameSettingImporter.cs" />
     <Compile Include="Import\mmAdvImport\NameDirtyWordImporter.cs" />
