@@ -53,7 +53,7 @@
             this.exportAllBgw = new System.ComponentModel.BackgroundWorker();
             this.importAllBwg = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.剧情文件上传ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.自动生成解析代码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +73,8 @@
             // 
             this.选项ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.工具配置ToolStripMenuItem,
-            this.编辑客户端资源版本ToolStripMenuItem});
+            this.编辑客户端资源版本ToolStripMenuItem,
+            this.自动生成解析代码ToolStripMenuItem});
             this.选项ToolStripMenuItem.Name = "选项ToolStripMenuItem";
             this.选项ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.选项ToolStripMenuItem.Text = "选项";
@@ -95,8 +96,7 @@
             // 特殊配置ToolStripMenuItem
             // 
             this.特殊配置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aIToolStripMenuItem,
-            this.剧情文件上传ToolStripMenuItem});
+            this.aIToolStripMenuItem});
             this.特殊配置ToolStripMenuItem.Name = "特殊配置ToolStripMenuItem";
             this.特殊配置ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.特殊配置ToolStripMenuItem.Text = "特殊配置";
@@ -105,7 +105,7 @@
             // 
             this.aIToolStripMenuItem.Enabled = false;
             this.aIToolStripMenuItem.Name = "aIToolStripMenuItem";
-            this.aIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aIToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.aIToolStripMenuItem.Text = "编辑AI";
             this.aIToolStripMenuItem.Click += new System.EventHandler(this.编辑AIToolStripMenuItem_Click);
             // 
@@ -268,12 +268,12 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // 剧情文件上传ToolStripMenuItem
+            // 自动生成解析代码ToolStripMenuItem
             // 
-            this.剧情文件上传ToolStripMenuItem.Name = "剧情文件上传ToolStripMenuItem";
-            this.剧情文件上传ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.剧情文件上传ToolStripMenuItem.Text = "剧情文件上传";
-            this.剧情文件上传ToolStripMenuItem.Click += new System.EventHandler(this.剧情文件上传ToolStripMenuItem_Click);
+            this.自动生成解析代码ToolStripMenuItem.Name = "自动生成解析代码ToolStripMenuItem";
+            this.自动生成解析代码ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.自动生成解析代码ToolStripMenuItem.Text = "自动生成解析代码";
+            this.自动生成解析代码ToolStripMenuItem.Click += new System.EventHandler(this.自动生成解析代码ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -286,7 +286,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "配置管理工具1";
+            this.Text = "配置管理工具";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -323,7 +323,7 @@
         private System.Windows.Forms.ToolStripMenuItem 编辑客户端资源版本ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 特殊配置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aIToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 剧情文件上传ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 自动生成解析代码ToolStripMenuItem;
     }
 }
 

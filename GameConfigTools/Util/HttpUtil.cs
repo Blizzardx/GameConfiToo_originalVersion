@@ -6,6 +6,7 @@ using System.Net;
 using System.IO;
 using System.IO.Compression;
 using System.Web;
+using GameConfigTools.Constant;
 
 namespace GameConfigTools.Util
 {
@@ -208,6 +209,7 @@ namespace GameConfigTools.Util
                 postParameters.Add("filename", fileName);
                 postParameters.Add("fileformat", "bytes");
                 postParameters.Add("path", "config");
+                postParameters.Add("version", Context.instance.GetVersion());
                 postParameters.Add("file", new HttpUtil.FileParameter(data, fileName, "application/msword"));
 
                 // Create request and receive response

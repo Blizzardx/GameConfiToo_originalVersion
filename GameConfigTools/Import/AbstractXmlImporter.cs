@@ -120,12 +120,11 @@ namespace GameConfigTools.Import
                     LogQueue.instance.Add("寻找外部客户端配置:" + name);
                     if (!File.Exists(name))
                     {
-                        LogQueue.instance.Add("外部客户端配置不存在:" + name);
+                        errMsg = name + " 不存在!";
+                        return false;
                     }
-                    else
-                    {
-                        UploadClientConfig(name, ref errMsg);
-                    }
+
+                    UploadClientConfig(name, ref errMsg);
                 }
             }
 

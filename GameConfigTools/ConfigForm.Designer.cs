@@ -64,7 +64,6 @@
             this.serverConfigPathTextBox.ReadOnly = true;
             this.serverConfigPathTextBox.Size = new System.Drawing.Size(353, 21);
             this.serverConfigPathTextBox.TabIndex = 1;
-            this.serverConfigPathTextBox.TextChanged += new System.EventHandler(this.serverConfigPathTextBox_TextChanged);
             // 
             // selectServerConfigPathButton
             // 

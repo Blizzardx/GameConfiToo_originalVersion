@@ -15,10 +15,10 @@ namespace GameConfigTools.Export
         public ExporterManager()
         {
             exporterDic.Add(SysConstant.MESSAGE_CONFIG, new MessageExporter());
-           // exporterDic.Add(SysConstant.CHAT_DIRTY_WORD_CONFIG, new ChatDirtyWordExporter());
-           // exporterDic.Add(SysConstant.NAME_DIRTY_WORD_CONFIG, new NameDirtyWordExporter());
-           // exporterDic.Add(SysConstant.COUNTER_CONFIG, new CounterExporter());
-            //exporterDic.Add(SysConstant.LIMIT_FUNC_SCENE_CONFIG, new LimitFuncSceneExporter());
+            exporterDic.Add(SysConstant.CHAT_DIRTY_WORD_CONFIG, new ChatDirtyWordExporter());
+            exporterDic.Add(SysConstant.NAME_DIRTY_WORD_CONFIG, new NameDirtyWordExporter());
+            exporterDic.Add(SysConstant.COUNTER_CONFIG, new CounterExporter());
+            exporterDic.Add(SysConstant.LIMIT_FUNC_SCENE_CONFIG, new LimitFuncSceneExporter());
             exporterDic.Add(SysConstant.SYSTEM_CONFIG, new ServerSystemExporter());
         }
 

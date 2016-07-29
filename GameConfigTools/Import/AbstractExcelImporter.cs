@@ -162,6 +162,11 @@ namespace GameConfigTools.Import
                 sheetValues.Add(values);
             }
 
+            AutoParasTable(sheetValues, ref errMsg);
+            if (errMsg != "")
+            {
+                return false;
+            }
             this.GenerateConfig(sheetValues, ref errMsg, out root, out tbase);
 
             //下面生成服务器和客户端的配置
@@ -217,7 +222,11 @@ namespace GameConfigTools.Import
                 string content = HttpUtility.UrlEncode(root.ToString(), Encoding.UTF8).Replace(" ", "%26").Replace("+", "%20");
                 string postString = string.Format("game_type={0}&server_version={1}&name={2}&content={3}", Context.instance.GetGame(), Context.instance.GetVersion(), this.GetConfigName(), content);
                 string html = HttpUtil.HttpPost(config.ConfigCenterUrl + SysConstant.UPDATE_CONFIG, postString);
-
+                if(html == null)
+                {
+                    errMsg = "连接服务器失败，请重新上传";
+                    return false;
+                }
                 JObject json = JObject.Parse(html);
                 int status = int.Parse(json["status"].ToString());
                 if (status == -1)
@@ -483,6 +492,19 @@ namespace GameConfigTools.Import
                 return null;
             }
             return null;
+        }
+
+        protected virtual void AutoParasTable(List<string[][]> sheetValues, ref string errMsg)
+        {
+        }
+
+        protected virtual void OnAutoParasBegin()
+        {
+        }
+
+        protected virtual void OnAutoParasLine(string[] line, ref string errMsg)
+        {
+            
         }
     }
 }

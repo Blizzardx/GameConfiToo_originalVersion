@@ -22,7 +22,7 @@ namespace GameConfigTools.AIForm.Decorator
 
         public override string GetNodeDesc()
         {
-            return "间隔装饰节点";
+            return "间隔时间装饰节点";
         }
     }
 }

@@ -119,9 +119,14 @@ namespace GameConfigTools.AIForm
                     }
                 case 1:
                     {
-                        if (selectNodeNameIndex == 0)
+                        int index = 0;
+                        if (selectNodeNameIndex == index++)
                         {
                             this.AddParamPanelToGroupBox(new InverterDecoratorPanel());
+                        }
+                        else if (selectNodeNameIndex == index++)
+                        {
+                            this.AddParamPanelToGroupBox(new InverterByframeDecoratorPanel());
                         }
                         break;
                     }
@@ -133,26 +138,17 @@ namespace GameConfigTools.AIForm
                 case 3:   //行为
                     {
                         int index = 0;
-                        
                         if (selectNodeNameIndex == index++)
                         {
-                            this.AddParamPanelToGroupBox(new PatrolActionPanel());
+                            this.AddParamPanelToGroupBox(new DeadActionPanel());
                         }
                         else if (selectNodeNameIndex == index++)
                         {
-                            this.AddParamPanelToGroupBox(new SeekActionPanel());
+                            AddParamPanelToGroupBox(new SkillAttackActionPanel());
                         }
                         else if (selectNodeNameIndex == index++)
                         {
-                            this.AddParamPanelToGroupBox(new PositionActionPanel());
-                        }
-                        else if (selectNodeNameIndex == index++)
-                        {
-                            this.AddParamPanelToGroupBox(new RetreatActionPanel());
-                        }
-                        else if (selectNodeNameIndex == index++)
-                        {
-                            this.AddParamPanelToGroupBox(new IdleActionPanel());
+                            this.AddParamPanelToGroupBox(new RunActionPanel());
                         }
                         else if (selectNodeNameIndex == index++)
                         {
@@ -160,7 +156,23 @@ namespace GameConfigTools.AIForm
                         }
                         else if (selectNodeNameIndex == index++)
                         {
-                            this.AddParamPanelToGroupBox(new AttackedActionPanel());
+                            this.AddParamPanelToGroupBox(new IdleStaticActionPanel());
+                        }
+                        else if (selectNodeNameIndex == index++)
+                        {
+                            this.AddParamPanelToGroupBox(new IdleRegularityActionPanel());
+                        }
+                        else if (selectNodeNameIndex == index++)
+                        {
+                            this.AddParamPanelToGroupBox(new IdleRandomActionPanel());
+                        }
+                        else if (selectNodeNameIndex == index++)
+                        {
+                            this.AddParamPanelToGroupBox(new MoveActionPanel());
+                        }
+                        else if (selectNodeNameIndex == index++)
+                        {
+                            this.AddParamPanelToGroupBox(new JumptoActionPanel());
                         }
                         break;
                     }

@@ -5,7 +5,6 @@ using System.Text;
 using GameConfigTools.Constant;
 using Thrift.Protocol;
 using System.Xml.Linq;
-using GameConfigTools.Import.mmAdvImport;
 
 namespace GameConfigTools.Import
 {
@@ -33,67 +32,82 @@ namespace GameConfigTools.Import
         /// </summary>
         private void LoadImporter()
         {
-            importerDic.Add(SysConstant.MESSAGE_CONFIG, new MessageImporter());
-            importerDic.Add(SysConstant.LIMIT_CONFIG, new LimitImporter());
-            importerDic.Add(SysConstant.TARGET_CONFIG, new TargetImporter());
-            importerDic.Add(SysConstant.FUNC_CONFIG, new FuncImporter());
-            importerDic.Add(SysConstant.CHARACTOR_CONFIG, new CharactorImporter());
-            importerDic.Add(SysConstant.NPC_CONFIG, new NpcImporter());
-            importerDic.Add(SysConstant.TERRAIN_CONFIG, new TerrainImporter());
-            importerDic.Add(SysConstant.ACTION_CONFIG, new ActionImporter());
-            importerDic.Add(SysConstant.DIALOG_CONFIG, new DialogImporter());
-            importerDic.Add(SysConstant.MISSION_STEP_CONFIG, new MissionStepImporter());
-            importerDic.Add(SysConstant.MAIN_MISSION_CONFIG, new MainMissionImporter());
-            importerDic.Add(SysConstant.STAGE_CONFIG, new StageImporter());
-            importerDic.Add(SysConstant.SKILL_CONFIG, new SkillImporter());
             importerDic.Add(SysConstant.CHAT_DIRTY_WORD_CONFIG, new ChatDirtyWordImporter());
             importerDic.Add(SysConstant.NAME_DIRTY_WORD_CONFIG, new NameDirtyWordImporter());
-            importerDic.Add(SysConstant.RATIOGAME_CONFIG, new RatioGameImporter());
-            importerDic.Add(SysConstant.ITEMS_CONFIG, new ItemsImporter());
-            importerDic.Add(SysConstant.AI_CONFIG, new AIConfigImporter());
-            importerDic.Add(SysConstant.ARITHMETIC_CONFIG, new ArithmeticImporter());
-            importerDic.Add(SysConstant.DEFAULT_TALENT_CONFIG, new DefaultUserTalentImporter());
-            importerDic.Add(SysConstant.DIFFICULTY_CONFIG, new DifficultyControlImporter());
-            importerDic.Add(SysConstant.TALENT_CONFIG, new TalentControlImpoort());
-            importerDic.Add(SysConstant.REGULARITY_CONFIG, new RegularityImporter());
-            importerDic.Add(SysConstant.REGULARITY_SETTING_CONFIG, new RegularitySettingImporter());
-            importerDic.Add(SysConstant.FLIGHT_CONFIG, new FlightImporter());
-            importerDic.Add(SysConstant.MUSICGAME_SETTING_CONFIG, new MusicGameSettingImporter());
-            importerDic.Add(SysConstant.MUSICGAME_CONFIG, new MusicGameImporter());
-            importerDic.Add(SysConstant.RUNNERGAME_SETTING_CONFIG, new RunnerGameSettingImporter());
+            importerDic.Add(SysConstant.MESSAGE_CONFIG, new MessageImporter());
             importerDic.Add(SysConstant.LIMIT_FUNC_SCENE_CONFIG, new LimitFuncSceneImporter());
-            importerDic.Add(SysConstant.RUNNER_TRUNK_CONFIG, new RunnerTrunkImporter());
+            importerDic.Add(SysConstant.LIMIT_CONFIG, new LimitImporter());
+            importerDic.Add(SysConstant.FUNC_CONFIG, new FuncImporter());
+            importerDic.Add(SysConstant.TARGET_CONFIG, new TargetImporter());
+            importerDic.Add(SysConstant.CHARACTER_BASE_CONFIG, new CharacterBaseConfigImporter());
+            importerDic.Add(SysConstant.BATTLE_ACTION_CONFIG, new BattleActionConfigImporter());
+            importerDic.Add(SysConstant.BATTLE_ACTION_EVENT_CONFIG, new BattleActionEventConfigImporter());
+            importerDic.Add(SysConstant.BATTLE_SKILL_CONFIG, new BattleSkillConfigImporter());
+            importerDic.Add(SysConstant.BATTLE_EFFECT_CONFIG, new BattleEffectConfigImporter());
+            importerDic.Add(SysConstant.BATTLE_EFFECT_EVENT_CONFIG, new BattleEffectEventConfigImporter());
+            importerDic.Add(SysConstant.BATTLE_ITEM_CONFIG, new BattleItemConfigImporter());
+            importerDic.Add(SysConstant.AERO_ATTRIBUTE_CONFIG, new AeroAttributeConfigImporter());
             importerDic.Add(SysConstant.STORY_CONFIG, new StoryImporter());
-            importerDic.Add(SysConstant.GRENADE_CONFIG, new GrenadeImporter());
-            importerDic.Add(SysConstant.FLIPCARD_LEVEL_CONFIG, new FlipCardLevelImporter());
-            importerDic.Add(SysConstant.PUZZLEGAME_LEVEL_CONFIG, new PuzzleGameLevelImporter());
-            importerDic.Add(SysConstant.LINEGAME_LEVEL_CONFIG, new LineGameLevelImporter());
-            importerDic.Add(SysConstant.MOLEATTACK_LEVEL_CONFIG, new MoleAttackLevelImporter());
+            importerDic.Add(SysConstant.DIALOG_CONFIG, new DialogImporter());
+            importerDic.Add(SysConstant.EFFECT_ITEM_CONFIG, new EffectItemCollideImporter());
+
+            importerDic.Add(SysConstant.COUNTER_CONFIG, new CounterImporter());
+            importerDic.Add(SysConstant.SYSTEM_CONFIG, new SystemImporter());
+            importerDic.Add(SysConstant.RANDOM_NAME_CONFIG, new RandomNameImporter());
+            importerDic.Add(SysConstant.GM_LANGUAGE_CONFIG, new GMLanguageImporter());
+            importerDic.Add(SysConstant.BATTLE_BUFF_CONFIG, new BattleBuffImporter());
+            importerDic.Add(SysConstant.BUFF_CLASH_CONFIG, new BuffClashImporter());
+            importerDic.Add(SysConstant.AI_CONFIG, new AIConfigImporter());
+            importerDic.Add(SysConstant.MONSTER_CONFIG, new MonsterImporter());
+            importerDic.Add(SysConstant.DROP_CONFIG, new DropImporter());
+            importerDic.Add(SysConstant.MONSTER_SKILL_GROUP_CONFIG, new MonsterSkillGroupConfigImporter());
+            importerDic.Add(SysConstant.ACTION_GROUP_CONFIG, new ActionGroupConfigImporter());
+            importerDic.Add(SysConstant.CHAPTER_CONFIG, new ChapterImporter());
+            importerDic.Add(SysConstant.STAGE_CONFIG, new StageImporter());
+            importerDic.Add(SysConstant.AERO_CONFIG, new AeroConfigImporter());
+            importerDic.Add(SysConstant.DARK_CLOUD_CONFIG, new DarkCloudConfigImporter());
+            importerDic.Add(SysConstant.CLOUD_CONFIG,new CloudConfigImporter());
+            importerDic.Add(SysConstant.RAIN_CONFIG,new RainConfigImporter());
+            importerDic.Add(SysConstant.SHOCK_CONFIG,new ShockConfigImporter());
+            importerDic.Add(SysConstant.WEATHER_PLAN_CONFIG,new WeatherPlanConfigImporter());
+            importerDic.Add(SysConstant.STAGE_WEATHER_PLAN_CONFIG,new StageWeatherPlanConfigImporter());
+            importerDic.Add(SysConstant.ITEM_GENERATOR_CONFIG,new ItemGeneratorConfigImporter());
+            importerDic.Add(SysConstant.STAGE_LOGIC_POINT_DESC_CONFIG,new StageLogicPointDescConfigImporter());
+            importerDic.Add(SysConstant.PVP_STAGE_CONFIG,new PvpStageConfigImporter());
+            importerDic.Add(SysConstant.MODE_CONFIG,new ModeConfigImporter());
+            importerDic.Add(SysConstant.RESULT_CONFIG,new ResultConfigImporter());
+            importerDic.Add(SysConstant.ROOM_CHANNEL_CONFIG, new RoomChannelImporter());
+            importerDic.Add(SysConstant.PROPS_CONFIG, new PropsImporter());
+            importerDic.Add(SysConstant.DIY_MALL_CONFIG, new DiyMallImporter());
+            importerDic.Add(SysConstant.DIY_PRESET_CONFIG, new DiyPresetImporter());
+            importerDic.Add(SysConstant.DECORATE_CONFIG, new DecorateConfigImporter());
+            importerDic.Add(SysConstant.ROOM_ACTION_MALL_CONFIG, new RoomActionMallImport());
+            importerDic.Add(SysConstant.ROOM_ACTION_CONFIG, new RoomActionImporter());
+            importerDic.Add(SysConstant.FASHION_CONFIG, new FashionConfigImporter());
+            importerDic.Add(SysConstant.FASHION_GROUP_CONFIG, new FashionGroupConfigImporter());
+            importerDic.Add(SysConstant.SPELLCARD_CONFIG, new SpellCardConfigImporter());
+            importerDic.Add(SysConstant.SPELLCARD_LEVELUP_CONFIG, new SpellCardLevelupConfigImporter());
+            importerDic.Add(SysConstant.BASE_MALL_CONFIG, new BaseMallImporter());
+            importerDic.Add(SysConstant.ACTIVITY_MALL_CONFIG, new ActivityMallConfigImporter());
+            importerDic.Add(SysConstant.MALL_CONFIG, new MallConfigImporter());
+            importerDic.Add(SysConstant.DIY_CHAR_CONFIG, new DiyCharConfigImporter());
         }
         /// <summary>
         /// 加载关联导入
         /// </summary>
         private void LoadLinkImporter()
         {
-            //linkDic.Add(SysConstant.LIMIT_FUNC_SCENE_CONFIG, new string[] { SysConstant.LIMIT_CONFIG, SysConstant.FUNC_CONFIG });
+            linkDic.Add(SysConstant.LIMIT_FUNC_SCENE_CONFIG, new string[] { SysConstant.LIMIT_CONFIG, SysConstant.FUNC_CONFIG });
             linkDic.Add(SysConstant.LIMIT_CONFIG, new string[] { SysConstant.MESSAGE_CONFIG });
+            linkDic.Add(SysConstant.FASHION_GROUP_CONFIG, new string[] { SysConstant.FASHION_CONFIG });
+            linkDic.Add(SysConstant.SPELLCARD_LEVELUP_CONFIG, new string[] { SysConstant.SPELLCARD_CONFIG });
         }
 
         private void LoadExternalConfigName()
         {
-            externalConfigDic.Add(SysConstant.TERRAIN_CONFIG, SysConstant.TERRAIN_CONFIG+"_txtpkg.bytes");
+            //externalConfigDic.Add(SysConstant.TERRAIN_EDITOR_CONFIG, "terrain_txtpkg.bytes");
             //externalConfigDic.Add(SysConstant.FORMATION_EDITOR_CONFIG, "formation_txtpkg.bytes");
-            externalConfigDic.Add(SysConstant.ACTION_CONFIG, SysConstant.ACTION_CONFIG + "_txtpkg.bytes");
-
-            externalConfigDic.Add(SysConstant.DEFAULT_TALENT_CONFIG, SysConstant.DEFAULT_TALENT_CONFIG + "_txtpkg.bytes");
-            externalConfigDic.Add(SysConstant.DIFFICULTY_CONFIG, SysConstant.DIFFICULTY_CONFIG + "_txtpkg.bytes");
-            externalConfigDic.Add(SysConstant.TALENT_CONFIG, SysConstant.TALENT_CONFIG + "_txtpkg.bytes");
-            externalConfigDic.Add(SysConstant.RUNNER_TRUNK_CONFIG, SysConstant.RUNNER_TRUNK_CONFIG + "_txtpkg.bytes");
-
-            //externalConfigDic.Add(SysConstant.FLIPCARD_LEVEL_CONFIG, SysConstant.FLIPCARD_LEVEL_CONFIG + "_txtpkg.bytes");
-
-            externalConfigDic.Add(SysConstant.PUZZLEGAME_LEVEL_CONFIG, SysConstant.PUZZLEGAME_LEVEL_CONFIG + "_txtpkg.bytes");
-            //externalConfigDic.Add(SysConstant.LINEGAME_LEVEL_CONFIG, SysConstant.LINEGAME_LEVEL_CONFIG + "_txtpkg.bytes");
+            //externalConfigDic.Add(SysConstant.ANIEDITOR_CONFIG, "anieditordata_txtpkg.bytes");
         }
 
         public Importer GetImporter(string configName)

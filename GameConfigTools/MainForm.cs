@@ -17,6 +17,7 @@ using GameConfigTools.Export;
 using GameConfigTools.Import;
 using System.Xml.Linq;
 using System.Net;
+using ExcelImporter.Importer;
 using GameConfigTools.AIForm;
 
 namespace GameConfigTools
@@ -41,6 +42,7 @@ namespace GameConfigTools
         {
             ConfigForm configForm = new ConfigForm();
             configForm.ShowDialog(this);
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -378,14 +380,7 @@ namespace GameConfigTools
             int index = 0;
             int successCount = 0;
             int failCount = 0;
-            //string[] tmpList = new[] { "charactorConfig", "funcConfig", "limitConfig", "messageConfig", "npcConfig", "targetConfig" };
-            List<string> tmpList = new List<string>();
             foreach (object item in configComboBox.Items)
-            {
-                tmpList.Add(item.ToString());
-            }
-            //tmpList.Add("storyConfig");
-            foreach (object item in tmpList)
             {
                 importAllBwg.ReportProgress(index, "开始导入第" + (index + 1) + "个配置:" + item.ToString());
                 Importer exporter = ImporterManager.instance.GetImporter(item.ToString());
@@ -466,9 +461,9 @@ namespace GameConfigTools
             aiForm.Show();
         }
 
-        private void 剧情文件上传ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 自动生成解析代码ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ScriptGenTool.GenAllScript();
         }
     }
 }

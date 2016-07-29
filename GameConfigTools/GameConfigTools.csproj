@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GameConfigTools</RootNamespace>
     <AssemblyName>GameConfigTools</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -39,6 +39,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -48,6 +49,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>1.ico</ApplicationIcon>
@@ -57,10 +59,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -72,79 +79,73 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AIForm\ActionNode.cs" />
-    <Compile Include="AIForm\Action\AttackedActionNode.cs" />
-    <Compile Include="AIForm\Action\AttackedActionPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AIForm\Action\AttackedActionPanel.Designer.cs">
-      <DependentUpon>AttackedActionPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AIForm\Action\PositionActionPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AIForm\Action\PositionActionPanel.Designer.cs">
-      <DependentUpon>PositionActionPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AIForm\Action\PositionActionNode.cs" />
-    <Compile Include="AIForm\Action\SkillPriorityDecisionActionPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AIForm\Action\SkillPriorityDecisionActionPanel.Designer.cs">
-      <DependentUpon>SkillPriorityDecisionActionPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AIForm\Action\SkillPriorityDecisionActionNode.cs" />
-    <Compile Include="AIForm\Action\ChaseActionNode.cs" />
-    <Compile Include="AIForm\Action\ChaseActionPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AIForm\Action\ChaseActionPanel.Designer.cs">
-      <DependentUpon>ChaseActionPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="AIForm\Action\AttackActionNode.cs" />
-    <Compile Include="AIForm\Action\IdleActionNode.cs" />
+    <Compile Include="AIForm\Action\DeadActionNode.cs" />
+    <Compile Include="AIForm\Action\DeadActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\DeadActionPanel.Designer.cs">
+      <DependentUpon>DeadActionPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="AIForm\Action\AttackActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AIForm\Action\AttackActionPanel.Designer.cs">
       <DependentUpon>AttackActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\IdleActionPanel.cs">
+    <Compile Include="AIForm\Action\IdleRandomActionNode.cs" />
+    <Compile Include="AIForm\Action\IdleRandomActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\IdleActionPanel.Designer.cs">
-      <DependentUpon>IdleActionPanel.cs</DependentUpon>
+    <Compile Include="AIForm\Action\IdleRandomActionPanel.Designer.cs">
+      <DependentUpon>IdleRandomActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\RetreatActionPanel.cs">
+    <Compile Include="AIForm\Action\IdleRegualrityActionNode.cs" />
+    <Compile Include="AIForm\Action\IdleRegularityActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\RetreatActionPanel.Designer.cs">
-      <DependentUpon>RetreatActionPanel.cs</DependentUpon>
+    <Compile Include="AIForm\Action\IdleRegularityActionPanel.Designer.cs">
+      <DependentUpon>IdleRegularityActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\RetreatActionNode.cs" />
-    <Compile Include="AIForm\Action\SeekActionPanel.cs">
+    <Compile Include="AIForm\Action\IdleStaticActionNode.cs" />
+    <Compile Include="AIForm\Action\IdleStaticActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\SeekActionPanel.Designer.cs">
-      <DependentUpon>SeekActionPanel.cs</DependentUpon>
+    <Compile Include="AIForm\Action\IdleStaticActionPanel.Designer.cs">
+      <DependentUpon>IdleStaticActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\SeekActionNode.cs" />
-    <Compile Include="AIForm\Action\PatrolActionPanel.cs">
+    <Compile Include="AIForm\Action\JumpToActionNode.cs" />
+    <Compile Include="AIForm\Action\JumptoActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\PatrolActionPanel.Designer.cs">
-      <DependentUpon>PatrolActionPanel.cs</DependentUpon>
+    <Compile Include="AIForm\Action\JumptoActionPanel.Designer.cs">
+      <DependentUpon>JumptoActionPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="AIForm\Action\MoveActionNode.cs" />
     <Compile Include="AIForm\Action\MoveActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AIForm\Action\MoveActionPanel.Designer.cs">
       <DependentUpon>MoveActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\MoveNode.cs" />
-    <Compile Include="AIForm\Action\PatrolActionNode.cs" />
+    <Compile Include="AIForm\Action\RunActionNode.cs" />
+    <Compile Include="AIForm\Action\RunActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\RunActionPanel.Designer.cs">
+      <DependentUpon>RunActionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Action\SkillAttackActionNode.cs" />
+    <Compile Include="AIForm\Action\SkillAttackActionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Action\SkillAttackActionPanel.Designer.cs">
+      <DependentUpon>SkillAttackActionPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="AIForm\AddBTRootForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +194,13 @@
       <DependentUpon>ConditionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="AIForm\DecoratorNode.cs" />
+    <Compile Include="AIForm\Decorator\InverterByframeDecoratorNode.cs" />
+    <Compile Include="AIForm\Decorator\InverterByframeDecoratorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Decorator\InverterByframeDecoratorPanel.Designer.cs">
+      <DependentUpon>InverterByframeDecoratorPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="AIForm\Decorator\InverterDecoratorNode.cs" />
     <Compile Include="AIForm\Decorator\InverterDecoratorPanel.cs">
       <SubType>UserControl</SubType>
@@ -213,6 +221,143 @@
     <Compile Include="ConfigForm.Designer.cs">
       <DependentUpon>ConfigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Config\ActionGroupConfig.cs" />
+    <Compile Include="Config\ActiviyMallConfig.cs" />
+    <Compile Include="Config\AeroAttributeConfig.cs" />
+    <Compile Include="Config\AeroConfig.cs" />
+    <Compile Include="Config\AIMoveConfig.cs" />
+    <Compile Include="Config\AuraSkillConfig.cs" />
+    <Compile Include="Config\BattleActionConfig.cs" />
+    <Compile Include="Config\BattleActionEventConfig.cs" />
+    <Compile Include="Config\BattleBuffConfig.cs" />
+    <Compile Include="Config\BattleEffectConfig.cs" />
+    <Compile Include="Config\BattleEffectEventConfig.cs" />
+    <Compile Include="Config\BattleItemConfig.cs" />
+    <Compile Include="Config\BattleSkillConfig.cs" />
+    <Compile Include="Config\CarryHeroConfig.cs" />
+    <Compile Include="Config\CarryHerosConfig.cs" />
+    <Compile Include="Config\ChapterConfig.cs" />
+    <Compile Include="Config\CharacterBaseConfig.cs" />
+    <Compile Include="Config\CharacterExpConfig.cs" />
+    <Compile Include="Config\CloudConfig.cs" />
+    <Compile Include="Config\CommonSkillConfig.cs" />
+    <Compile Include="Config\CycleCounterConfig.cs" />
+    <Compile Include="Config\DarkCloudConfig.cs" />
+    <Compile Include="Config\DecorateConfig.cs" />
+    <Compile Include="Config\DialogConfig.cs" />
+    <Compile Include="Config\DiyCharConfig.cs" />
+    <Compile Include="Config\DiyMallConfig.cs" />
+    <Compile Include="Config\DiyPositionInfo.cs" />
+    <Compile Include="Config\DiyPresetConfig.cs" />
+    <Compile Include="Config\DiyVertexInfo.cs" />
+    <Compile Include="Config\DropItem.cs" />
+    <Compile Include="Config\DropListConfig.cs" />
+    <Compile Include="Config\ExchangeConfig.cs" />
+    <Compile Include="Config\FashionConfig.cs" />
+    <Compile Include="Config\FashionGroupConfig.cs" />
+    <Compile Include="Config\FuncData.cs" />
+    <Compile Include="Config\FuncGroup.cs" />
+    <Compile Include="Config\GrowAttrRateConfig.cs" />
+    <Compile Include="Config\HeadConfig.cs" />
+    <Compile Include="Config\HeadsConfig.cs" />
+    <Compile Include="Config\HeroConfig.cs" />
+    <Compile Include="Config\HeroExpConfig.cs" />
+    <Compile Include="Config\HeroQualityLevelUpConfig.cs" />
+    <Compile Include="Config\HeroStarLevelUpConfig.cs" />
+    <Compile Include="Config\InitAttrRateConfig.cs" />
+    <Compile Include="Config\ItemGeneratorConfig.cs" />
+    <Compile Include="Config\LimitData.cs" />
+    <Compile Include="Config\LimitFuncSceneConfig.cs" />
+    <Compile Include="Config\LimitGroup.cs" />
+    <Compile Include="Config\LogicPointElement.cs" />
+    <Compile Include="Config\LogicPointType.cs" />
+    <Compile Include="Config\MallConfig.cs" />
+    <Compile Include="Config\ModeConfig.cs" />
+    <Compile Include="Config\MonsterAiParam.cs" />
+    <Compile Include="Config\MonsterConfig.cs" />
+    <Compile Include="Config\MonsterSkillGroupConfig.cs" />
+    <Compile Include="Config\NeedCurrencyConfig.cs" />
+    <Compile Include="Config\NeedItemConfig.cs" />
+    <Compile Include="Config\OptionElement.cs" />
+    <Compile Include="Config\OrdinaryCounterConfig.cs" />
+    <Compile Include="Config\PropsConfig.cs" />
+    <Compile Include="Config\PvpStageConfig.cs" />
+    <Compile Include="Config\RainConfig.cs" />
+    <Compile Include="Config\ResultConfig.cs" />
+    <Compile Include="Config\RoomActionConfig.cs" />
+    <Compile Include="Config\RoomActionMallConfig.cs" />
+    <Compile Include="Config\SceneConfig.cs" />
+    <Compile Include="Config\ShockConfig.cs" />
+    <Compile Include="Config\SkillBaseConfig.cs" />
+    <Compile Include="Config\SkillExConfig.cs" />
+    <Compile Include="Config\SkillQualityLevelUpConfig.cs" />
+    <Compile Include="Config\SpellCardConfig.cs" />
+    <Compile Include="Config\SpellCardLevelupConfig.cs" />
+    <Compile Include="Config\StageConfig.cs" />
+    <Compile Include="Config\StageLogicPointDescConfig.cs" />
+    <Compile Include="Config\StageWeatherPlanConfig.cs" />
+    <Compile Include="Config\StoryConfig.cs" />
+    <Compile Include="Config\StoryParamEntry.cs" />
+    <Compile Include="Config\SystemRoomConfig.cs" />
+    <Compile Include="Config\Table\ActionGroupConfigTable.cs" />
+    <Compile Include="Config\Table\ActiviyMallConfigTable.cs" />
+    <Compile Include="Config\Table\AeroAttributeConfigTable.cs" />
+    <Compile Include="Config\Table\AeroConfigTable.cs" />
+    <Compile Include="Config\Table\AiConfigTable.cs" />
+    <Compile Include="Config\Table\BattleActionConfigTable.cs" />
+    <Compile Include="Config\Table\BattleActionEventConfigTable.cs" />
+    <Compile Include="Config\Table\BattleBuffConfigTable.cs" />
+    <Compile Include="Config\Table\BattleEffectConfigTable.cs" />
+    <Compile Include="Config\Table\BattleEffectEventConfigTable.cs" />
+    <Compile Include="Config\Table\BattleItemConfigTable.cs" />
+    <Compile Include="Config\Table\BattleSkillConfigTable.cs" />
+    <Compile Include="Config\Table\BuffClashConfigTable.cs" />
+    <Compile Include="Config\Table\ChapterConfigTable.cs" />
+    <Compile Include="Config\Table\CharacterBaseConfigTable.cs" />
+    <Compile Include="Config\Table\CloudConfigTable.cs" />
+    <Compile Include="Config\Table\CounterConfigTable.cs" />
+    <Compile Include="Config\Table\DarkCloudConfigTable.cs" />
+    <Compile Include="Config\Table\DecorateConfigTable.cs" />
+    <Compile Include="Config\Table\DialogConfigTable.cs" />
+    <Compile Include="Config\Table\DirtywordConfigTable.cs" />
+    <Compile Include="Config\Table\DiyCharConfigTable.cs" />
+    <Compile Include="Config\Table\DiyMallConfigTable.cs" />
+    <Compile Include="Config\Table\DiyPresetConfigTable.cs" />
+    <Compile Include="Config\Table\DropConfigTable.cs" />
+    <Compile Include="Config\Table\EffectItemCollideTable.cs" />
+    <Compile Include="Config\Table\FashionConfigTable.cs" />
+    <Compile Include="Config\Table\FashionGroupConfigTable.cs" />
+    <Compile Include="Config\Table\FuncConfigTable.cs" />
+    <Compile Include="Config\Table\ItemGeneratorConfigTable.cs" />
+    <Compile Include="Config\Table\LimitConfigTable.cs" />
+    <Compile Include="Config\Table\LimitFuncSceneConfigTable.cs" />
+    <Compile Include="Config\Table\MallConfigTable.cs" />
+    <Compile Include="Config\Table\MessageConfigTable.cs" />
+    <Compile Include="Config\Table\ModeConfigTable.cs" />
+    <Compile Include="Config\Table\MonsterConfigTable.cs" />
+    <Compile Include="Config\Table\MonsterSkillGroupConfigTable.cs" />
+    <Compile Include="Config\Table\PropsConfigTable.cs" />
+    <Compile Include="Config\Table\PvpStageConfigTable.cs" />
+    <Compile Include="Config\Table\RainConfigTable.cs" />
+    <Compile Include="Config\Table\ResultConfigTable.cs" />
+    <Compile Include="Config\Table\RoomActionConfigTable.cs" />
+    <Compile Include="Config\Table\RoomActionMallConfigTable.cs" />
+    <Compile Include="Config\Table\ShockConfigTable.cs" />
+    <Compile Include="Config\Table\SpellCardConfigTable.cs" />
+    <Compile Include="Config\Table\SpellCardLevelupConfigTable.cs" />
+    <Compile Include="Config\Table\StageConfigTable.cs" />
+    <Compile Include="Config\Table\StageLogicPointDescConfigTable.cs" />
+    <Compile Include="Config\Table\StageWeatherPlanConfigTable.cs" />
+    <Compile Include="Config\Table\StoryConfigTable.cs" />
+    <Compile Include="Config\Table\SystemConfigTable.cs" />
+    <Compile Include="Config\Table\TargetConfigTable.cs" />
+    <Compile Include="Config\Table\WeatherPlanConfigTable.cs" />
+    <Compile Include="Config\TargetData.cs" />
+    <Compile Include="Config\TargetGroup.cs" />
+    <Compile Include="Config\ThriftVector3.cs" />
+    <Compile Include="Config\WeatherElement.cs" />
+    <Compile Include="Config\WeatherPlanConfig.cs" />
+    <Compile Include="Config\WeatherType.cs" />
     <Compile Include="Constant\SysConstant.cs" />
     <Compile Include="AIForm\EditAIConfigForm.cs">
       <SubType>Form</SubType>
@@ -221,123 +366,85 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
+<Compile Include="Import\GenScript\User\DiyCharConfigImporter.cs" />
+<Compile Include="Import\GenScript\Auto\DiyCharConfigImporter.cs" />
+    <Compile Include="Export\CounterExporter.cs" />
     <Compile Include="Export\ExporterManager.cs" />
     <Compile Include="Export\Exporter.cs" />
     <Compile Include="Export\MessageExporter.cs" />
+    <Compile Include="Export\ChatDirtyWordExporter.cs" />
     <Compile Include="Export\AbstractXmlExporter.cs" />
+    <Compile Include="Export\NameDirtyWordExporter.cs" />
+    <Compile Include="Export\LimitFuncSceneExporter.cs" />
     <Compile Include="Export\ServerSystemExporter.cs" />
+    <Compile Include="Import\ActionGroupConfigImporter.cs" />
+    <Compile Include="Import\ActivityMallConfigImporter.cs" />
+    <Compile Include="Import\AeroAttributeConfigImporter.cs" />
+    <Compile Include="Import\AeroConfigImporter.cs" />
+    <Compile Include="Import\AIConfigImporter.cs" />
+    <Compile Include="Import\BaseMallImporter.cs" />
+    <Compile Include="Import\BattleActionConfigImporter.cs" />
+    <Compile Include="Import\BattleActionEventConfigImporter.cs" />
+    <Compile Include="Import\BattleEffectConfigImporter.cs" />
+    <Compile Include="Import\BattleEffectEventConfigImporter.cs" />
+    <Compile Include="Import\BattleItemConfigImporter.cs" />
+    <Compile Include="Import\BattleSkillConfigImporter.cs" />
+    <Compile Include="Import\BuffClashImporter.cs" />
+    <Compile Include="Import\BattleBuffImporter.cs" />
+    <Compile Include="Import\ChapterImporter.cs" />
+    <Compile Include="Import\CharacterBaseConfigImporter.cs" />
+    <Compile Include="Import\CloudConfigImporter.cs" />
+    <Compile Include="Import\DarkCloudConfigImporter.cs" />
+    <Compile Include="Import\DecorateConfigImporter.cs" />
+    <Compile Include="Import\DialogImporter.cs" />
+    <Compile Include="Import\DiyCharConfigImporter.cs" />
+    <Compile Include="Import\DiyMallImporter.cs" />
+    <Compile Include="Import\DiyPresetImporter.cs" />
+    <Compile Include="Import\DropImporter.cs" />
+    <Compile Include="Import\EffectItemCollideImporter.cs" />
+    <Compile Include="Import\FashionConfigImporter.cs" />
+    <Compile Include="Import\FashionGroupConfigImporter.cs" />
+    <Compile Include="Import\GMLanguageImporter.cs" />
+    <Compile Include="Import\ItemGeneratorConfigImporter.cs" />
+    <Compile Include="Import\MallConfigImporter.cs" />
+    <Compile Include="Import\ModeConfigImporter.cs" />
+    <Compile Include="Import\MonsterImporter.cs" />
+    <Compile Include="Import\MonsterSkillGroupConfigImporter.cs" />
+    <Compile Include="Import\PropsImporter.cs" />
+    <Compile Include="Import\PvpStageConfigImporter.cs" />
+    <Compile Include="Import\RainConfigImporter.cs" />
+    <Compile Include="Import\ResultConfigImporter.cs" />
+    <Compile Include="Import\RoomActionImporter.cs" />
+    <Compile Include="Import\RoomActionMallImport.cs" />
+    <Compile Include="Import\RoomChannelImporter.cs" />
+    <Compile Include="Import\ShockConfigImporter.cs" />
+    <Compile Include="Import\SpellCardConfigImporter.cs" />
+    <Compile Include="Import\SpellCardLevelupConfigImporter.cs" />
+    <Compile Include="Import\StageImporter.cs" />
+    <Compile Include="Import\StageLogicPointDescConfigImporter.cs" />
+    <Compile Include="Import\StageWeatherPlanConfigImporter.cs" />
+    <Compile Include="Import\StoryImporter.cs" />
+    <Compile Include="Import\TargetImporter.cs" />
     <Compile Include="Import\AbstractExcelImporter.cs" />
     <Compile Include="Import\AbstractXmlImporter.cs" />
-    <Compile Include="Import\mmAdvImport\ActionImporter.cs" />
-    <Compile Include="Import\mmAdvImport\AIConfigImporter.cs" />
-    <Compile Include="Import\mmAdvImport\ArithmeticImporter.cs" />
-    <Compile Include="Import\mmAdvImport\CharactorImporter.cs" />
-    <Compile Include="Import\mmAdvImport\ChatDirtyWordImporter.cs" />
-    <Compile Include="Import\mmAdvImport\AdaptiveDifficultyImporter.cs" />
-    <Compile Include="Import\mmAdvImport\DialogImporter.cs" />
-    <Compile Include="Import\mmAdvImport\FlightImporter.cs" />
-    <Compile Include="Import\mmAdvImport\FlipCardLevelImporter.cs" />
-    <Compile Include="Import\mmAdvImport\FuncImporter.cs" />
+    <Compile Include="Import\ChatDirtyWordImporter.cs" />
+    <Compile Include="Import\CounterImporter.cs" />
     <Compile Include="Import\Importer.cs" />
     <Compile Include="Import\ImporterManager.cs" />
-    <Compile Include="Import\mmAdvImport\GrenadeImporter.cs" />
-    <Compile Include="Import\mmAdvImport\LimitFuncSceneImporter.cs" />
-    <Compile Include="Import\mmAdvImport\LimitImporter.cs" />
-    <Compile Include="Import\mmAdvImport\LineGameLevelImporter.cs" />
-    <Compile Include="Import\mmAdvImport\MainMissionImporter.cs" />
-    <Compile Include="Import\mmAdvImport\MessageImporter.cs" />
-    <Compile Include="Import\mmAdvImport\MissionStepImporter.cs" />
-    <Compile Include="Import\mmAdvImport\MoleAttackLevelImporter.cs" />
-    <Compile Include="Import\mmAdvImport\MusicGameImporter.cs" />
-    <Compile Include="Import\mmAdvImport\MusicGameSettingImporter.cs" />
-    <Compile Include="Import\mmAdvImport\NameDirtyWordImporter.cs" />
-    <Compile Include="Import\mmAdvImport\NpcImporter.cs" />
-    <Compile Include="Import\mmAdvImport\ItemsImporter.cs" />
-    <Compile Include="Import\mmAdvImport\PuzzleGameLevelImporter.cs" />
-    <Compile Include="Import\mmAdvImport\RatioGameImporter.cs" />
-    <Compile Include="Import\mmAdvImport\RegularityImporter.cs" />
-    <Compile Include="Import\mmAdvImport\RegularitySettingImporter.cs" />
-    <Compile Include="Import\mmAdvImport\RunnerTrunkImporter.cs" />
-    <Compile Include="Import\mmAdvImport\RunngerGameSettingImporter.cs" />
-    <Compile Include="Import\mmAdvImport\SkillImporter.cs" />
-    <Compile Include="Import\mmAdvImport\StageImporter.cs" />
-    <Compile Include="Import\mmAdvImport\StoryImporter.cs" />
-    <Compile Include="Import\mmAdvImport\TargetImporter.cs" />
-    <Compile Include="Import\mmAdvImport\TerrainImporter.cs" />
+    <Compile Include="Import\NameDirtyWordImporter.cs" />
+    <Compile Include="Import\MessageImporter.cs" />
+    <Compile Include="Import\LimitFuncSceneImporter.cs" />
+    <Compile Include="Import\LimitImporter.cs" />
+    <Compile Include="Import\FuncImporter.cs" />
+    <Compile Include="Import\RandomNameImporter.cs" />
+    <Compile Include="Import\SystemImporter.cs" />
+    <Compile Include="Import\WeatherPlanConfigImporter.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="mmAdv\Config\ArithmeticConfig.cs" />
-    <Compile Include="mmAdv\Config\ArithmeticItem.cs" />
-    <Compile Include="mmAdv\Config\ArithmeticQuestion.cs" />
-    <Compile Include="mmAdv\Config\ArithmeticTimer.cs" />
-    <Compile Include="mmAdv\Config\BallData.cs" />
-    <Compile Include="mmAdv\Config\CharactorConfig.cs" />
-    <Compile Include="mmAdv\Config\DialogConfig.cs" />
-    <Compile Include="mmAdv\Config\DownloadAssetType.cs" />
-    <Compile Include="mmAdv\Config\FlightGameConfig.cs" />
-    <Compile Include="mmAdv\Config\FuncData.cs" />
-    <Compile Include="mmAdv\Config\FuncGroup.cs" />
-    <Compile Include="mmAdv\Config\GrenadeConfig.cs" />
-    <Compile Include="mmAdv\Config\ItemConfig.cs" />
-    <Compile Include="mmAdv\Config\LimitData.cs" />
-    <Compile Include="mmAdv\Config\LimitFuncSceneConfig.cs" />
-    <Compile Include="mmAdv\Config\LimitGroup.cs" />
-    <Compile Include="mmAdv\Config\MainMissionConfig.cs" />
-    <Compile Include="mmAdv\Config\MiniGameHardConfig.cs" />
-    <Compile Include="mmAdv\Config\MissionStepConfig.cs" />
-    <Compile Include="mmAdv\Config\MusicGameErrorConfig.cs" />
-    <Compile Include="mmAdv\Config\MusicGameNoteKey.cs" />
-    <Compile Include="mmAdv\Config\MusicGameNoteKeyConfig.cs" />
-    <Compile Include="mmAdv\Config\MusicGameRangeConfig.cs" />
-    <Compile Include="mmAdv\Config\MusicGameSpeedConfig.cs" />
-    <Compile Include="mmAdv\Config\NpcConfig.cs" />
-    <Compile Include="mmAdv\Config\RatioGameConfig.cs" />
-    <Compile Include="mmAdv\Config\RegularityGameConfig.cs" />
-    <Compile Include="mmAdv\Config\RegularityGameOption.cs" />
-    <Compile Include="mmAdv\Config\SkillConfig.cs" />
-    <Compile Include="mmAdv\Config\StageConfig.cs" />
-    <Compile Include="mmAdv\Config\StateConflictConfig.cs" />
-    <Compile Include="mmAdv\Config\StateConflictConfigElement.cs" />
-    <Compile Include="mmAdv\Config\StoryConfig.cs" />
-    <Compile Include="mmAdv\Config\Table\AIConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\ArithmeticConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\CharactorConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\DialogConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\DirtywordConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\FlightGameConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\FlipCardLevelConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\FuncConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\GrenadeConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\ItemConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\LimitConfgTable.cs" />
-    <Compile Include="mmAdv\Config\Table\LimitFuncSceneConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\LineGameLevelConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\MainMissionConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\MessageConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\MissionStepConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\MoleAttackLevelConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\MusicGameConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\MusicGameSettingTable.cs" />
-    <Compile Include="mmAdv\Config\Table\NpcConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\RatioGameConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\RegularityGameConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\RegularityGameSettingTable.cs" />
-    <Compile Include="mmAdv\Config\Table\RunnerGameSettingTable.cs" />
-    <Compile Include="mmAdv\Config\Table\SkillConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\StageConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\StateConflictTable.cs" />
-    <Compile Include="mmAdv\Config\Table\StoryConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\TargetConfigTable.cs" />
-    <Compile Include="mmAdv\Config\Table\TrunkConfigTable.cs" />
-    <Compile Include="mmAdv\Config\TargetData.cs" />
-    <Compile Include="mmAdv\Config\TargetGroup.cs" />
-    <Compile Include="mmAdv\Config\ThriftVector3.cs" />
-    <Compile Include="mmAdv\Config\VersionConfig.cs" />
-    <Compile Include="mmAdv\Config\VersionConfigElement.cs" />
     <Compile Include="Model\SysConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -362,6 +469,10 @@
     <Compile Include="Protocol\TSet.cs" />
     <Compile Include="Protocol\TStruct.cs" />
     <Compile Include="Protocol\TType.cs" />
+    <Compile Include="ScriptGenTool\GenScriptXml.cs" />
+    <Compile Include="ScriptGenTool\ScriptGenInfo.cs" />
+    <Compile Include="ScriptGenTool\ScriptGenTool.cs" />
+    <Compile Include="ScriptGenTool\XmlConfigBase.cs" />
     <Compile Include="TApplicationException.cs" />
     <Compile Include="TException.cs" />
     <Compile Include="ThriftSerialize.cs" />
@@ -379,40 +490,34 @@
     <Compile Include="Transport\TTransportException.cs" />
     <Compile Include="Transport\TTransportFactory.cs" />
     <Compile Include="Util\Context.cs" />
+    <Compile Include="Util\GameRandom.cs" />
     <Compile Include="Util\HttpUtil.cs" />
     <Compile Include="Util\LogQueue.cs" />
     <Compile Include="Util\ProcessUtil.cs" />
-    <Compile Include="Util\GameRandom.cs" />
     <Compile Include="Util\VaildUtil.cs" />
-    <EmbeddedResource Include="AIForm\Action\AttackedActionPanel.resx">
-      <DependentUpon>AttackedActionPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\PositionActionPanel.resx">
-      <DependentUpon>PositionActionPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\SkillPriorityDecisionActionPanel.resx">
-      <DependentUpon>SkillPriorityDecisionActionPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\ChaseActionPanel.resx">
-      <DependentUpon>ChaseActionPanel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AIForm\Action\AttackActionPanel.resx">
       <DependentUpon>AttackActionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\IdleActionPanel.resx">
-      <DependentUpon>IdleActionPanel.cs</DependentUpon>
+    <EmbeddedResource Include="AIForm\Action\IdleRandomActionPanel.resx">
+      <DependentUpon>IdleRandomActionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\RetreatActionPanel.resx">
-      <DependentUpon>RetreatActionPanel.cs</DependentUpon>
+    <EmbeddedResource Include="AIForm\Action\IdleRegularityActionPanel.resx">
+      <DependentUpon>IdleRegularityActionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\SeekActionPanel.resx">
-      <DependentUpon>SeekActionPanel.cs</DependentUpon>
+    <EmbeddedResource Include="AIForm\Action\IdleStaticActionPanel.resx">
+      <DependentUpon>IdleStaticActionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\PatrolActionPanel.resx">
-      <DependentUpon>PatrolActionPanel.cs</DependentUpon>
+    <EmbeddedResource Include="AIForm\Action\JumptoActionPanel.resx">
+      <DependentUpon>JumptoActionPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AIForm\Action\MoveActionPanel.resx">
       <DependentUpon>MoveActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Action\RunActionPanel.resx">
+      <DependentUpon>RunActionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Action\SkillAttackActionPanel.resx">
+      <DependentUpon>SkillAttackActionPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AIForm\AddBTRootForm.resx">
       <DependentUpon>AddBTRootForm.cs</DependentUpon>
@@ -434,6 +539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AIForm\Condition\ConditionPanel.resx">
       <DependentUpon>ConditionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AIForm\Decorator\InverterByframeDecoratorPanel.resx">
+      <DependentUpon>InverterByframeDecoratorPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AIForm\Decorator\InverterDecoratorPanel.resx">
       <DependentUpon>InverterDecoratorPanel.cs</DependentUpon>
@@ -473,6 +581,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1.ico" />
+    <Content Include="ScriptGenTool\ExcelImporterAutoParasTemplate.txt" />
+    <Content Include="ScriptGenTool\ExcelImporterDatetimeParasTemplate.txt" />
+    <Content Include="ScriptGenTool\ExcelImporterListParasTemplate.txt" />
+    <Content Include="ScriptGenTool\ExcelImporterMemberTemplate.txt" />
+    <Content Include="ScriptGenTool\ExcelImporterParasTemplate.txt" />
+    <Content Include="ScriptGenTool\ExcelImporterProjfixAuto.txt" />
+    <Content Include="ScriptGenTool\ExcelImporterProjfixUser.txt" />
+    <Content Include="ScriptGenTool\ExcelImporterUserTemplate.txt" />
+    <Content Include="ScriptGenTool\ConfigXml.xml" />
+    <Content Include="ScriptGenTool\testTemplate.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -497,33 +615,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="Microsoft.Office.Core">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>7</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="Microsoft.Office.Interop.Excel1">
-      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>8</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="VBIDE">
-      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>3</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
+    <Folder Include="Import\GenScript\Auto\" />
+    <Folder Include="Import\GenScript\User\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -173,10 +173,5 @@ namespace GameConfigTools
             }
             MessageBox.Show(this, "连接成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
-
-        private void serverConfigPathTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

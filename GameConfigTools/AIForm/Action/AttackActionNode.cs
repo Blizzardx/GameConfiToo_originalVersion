@@ -7,9 +7,15 @@ namespace GameConfigTools.AIForm.Action
 {
     public class AttackActionNode : ActionNode
     {
+        public int m_iSpeed;
+
+        public AttackActionNode(int moveSpeed)
+        {
+            m_iSpeed = moveSpeed;
+        }
         public override string GetNodeDesc()
         {
-            return "攻击行为";
+            return "普攻节点";
         }
     }
 }

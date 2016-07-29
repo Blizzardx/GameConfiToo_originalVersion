@@ -146,9 +146,17 @@ namespace GameConfigTools.AIForm
         private void EditAIConfigForm_Load(object sender, EventArgs e)
         {
             this.SaveAIConfig(new XElement("root"), false);
+            try
+            {
+                XElement root = this.LoadAIConfig();
+                this.GenTreeViewDataByXml(root);
 
-            XElement root = this.LoadAIConfig();
-            this.GenTreeViewDataByXml(root);
+            }
+            catch (Exception es)
+            {
+                string msg = es.Message;
+                throw;
+            }
         }
 
         /// <summary>
@@ -224,6 +232,13 @@ namespace GameConfigTools.AIForm
 
                     return new InverterDecoratorNode(int.Parse(dic["interval"]));
                 }
+                else if (nodeName == BTConstants.Node_NAME_INVERTER_FRAME)
+                {
+
+                    Dictionary<string, string> dic = this.GetProperty(btNodeE);
+
+                    return new InverterByframeDecoratorNode(int.Parse(dic["interval"]));
+                }
             }
             else if(nodeType == BTConstants.NODE_TYPE_CONDITION)
             {
@@ -233,38 +248,148 @@ namespace GameConfigTools.AIForm
             else if(nodeType == BTConstants.NODE_TYPE_ACTION)
             {
                 string nodeName = btNodeE.Attribute("name").Value;
-
-                if(nodeName == BTConstants.NODE_NAME_PATROL)
+                if (nodeName == BTConstants.NODE_NAME_DEAD)
+                {
+                    return new DeadActionNode();
+                }
+                else if(nodeName == BTConstants.NODE_NAME_IDLE_STATIC)
                 {
                     Dictionary<string, string> dic = this.GetProperty(btNodeE);
-                    return new PatrolActionNode(int.Parse(dic["range"]));
+                    if (!dic.ContainsKey("pathid"))
+                    {
+                        // fix 
+                        dic.Add("pathid", "0");
+                    }
+                    if (!dic.ContainsKey("range"))
+                    {
+                        // fix 
+                        dic.Add("range", "0");
+                    }
+                    if (!dic.ContainsKey("rate"))
+                    {
+                        // fix 
+                        dic.Add("rate", "0");
+                    }
+                    return new IdleStaticActionNode
+                        (int.Parse(dic["range"]),
+                        int.Parse(dic["rate"]),
+                        int.Parse(dic["pathid"]));
                 }
-                else if(nodeName == BTConstants.NODE_NAME_SEEK)
+                else if (nodeName == BTConstants.NODE_NAME_IDLE_REGULARITY)
                 {
                     Dictionary<string, string> dic = this.GetProperty(btNodeE);
-                    return new SeekActionNode(int.Parse(dic["range"]), (dic.ContainsKey("type") ? int.Parse(dic["type"]) : 0));
+                    if (!dic.ContainsKey("pathid"))
+                    {
+                        // fix 
+                        dic.Add("pathid", "0");
+                    }
+                    if (!dic.ContainsKey("speed"))
+                    {
+                        // fix 
+                        dic.Add("speed", "0");
+                    }
+                    return new IdleRegualrityActionNode(int.Parse(dic["speed"]),int.Parse(dic["pathid"]));
                 }
-                else if(nodeName == BTConstants.NODE_NAME_POSITION)
+                else if (nodeName == BTConstants.NODE_NAME_IDLE_RANDOM)
                 {
                     Dictionary<string, string> dic = this.GetProperty(btNodeE);
-                    return new PositionActionNode(int.Parse(dic["range"]));
-                }
-                else if (nodeName == BTConstants.NODE_NAME_RETREAT)
-                {
-                    Dictionary<string, string> dic = this.GetProperty(btNodeE);
-                    return new RetreatActionNode(int.Parse(dic["maxCount"]), int.Parse(dic["range"]));
-                }
-                else if(nodeName == BTConstants.NODE_NAME_IDLE)
-                {
-                    return new IdleActionNode();
+                    if (!dic.ContainsKey("xspeedmin"))
+                    {
+                        // fix 
+                        dic.Add("xspeedmin", "0");
+                    }
+                    if (!dic.ContainsKey("xspeedmax"))
+                    {
+                        // fix 
+                        dic.Add("xspeedmax", "0");
+                    }
+                    if (!dic.ContainsKey("yspeedmin"))
+                    {
+                        // fix 
+                        dic.Add("yspeedmin", "0");
+                    }
+                    if (!dic.ContainsKey("yspeedmax"))
+                    {
+                        // fix 
+                        dic.Add("yspeedmax", "0");
+                    }
+                    if (!dic.ContainsKey("timemin"))
+                    {
+                        // fix 
+                        dic.Add("timemin", "0");
+                    }
+                    if (!dic.ContainsKey("timemax"))
+                    {
+                        // fix 
+                        dic.Add("timemax", "0");
+                    }
+                    return new IdleRandomActionNode
+                           (int.Parse(dic["xspeedmin"]),
+                            int.Parse(dic["xspeedmax"]),
+                            int.Parse(dic["yspeedmin"]),
+                            int.Parse(dic["yspeedmax"]),
+                            int.Parse(dic["timemin"]),
+                            int.Parse(dic["timemax"]));
                 }
                 else if(nodeName == BTConstants.NODE_NAME_ATTACK)
                 {
-                    return new AttackActionNode();
+                    Dictionary<string, string> dic = this.GetProperty(btNodeE);
+                    if (!dic.ContainsKey("moveSpeed"))
+                    {
+                        // fix 
+                        dic.Add("moveSpeed", "0");
+                    }
+                    return new AttackActionNode(int.Parse(dic["moveSpeed"]));
                 }
-                else if(nodeName == BTConstants.NODE_NAME_ATTACKED)
+                else if (nodeName == BTConstants.NODE_NAME_SKILLATTACK)
                 {
-                    return new AttackedActionNode();
+                    Dictionary<string, string> dic = this.GetProperty(btNodeE);
+                    if (!dic.ContainsKey("skillid"))
+                    {
+                        // fix 
+                        dic.Add("skillid", "0");
+                    }
+                    return new SkillAttackActionNode(int.Parse(dic["skillid"]));
+                }
+                else if (nodeName == BTConstants.NODE_NAME_RUN)
+                {
+                    Dictionary<string, string> dic = this.GetProperty(btNodeE);
+                    if (!dic.ContainsKey("moveSpeed"))
+                    {
+                        // fix 
+                        dic.Add("moveSpeed", "0");
+                    }
+                    return new RunActionNode(int.Parse(dic["moveSpeed"]));
+                }
+                else if (nodeName == BTConstants.Node_Name_MOVE)
+                {
+                    Dictionary<string, string> dic = this.GetProperty(btNodeE);
+                    if (!dic.ContainsKey("pathid"))
+                    {
+                        // fix 
+                        dic.Add("pathid", "0");
+                    }
+                    if (!dic.ContainsKey("moveSpeed"))
+                    {
+                        // fix 
+                        dic.Add("moveSpeed", "0");
+                    }
+                    return new MoveActionNode(int.Parse(dic["moveSpeed"]), int.Parse(dic["pathid"]));
+                }
+                else if (nodeName == BTConstants.NODE_NAME_JUMPTO)
+                {
+                    Dictionary<string, string> dic = this.GetProperty(btNodeE);
+                    if (!dic.ContainsKey("moveSpeed"))
+                    {
+                        // fix 
+                        dic.Add("moveSpeed", "0");
+                    }
+                    if (!dic.ContainsKey("grivity"))
+                    {
+                        // fix 
+                        dic.Add("grivity", "0");
+                    }
+                    return new JumpToActionNode(int.Parse(dic["moveSpeed"]), int.Parse(dic["grivity"]));
                 }
             }
             return null;
@@ -345,6 +470,13 @@ namespace GameConfigTools.AIForm
                         xe.Add(new XAttribute("name", BTConstants.NODE_NAME_INVERTER));
                         xe.Add(this.GetPropertyElement("interval", n.Interval));
                     }
+                    else if (node is InverterByframeDecoratorNode)
+                    {
+                        InverterByframeDecoratorNode n = node as InverterByframeDecoratorNode;
+
+                        xe.Add(new XAttribute("name", BTConstants.Node_NAME_INVERTER_FRAME));
+                        xe.Add(this.GetPropertyElement("interval", n.Interval));
+                    }
                 }
                 else if(node is ConditionNode)
                 {
@@ -356,43 +488,67 @@ namespace GameConfigTools.AIForm
                 else if(node is ActionNode)
                 {
                     xe.Add(new XAttribute("nodeType", BTConstants.NODE_TYPE_ACTION));
-                    if(node is PatrolActionNode)
+                    if (node is DeadActionNode)
                     {
-                        PatrolActionNode n = node as PatrolActionNode;
-                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_PATROL));
-                        xe.Add(this.GetPropertyElement("range", n.Range));
+                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_DEAD));
                     }
-                    else if (node is SeekActionNode)
+                    else if(node is IdleStaticActionNode)
                     {
-                        SeekActionNode n = node as SeekActionNode;
-                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_SEEK));
-                        xe.Add(this.GetPropertyElement("range", n.Range));
-                        xe.Add(this.GetPropertyElement("type", n.Type));
+                        IdleStaticActionNode n = node as IdleStaticActionNode;
+                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_IDLE_STATIC));
+                        xe.Add(this.GetPropertyElement("range", n.m_iRange));
+                        xe.Add(this.GetPropertyElement("rate", n.m_iRate));
+                        xe.Add(this.GetPropertyElement("pathid", n.m_iPositionId));
                     }
-                    else if (node is PositionActionNode)
+                    else if (node is IdleRandomActionNode)
                     {
-                        PositionActionNode n = node as PositionActionNode;
-                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_POSITION));
-                        xe.Add(this.GetPropertyElement("range", n.Range));
+                        IdleRandomActionNode n = node as IdleRandomActionNode;
+                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_IDLE_RANDOM));
+                        xe.Add(this.GetPropertyElement("xspeedmin", n.m_iMinX));
+                        xe.Add(this.GetPropertyElement("xspeedmax", n.m_iMaxX));
+                        xe.Add(this.GetPropertyElement("yspeedmin", n.m_iMinY));
+                        xe.Add(this.GetPropertyElement("yspeedmax", n.m_iMaxY));
+                        xe.Add(this.GetPropertyElement("timemin", n.m_iMinDuringTime));
+                        xe.Add(this.GetPropertyElement("timemax", n.m_iMaxDuringTime));
                     }
-                    else if (node is RetreatActionNode)
+                    else if (node is IdleRegualrityActionNode)
                     {
-                        RetreatActionNode n = node as RetreatActionNode;
-                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_RETREAT));
-                        xe.Add(this.GetPropertyElement("maxCount", n.MaxCount));
-                        xe.Add(this.GetPropertyElement("range", n.Range));
-                    }
-                    else if(node is IdleActionNode)
-                    {
-                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_IDLE));
+                        IdleRegualrityActionNode n = node as IdleRegualrityActionNode;
+                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_IDLE_REGULARITY));
+                        xe.Add(this.GetPropertyElement("speed", n.m_iSpeed));
+                        xe.Add(this.GetPropertyElement("pathid", n.m_iPathId));
                     }
                     else if(node is AttackActionNode)
                     {
+                        AttackActionNode n = node as AttackActionNode;
                         xe.Add(new XAttribute("name", BTConstants.NODE_NAME_ATTACK));
+                        xe.Add(this.GetPropertyElement("moveSpeed", n.m_iSpeed));
                     }
-                    else if (node is AttackedActionNode)
+                    else if (node is SkillAttackActionNode)
                     {
-                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_ATTACKED));
+                        SkillAttackActionNode n = node as SkillAttackActionNode;
+                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_SKILLATTACK));
+                        xe.Add(this.GetPropertyElement("skillid", n.m_iSkillId));
+                    }
+                    else if (node is RunActionNode)
+                    {
+                        RunActionNode n = node as RunActionNode;
+                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_RUN));
+                        xe.Add(this.GetPropertyElement("moveSpeed", n.m_iRunSpeed));
+                    }
+                    else if (node is MoveActionNode)
+                    {
+                        MoveActionNode n = node as MoveActionNode;
+                        xe.Add(new XAttribute("name", BTConstants.Node_Name_MOVE));
+                        xe.Add(this.GetPropertyElement("pathid", n.m_iPathId));
+                        xe.Add(this.GetPropertyElement("moveSpeed", n.m_iMoveSpeed));
+                    }
+                    else if (node is JumpToActionNode)
+                    {
+                        JumpToActionNode n = node as JumpToActionNode;
+                        xe.Add(new XAttribute("name", BTConstants.NODE_NAME_JUMPTO));
+                        xe.Add(this.GetPropertyElement("moveSpeed", n.m_iSpeed));
+                        xe.Add(this.GetPropertyElement("grivity", n.m_iGrivity));
                     }
                 }
 
