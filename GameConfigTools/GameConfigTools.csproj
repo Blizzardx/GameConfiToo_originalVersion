@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -225,6 +225,7 @@
     <Compile Include="Config\ActiviyMallConfig.cs" />
     <Compile Include="Config\AeroAttributeConfig.cs" />
     <Compile Include="Config\AeroConfig.cs" />
+    <Compile Include="Config\AeroLevelUpConfig.cs" />
     <Compile Include="Config\AIMoveConfig.cs" />
     <Compile Include="Config\AuraSkillConfig.cs" />
     <Compile Include="Config\BattleActionConfig.cs" />
@@ -303,6 +304,7 @@
     <Compile Include="Config\Table\ActiviyMallConfigTable.cs" />
     <Compile Include="Config\Table\AeroAttributeConfigTable.cs" />
     <Compile Include="Config\Table\AeroConfigTable.cs" />
+    <Compile Include="Config\Table\AeroLevelUpConfigTable.cs" />
     <Compile Include="Config\Table\AiConfigTable.cs" />
     <Compile Include="Config\Table\BattleActionConfigTable.cs" />
     <Compile Include="Config\Table\BattleActionEventConfigTable.cs" />
@@ -366,8 +368,10 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
-<Compile Include="Import\GenScript\User\DiyCharConfigImporter.cs" />
-<Compile Include="Import\GenScript\Auto\DiyCharConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\AeroLevelUpConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\AeroLevelUpConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\DiyCharConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\DiyCharConfigImporter.cs" />
     <Compile Include="Export\CounterExporter.cs" />
     <Compile Include="Export\ExporterManager.cs" />
     <Compile Include="Export\Exporter.cs" />
@@ -589,7 +593,9 @@
     <Content Include="ScriptGenTool\ExcelImporterProjfixAuto.txt" />
     <Content Include="ScriptGenTool\ExcelImporterProjfixUser.txt" />
     <Content Include="ScriptGenTool\ExcelImporterUserTemplate.txt" />
-    <Content Include="ScriptGenTool\ConfigXml.xml" />
+    <Content Include="ScriptGenTool\ConfigXml.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ScriptGenTool\testTemplate.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -614,10 +620,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Import\GenScript\Auto\" />
-    <Folder Include="Import\GenScript\User\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

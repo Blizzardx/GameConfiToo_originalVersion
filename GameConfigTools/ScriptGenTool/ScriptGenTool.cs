@@ -112,7 +112,6 @@ namespace ExcelImporter.Importer
             FixProjectFile(info.className);
 
         }
-
         private void FixProjectFile(string className)
         {
             string projectFilePath = "../../GameConfigTools.csproj";
@@ -300,6 +299,41 @@ namespace ExcelImporter.Importer
 
 
             tool.GenScript(info);
+        }
+        public static void Test1()
+        {
+            GenScriptXmlConfig config = new GenScriptXmlConfig();
+            config.classConfigList = new List<GenScriptClassXmlConfig>();
+
+            GenScriptClassXmlConfig elem = new GenScriptClassXmlConfig();
+            elem.className = "diyConfig";
+            elem.lineConfigList = new List<GenScriptLineXmlConfig>();
+            GenScriptLineXmlConfig elem1Line1 = new GenScriptLineXmlConfig();
+            elem1Line1.classTypeName = "int";
+            elem1Line1.desc = "id";
+            elem1Line1.index = 0;
+            elem1Line1.isList = false;
+            elem1Line1.isNullable = false;
+            elem1Line1.memberName = "id";
+            elem1Line1.rangeMax = "1";
+            elem1Line1.rangeMin = "2";
+            elem.lineConfigList.Add(elem1Line1);
+
+            GenScriptLineXmlConfig elem1Line2 = new GenScriptLineXmlConfig();
+            elem1Line1.classTypeName = "int";
+            elem1Line1.desc = "vertexid";
+            elem1Line1.index = 0;
+            elem1Line1.isList = false;
+            elem1Line1.isNullable = false;
+            elem1Line1.memberName = "vertexid";
+            elem1Line1.rangeMax = "1";
+            elem1Line1.rangeMin = "2";
+            elem.lineConfigList.Add(elem1Line2);
+            config.classConfigList.Add(elem);
+
+            var content = XmlConfigBase.Serialize(config);
+            File.WriteAllText("test.xml", content);
+
         }
     }
 }

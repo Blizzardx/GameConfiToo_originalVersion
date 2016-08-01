@@ -52,9 +52,9 @@ namespace GameConfigTools.Import
                     int row = i + 1;
                     int index = 0;
 
-if (!VaildUtil.TryConvert(values[i][0], out id,-2147483648,2147483647))
+if (!VaildUtil.TryConvert(values[i][0], out id,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,0+1, id,-2147483648,2147483647,"int","id");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,0+1, id,int.MinValue,int.MaxValue,"int","id");
 	return;
 }
 if (!VaildUtil.TryConvert(values[i][2], out positionId,int.MinValue,int.MaxValue))

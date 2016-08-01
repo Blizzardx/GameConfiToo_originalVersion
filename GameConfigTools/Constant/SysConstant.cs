@@ -149,5 +149,7 @@ namespace GameConfigTools.Constant
         public static readonly string MALL_CONFIG = "mallConfig";
 
         public static readonly string DIY_CHAR_CONFIG = "diyCharConfig";
+
+        public static readonly string AERO_LEVEL_UP_CONFIG = "aeroLevelUpConfig";
     }
 }

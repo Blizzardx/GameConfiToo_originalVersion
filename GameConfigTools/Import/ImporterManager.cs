@@ -91,6 +91,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.ACTIVITY_MALL_CONFIG, new ActivityMallConfigImporter());
             importerDic.Add(SysConstant.MALL_CONFIG, new MallConfigImporter());
             importerDic.Add(SysConstant.DIY_CHAR_CONFIG, new DiyCharConfigImporter());
+            importerDic.Add(SysConstant.AERO_LEVEL_UP_CONFIG, new AeroLevelUpConfigImporter());
         }
         /// <summary>
         /// 加载关联导入

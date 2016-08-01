@@ -1,67 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <classConfigList>
-    <GenScriptClassXmlConfig>
-      <className>DiyCharConfig</className>
+    <GenScriptClassXmlConfig className="DiyCharConfig">
       <lineConfigList>
-        <GenScriptLineXmlConfig>
-          <index>1</index>
-          <classTypeName>int</classTypeName>
-          <memberName>id</memberName>
-          <desc>id</desc>
-          <rangeMin>-2147483648</rangeMin>
-          <rangeMax>2147483647</rangeMax>
-          <isList>false</isList>
-        </GenScriptLineXmlConfig>
-        <GenScriptLineXmlConfig>
-          <index>3</index>
-          <classTypeName>int</classTypeName>
-          <memberName>positionId</memberName>
-          <desc>positionId</desc>
-        </GenScriptLineXmlConfig>
-        <GenScriptLineXmlConfig>
-          <index>4</index>
-          <classTypeName>int</classTypeName>
-          <memberName>vertexid</memberName>
-          <desc>vertexid</desc>
-        </GenScriptLineXmlConfig>
-        <GenScriptLineXmlConfig>
-          <index>5</index>
-          <classTypeName>int</classTypeName>
-          <memberName>radius</memberName>
-          <desc>radius</desc>
-        </GenScriptLineXmlConfig>
-        <GenScriptLineXmlConfig>
-          <index>6</index>
-          <classTypeName>int</classTypeName>
-          <memberName>min</memberName>
-          <desc>min</desc>
-        </GenScriptLineXmlConfig>
-        <GenScriptLineXmlConfig>
-          <index>7</index>
-          <classTypeName>int</classTypeName>
-          <memberName>max</memberName>
-          <desc>max</desc>
-        </GenScriptLineXmlConfig>
-        <GenScriptLineXmlConfig>
-          <index>8</index>
-          <classTypeName>int</classTypeName>
-          <memberName>dirx</memberName>
-          <desc>dirx</desc>
-        </GenScriptLineXmlConfig>
-        <GenScriptLineXmlConfig>
-          <index>9</index>
-          <classTypeName>int</classTypeName>
-          <memberName>diry</memberName>
-          <desc>diry</desc>
-        </GenScriptLineXmlConfig>
-        <GenScriptLineXmlConfig>
-          <index>10</index>
-          <classTypeName>int</classTypeName>
-          <memberName>dirz</memberName>
-          <desc>dirz</desc>
-        </GenScriptLineXmlConfig>
+        <GenScriptLineXmlConfig index="1" classTypeName="int" memberName="id" desc="id"/>
+        <GenScriptLineXmlConfig index="3" classTypeName="int" memberName="positionId" desc="positionId"/>
+        <GenScriptLineXmlConfig index="4" classTypeName="int" memberName="vertexid" desc="vertexid"/>
+        <GenScriptLineXmlConfig index="5" classTypeName="int" memberName="radius" desc="radius"/>
+        <GenScriptLineXmlConfig index="6" classTypeName="int" memberName="min" desc="min"/>
+        <GenScriptLineXmlConfig index="7" classTypeName="int" memberName="max" desc="max"/>
+        <GenScriptLineXmlConfig index="8" classTypeName="int" memberName="dirx" desc="dirx"/>
+        <GenScriptLineXmlConfig index="9" classTypeName="int" memberName="diry" desc="diry"/>
+        <GenScriptLineXmlConfig index="10" classTypeName="int" memberName="dirz" desc="dirz"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="AeroLevelUpConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig index="1" classTypeName="int" memberName="aeroId" desc="aeroId"/>
+        <GenScriptLineXmlConfig index="2" classTypeName="int" memberName="level" desc="level"/>
+        <GenScriptLineXmlConfig index="3" classTypeName="int" memberName="limitId" desc="limitId"/>
+        <GenScriptLineXmlConfig index="4" classTypeName="int" memberName="funcId" desc="funcId"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
   </classConfigList>

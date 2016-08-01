@@ -40,6 +40,7 @@ namespace Config
     private int _delTargetId;
     private int _delLimitId;
     private int _delFuncId;
+    private int _trigProb;
 
     public int Id
     {
@@ -262,6 +263,19 @@ namespace Config
       }
     }
 
+    public int TrigProb
+    {
+      get
+      {
+        return _trigProb;
+      }
+      set
+      {
+        __isset.trigProb = true;
+        this._trigProb = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -285,6 +299,7 @@ namespace Config
       public bool delTargetId;
       public bool delLimitId;
       public bool delFuncId;
+      public bool trigProb;
     }
 
     public BattleBuffConfig() {
@@ -417,6 +432,13 @@ namespace Config
           case 130:
             if (field.Type == TType.I32) {
               DelFuncId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 140:
+            if (field.Type == TType.I32) {
+              TrigProb = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -570,6 +592,14 @@ namespace Config
         oprot.WriteI32(DelFuncId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.trigProb) {
+        field.Name = "trigProb";
+        field.Type = TType.I32;
+        field.ID = 140;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(TrigProb);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -610,6 +640,8 @@ namespace Config
       sb.Append(DelLimitId);
       sb.Append(",DelFuncId: ");
       sb.Append(DelFuncId);
+      sb.Append(",TrigProb: ");
+      sb.Append(TrigProb);
       sb.Append(")");
       return sb.ToString();
     }

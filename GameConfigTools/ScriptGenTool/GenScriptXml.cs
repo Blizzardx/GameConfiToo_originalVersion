@@ -10,7 +10,7 @@ public class GenScriptXmlConfig : XmlConfigBase
 }
 public class GenScriptClassXmlConfig : XmlConfigBase
 {
-    [XmlElement("className")]
+    [XmlAttribute("className")]
     public string className { get; set; }
 
     [XmlArray("lineConfigList")]
@@ -19,27 +19,27 @@ public class GenScriptClassXmlConfig : XmlConfigBase
 
 public class GenScriptLineXmlConfig : XmlConfigBase
 {
-    [XmlElement("index")]
+    [XmlAttribute("index")]
     public int index { get; set; }
 
-    [XmlElement("classTypeName")]
+    [XmlAttribute("classTypeName")]
     public string classTypeName { get; set; }
 
-    [XmlElement("memberName")]
+    [XmlAttribute("memberName")]
     public string memberName { get; set; }
 
-    [XmlElement("desc")]
+    [XmlAttribute("desc")]
     public string desc { get; set; }
 
-    [XmlElement("rangeMin")]
+    [XmlAttribute("rangeMin")]
     public string rangeMin { get; set; }
 
-    [XmlElement("rangeMax")]
+    [XmlAttribute("rangeMax")]
     public string rangeMax { get; set; }
 
-    [XmlElement("isList")]
+    [XmlAttribute("isList")]
     public bool isList { get; set; }
 
-    [XmlElement("isNullable")]
+    [XmlAttribute("isNullable")]
     public bool isNullable { get; set; }
 }

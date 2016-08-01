@@ -24,7 +24,7 @@ namespace GameConfigTools.Import
              throw new NotImplementedException();
         }
 
-        protected override void OnAutoParasLine(string[] line)
+        protected override void OnAutoParasLine(string[] line, ref string errMsg)
         {
             
         }
