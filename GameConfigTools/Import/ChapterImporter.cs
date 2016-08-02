@@ -53,7 +53,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，下一章节ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    string name = values[i][index++];
+                    int nameMessageId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out nameMessageId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，第一个关卡ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     int firstStageId;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out firstStageId))
                     {
@@ -119,7 +124,6 @@ namespace GameConfigTools.Import
                     root.Add(chapterE);
                     chapterE.Add(new XAttribute("id", id));
                     chapterE.Add(new XAttribute("nextChapterId", nextChapterId));
-                    chapterE.Add(new XAttribute("name", name));
                     chapterE.Add(new XAttribute("firstStageId", firstStageId));
                     chapterE.Add(new XAttribute("award1LimitId", award1LimitId));
                     chapterE.Add(new XAttribute("award1FuncId", award1FuncId));
@@ -133,6 +137,7 @@ namespace GameConfigTools.Import
 
                     ChapterConfig c = new ChapterConfig();
                     c.Id = id;
+                    c.NameMessageId = nameMessageId;
                     c.NextChapterId = nextChapterId;
                     c.FirstStageId = firstStageId;
                     c.Award1LimitId = award1LimitId;

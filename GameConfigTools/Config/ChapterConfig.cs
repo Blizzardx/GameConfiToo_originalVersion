@@ -25,6 +25,7 @@ namespace Config
   {
     private int _id;
     private int _nextChapterId;
+    private int _nameMessageId;
     private int _firstStageId;
     private int _award1LimitId;
     private int _award1FuncId;
@@ -59,6 +60,19 @@ namespace Config
       {
         __isset.nextChapterId = true;
         this._nextChapterId = value;
+      }
+    }
+
+    public int NameMessageId
+    {
+      get
+      {
+        return _nameMessageId;
+      }
+      set
+      {
+        __isset.nameMessageId = true;
+        this._nameMessageId = value;
       }
     }
 
@@ -200,6 +214,7 @@ namespace Config
     public struct Isset {
       public bool id;
       public bool nextChapterId;
+      public bool nameMessageId;
       public bool firstStageId;
       public bool award1LimitId;
       public bool award1FuncId;
@@ -237,6 +252,13 @@ namespace Config
           case 11:
             if (field.Type == TType.I32) {
               NextChapterId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 12:
+            if (field.Type == TType.I32) {
+              NameMessageId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -340,6 +362,14 @@ namespace Config
         oprot.WriteI32(NextChapterId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.nameMessageId) {
+        field.Name = "nameMessageId";
+        field.Type = TType.I32;
+        field.ID = 12;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(NameMessageId);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.firstStageId) {
         field.Name = "firstStageId";
         field.Type = TType.I32;
@@ -430,6 +460,8 @@ namespace Config
       sb.Append(Id);
       sb.Append(",NextChapterId: ");
       sb.Append(NextChapterId);
+      sb.Append(",NameMessageId: ");
+      sb.Append(NameMessageId);
       sb.Append(",FirstStageId: ");
       sb.Append(FirstStageId);
       sb.Append(",Award1LimitId: ");
