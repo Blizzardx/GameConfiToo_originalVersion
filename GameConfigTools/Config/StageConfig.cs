@@ -25,32 +25,33 @@ namespace Config
   {
     private int _id;
     private int _nextStageId;
+    private int _chapterId;
+    private string _titleResource;
     private int _nameMessageId;
     private int _descMessageId;
-    private int _helpMessageId;
-    private int _targetMessageId;
-    private int _chapterId;
-    private string _stageMaprResource;
-    private int _beforeStoryId;
-    private int _afterStoryId;
-    private string _backgroundPic;
-    private string _iconPic;
-    private string _iconPicPass;
-    private int _quickWinLimitId;
-    private int _quickWinFuncId;
-    private int _enterLimitId;
-    private int _enterFuncId;
-    private int _beforeShowLimitId;
-    private int _beforeShowFuncId;
-    private int _loseLimitId;
-    private int _loseFuncId;
+    private int _stageType;
+    private int _unlockLimitId;
+    private string _showMonsterId;
+    private int _failLimitId;
+    private int _limitTime;
     private int _winLimitId;
-    private int _winFuncId;
-    private List<int> _dropIdList;
-    private List<int> _showDropItemIdList;
-    private List<int> _showMonsterIdList;
+    private int _targetLimitId1;
+    private int _targetFunc1;
+    private int _targetMessageId1;
+    private int _targetLimitId2;
+    private int _targetFunc2;
+    private int _targetMessageId2;
+    private int _targetLimitId3;
+    private int _targetFunc3;
+    private int _targetMessageId3;
+    private string _stageMaprResource;
     private int _starBit4CountId;
     private int _weatherPlanId;
+    private int _beforeStoryId;
+    private int _afterStoryId;
+    private string _modelID;
+    private string _modelAction;
+    private string _modelActionPass;
 
     public int Id
     {
@@ -75,6 +76,32 @@ namespace Config
       {
         __isset.nextStageId = true;
         this._nextStageId = value;
+      }
+    }
+
+    public int ChapterId
+    {
+      get
+      {
+        return _chapterId;
+      }
+      set
+      {
+        __isset.chapterId = true;
+        this._chapterId = value;
+      }
+    }
+
+    public string TitleResource
+    {
+      get
+      {
+        return _titleResource;
+      }
+      set
+      {
+        __isset.titleResource = true;
+        this._titleResource = value;
       }
     }
 
@@ -104,224 +131,68 @@ namespace Config
       }
     }
 
-    public int HelpMessageId
+    public int StageType
     {
       get
       {
-        return _helpMessageId;
+        return _stageType;
       }
       set
       {
-        __isset.helpMessageId = true;
-        this._helpMessageId = value;
+        __isset.stageType = true;
+        this._stageType = value;
       }
     }
 
-    public int TargetMessageId
+    public int UnlockLimitId
     {
       get
       {
-        return _targetMessageId;
+        return _unlockLimitId;
       }
       set
       {
-        __isset.targetMessageId = true;
-        this._targetMessageId = value;
+        __isset.unlockLimitId = true;
+        this._unlockLimitId = value;
       }
     }
 
-    public int ChapterId
+    public string ShowMonsterId
     {
       get
       {
-        return _chapterId;
+        return _showMonsterId;
       }
       set
       {
-        __isset.chapterId = true;
-        this._chapterId = value;
+        __isset.showMonsterId = true;
+        this._showMonsterId = value;
       }
     }
 
-    public string StageMaprResource
+    public int FailLimitId
     {
       get
       {
-        return _stageMaprResource;
+        return _failLimitId;
       }
       set
       {
-        __isset.stageMaprResource = true;
-        this._stageMaprResource = value;
+        __isset.failLimitId = true;
+        this._failLimitId = value;
       }
     }
 
-    public int BeforeStoryId
+    public int LimitTime
     {
       get
       {
-        return _beforeStoryId;
+        return _limitTime;
       }
       set
       {
-        __isset.beforeStoryId = true;
-        this._beforeStoryId = value;
-      }
-    }
-
-    public int AfterStoryId
-    {
-      get
-      {
-        return _afterStoryId;
-      }
-      set
-      {
-        __isset.afterStoryId = true;
-        this._afterStoryId = value;
-      }
-    }
-
-    public string BackgroundPic
-    {
-      get
-      {
-        return _backgroundPic;
-      }
-      set
-      {
-        __isset.backgroundPic = true;
-        this._backgroundPic = value;
-      }
-    }
-
-    public string IconPic
-    {
-      get
-      {
-        return _iconPic;
-      }
-      set
-      {
-        __isset.iconPic = true;
-        this._iconPic = value;
-      }
-    }
-
-    public string IconPicPass
-    {
-      get
-      {
-        return _iconPicPass;
-      }
-      set
-      {
-        __isset.iconPicPass = true;
-        this._iconPicPass = value;
-      }
-    }
-
-    public int QuickWinLimitId
-    {
-      get
-      {
-        return _quickWinLimitId;
-      }
-      set
-      {
-        __isset.quickWinLimitId = true;
-        this._quickWinLimitId = value;
-      }
-    }
-
-    public int QuickWinFuncId
-    {
-      get
-      {
-        return _quickWinFuncId;
-      }
-      set
-      {
-        __isset.quickWinFuncId = true;
-        this._quickWinFuncId = value;
-      }
-    }
-
-    public int EnterLimitId
-    {
-      get
-      {
-        return _enterLimitId;
-      }
-      set
-      {
-        __isset.enterLimitId = true;
-        this._enterLimitId = value;
-      }
-    }
-
-    public int EnterFuncId
-    {
-      get
-      {
-        return _enterFuncId;
-      }
-      set
-      {
-        __isset.enterFuncId = true;
-        this._enterFuncId = value;
-      }
-    }
-
-    public int BeforeShowLimitId
-    {
-      get
-      {
-        return _beforeShowLimitId;
-      }
-      set
-      {
-        __isset.beforeShowLimitId = true;
-        this._beforeShowLimitId = value;
-      }
-    }
-
-    public int BeforeShowFuncId
-    {
-      get
-      {
-        return _beforeShowFuncId;
-      }
-      set
-      {
-        __isset.beforeShowFuncId = true;
-        this._beforeShowFuncId = value;
-      }
-    }
-
-    public int LoseLimitId
-    {
-      get
-      {
-        return _loseLimitId;
-      }
-      set
-      {
-        __isset.loseLimitId = true;
-        this._loseLimitId = value;
-      }
-    }
-
-    public int LoseFuncId
-    {
-      get
-      {
-        return _loseFuncId;
-      }
-      set
-      {
-        __isset.loseFuncId = true;
-        this._loseFuncId = value;
+        __isset.limitTime = true;
+        this._limitTime = value;
       }
     }
 
@@ -338,55 +209,133 @@ namespace Config
       }
     }
 
-    public int WinFuncId
+    public int TargetLimitId1
     {
       get
       {
-        return _winFuncId;
+        return _targetLimitId1;
       }
       set
       {
-        __isset.winFuncId = true;
-        this._winFuncId = value;
+        __isset.targetLimitId1 = true;
+        this._targetLimitId1 = value;
       }
     }
 
-    public List<int> DropIdList
+    public int TargetFunc1
     {
       get
       {
-        return _dropIdList;
+        return _targetFunc1;
       }
       set
       {
-        __isset.dropIdList = true;
-        this._dropIdList = value;
+        __isset.targetFunc1 = true;
+        this._targetFunc1 = value;
       }
     }
 
-    public List<int> ShowDropItemIdList
+    public int TargetMessageId1
     {
       get
       {
-        return _showDropItemIdList;
+        return _targetMessageId1;
       }
       set
       {
-        __isset.showDropItemIdList = true;
-        this._showDropItemIdList = value;
+        __isset.targetMessageId1 = true;
+        this._targetMessageId1 = value;
       }
     }
 
-    public List<int> ShowMonsterIdList
+    public int TargetLimitId2
     {
       get
       {
-        return _showMonsterIdList;
+        return _targetLimitId2;
       }
       set
       {
-        __isset.showMonsterIdList = true;
-        this._showMonsterIdList = value;
+        __isset.targetLimitId2 = true;
+        this._targetLimitId2 = value;
+      }
+    }
+
+    public int TargetFunc2
+    {
+      get
+      {
+        return _targetFunc2;
+      }
+      set
+      {
+        __isset.targetFunc2 = true;
+        this._targetFunc2 = value;
+      }
+    }
+
+    public int TargetMessageId2
+    {
+      get
+      {
+        return _targetMessageId2;
+      }
+      set
+      {
+        __isset.targetMessageId2 = true;
+        this._targetMessageId2 = value;
+      }
+    }
+
+    public int TargetLimitId3
+    {
+      get
+      {
+        return _targetLimitId3;
+      }
+      set
+      {
+        __isset.targetLimitId3 = true;
+        this._targetLimitId3 = value;
+      }
+    }
+
+    public int TargetFunc3
+    {
+      get
+      {
+        return _targetFunc3;
+      }
+      set
+      {
+        __isset.targetFunc3 = true;
+        this._targetFunc3 = value;
+      }
+    }
+
+    public int TargetMessageId3
+    {
+      get
+      {
+        return _targetMessageId3;
+      }
+      set
+      {
+        __isset.targetMessageId3 = true;
+        this._targetMessageId3 = value;
+      }
+    }
+
+    public string StageMaprResource
+    {
+      get
+      {
+        return _stageMaprResource;
+      }
+      set
+      {
+        __isset.stageMaprResource = true;
+        this._stageMaprResource = value;
       }
     }
 
@@ -416,6 +365,71 @@ namespace Config
       }
     }
 
+    public int BeforeStoryId
+    {
+      get
+      {
+        return _beforeStoryId;
+      }
+      set
+      {
+        __isset.beforeStoryId = true;
+        this._beforeStoryId = value;
+      }
+    }
+
+    public int AfterStoryId
+    {
+      get
+      {
+        return _afterStoryId;
+      }
+      set
+      {
+        __isset.afterStoryId = true;
+        this._afterStoryId = value;
+      }
+    }
+
+    public string ModelID
+    {
+      get
+      {
+        return _modelID;
+      }
+      set
+      {
+        __isset.modelID = true;
+        this._modelID = value;
+      }
+    }
+
+    public string ModelAction
+    {
+      get
+      {
+        return _modelAction;
+      }
+      set
+      {
+        __isset.modelAction = true;
+        this._modelAction = value;
+      }
+    }
+
+    public string ModelActionPass
+    {
+      get
+      {
+        return _modelActionPass;
+      }
+      set
+      {
+        __isset.modelActionPass = true;
+        this._modelActionPass = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -424,32 +438,33 @@ namespace Config
     public struct Isset {
       public bool id;
       public bool nextStageId;
+      public bool chapterId;
+      public bool titleResource;
       public bool nameMessageId;
       public bool descMessageId;
-      public bool helpMessageId;
-      public bool targetMessageId;
-      public bool chapterId;
-      public bool stageMaprResource;
-      public bool beforeStoryId;
-      public bool afterStoryId;
-      public bool backgroundPic;
-      public bool iconPic;
-      public bool iconPicPass;
-      public bool quickWinLimitId;
-      public bool quickWinFuncId;
-      public bool enterLimitId;
-      public bool enterFuncId;
-      public bool beforeShowLimitId;
-      public bool beforeShowFuncId;
-      public bool loseLimitId;
-      public bool loseFuncId;
+      public bool stageType;
+      public bool unlockLimitId;
+      public bool showMonsterId;
+      public bool failLimitId;
+      public bool limitTime;
       public bool winLimitId;
-      public bool winFuncId;
-      public bool dropIdList;
-      public bool showDropItemIdList;
-      public bool showMonsterIdList;
+      public bool targetLimitId1;
+      public bool targetFunc1;
+      public bool targetMessageId1;
+      public bool targetLimitId2;
+      public bool targetFunc2;
+      public bool targetMessageId2;
+      public bool targetLimitId3;
+      public bool targetFunc3;
+      public bool targetMessageId3;
+      public bool stageMaprResource;
       public bool starBit4CountId;
       public bool weatherPlanId;
+      public bool beforeStoryId;
+      public bool afterStoryId;
+      public bool modelID;
+      public bool modelAction;
+      public bool modelActionPass;
     }
 
     public StageConfig() {
@@ -481,6 +496,20 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 12:
+            if (field.Type == TType.I32) {
+              ChapterId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 13:
+            if (field.Type == TType.String) {
+              TitleResource = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           case 20:
             if (field.Type == TType.I32) {
               NameMessageId = iprot.ReadI32();
@@ -495,121 +524,37 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 40:
+          case 31:
             if (field.Type == TType.I32) {
-              HelpMessageId = iprot.ReadI32();
+              StageType = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 41:
+          case 32:
             if (field.Type == TType.I32) {
-              TargetMessageId = iprot.ReadI32();
+              UnlockLimitId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 45:
-            if (field.Type == TType.I32) {
-              ChapterId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 50:
+          case 33:
             if (field.Type == TType.String) {
-              StageMaprResource = iprot.ReadString();
+              ShowMonsterId = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 55:
+          case 34:
             if (field.Type == TType.I32) {
-              BeforeStoryId = iprot.ReadI32();
+              FailLimitId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 56:
+          case 35:
             if (field.Type == TType.I32) {
-              AfterStoryId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 60:
-            if (field.Type == TType.String) {
-              BackgroundPic = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 61:
-            if (field.Type == TType.String) {
-              IconPic = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 62:
-            if (field.Type == TType.String) {
-              IconPicPass = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 70:
-            if (field.Type == TType.I32) {
-              QuickWinLimitId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 80:
-            if (field.Type == TType.I32) {
-              QuickWinFuncId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 90:
-            if (field.Type == TType.I32) {
-              EnterLimitId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 100:
-            if (field.Type == TType.I32) {
-              EnterFuncId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 101:
-            if (field.Type == TType.I32) {
-              BeforeShowLimitId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 102:
-            if (field.Type == TType.I32) {
-              BeforeShowFuncId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 110:
-            if (field.Type == TType.I32) {
-              LoseLimitId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 120:
-            if (field.Type == TType.I32) {
-              LoseFuncId = iprot.ReadI32();
+              LimitTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -623,58 +568,70 @@ namespace Config
             break;
           case 140:
             if (field.Type == TType.I32) {
-              WinFuncId = iprot.ReadI32();
+              TargetLimitId1 = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 150:
-            if (field.Type == TType.List) {
-              {
-                DropIdList = new List<int>();
-                TList _list101 = iprot.ReadListBegin();
-                for( int _i102 = 0; _i102 < _list101.Count; ++_i102)
-                {
-                  int _elem103 = 0;
-                  _elem103 = iprot.ReadI32();
-                  DropIdList.Add(_elem103);
-                }
-                iprot.ReadListEnd();
-              }
+          case 141:
+            if (field.Type == TType.I32) {
+              TargetFunc1 = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 160:
-            if (field.Type == TType.List) {
-              {
-                ShowDropItemIdList = new List<int>();
-                TList _list104 = iprot.ReadListBegin();
-                for( int _i105 = 0; _i105 < _list104.Count; ++_i105)
-                {
-                  int _elem106 = 0;
-                  _elem106 = iprot.ReadI32();
-                  ShowDropItemIdList.Add(_elem106);
-                }
-                iprot.ReadListEnd();
-              }
+          case 142:
+            if (field.Type == TType.I32) {
+              TargetMessageId1 = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 170:
-            if (field.Type == TType.List) {
-              {
-                ShowMonsterIdList = new List<int>();
-                TList _list107 = iprot.ReadListBegin();
-                for( int _i108 = 0; _i108 < _list107.Count; ++_i108)
-                {
-                  int _elem109 = 0;
-                  _elem109 = iprot.ReadI32();
-                  ShowMonsterIdList.Add(_elem109);
-                }
-                iprot.ReadListEnd();
-              }
+          case 143:
+            if (field.Type == TType.I32) {
+              TargetLimitId2 = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 144:
+            if (field.Type == TType.I32) {
+              TargetFunc2 = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 145:
+            if (field.Type == TType.I32) {
+              TargetMessageId2 = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 146:
+            if (field.Type == TType.I32) {
+              TargetLimitId3 = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 147:
+            if (field.Type == TType.I32) {
+              TargetFunc3 = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 148:
+            if (field.Type == TType.I32) {
+              TargetMessageId3 = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 149:
+            if (field.Type == TType.String) {
+              StageMaprResource = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -689,6 +646,41 @@ namespace Config
           case 190:
             if (field.Type == TType.I32) {
               WeatherPlanId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 200:
+            if (field.Type == TType.I32) {
+              BeforeStoryId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 210:
+            if (field.Type == TType.I32) {
+              AfterStoryId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 220:
+            if (field.Type == TType.String) {
+              ModelID = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 230:
+            if (field.Type == TType.String) {
+              ModelAction = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 240:
+            if (field.Type == TType.String) {
+              ModelActionPass = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -722,6 +714,22 @@ namespace Config
         oprot.WriteI32(NextStageId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.chapterId) {
+        field.Name = "chapterId";
+        field.Type = TType.I32;
+        field.ID = 12;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ChapterId);
+        oprot.WriteFieldEnd();
+      }
+      if (TitleResource != null && __isset.titleResource) {
+        field.Name = "titleResource";
+        field.Type = TType.String;
+        field.ID = 13;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(TitleResource);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.nameMessageId) {
         field.Name = "nameMessageId";
         field.Type = TType.I32;
@@ -738,140 +746,44 @@ namespace Config
         oprot.WriteI32(DescMessageId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.helpMessageId) {
-        field.Name = "helpMessageId";
+      if (__isset.stageType) {
+        field.Name = "stageType";
         field.Type = TType.I32;
-        field.ID = 40;
+        field.ID = 31;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(HelpMessageId);
+        oprot.WriteI32(StageType);
         oprot.WriteFieldEnd();
       }
-      if (__isset.targetMessageId) {
-        field.Name = "targetMessageId";
+      if (__isset.unlockLimitId) {
+        field.Name = "unlockLimitId";
         field.Type = TType.I32;
-        field.ID = 41;
+        field.ID = 32;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(TargetMessageId);
+        oprot.WriteI32(UnlockLimitId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.chapterId) {
-        field.Name = "chapterId";
-        field.Type = TType.I32;
-        field.ID = 45;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(ChapterId);
-        oprot.WriteFieldEnd();
-      }
-      if (StageMaprResource != null && __isset.stageMaprResource) {
-        field.Name = "stageMaprResource";
+      if (ShowMonsterId != null && __isset.showMonsterId) {
+        field.Name = "showMonsterId";
         field.Type = TType.String;
-        field.ID = 50;
+        field.ID = 33;
         oprot.WriteFieldBegin(field);
-        oprot.WriteString(StageMaprResource);
+        oprot.WriteString(ShowMonsterId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.beforeStoryId) {
-        field.Name = "beforeStoryId";
+      if (__isset.failLimitId) {
+        field.Name = "failLimitId";
         field.Type = TType.I32;
-        field.ID = 55;
+        field.ID = 34;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(BeforeStoryId);
+        oprot.WriteI32(FailLimitId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.afterStoryId) {
-        field.Name = "afterStoryId";
+      if (__isset.limitTime) {
+        field.Name = "limitTime";
         field.Type = TType.I32;
-        field.ID = 56;
+        field.ID = 35;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(AfterStoryId);
-        oprot.WriteFieldEnd();
-      }
-      if (BackgroundPic != null && __isset.backgroundPic) {
-        field.Name = "backgroundPic";
-        field.Type = TType.String;
-        field.ID = 60;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(BackgroundPic);
-        oprot.WriteFieldEnd();
-      }
-      if (IconPic != null && __isset.iconPic) {
-        field.Name = "iconPic";
-        field.Type = TType.String;
-        field.ID = 61;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(IconPic);
-        oprot.WriteFieldEnd();
-      }
-      if (IconPicPass != null && __isset.iconPicPass) {
-        field.Name = "iconPicPass";
-        field.Type = TType.String;
-        field.ID = 62;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(IconPicPass);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.quickWinLimitId) {
-        field.Name = "quickWinLimitId";
-        field.Type = TType.I32;
-        field.ID = 70;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(QuickWinLimitId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.quickWinFuncId) {
-        field.Name = "quickWinFuncId";
-        field.Type = TType.I32;
-        field.ID = 80;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(QuickWinFuncId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.enterLimitId) {
-        field.Name = "enterLimitId";
-        field.Type = TType.I32;
-        field.ID = 90;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(EnterLimitId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.enterFuncId) {
-        field.Name = "enterFuncId";
-        field.Type = TType.I32;
-        field.ID = 100;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(EnterFuncId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.beforeShowLimitId) {
-        field.Name = "beforeShowLimitId";
-        field.Type = TType.I32;
-        field.ID = 101;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(BeforeShowLimitId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.beforeShowFuncId) {
-        field.Name = "beforeShowFuncId";
-        field.Type = TType.I32;
-        field.ID = 102;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(BeforeShowFuncId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.loseLimitId) {
-        field.Name = "loseLimitId";
-        field.Type = TType.I32;
-        field.ID = 110;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(LoseLimitId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.loseFuncId) {
-        field.Name = "loseFuncId";
-        field.Type = TType.I32;
-        field.ID = 120;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(LoseFuncId);
+        oprot.WriteI32(LimitTime);
         oprot.WriteFieldEnd();
       }
       if (__isset.winLimitId) {
@@ -882,57 +794,84 @@ namespace Config
         oprot.WriteI32(WinLimitId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.winFuncId) {
-        field.Name = "winFuncId";
+      if (__isset.targetLimitId1) {
+        field.Name = "targetLimitId1";
         field.Type = TType.I32;
         field.ID = 140;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(WinFuncId);
+        oprot.WriteI32(TargetLimitId1);
         oprot.WriteFieldEnd();
       }
-      if (DropIdList != null && __isset.dropIdList) {
-        field.Name = "dropIdList";
-        field.Type = TType.List;
-        field.ID = 150;
+      if (__isset.targetFunc1) {
+        field.Name = "targetFunc1";
+        field.Type = TType.I32;
+        field.ID = 141;
         oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteListBegin(new TList(TType.I32, DropIdList.Count));
-          foreach (int _iter110 in DropIdList)
-          {
-            oprot.WriteI32(_iter110);
-          }
-          oprot.WriteListEnd();
-        }
+        oprot.WriteI32(TargetFunc1);
         oprot.WriteFieldEnd();
       }
-      if (ShowDropItemIdList != null && __isset.showDropItemIdList) {
-        field.Name = "showDropItemIdList";
-        field.Type = TType.List;
-        field.ID = 160;
+      if (__isset.targetMessageId1) {
+        field.Name = "targetMessageId1";
+        field.Type = TType.I32;
+        field.ID = 142;
         oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteListBegin(new TList(TType.I32, ShowDropItemIdList.Count));
-          foreach (int _iter111 in ShowDropItemIdList)
-          {
-            oprot.WriteI32(_iter111);
-          }
-          oprot.WriteListEnd();
-        }
+        oprot.WriteI32(TargetMessageId1);
         oprot.WriteFieldEnd();
       }
-      if (ShowMonsterIdList != null && __isset.showMonsterIdList) {
-        field.Name = "showMonsterIdList";
-        field.Type = TType.List;
-        field.ID = 170;
+      if (__isset.targetLimitId2) {
+        field.Name = "targetLimitId2";
+        field.Type = TType.I32;
+        field.ID = 143;
         oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteListBegin(new TList(TType.I32, ShowMonsterIdList.Count));
-          foreach (int _iter112 in ShowMonsterIdList)
-          {
-            oprot.WriteI32(_iter112);
-          }
-          oprot.WriteListEnd();
-        }
+        oprot.WriteI32(TargetLimitId2);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.targetFunc2) {
+        field.Name = "targetFunc2";
+        field.Type = TType.I32;
+        field.ID = 144;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(TargetFunc2);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.targetMessageId2) {
+        field.Name = "targetMessageId2";
+        field.Type = TType.I32;
+        field.ID = 145;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(TargetMessageId2);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.targetLimitId3) {
+        field.Name = "targetLimitId3";
+        field.Type = TType.I32;
+        field.ID = 146;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(TargetLimitId3);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.targetFunc3) {
+        field.Name = "targetFunc3";
+        field.Type = TType.I32;
+        field.ID = 147;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(TargetFunc3);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.targetMessageId3) {
+        field.Name = "targetMessageId3";
+        field.Type = TType.I32;
+        field.ID = 148;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(TargetMessageId3);
+        oprot.WriteFieldEnd();
+      }
+      if (StageMaprResource != null && __isset.stageMaprResource) {
+        field.Name = "stageMaprResource";
+        field.Type = TType.String;
+        field.ID = 149;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(StageMaprResource);
         oprot.WriteFieldEnd();
       }
       if (__isset.starBit4CountId) {
@@ -951,6 +890,46 @@ namespace Config
         oprot.WriteI32(WeatherPlanId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.beforeStoryId) {
+        field.Name = "beforeStoryId";
+        field.Type = TType.I32;
+        field.ID = 200;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(BeforeStoryId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.afterStoryId) {
+        field.Name = "afterStoryId";
+        field.Type = TType.I32;
+        field.ID = 210;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(AfterStoryId);
+        oprot.WriteFieldEnd();
+      }
+      if (ModelID != null && __isset.modelID) {
+        field.Name = "modelID";
+        field.Type = TType.String;
+        field.ID = 220;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(ModelID);
+        oprot.WriteFieldEnd();
+      }
+      if (ModelAction != null && __isset.modelAction) {
+        field.Name = "modelAction";
+        field.Type = TType.String;
+        field.ID = 230;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(ModelAction);
+        oprot.WriteFieldEnd();
+      }
+      if (ModelActionPass != null && __isset.modelActionPass) {
+        field.Name = "modelActionPass";
+        field.Type = TType.String;
+        field.ID = 240;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(ModelActionPass);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -961,58 +940,60 @@ namespace Config
       sb.Append(Id);
       sb.Append(",NextStageId: ");
       sb.Append(NextStageId);
+      sb.Append(",ChapterId: ");
+      sb.Append(ChapterId);
+      sb.Append(",TitleResource: ");
+      sb.Append(TitleResource);
       sb.Append(",NameMessageId: ");
       sb.Append(NameMessageId);
       sb.Append(",DescMessageId: ");
       sb.Append(DescMessageId);
-      sb.Append(",HelpMessageId: ");
-      sb.Append(HelpMessageId);
-      sb.Append(",TargetMessageId: ");
-      sb.Append(TargetMessageId);
-      sb.Append(",ChapterId: ");
-      sb.Append(ChapterId);
-      sb.Append(",StageMaprResource: ");
-      sb.Append(StageMaprResource);
-      sb.Append(",BeforeStoryId: ");
-      sb.Append(BeforeStoryId);
-      sb.Append(",AfterStoryId: ");
-      sb.Append(AfterStoryId);
-      sb.Append(",BackgroundPic: ");
-      sb.Append(BackgroundPic);
-      sb.Append(",IconPic: ");
-      sb.Append(IconPic);
-      sb.Append(",IconPicPass: ");
-      sb.Append(IconPicPass);
-      sb.Append(",QuickWinLimitId: ");
-      sb.Append(QuickWinLimitId);
-      sb.Append(",QuickWinFuncId: ");
-      sb.Append(QuickWinFuncId);
-      sb.Append(",EnterLimitId: ");
-      sb.Append(EnterLimitId);
-      sb.Append(",EnterFuncId: ");
-      sb.Append(EnterFuncId);
-      sb.Append(",BeforeShowLimitId: ");
-      sb.Append(BeforeShowLimitId);
-      sb.Append(",BeforeShowFuncId: ");
-      sb.Append(BeforeShowFuncId);
-      sb.Append(",LoseLimitId: ");
-      sb.Append(LoseLimitId);
-      sb.Append(",LoseFuncId: ");
-      sb.Append(LoseFuncId);
+      sb.Append(",StageType: ");
+      sb.Append(StageType);
+      sb.Append(",UnlockLimitId: ");
+      sb.Append(UnlockLimitId);
+      sb.Append(",ShowMonsterId: ");
+      sb.Append(ShowMonsterId);
+      sb.Append(",FailLimitId: ");
+      sb.Append(FailLimitId);
+      sb.Append(",LimitTime: ");
+      sb.Append(LimitTime);
       sb.Append(",WinLimitId: ");
       sb.Append(WinLimitId);
-      sb.Append(",WinFuncId: ");
-      sb.Append(WinFuncId);
-      sb.Append(",DropIdList: ");
-      sb.Append(DropIdList);
-      sb.Append(",ShowDropItemIdList: ");
-      sb.Append(ShowDropItemIdList);
-      sb.Append(",ShowMonsterIdList: ");
-      sb.Append(ShowMonsterIdList);
+      sb.Append(",TargetLimitId1: ");
+      sb.Append(TargetLimitId1);
+      sb.Append(",TargetFunc1: ");
+      sb.Append(TargetFunc1);
+      sb.Append(",TargetMessageId1: ");
+      sb.Append(TargetMessageId1);
+      sb.Append(",TargetLimitId2: ");
+      sb.Append(TargetLimitId2);
+      sb.Append(",TargetFunc2: ");
+      sb.Append(TargetFunc2);
+      sb.Append(",TargetMessageId2: ");
+      sb.Append(TargetMessageId2);
+      sb.Append(",TargetLimitId3: ");
+      sb.Append(TargetLimitId3);
+      sb.Append(",TargetFunc3: ");
+      sb.Append(TargetFunc3);
+      sb.Append(",TargetMessageId3: ");
+      sb.Append(TargetMessageId3);
+      sb.Append(",StageMaprResource: ");
+      sb.Append(StageMaprResource);
       sb.Append(",StarBit4CountId: ");
       sb.Append(StarBit4CountId);
       sb.Append(",WeatherPlanId: ");
       sb.Append(WeatherPlanId);
+      sb.Append(",BeforeStoryId: ");
+      sb.Append(BeforeStoryId);
+      sb.Append(",AfterStoryId: ");
+      sb.Append(AfterStoryId);
+      sb.Append(",ModelID: ");
+      sb.Append(ModelID);
+      sb.Append(",ModelAction: ");
+      sb.Append(ModelAction);
+      sb.Append(",ModelActionPass: ");
+      sb.Append(ModelActionPass);
       sb.Append(")");
       return sb.ToString();
     }

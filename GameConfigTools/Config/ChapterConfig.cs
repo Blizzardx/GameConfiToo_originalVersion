@@ -25,10 +25,7 @@ namespace Config
   {
     private int _id;
     private int _nextChapterId;
-    private string _nameResource;
-    private string _sceneResource;
     private int _firstStageId;
-    private int _activeLimitId;
     private int _award1LimitId;
     private int _award1FuncId;
     private int _flag1Id;
@@ -65,32 +62,6 @@ namespace Config
       }
     }
 
-    public string NameResource
-    {
-      get
-      {
-        return _nameResource;
-      }
-      set
-      {
-        __isset.nameResource = true;
-        this._nameResource = value;
-      }
-    }
-
-    public string SceneResource
-    {
-      get
-      {
-        return _sceneResource;
-      }
-      set
-      {
-        __isset.sceneResource = true;
-        this._sceneResource = value;
-      }
-    }
-
     public int FirstStageId
     {
       get
@@ -101,19 +72,6 @@ namespace Config
       {
         __isset.firstStageId = true;
         this._firstStageId = value;
-      }
-    }
-
-    public int ActiveLimitId
-    {
-      get
-      {
-        return _activeLimitId;
-      }
-      set
-      {
-        __isset.activeLimitId = true;
-        this._activeLimitId = value;
       }
     }
 
@@ -242,10 +200,7 @@ namespace Config
     public struct Isset {
       public bool id;
       public bool nextChapterId;
-      public bool nameResource;
-      public bool sceneResource;
       public bool firstStageId;
-      public bool activeLimitId;
       public bool award1LimitId;
       public bool award1FuncId;
       public bool flag1Id;
@@ -286,30 +241,9 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 20:
-            if (field.Type == TType.String) {
-              NameResource = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 21:
-            if (field.Type == TType.String) {
-              SceneResource = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
           case 30:
             if (field.Type == TType.I32) {
               FirstStageId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 40:
-            if (field.Type == TType.I32) {
-              ActiveLimitId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -406,36 +340,12 @@ namespace Config
         oprot.WriteI32(NextChapterId);
         oprot.WriteFieldEnd();
       }
-      if (NameResource != null && __isset.nameResource) {
-        field.Name = "nameResource";
-        field.Type = TType.String;
-        field.ID = 20;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(NameResource);
-        oprot.WriteFieldEnd();
-      }
-      if (SceneResource != null && __isset.sceneResource) {
-        field.Name = "sceneResource";
-        field.Type = TType.String;
-        field.ID = 21;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(SceneResource);
-        oprot.WriteFieldEnd();
-      }
       if (__isset.firstStageId) {
         field.Name = "firstStageId";
         field.Type = TType.I32;
         field.ID = 30;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(FirstStageId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.activeLimitId) {
-        field.Name = "activeLimitId";
-        field.Type = TType.I32;
-        field.ID = 40;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(ActiveLimitId);
         oprot.WriteFieldEnd();
       }
       if (__isset.award1LimitId) {
@@ -520,14 +430,8 @@ namespace Config
       sb.Append(Id);
       sb.Append(",NextChapterId: ");
       sb.Append(NextChapterId);
-      sb.Append(",NameResource: ");
-      sb.Append(NameResource);
-      sb.Append(",SceneResource: ");
-      sb.Append(SceneResource);
       sb.Append(",FirstStageId: ");
       sb.Append(FirstStageId);
-      sb.Append(",ActiveLimitId: ");
-      sb.Append(ActiveLimitId);
       sb.Append(",Award1LimitId: ");
       sb.Append(Award1LimitId);
       sb.Append(",Award1FuncId: ");

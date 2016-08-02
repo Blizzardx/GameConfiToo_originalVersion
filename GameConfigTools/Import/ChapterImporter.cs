@@ -54,21 +54,12 @@ namespace GameConfigTools.Import
                         return;
                     }
                     string name = values[i][index++];
-                    string nameResource = values[i][index++];
-                    string sceneResource = values[i][index++];
                     int firstStageId;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out firstStageId))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，第一个关卡ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int activeLimitId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeLimitId))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，激活章节条件组ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
-                        return;
-                    }
-                    
                     int award1LimitId;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out award1LimitId))
                     {
@@ -130,7 +121,6 @@ namespace GameConfigTools.Import
                     chapterE.Add(new XAttribute("nextChapterId", nextChapterId));
                     chapterE.Add(new XAttribute("name", name));
                     chapterE.Add(new XAttribute("firstStageId", firstStageId));
-                    chapterE.Add(new XAttribute("activeLimitId", activeLimitId));
                     chapterE.Add(new XAttribute("award1LimitId", award1LimitId));
                     chapterE.Add(new XAttribute("award1FuncId", award1FuncId));
                     chapterE.Add(new XAttribute("flag1Id", flag1Id));
@@ -144,10 +134,7 @@ namespace GameConfigTools.Import
                     ChapterConfig c = new ChapterConfig();
                     c.Id = id;
                     c.NextChapterId = nextChapterId;
-                    c.NameResource = nameResource;
-                    c.SceneResource = sceneResource;
                     c.FirstStageId = firstStageId;
-                    c.ActiveLimitId = activeLimitId;
                     c.Award1LimitId = award1LimitId;
                     c.Flag1Id = flag1Id;
                     c.Award1FuncId = award1FuncId;

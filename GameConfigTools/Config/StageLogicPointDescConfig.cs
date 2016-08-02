@@ -88,13 +88,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 PointList = new List<LogicPointElement>();
-                TList _list129 = iprot.ReadListBegin();
-                for( int _i130 = 0; _i130 < _list129.Count; ++_i130)
+                TList _list117 = iprot.ReadListBegin();
+                for( int _i118 = 0; _i118 < _list117.Count; ++_i118)
                 {
-                  LogicPointElement _elem131 = new LogicPointElement();
-                  _elem131 = new LogicPointElement();
-                  _elem131.Read(iprot);
-                  PointList.Add(_elem131);
+                  LogicPointElement _elem119 = new LogicPointElement();
+                  _elem119 = new LogicPointElement();
+                  _elem119.Read(iprot);
+                  PointList.Add(_elem119);
                 }
                 iprot.ReadListEnd();
               }
@@ -130,9 +130,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, PointList.Count));
-          foreach (LogicPointElement _iter132 in PointList)
+          foreach (LogicPointElement _iter120 in PointList)
           {
-            _iter132.Write(oprot);
+            _iter120.Write(oprot);
           }
           oprot.WriteListEnd();
         }
