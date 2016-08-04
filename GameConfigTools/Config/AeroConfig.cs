@@ -24,6 +24,8 @@ namespace Config
   public partial class AeroConfig : TBase
   {
     private int _id;
+    private int _groupId;
+    private int _evolutionLevel;
     private int _nameMessageId;
     private int _descMessageId;
     private string _model;
@@ -50,6 +52,32 @@ namespace Config
       {
         __isset.id = true;
         this._id = value;
+      }
+    }
+
+    public int GroupId
+    {
+      get
+      {
+        return _groupId;
+      }
+      set
+      {
+        __isset.groupId = true;
+        this._groupId = value;
+      }
+    }
+
+    public int EvolutionLevel
+    {
+      get
+      {
+        return _evolutionLevel;
+      }
+      set
+      {
+        __isset.evolutionLevel = true;
+        this._evolutionLevel = value;
       }
     }
 
@@ -255,6 +283,8 @@ namespace Config
     #endif
     public struct Isset {
       public bool id;
+      public bool groupId;
+      public bool evolutionLevel;
       public bool nameMessageId;
       public bool descMessageId;
       public bool model;
@@ -290,6 +320,20 @@ namespace Config
           case 10:
             if (field.Type == TType.I32) {
               Id = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 11:
+            if (field.Type == TType.I32) {
+              GroupId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 12:
+            if (field.Type == TType.I32) {
+              EvolutionLevel = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -420,6 +464,22 @@ namespace Config
         oprot.WriteI32(Id);
         oprot.WriteFieldEnd();
       }
+      if (__isset.groupId) {
+        field.Name = "groupId";
+        field.Type = TType.I32;
+        field.ID = 11;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(GroupId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.evolutionLevel) {
+        field.Name = "evolutionLevel";
+        field.Type = TType.I32;
+        field.ID = 12;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(EvolutionLevel);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.nameMessageId) {
         field.Name = "nameMessageId";
         field.Type = TType.I32;
@@ -548,6 +608,10 @@ namespace Config
       StringBuilder sb = new StringBuilder("AeroConfig(");
       sb.Append("Id: ");
       sb.Append(Id);
+      sb.Append(",GroupId: ");
+      sb.Append(GroupId);
+      sb.Append(",EvolutionLevel: ");
+      sb.Append(EvolutionLevel);
       sb.Append(",NameMessageId: ");
       sb.Append(NameMessageId);
       sb.Append(",DescMessageId: ");

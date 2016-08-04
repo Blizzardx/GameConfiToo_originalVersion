@@ -502,7 +502,7 @@ namespace GameConfigTools.Import
         {
         }
 
-        protected virtual void OnAutoParasLine(string[] line, ref string errMsg)
+        protected virtual void OnAutoParasLine(string sheetName,int row,string[] line, ref string errMsg)
         {
             
         }

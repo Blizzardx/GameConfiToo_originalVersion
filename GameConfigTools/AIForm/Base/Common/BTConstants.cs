@@ -8,7 +8,7 @@ namespace GameConfigTools.AIForm
     public class BTConstants
     {
         public static string[][] NODE_NAMES = new string[][]{
-            new string[]{ "选择节点", "顺序节点", },               //复合节点
+            new string[]{ "选择节点", "顺序节点", "并行选择节点", "并行顺序节点"},               //复合节点
             new string[]{ "间隔时间装饰节点","间隔帧数装饰节点" },               //装饰节点
             new string[]{ "条件节点" },               //条件节点
             new string[]{
@@ -29,6 +29,8 @@ namespace GameConfigTools.AIForm
         public const string NODE_TYPE_SEQUENCE = "sequence";
         public const string NODE_TYPE_PARALLEL = "parallel";
         public const string NODE_TYPE_PRIORITY_SELECTOR = "prioritySelector";
+        public const string NODE_TYPE_PARALLEL_SELECTOR = "parallelSelector";
+        public const string NODE_TYPE_PARALLEL_SEQUENCE = "parallelSequence";
 
         //装饰节点
         public const string NODE_TYPE_DECORATOR = "decorator";

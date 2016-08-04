@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GameConfigTools.AIForm.Project.Composite;
 
 namespace GameConfigTools.AIForm
 {
@@ -109,11 +110,11 @@ namespace GameConfigTools.AIForm
                         }
                         else if (selectNodeNameIndex == 2)
                         {
-                            this.AddParamPanelToGroupBox(new ParallelPanel());
+                            this.AddParamPanelToGroupBox(new ParallelSelectorPanel());
                         }
                         else if(selectNodeNameIndex == 3)
                         {
-                            this.AddParamPanelToGroupBox(new PrioritySelectorPanel());
+                            this.AddParamPanelToGroupBox(new ParallelSequencePanel());
                         }
                         break;
                     }

@@ -45,7 +45,7 @@ namespace GameConfigTools.Import
 
 {2}                    
                     
-                    OnAutoParasLine(values[i],ref errMsg);
+                    OnAutoParasLine(sheetName,row,values[i],ref errMsg);
                     if (!string.IsNullOrEmpty(errMsg))
                     {
                         return;

@@ -218,6 +218,14 @@ namespace GameConfigTools.AIForm
             {
                 return new ParallelNode();
             }
+            else if (nodeType == BTConstants.NODE_TYPE_PARALLEL_SELECTOR)
+            {
+                return new ParallelSelectorNode();
+            }
+            else if (nodeType == BTConstants.NODE_TYPE_PARALLEL_SEQUENCE)
+            {
+                return new ParallelSequenceNode();
+            }
             else if(nodeType == BTConstants.NODE_TYPE_PRIORITY_SELECTOR)
             {
                 return new PrioritySelectorNode();
@@ -451,6 +459,14 @@ namespace GameConfigTools.AIForm
                 else if(node is SequenceNode)
                 {
                     xe.Add(new XAttribute("nodeType", BTConstants.NODE_TYPE_SEQUENCE));
+                }
+                else if (node is ParallelSequenceNode)
+                {
+                    xe.Add(new XAttribute("nodeType", BTConstants.NODE_TYPE_PARALLEL_SEQUENCE));
+                }
+                else if (node is ParallelSelectorNode)
+                {
+                    xe.Add(new XAttribute("nodeType", BTConstants.NODE_TYPE_PARALLEL_SELECTOR));
                 }
                 else if (node is ParallelNode)
                 {

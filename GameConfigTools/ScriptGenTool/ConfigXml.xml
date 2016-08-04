@@ -22,5 +22,29 @@
         <GenScriptLineXmlConfig index="4" classTypeName="int" memberName="funcId" desc="funcId"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
+  <GenScriptClassXmlConfig className="AeroConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig index="1" classTypeName="int" memberName="id" desc="id"/>
+        <GenScriptLineXmlConfig index="2" classTypeName="string" memberName="name" desc="name"/>
+        <GenScriptLineXmlConfig index="3" classTypeName="int" memberName="groupId" desc="groupId"/>
+        <GenScriptLineXmlConfig index="4" classTypeName="int" memberName="evolutionLevel" desc="evolutionLevel"/>
+        <GenScriptLineXmlConfig index="5" classTypeName="int" memberName="nameeMessageId" desc="nameeMessageId"/>
+        <GenScriptLineXmlConfig index="6" classTypeName="int" memberName="descMessageId" desc="descMessageId"/>
+        <GenScriptLineXmlConfig index="7" classTypeName="string" memberName="model" desc="model"/>
+        <GenScriptLineXmlConfig index="8" classTypeName="string" memberName="prefab" desc="prefab"/>
+        <GenScriptLineXmlConfig index="9" classTypeName="string" memberName="icon" desc="icon"/>
+        <GenScriptLineXmlConfig index="10" classTypeName="int" memberName="quality" desc="quality"/>
+        <GenScriptLineXmlConfig index="11" classTypeName="int" memberName="moveAdd" desc="moveAdd"/>
+        <GenScriptLineXmlConfig index="12" classTypeName="int" memberName="flyAdd" desc="flyAdd"/>
+        <GenScriptLineXmlConfig index="13" classTypeName="int" memberName="moveMax" desc="moveMax"/>
+        <GenScriptLineXmlConfig index="14" classTypeName="int" memberName="flyMax" desc="flyMax"/>
+        <GenScriptLineXmlConfig index="15" classTypeName="int" memberName="dropAdd" desc="dropAdd"/>
+        <GenScriptLineXmlConfig index="16" classTypeName="int" memberName="dropMax" desc="dropMax"/>
+        <GenScriptLineXmlConfig index="17" classTypeName="int" memberName="friction" desc="friction"/>
+        <GenScriptLineXmlConfig index="18" classTypeName="int" memberName="resistance" desc="resistance"/>      
+        <GenScriptLineXmlConfig index="19" classTypeName="int" memberName="recoverId" desc="recoverId"/>
+        <GenScriptLineXmlConfig index="20" classTypeName="int" memberName="recoverHp" desc="recoverHp"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
   </classConfigList>
 </root>

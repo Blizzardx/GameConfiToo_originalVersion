@@ -30,7 +30,7 @@ namespace GameConfigTools.Import
             return SysConstant.AERO_LEVEL_UP_CONFIG;
         }
 
-        protected override void OnAutoParasLine(string[] line, ref string errMsg)
+        protected override void OnAutoParasLine(string sheetName, int row, string[] line, ref string errMsg)
         {
             AeroLevelUpConfig c = new AeroLevelUpConfig();
             c.AeroId = aeroId;

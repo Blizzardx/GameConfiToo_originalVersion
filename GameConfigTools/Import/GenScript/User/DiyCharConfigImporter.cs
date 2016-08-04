@@ -26,7 +26,7 @@ namespace GameConfigTools.Import
             return SysConstant.DIY_CHAR_CONFIG;
         }
 
-        protected override void OnAutoParasLine(string[] line, ref string errMsg)
+        protected override void OnAutoParasLine(string sheetName, int row,string[] line, ref string errMsg)
         {
             DiyVertexInfo c = new DiyVertexInfo();
             c.VertexId = vertexid;

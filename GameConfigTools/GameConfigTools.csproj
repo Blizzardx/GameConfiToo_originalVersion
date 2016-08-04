@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -82,68 +82,70 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AIForm\ActionNode.cs" />
-    <Compile Include="AIForm\Action\AttackActionNode.cs" />
-    <Compile Include="AIForm\Action\DeadActionNode.cs" />
-    <Compile Include="AIForm\Action\DeadActionPanel.cs">
+    <Compile Include="AIForm\Base\Action\ActionNode.cs" />
+    <Compile Include="AIForm\Base\Composite\ParallelSelectorNode.cs" />
+    <Compile Include="AIForm\Base\Composite\ParallelSequenceNode.cs" />
+    <Compile Include="AIForm\Project\Action\AttackActionNode.cs" />
+    <Compile Include="AIForm\Project\Action\DeadActionNode.cs" />
+    <Compile Include="AIForm\Project\Action\DeadActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\DeadActionPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Action\DeadActionPanel.Designer.cs">
       <DependentUpon>DeadActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\AttackActionPanel.cs">
+    <Compile Include="AIForm\Project\Action\AttackActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\AttackActionPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Action\AttackActionPanel.Designer.cs">
       <DependentUpon>AttackActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\IdleRandomActionNode.cs" />
-    <Compile Include="AIForm\Action\IdleRandomActionPanel.cs">
+    <Compile Include="AIForm\Project\Action\IdleRandomActionNode.cs" />
+    <Compile Include="AIForm\Project\Action\IdleRandomActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\IdleRandomActionPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Action\IdleRandomActionPanel.Designer.cs">
       <DependentUpon>IdleRandomActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\IdleRegualrityActionNode.cs" />
-    <Compile Include="AIForm\Action\IdleRegularityActionPanel.cs">
+    <Compile Include="AIForm\Project\Action\IdleRegualrityActionNode.cs" />
+    <Compile Include="AIForm\Project\Action\IdleRegularityActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\IdleRegularityActionPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Action\IdleRegularityActionPanel.Designer.cs">
       <DependentUpon>IdleRegularityActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\IdleStaticActionNode.cs" />
-    <Compile Include="AIForm\Action\IdleStaticActionPanel.cs">
+    <Compile Include="AIForm\Project\Action\IdleStaticActionNode.cs" />
+    <Compile Include="AIForm\Project\Action\IdleStaticActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\IdleStaticActionPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Action\IdleStaticActionPanel.Designer.cs">
       <DependentUpon>IdleStaticActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\JumpToActionNode.cs" />
-    <Compile Include="AIForm\Action\JumptoActionPanel.cs">
+    <Compile Include="AIForm\Project\Action\JumpToActionNode.cs" />
+    <Compile Include="AIForm\Project\Action\JumptoActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\JumptoActionPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Action\JumptoActionPanel.Designer.cs">
       <DependentUpon>JumptoActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\MoveActionNode.cs" />
-    <Compile Include="AIForm\Action\MoveActionPanel.cs">
+    <Compile Include="AIForm\Project\Action\MoveActionNode.cs" />
+    <Compile Include="AIForm\Project\Action\MoveActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\MoveActionPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Action\MoveActionPanel.Designer.cs">
       <DependentUpon>MoveActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\RunActionNode.cs" />
-    <Compile Include="AIForm\Action\RunActionPanel.cs">
+    <Compile Include="AIForm\Project\Action\RunActionNode.cs" />
+    <Compile Include="AIForm\Project\Action\RunActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\RunActionPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Action\RunActionPanel.Designer.cs">
       <DependentUpon>RunActionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Action\SkillAttackActionNode.cs" />
-    <Compile Include="AIForm\Action\SkillAttackActionPanel.cs">
+    <Compile Include="AIForm\Project\Action\SkillAttackActionNode.cs" />
+    <Compile Include="AIForm\Project\Action\SkillAttackActionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Action\SkillAttackActionPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Action\SkillAttackActionPanel.Designer.cs">
       <DependentUpon>SkillAttackActionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="AIForm\AddBTRootForm.cs">
@@ -158,61 +160,73 @@
     <Compile Include="AIForm\AddNodeForm.Designer.cs">
       <DependentUpon>AddNodeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\BTConstants.cs" />
-    <Compile Include="AIForm\BTNode.cs" />
-    <Compile Include="AIForm\BTParam.cs" />
-    <Compile Include="AIForm\CompositeNode.cs" />
-    <Compile Include="AIForm\Composite\ParallelPanel.cs">
+    <Compile Include="AIForm\Base\Common\BTConstants.cs" />
+    <Compile Include="AIForm\Base\Common\BTNode.cs" />
+    <Compile Include="AIForm\Base\Common\BTParam.cs" />
+    <Compile Include="AIForm\Base\Composite\CompositeNode.cs" />
+    <Compile Include="AIForm\Project\Composite\ParallelPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Composite\ParallelPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Composite\ParallelPanel.Designer.cs">
       <DependentUpon>ParallelPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Composite\PrioritySelectorPanel.cs">
+    <Compile Include="AIForm\Project\Composite\ParallelSelectorPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Composite\PrioritySelectorPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Composite\ParallelSelectorPanel.Designer.cs">
+      <DependentUpon>ParallelSelectorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Project\Composite\ParallelSequencePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Project\Composite\ParallelSequencePanel.Designer.cs">
+      <DependentUpon>ParallelSequencePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AIForm\Project\Composite\PrioritySelectorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AIForm\Project\Composite\PrioritySelectorPanel.Designer.cs">
       <DependentUpon>PrioritySelectorPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Composite\SequencePanel.cs">
+    <Compile Include="AIForm\Project\Composite\SequencePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Composite\SequencePanel.Designer.cs">
+    <Compile Include="AIForm\Project\Composite\SequencePanel.Designer.cs">
       <DependentUpon>SequencePanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Composite\SelectorPanel.cs">
+    <Compile Include="AIForm\Project\Composite\SelectorPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Composite\SelectorPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Composite\SelectorPanel.Designer.cs">
       <DependentUpon>SelectorPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\ConditionNode.cs" />
-    <Compile Include="AIForm\Condition\ConditionPanel.cs">
+    <Compile Include="AIForm\Base\Condition\ConditionNode.cs" />
+    <Compile Include="AIForm\Project\Condition\ConditionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Condition\ConditionPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Condition\ConditionPanel.Designer.cs">
       <DependentUpon>ConditionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\DecoratorNode.cs" />
-    <Compile Include="AIForm\Decorator\InverterByframeDecoratorNode.cs" />
-    <Compile Include="AIForm\Decorator\InverterByframeDecoratorPanel.cs">
+    <Compile Include="AIForm\Base\Decorate\DecoratorNode.cs" />
+    <Compile Include="AIForm\Project\Decorator\InverterByframeDecoratorNode.cs" />
+    <Compile Include="AIForm\Project\Decorator\InverterByframeDecoratorPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Decorator\InverterByframeDecoratorPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Decorator\InverterByframeDecoratorPanel.Designer.cs">
       <DependentUpon>InverterByframeDecoratorPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\Decorator\InverterDecoratorNode.cs" />
-    <Compile Include="AIForm\Decorator\InverterDecoratorPanel.cs">
+    <Compile Include="AIForm\Project\Decorator\InverterDecoratorNode.cs" />
+    <Compile Include="AIForm\Project\Decorator\InverterDecoratorPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AIForm\Decorator\InverterDecoratorPanel.Designer.cs">
+    <Compile Include="AIForm\Project\Decorator\InverterDecoratorPanel.Designer.cs">
       <DependentUpon>InverterDecoratorPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AIForm\ParallelNode.cs" />
-    <Compile Include="AIForm\PrioritySelectorNode.cs" />
-    <Compile Include="AIForm\RootNode.cs" />
-    <Compile Include="AIForm\SelectorNode.cs" />
-    <Compile Include="AIForm\SequenceNode.cs" />
+    <Compile Include="AIForm\Base\Composite\ParallelNode.cs" />
+    <Compile Include="AIForm\Base\Composite\PrioritySelectorNode.cs" />
+    <Compile Include="AIForm\Base\Common\RootNode.cs" />
+    <Compile Include="AIForm\Base\Composite\SelectorNode.cs" />
+    <Compile Include="AIForm\Base\Composite\SequenceNode.cs" />
     <Compile Include="Collections\TCollections.cs" />
     <Compile Include="Collections\THashSet.cs" />
     <Compile Include="ConfigForm.cs">
@@ -368,6 +382,9 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
+<Compile Include="Import\GenScript\User\AeroConfigImporter.cs" />
+<Compile Include="Import\GenScript\Auto\AeroConfigImporter.cs" />
+    <Compile Include="Import\ExchangeImporter.cs" />
     <Compile Include="Import\GenScript\User\AeroLevelUpConfigImporter.cs" />
     <Compile Include="Import\GenScript\Auto\AeroLevelUpConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\DiyCharConfigImporter.cs" />
@@ -384,7 +401,6 @@
     <Compile Include="Import\ActionGroupConfigImporter.cs" />
     <Compile Include="Import\ActivityMallConfigImporter.cs" />
     <Compile Include="Import\AeroAttributeConfigImporter.cs" />
-    <Compile Include="Import\AeroConfigImporter.cs" />
     <Compile Include="Import\AIConfigImporter.cs" />
     <Compile Include="Import\BaseMallImporter.cs" />
     <Compile Include="Import\BattleActionConfigImporter.cs" />
@@ -499,28 +515,28 @@
     <Compile Include="Util\LogQueue.cs" />
     <Compile Include="Util\ProcessUtil.cs" />
     <Compile Include="Util\VaildUtil.cs" />
-    <EmbeddedResource Include="AIForm\Action\AttackActionPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Action\AttackActionPanel.resx">
       <DependentUpon>AttackActionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\IdleRandomActionPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Action\IdleRandomActionPanel.resx">
       <DependentUpon>IdleRandomActionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\IdleRegularityActionPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Action\IdleRegularityActionPanel.resx">
       <DependentUpon>IdleRegularityActionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\IdleStaticActionPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Action\IdleStaticActionPanel.resx">
       <DependentUpon>IdleStaticActionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\JumptoActionPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Action\JumptoActionPanel.resx">
       <DependentUpon>JumptoActionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\MoveActionPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Action\MoveActionPanel.resx">
       <DependentUpon>MoveActionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\RunActionPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Action\RunActionPanel.resx">
       <DependentUpon>RunActionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Action\SkillAttackActionPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Action\SkillAttackActionPanel.resx">
       <DependentUpon>SkillAttackActionPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AIForm\AddBTRootForm.resx">
@@ -529,25 +545,25 @@
     <EmbeddedResource Include="AIForm\AddNodeForm.resx">
       <DependentUpon>AddNodeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Composite\ParallelPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Composite\ParallelPanel.resx">
       <DependentUpon>ParallelPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Composite\PrioritySelectorPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Composite\PrioritySelectorPanel.resx">
       <DependentUpon>PrioritySelectorPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Composite\SequencePanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Composite\SequencePanel.resx">
       <DependentUpon>SequencePanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Composite\SelectorPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Composite\SelectorPanel.resx">
       <DependentUpon>SelectorPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Condition\ConditionPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Condition\ConditionPanel.resx">
       <DependentUpon>ConditionPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Decorator\InverterByframeDecoratorPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Decorator\InverterByframeDecoratorPanel.resx">
       <DependentUpon>InverterByframeDecoratorPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AIForm\Decorator\InverterDecoratorPanel.resx">
+    <EmbeddedResource Include="AIForm\Project\Decorator\InverterDecoratorPanel.resx">
       <DependentUpon>InverterDecoratorPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigForm.resx">
