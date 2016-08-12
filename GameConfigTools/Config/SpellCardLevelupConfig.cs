@@ -28,8 +28,10 @@ namespace Config
     private int _quality;
     private int _disAttachFuncId;
     private int _attachFuncId;
-    private int _levelupFuncId;
+    private int _levelupCostId;
     private int _levelupLimitId;
+    private int _attachCostId;
+    private int _disattachCostId;
 
     public int Id
     {
@@ -96,16 +98,16 @@ namespace Config
       }
     }
 
-    public int LevelupFuncId
+    public int LevelupCostId
     {
       get
       {
-        return _levelupFuncId;
+        return _levelupCostId;
       }
       set
       {
-        __isset.levelupFuncId = true;
-        this._levelupFuncId = value;
+        __isset.levelupCostId = true;
+        this._levelupCostId = value;
       }
     }
 
@@ -122,6 +124,32 @@ namespace Config
       }
     }
 
+    public int AttachCostId
+    {
+      get
+      {
+        return _attachCostId;
+      }
+      set
+      {
+        __isset.attachCostId = true;
+        this._attachCostId = value;
+      }
+    }
+
+    public int DisattachCostId
+    {
+      get
+      {
+        return _disattachCostId;
+      }
+      set
+      {
+        __isset.disattachCostId = true;
+        this._disattachCostId = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -133,8 +161,10 @@ namespace Config
       public bool quality;
       public bool disAttachFuncId;
       public bool attachFuncId;
-      public bool levelupFuncId;
+      public bool levelupCostId;
       public bool levelupLimitId;
+      public bool attachCostId;
+      public bool disattachCostId;
     }
 
     public SpellCardLevelupConfig() {
@@ -189,7 +219,7 @@ namespace Config
             break;
           case 60:
             if (field.Type == TType.I32) {
-              LevelupFuncId = iprot.ReadI32();
+              LevelupCostId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -197,6 +227,20 @@ namespace Config
           case 70:
             if (field.Type == TType.I32) {
               LevelupLimitId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 80:
+            if (field.Type == TType.I32) {
+              AttachCostId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 90:
+            if (field.Type == TType.I32) {
+              DisattachCostId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -254,12 +298,12 @@ namespace Config
         oprot.WriteI32(AttachFuncId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.levelupFuncId) {
-        field.Name = "levelupFuncId";
+      if (__isset.levelupCostId) {
+        field.Name = "levelupCostId";
         field.Type = TType.I32;
         field.ID = 60;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(LevelupFuncId);
+        oprot.WriteI32(LevelupCostId);
         oprot.WriteFieldEnd();
       }
       if (__isset.levelupLimitId) {
@@ -268,6 +312,22 @@ namespace Config
         field.ID = 70;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(LevelupLimitId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.attachCostId) {
+        field.Name = "attachCostId";
+        field.Type = TType.I32;
+        field.ID = 80;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(AttachCostId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.disattachCostId) {
+        field.Name = "disattachCostId";
+        field.Type = TType.I32;
+        field.ID = 90;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(DisattachCostId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -286,10 +346,14 @@ namespace Config
       sb.Append(DisAttachFuncId);
       sb.Append(",AttachFuncId: ");
       sb.Append(AttachFuncId);
-      sb.Append(",LevelupFuncId: ");
-      sb.Append(LevelupFuncId);
+      sb.Append(",LevelupCostId: ");
+      sb.Append(LevelupCostId);
       sb.Append(",LevelupLimitId: ");
       sb.Append(LevelupLimitId);
+      sb.Append(",AttachCostId: ");
+      sb.Append(AttachCostId);
+      sb.Append(",DisattachCostId: ");
+      sb.Append(DisattachCostId);
       sb.Append(")");
       return sb.ToString();
     }

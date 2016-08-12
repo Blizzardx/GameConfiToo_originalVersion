@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -58,9 +58,6 @@
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -239,6 +236,7 @@
     <Compile Include="Config\ActiviyMallConfig.cs" />
     <Compile Include="Config\AeroAttributeConfig.cs" />
     <Compile Include="Config\AeroConfig.cs" />
+    <Compile Include="Config\AeroGroupConfig.cs" />
     <Compile Include="Config\AeroLevelUpConfig.cs" />
     <Compile Include="Config\AIMoveConfig.cs" />
     <Compile Include="Config\AuraSkillConfig.cs" />
@@ -249,6 +247,9 @@
     <Compile Include="Config\BattleEffectEventConfig.cs" />
     <Compile Include="Config\BattleItemConfig.cs" />
     <Compile Include="Config\BattleSkillConfig.cs" />
+    <Compile Include="Config\CadBoxConfig.cs" />
+    <Compile Include="Config\CadPlayerAttrConfig.cs" />
+    <Compile Include="Config\CadPlayerConfig.cs" />
     <Compile Include="Config\CarryHeroConfig.cs" />
     <Compile Include="Config\CarryHerosConfig.cs" />
     <Compile Include="Config\ChapterConfig.cs" />
@@ -256,6 +257,7 @@
     <Compile Include="Config\CharacterExpConfig.cs" />
     <Compile Include="Config\CloudConfig.cs" />
     <Compile Include="Config\CommonSkillConfig.cs" />
+    <Compile Include="Config\ConsumeConfig.cs" />
     <Compile Include="Config\CycleCounterConfig.cs" />
     <Compile Include="Config\DarkCloudConfig.cs" />
     <Compile Include="Config\DecorateConfig.cs" />
@@ -313,11 +315,14 @@
     <Compile Include="Config\StageWeatherPlanConfig.cs" />
     <Compile Include="Config\StoryConfig.cs" />
     <Compile Include="Config\StoryParamEntry.cs" />
+    <Compile Include="Config\SystemDecorateTypeSortConfig.cs" />
+    <Compile Include="Config\SystemDecorateTypeSortInfo.cs" />
     <Compile Include="Config\SystemRoomConfig.cs" />
     <Compile Include="Config\Table\ActionGroupConfigTable.cs" />
     <Compile Include="Config\Table\ActiviyMallConfigTable.cs" />
     <Compile Include="Config\Table\AeroAttributeConfigTable.cs" />
     <Compile Include="Config\Table\AeroConfigTable.cs" />
+    <Compile Include="Config\Table\AeroGroupConfigTable.cs" />
     <Compile Include="Config\Table\AeroLevelUpConfigTable.cs" />
     <Compile Include="Config\Table\AiConfigTable.cs" />
     <Compile Include="Config\Table\BattleActionConfigTable.cs" />
@@ -328,9 +333,13 @@
     <Compile Include="Config\Table\BattleItemConfigTable.cs" />
     <Compile Include="Config\Table\BattleSkillConfigTable.cs" />
     <Compile Include="Config\Table\BuffClashConfigTable.cs" />
+    <Compile Include="Config\Table\CadBoxConfigTable.cs" />
+    <Compile Include="Config\Table\CadPlayerAttrConfigTable.cs" />
+    <Compile Include="Config\Table\CadPlayerConfigTable.cs" />
     <Compile Include="Config\Table\ChapterConfigTable.cs" />
     <Compile Include="Config\Table\CharacterBaseConfigTable.cs" />
     <Compile Include="Config\Table\CloudConfigTable.cs" />
+    <Compile Include="Config\Table\ConsumeConfigTable.cs" />
     <Compile Include="Config\Table\CounterConfigTable.cs" />
     <Compile Include="Config\Table\DarkCloudConfigTable.cs" />
     <Compile Include="Config\Table\DecorateConfigTable.cs" />
@@ -341,6 +350,7 @@
     <Compile Include="Config\Table\DiyPresetConfigTable.cs" />
     <Compile Include="Config\Table\DropConfigTable.cs" />
     <Compile Include="Config\Table\EffectItemCollideTable.cs" />
+    <Compile Include="Config\Table\ExchangeConfigTable.cs" />
     <Compile Include="Config\Table\FashionConfigTable.cs" />
     <Compile Include="Config\Table\FashionGroupConfigTable.cs" />
     <Compile Include="Config\Table\FuncConfigTable.cs" />
@@ -382,13 +392,23 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
-<Compile Include="Import\GenScript\User\AeroConfigImporter.cs" />
-<Compile Include="Import\GenScript\Auto\AeroConfigImporter.cs" />
+    <Compile Include="Import\DecomposeImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\CadBoxConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\CadPlayerAttrConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\CadPlayerConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\AeroGroupConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\AeroConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\AeroLevelUpConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\DiyCharConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\CadBoxConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\CadPlayerAttrConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\CadPlayerConfigImporter.cs" />
+    <Compile Include="Import\ConsumeImporter.cs" />
+    <Compile Include="Import\GenScript\User\AeroGroupConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\AeroConfigImporter.cs" />
     <Compile Include="Import\ExchangeImporter.cs" />
     <Compile Include="Import\GenScript\User\AeroLevelUpConfigImporter.cs" />
-    <Compile Include="Import\GenScript\Auto\AeroLevelUpConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\DiyCharConfigImporter.cs" />
-    <Compile Include="Import\GenScript\Auto\DiyCharConfigImporter.cs" />
     <Compile Include="Export\CounterExporter.cs" />
     <Compile Include="Export\ExporterManager.cs" />
     <Compile Include="Export\Exporter.cs" />
@@ -490,6 +510,7 @@
     <Compile Include="Protocol\TStruct.cs" />
     <Compile Include="Protocol\TType.cs" />
     <Compile Include="ScriptGenTool\GenScriptXml.cs" />
+    <Compile Include="ScriptGenTool\ScriptGenConstant.cs" />
     <Compile Include="ScriptGenTool\ScriptGenInfo.cs" />
     <Compile Include="ScriptGenTool\ScriptGenTool.cs" />
     <Compile Include="ScriptGenTool\XmlConfigBase.cs" />
@@ -635,6 +656,35 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

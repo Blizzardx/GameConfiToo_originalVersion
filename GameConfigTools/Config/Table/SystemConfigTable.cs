@@ -24,6 +24,7 @@ namespace Config.Table
   public partial class SystemConfigTable : TBase
   {
     private Config.SystemRoomConfig _roomConfig;
+    private Config.SystemDecorateTypeSortConfig _decorateTypeSrotConfig;
 
     public Config.SystemRoomConfig RoomConfig
     {
@@ -38,6 +39,19 @@ namespace Config.Table
       }
     }
 
+    public Config.SystemDecorateTypeSortConfig DecorateTypeSrotConfig
+    {
+      get
+      {
+        return _decorateTypeSrotConfig;
+      }
+      set
+      {
+        __isset.decorateTypeSrotConfig = true;
+        this._decorateTypeSrotConfig = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -45,6 +59,7 @@ namespace Config.Table
     #endif
     public struct Isset {
       public bool roomConfig;
+      public bool decorateTypeSrotConfig;
     }
 
     public SystemConfigTable() {
@@ -70,6 +85,14 @@ namespace Config.Table
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 20:
+            if (field.Type == TType.Struct) {
+              DecorateTypeSrotConfig = new Config.SystemDecorateTypeSortConfig();
+              DecorateTypeSrotConfig.Read(iprot);
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           default: 
             TProtocolUtil.Skip(iprot, field.Type);
             break;
@@ -91,6 +114,14 @@ namespace Config.Table
         RoomConfig.Write(oprot);
         oprot.WriteFieldEnd();
       }
+      if (DecorateTypeSrotConfig != null && __isset.decorateTypeSrotConfig) {
+        field.Name = "decorateTypeSrotConfig";
+        field.Type = TType.Struct;
+        field.ID = 20;
+        oprot.WriteFieldBegin(field);
+        DecorateTypeSrotConfig.Write(oprot);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -99,6 +130,8 @@ namespace Config.Table
       StringBuilder sb = new StringBuilder("SystemConfigTable(");
       sb.Append("RoomConfig: ");
       sb.Append(RoomConfig== null ? "<null>" : RoomConfig.ToString());
+      sb.Append(",DecorateTypeSrotConfig: ");
+      sb.Append(DecorateTypeSrotConfig== null ? "<null>" : DecorateTypeSrotConfig.ToString());
       sb.Append(")");
       return sb.ToString();
     }

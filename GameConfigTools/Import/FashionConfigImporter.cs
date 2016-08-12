@@ -58,7 +58,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，时装名字ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-
+                    int decomposeId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out decomposeId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，分解ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     string icon = values[i][index++];
 
                     int firstType;
@@ -74,8 +79,8 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，类型必须为整数", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
-                    int activeFuncId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeFuncId))
+                    int activeCostId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeCostId))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，普通攻击必须为0 - {4}整数", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
@@ -103,8 +108,9 @@ namespace GameConfigTools.Import
                     root.Add(monsterE);
                     monsterE.Add(new XAttribute("id", id));
                     monsterE.Add(new XAttribute("name", name));
+                    monsterE.Add(new XAttribute("decomposeId", decomposeId));
                     monsterE.Add(new XAttribute("firstType", firstType));
-                    monsterE.Add(new XAttribute("activeFuncId", activeFuncId));
+                    monsterE.Add(new XAttribute("activeCostId", activeCostId));
                     monsterE.Add(new XAttribute("activeLimit", activeLimit));
 
                     FashionConfig c = new FashionConfig();
@@ -114,7 +120,7 @@ namespace GameConfigTools.Import
                     c.Icon = icon;
                     c.FirstType = firstType;
                     c.Resource = resource;
-                    c.ActiveFuncId = activeFuncId;
+                    c.ActiveCostId = activeCostId;
                     c.ActiveLimitId = activeLimit;
                     c.MainPanelTipType = mainPanelTipType;
                     c.PosPanelTipType = positionPanelTipType;

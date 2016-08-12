@@ -23,10 +23,10 @@ namespace Config
   #endif
   public partial class NeedCurrencyConfig : TBase
   {
-    private sbyte _type;
+    private int _type;
     private int _count;
 
-    public sbyte Type
+    public int Type
     {
       get
       {
@@ -78,8 +78,8 @@ namespace Config
         switch (field.ID)
         {
           case 1:
-            if (field.Type == TType.Byte) {
-              Type = iprot.ReadByte();
+            if (field.Type == TType.I32) {
+              Type = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -106,10 +106,10 @@ namespace Config
       TField field = new TField();
       if (__isset.type) {
         field.Name = "type";
-        field.Type = TType.Byte;
+        field.Type = TType.I32;
         field.ID = 1;
         oprot.WriteFieldBegin(field);
-        oprot.WriteByte(Type);
+        oprot.WriteI32(Type);
         oprot.WriteFieldEnd();
       }
       if (__isset.count) {

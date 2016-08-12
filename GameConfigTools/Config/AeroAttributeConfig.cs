@@ -28,6 +28,7 @@ namespace Config
     private int _normalSkill;
     private int _skill1;
     private int _skill2;
+    private List<int> _passiveSkillList;
     private int _maxHp;
     private int _maxMp;
     private int _recoveryFrame;
@@ -105,6 +106,19 @@ namespace Config
       {
         __isset.skill2 = true;
         this._skill2 = value;
+      }
+    }
+
+    public List<int> PassiveSkillList
+    {
+      get
+      {
+        return _passiveSkillList;
+      }
+      set
+      {
+        __isset.passiveSkillList = true;
+        this._passiveSkillList = value;
       }
     }
 
@@ -301,6 +315,7 @@ namespace Config
       public bool normalSkill;
       public bool skill1;
       public bool skill2;
+      public bool passiveSkillList;
       public bool maxHp;
       public bool maxMp;
       public bool recoveryFrame;
@@ -363,6 +378,23 @@ namespace Config
           case 40:
             if (field.Type == TType.I32) {
               Skill2 = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 45:
+            if (field.Type == TType.List) {
+              {
+                PassiveSkillList = new List<int>();
+                TList _list92 = iprot.ReadListBegin();
+                for( int _i93 = 0; _i93 < _list92.Count; ++_i93)
+                {
+                  int _elem94 = 0;
+                  _elem94 = iprot.ReadI32();
+                  PassiveSkillList.Add(_elem94);
+                }
+                iprot.ReadListEnd();
+              }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -518,6 +550,21 @@ namespace Config
         oprot.WriteI32(Skill2);
         oprot.WriteFieldEnd();
       }
+      if (PassiveSkillList != null && __isset.passiveSkillList) {
+        field.Name = "passiveSkillList";
+        field.Type = TType.List;
+        field.ID = 45;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.I32, PassiveSkillList.Count));
+          foreach (int _iter95 in PassiveSkillList)
+          {
+            oprot.WriteI32(_iter95);
+          }
+          oprot.WriteListEnd();
+        }
+        oprot.WriteFieldEnd();
+      }
       if (__isset.maxHp) {
         field.Name = "maxHp";
         field.Type = TType.I32;
@@ -646,6 +693,8 @@ namespace Config
       sb.Append(Skill1);
       sb.Append(",Skill2: ");
       sb.Append(Skill2);
+      sb.Append(",PassiveSkillList: ");
+      sb.Append(PassiveSkillList);
       sb.Append(",MaxHp: ");
       sb.Append(MaxHp);
       sb.Append(",MaxMp: ");

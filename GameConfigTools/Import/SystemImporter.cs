@@ -18,7 +18,12 @@ namespace GameConfigTools.Import
             SystemConfigTable systemConfig = new SystemConfigTable();
             tbase = systemConfig;
             systemConfig.RoomConfig = new SystemRoomConfig();
+            systemConfig.DecorateTypeSrotConfig = new SystemDecorateTypeSortConfig();
             if (!ValidRoomConfig(root, systemConfig.RoomConfig, ref errMsg))
+            {
+                return false;
+            }
+            if (!ValidDecorateTypeSortConfig(root, systemConfig.DecorateTypeSrotConfig, ref errMsg))
             {
                 return false;
             }
@@ -37,6 +42,31 @@ namespace GameConfigTools.Import
             int id = 0;
             int.TryParse(funcId.Value, out id);
             config.LikeOnResultFuncId = id;
+            return true;
+        }
+        private bool ValidDecorateTypeSortConfig(XElement e, SystemDecorateTypeSortConfig config, ref string errMsg)
+        {
+            e = e.Element("decorateTypeSort");
+            config.SortInfoList = new List<SystemDecorateTypeSortInfo>();
+            var list = e.Elements("sortInfo");
+            foreach (var elem in list)
+            {
+                SystemDecorateTypeSortInfo info = new SystemDecorateTypeSortInfo();
+                info.NodeName = elem.Attribute("nodeName").Value;
+                if (string.IsNullOrEmpty(info.NodeName))
+                {
+                    errMsg = "<nodeName> 节点不能为空";
+                    return false;
+                }
+                int sortId = 0;
+                if (!int.TryParse(elem.Attribute("sortId").Value, out sortId))
+                {
+                    errMsg = "<sortId> 必须为整数";
+                    return false;
+                }
+                info.SortId = sortId;
+                config.SortInfoList.Add(info);
+            }
             return true;
         }
         //private bool VaildCharacterConfig(XElement e, CharacterConfig config, ref string errMsg)
@@ -277,7 +307,7 @@ namespace GameConfigTools.Import
         //private bool VaildBattleConfig(XElement e, SystemBattleConfig config, ref string errMsg)
         //{
         //    XElement mainBattleTimeoutE = e.Element("mainBattleTimeout");
-            
+
         //    if (mainBattleTimeoutE == null)
         //    {
         //        errMsg = string.Format("<battle> - <mainBattleTimeout>节点不能为空");

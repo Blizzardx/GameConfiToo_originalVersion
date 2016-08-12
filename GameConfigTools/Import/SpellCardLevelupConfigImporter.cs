@@ -83,8 +83,21 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，时装名字ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int levelupFuncId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out levelupFuncId))
+                    int levelupCostId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out levelupCostId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，时装名字ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+
+                    int attachCostId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out attachCostId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，时装名字ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int disAttachCostId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out disAttachCostId))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，时装名字ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
@@ -97,7 +110,9 @@ namespace GameConfigTools.Import
                     spellcardLevelup.Add(new XAttribute("disattachFuncId", disattachFuncId));
                     spellcardLevelup.Add(new XAttribute("attachFuncId", attachFuncId));
                     spellcardLevelup.Add(new XAttribute("levelupLimitId", levelupLimitId));
-                    spellcardLevelup.Add(new XAttribute("levelupFuncId", levelupFuncId));
+                    spellcardLevelup.Add(new XAttribute("levelupCostId", levelupCostId));
+                    spellcardLevelup.Add(new XAttribute("attachConstId", attachCostId));
+                    spellcardLevelup.Add(new XAttribute("disAttachCostId", disAttachCostId));
 
                     SpellCardLevelupConfig c = new SpellCardLevelupConfig();
                     c.Id = id;
@@ -106,8 +121,9 @@ namespace GameConfigTools.Import
                     c.DisAttachFuncId = disattachFuncId;
                     c.AttachFuncId = attachFuncId;
                     c.LevelupLimitId = levelupLimitId;
-                    c.LevelupFuncId = levelupFuncId;
-
+                    c.LevelupCostId = levelupCostId;
+                    c.AttachCostId = attachCostId;
+                    c.DisAttachFuncId = disAttachCostId;
                     if (!messageConfig.SpellCardConfigMap.ContainsKey(c.Id))
                     {
                         errMsg = "技能卡id在技能卡表中不存在 "+id;

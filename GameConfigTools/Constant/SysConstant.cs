@@ -152,6 +152,19 @@ namespace GameConfigTools.Constant
 
         public static readonly string AERO_LEVEL_UP_CONFIG = "aeroLevelUpConfig";
 
+        public static readonly string AERO_GROUP_CONFIG = "aeroGroupConfig";
+
+        public static readonly string CONSUME_CONFIG = "consumeConfig";
+
         public static readonly string EXCHANGE_CONFIG = "exchangeConfig";
+
+        public static readonly string CAD_PLAYER_CONFIG = "cadPlayerConfig";
+
+        public static readonly string CAD_PLAYER_ATTR_CONFIG = "cadPlayerAttrConfig";
+
+        public static readonly string CAD_BOX_CONFIG = "cadBoxConfig";
+
+        public static readonly string DECOMPOSE_CONFIG = "decomposeConfig";
+
     }
 }

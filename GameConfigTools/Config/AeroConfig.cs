@@ -26,6 +26,7 @@ namespace Config
     private int _id;
     private int _groupId;
     private int _evolutionLevel;
+    private int _evolutionConusmeId;
     private int _nameMessageId;
     private int _descMessageId;
     private string _model;
@@ -78,6 +79,19 @@ namespace Config
       {
         __isset.evolutionLevel = true;
         this._evolutionLevel = value;
+      }
+    }
+
+    public int EvolutionConusmeId
+    {
+      get
+      {
+        return _evolutionConusmeId;
+      }
+      set
+      {
+        __isset.evolutionConusmeId = true;
+        this._evolutionConusmeId = value;
       }
     }
 
@@ -285,6 +299,7 @@ namespace Config
       public bool id;
       public bool groupId;
       public bool evolutionLevel;
+      public bool evolutionConusmeId;
       public bool nameMessageId;
       public bool descMessageId;
       public bool model;
@@ -334,6 +349,13 @@ namespace Config
           case 12:
             if (field.Type == TType.I32) {
               EvolutionLevel = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 13:
+            if (field.Type == TType.I32) {
+              EvolutionConusmeId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -480,6 +502,14 @@ namespace Config
         oprot.WriteI32(EvolutionLevel);
         oprot.WriteFieldEnd();
       }
+      if (__isset.evolutionConusmeId) {
+        field.Name = "evolutionConusmeId";
+        field.Type = TType.I32;
+        field.ID = 13;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(EvolutionConusmeId);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.nameMessageId) {
         field.Name = "nameMessageId";
         field.Type = TType.I32;
@@ -612,6 +642,8 @@ namespace Config
       sb.Append(GroupId);
       sb.Append(",EvolutionLevel: ");
       sb.Append(EvolutionLevel);
+      sb.Append(",EvolutionConusmeId: ");
+      sb.Append(EvolutionConusmeId);
       sb.Append(",NameMessageId: ");
       sb.Append(NameMessageId);
       sb.Append(",DescMessageId: ");

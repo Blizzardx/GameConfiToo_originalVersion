@@ -29,7 +29,7 @@ namespace Config
     private string _icon;
     private int _firstType;
     private string _resource;
-    private int _activeFuncId;
+    private int _activeCostId;
     private int _activeLimitId;
     private int _mainPanelTipType;
     private int _posPanelTipType;
@@ -113,16 +113,16 @@ namespace Config
       }
     }
 
-    public int ActiveFuncId
+    public int ActiveCostId
     {
       get
       {
-        return _activeFuncId;
+        return _activeCostId;
       }
       set
       {
-        __isset.activeFuncId = true;
-        this._activeFuncId = value;
+        __isset.activeCostId = true;
+        this._activeCostId = value;
       }
     }
 
@@ -190,7 +190,7 @@ namespace Config
       public bool icon;
       public bool firstType;
       public bool resource;
-      public bool activeFuncId;
+      public bool activeCostId;
       public bool activeLimitId;
       public bool mainPanelTipType;
       public bool posPanelTipType;
@@ -256,7 +256,7 @@ namespace Config
             break;
           case 70:
             if (field.Type == TType.I32) {
-              ActiveFuncId = iprot.ReadI32();
+              ActiveCostId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -350,12 +350,12 @@ namespace Config
         oprot.WriteString(Resource);
         oprot.WriteFieldEnd();
       }
-      if (__isset.activeFuncId) {
-        field.Name = "activeFuncId";
+      if (__isset.activeCostId) {
+        field.Name = "activeCostId";
         field.Type = TType.I32;
         field.ID = 70;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(ActiveFuncId);
+        oprot.WriteI32(ActiveCostId);
         oprot.WriteFieldEnd();
       }
       if (__isset.activeLimitId) {
@@ -408,8 +408,8 @@ namespace Config
       sb.Append(FirstType);
       sb.Append(",Resource: ");
       sb.Append(Resource);
-      sb.Append(",ActiveFuncId: ");
-      sb.Append(ActiveFuncId);
+      sb.Append(",ActiveCostId: ");
+      sb.Append(ActiveCostId);
       sb.Append(",ActiveLimitId: ");
       sb.Append(ActiveLimitId);
       sb.Append(",MainPanelTipType: ");

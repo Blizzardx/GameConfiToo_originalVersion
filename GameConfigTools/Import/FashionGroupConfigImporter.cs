@@ -65,6 +65,7 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，时装名字ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                  
                     int displayLimitId;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out displayLimitId))
                     {

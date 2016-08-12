@@ -58,6 +58,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    int decomposeId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out decomposeId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，分解ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     string icon = values[i][index++];
                     int quality;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out quality))
@@ -76,6 +82,12 @@ namespace GameConfigTools.Import
 
                     int descMessageId;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out descMessageId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int funcDescMessageId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out funcDescMessageId))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
@@ -104,8 +116,8 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int activeFuncId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeFuncId))
+                    int activeCostId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeCostId))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
@@ -140,12 +152,13 @@ namespace GameConfigTools.Import
                     root.Add(monsterE);
                     monsterE.Add(new XAttribute("id", id));
                     monsterE.Add(new XAttribute("name", name));
+                    monsterE.Add(new XAttribute("decomposeId", decomposeId));
                     monsterE.Add(new XAttribute("quality", quality));
                     monsterE.Add(new XAttribute("firstType", posId));
                     monsterE.Add(new XAttribute("putonFuncId", putonFuncId));
                     monsterE.Add(new XAttribute("takeOffFuncId", takeoffFuncId));
                     monsterE.Add(new XAttribute("activeLimitId", activeLimitId));
-                    monsterE.Add(new XAttribute("activeFuncId", activeFuncId));
+                    monsterE.Add(new XAttribute("activeCostId", activeCostId));
 
                     DecorateConfig c = new DecorateConfig();
                     c.Id = id;
@@ -159,13 +172,13 @@ namespace GameConfigTools.Import
                     c.TakeoffFuncId = takeoffFuncId;
                     c.SortId = sortId;
                     c.ActiveLimitId = activeLimitId;
-                    c.ActiveFuncId = activeFuncId;
+                    c.ActiveCostId = activeCostId;
                     c.ActiveType = activeType;
                     c.DisplayLimitId = displayLimitId;
                     c.MainPanelTipType = mainPanelTipType;
                     c.PosPanelTipType = posPanelTipType;
                     c.AttachPos = attachPos;
-
+                    c.FuncDescMessageId = funcDescMessageId;
                     config.DecorateConfigMap.Add(c.Id, c);
                 }
             }

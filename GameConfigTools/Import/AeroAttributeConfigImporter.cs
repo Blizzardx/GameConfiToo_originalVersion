@@ -84,6 +84,36 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，技能2必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    int passiveSkill1;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out passiveSkill1))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，被动技能1必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int passiveSkill2;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out passiveSkill2))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，被动技能2必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int passiveSkill3;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out passiveSkill3))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，被动技能3必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int passiveSkill4;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out passiveSkill4))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，被动技能4必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int passiveSkill5;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out passiveSkill5))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，被动技能5必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     int maxHp;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out maxHp))
                     {
@@ -174,6 +204,27 @@ namespace GameConfigTools.Import
                     c.NormalSkill = normalSkill;
                     c.Skill1 = skill1;
                     c.Skill2 = skill2;
+                    c.PassiveSkillList = new List<int>();
+                    if(passiveSkill1 != 0)
+                    {
+                        c.PassiveSkillList.Add(passiveSkill1);
+                    }
+                    if (passiveSkill2 != 0)
+                    {
+                        c.PassiveSkillList.Add(passiveSkill2);
+                    }
+                    if (passiveSkill3 != 0)
+                    {
+                        c.PassiveSkillList.Add(passiveSkill3);
+                    }
+                    if (passiveSkill4 != 0)
+                    {
+                        c.PassiveSkillList.Add(passiveSkill4);
+                    }
+                    if (passiveSkill5 != 0)
+                    {
+                        c.PassiveSkillList.Add(passiveSkill5 );
+                    }
                     c.MaxHp = maxHp;
                     c.MaxMp = maxMp;
                     c.RecoveryFrame = recoveryFrame;

@@ -25,6 +25,7 @@ namespace Config
   {
     private int _aeroId;
     private int _level;
+    private int _consumeId;
     private int _limitId;
     private int _funcId;
 
@@ -51,6 +52,19 @@ namespace Config
       {
         __isset.level = true;
         this._level = value;
+      }
+    }
+
+    public int ConsumeId
+    {
+      get
+      {
+        return _consumeId;
+      }
+      set
+      {
+        __isset.consumeId = true;
+        this._consumeId = value;
       }
     }
 
@@ -88,6 +102,7 @@ namespace Config
     public struct Isset {
       public bool aeroId;
       public bool level;
+      public bool consumeId;
       public bool limitId;
       public bool funcId;
     }
@@ -123,12 +138,19 @@ namespace Config
             break;
           case 30:
             if (field.Type == TType.I32) {
-              LimitId = iprot.ReadI32();
+              ConsumeId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 40:
+            if (field.Type == TType.I32) {
+              LimitId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 50:
             if (field.Type == TType.I32) {
               FuncId = iprot.ReadI32();
             } else { 
@@ -164,10 +186,18 @@ namespace Config
         oprot.WriteI32(Level);
         oprot.WriteFieldEnd();
       }
+      if (__isset.consumeId) {
+        field.Name = "consumeId";
+        field.Type = TType.I32;
+        field.ID = 30;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ConsumeId);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.limitId) {
         field.Name = "limitId";
         field.Type = TType.I32;
-        field.ID = 30;
+        field.ID = 40;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(LimitId);
         oprot.WriteFieldEnd();
@@ -175,7 +205,7 @@ namespace Config
       if (__isset.funcId) {
         field.Name = "funcId";
         field.Type = TType.I32;
-        field.ID = 40;
+        field.ID = 50;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(FuncId);
         oprot.WriteFieldEnd();
@@ -190,6 +220,8 @@ namespace Config
       sb.Append(AeroId);
       sb.Append(",Level: ");
       sb.Append(Level);
+      sb.Append(",ConsumeId: ");
+      sb.Append(ConsumeId);
       sb.Append(",LimitId: ");
       sb.Append(LimitId);
       sb.Append(",FuncId: ");

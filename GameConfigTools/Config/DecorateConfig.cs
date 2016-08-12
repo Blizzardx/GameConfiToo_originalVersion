@@ -34,12 +34,13 @@ namespace Config
     private int _takeoffFuncId;
     private int _sortId;
     private int _activeLimitId;
-    private int _activeFuncId;
+    private int _activeCostId;
     private int _activeType;
     private int _displayLimitId;
     private int _mainPanelTipType;
     private int _posPanelTipType;
     private string _attachPos;
+    private int _funcDescMessageId;
 
     public int Id
     {
@@ -184,16 +185,16 @@ namespace Config
       }
     }
 
-    public int ActiveFuncId
+    public int ActiveCostId
     {
       get
       {
-        return _activeFuncId;
+        return _activeCostId;
       }
       set
       {
-        __isset.activeFuncId = true;
-        this._activeFuncId = value;
+        __isset.activeCostId = true;
+        this._activeCostId = value;
       }
     }
 
@@ -262,6 +263,19 @@ namespace Config
       }
     }
 
+    public int FuncDescMessageId
+    {
+      get
+      {
+        return _funcDescMessageId;
+      }
+      set
+      {
+        __isset.funcDescMessageId = true;
+        this._funcDescMessageId = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -279,12 +293,13 @@ namespace Config
       public bool takeoffFuncId;
       public bool sortId;
       public bool activeLimitId;
-      public bool activeFuncId;
+      public bool activeCostId;
       public bool activeType;
       public bool displayLimitId;
       public bool mainPanelTipType;
       public bool posPanelTipType;
       public bool attachPos;
+      public bool funcDescMessageId;
     }
 
     public DecorateConfig() {
@@ -381,7 +396,7 @@ namespace Config
             break;
           case 111:
             if (field.Type == TType.I32) {
-              ActiveFuncId = iprot.ReadI32();
+              ActiveCostId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -417,6 +432,13 @@ namespace Config
           case 150:
             if (field.Type == TType.String) {
               AttachPos = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 160:
+            if (field.Type == TType.I32) {
+              FuncDescMessageId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -522,12 +544,12 @@ namespace Config
         oprot.WriteI32(ActiveLimitId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.activeFuncId) {
-        field.Name = "activeFuncId";
+      if (__isset.activeCostId) {
+        field.Name = "activeCostId";
         field.Type = TType.I32;
         field.ID = 111;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(ActiveFuncId);
+        oprot.WriteI32(ActiveCostId);
         oprot.WriteFieldEnd();
       }
       if (__isset.activeType) {
@@ -570,6 +592,14 @@ namespace Config
         oprot.WriteString(AttachPos);
         oprot.WriteFieldEnd();
       }
+      if (__isset.funcDescMessageId) {
+        field.Name = "funcDescMessageId";
+        field.Type = TType.I32;
+        field.ID = 160;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(FuncDescMessageId);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -598,8 +628,8 @@ namespace Config
       sb.Append(SortId);
       sb.Append(",ActiveLimitId: ");
       sb.Append(ActiveLimitId);
-      sb.Append(",ActiveFuncId: ");
-      sb.Append(ActiveFuncId);
+      sb.Append(",ActiveCostId: ");
+      sb.Append(ActiveCostId);
       sb.Append(",ActiveType: ");
       sb.Append(ActiveType);
       sb.Append(",DisplayLimitId: ");
@@ -610,6 +640,8 @@ namespace Config
       sb.Append(PosPanelTipType);
       sb.Append(",AttachPos: ");
       sb.Append(AttachPos);
+      sb.Append(",FuncDescMessageId: ");
+      sb.Append(FuncDescMessageId);
       sb.Append(")");
       return sb.ToString();
     }

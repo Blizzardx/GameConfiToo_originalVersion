@@ -83,6 +83,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，功能函数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    int activeOrNot;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeOrNot))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，功能函数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     BattleSkillConfig c = new BattleSkillConfig();
                     c.Id = id;
                     c.NameMessageId = nameMessageId;
@@ -91,6 +97,7 @@ namespace GameConfigTools.Import
                     c.CdFrame = cdFrame;
                     c.UseLimitId = useLimitId;
                     c.UseFunId = useFunId;
+                    c.ActiveOrNot = activeOrNot != 0;
                     config.BattleSkillConfigMap.Add(c.Id, c);
                 }
             }

@@ -13,13 +13,13 @@ namespace ExcelImporter.Importer
     {
         public void GenScript(ScriptGenInfo info)
         {
-            string genScriptFilename = info.className + "Importer.cs";
+            string genScriptFilename = info.className + ScriptGenConstant.classPerfix;
             string genScriptUserFilename = genScriptFilename;
 
-            string parasFileOutputPath = "../../Import/GenScript/Auto/" + genScriptUserFilename;
-            string userFileOutputPath = "../../Import/GenScript/User/" + genScriptUserFilename;
+            string parasFileOutputPath = ScriptGenConstant.parasFileOutputPath + genScriptUserFilename;
+            string userFileOutputPath = ScriptGenConstant.userFileOutputPath + genScriptUserFilename;
 
-            string resourcePath = "../../ScriptGenTool/";
+            string resourcePath = ScriptGenConstant.resourcePath;
             string autoParasTemplate = File.ReadAllText(resourcePath+"ExcelImporterAutoParasTemplate.txt");
             string autoParasUserTemplate = File.ReadAllText(resourcePath + "ExcelImporterUserTemplate.txt");
             string memberTemplate = File.ReadAllText(resourcePath + "ExcelImporterMemberTemplate.txt");
@@ -114,12 +114,12 @@ namespace ExcelImporter.Importer
         }
         private void FixProjectFile(string className)
         {
-            string projectFilePath = "../../GameConfigTools.csproj";
+            string projectFilePath = ScriptGenConstant.projectFilePath;
             // check project file
             string projectFile = File.ReadAllText(projectFilePath);
-            string autoFileDesc = File.ReadAllText("../../ScriptGenTool/ExcelImporterProjfixAuto.txt");
-            string userFileDesc = File.ReadAllText("../../ScriptGenTool/ExcelImporterProjfixUser.txt");
-            string testTemplate = File.ReadAllText("../../ScriptGenTool/testTemplate.txt");
+            string autoFileDesc = File.ReadAllText(ScriptGenConstant.resourcePath + "ExcelImporterProjfixAuto.txt");
+            string userFileDesc = File.ReadAllText(ScriptGenConstant.resourcePath + "ExcelImporterProjfixUser.txt");
+            string testTemplate = File.ReadAllText(ScriptGenConstant.resourcePath + "testTemplate.txt");
             bool needUpdate = false;
             StringBuilder autoFile = new StringBuilder(autoFileDesc);
             autoFile = autoFile.Replace("{0}", className);
@@ -150,7 +150,7 @@ namespace ExcelImporter.Importer
             // load config
             ScriptGenTool tool = new ScriptGenTool();
 
-            string configPath = "../../ScriptGenTool/ConfigXml.xml";
+            string configPath = ScriptGenConstant.resourcePath + "ConfigXml.xml";
             string configContent = File.ReadAllText(configPath);
 
             var config = XmlConfigBase.DeSerialize<GenScriptXmlConfig>(configContent);
@@ -166,12 +166,24 @@ namespace ExcelImporter.Importer
                 ScriptGenInfo info = new ScriptGenInfo();
                 info.className = elemConfig.className;
                 info.elements = new List<ScriptGenElementInfo>(elemConfig.lineConfigList.Count);
+                int lineIndex = -1;
                 foreach (var line in elemConfig.lineConfigList)
                 {
+                    ++lineIndex;
+                    if (string.IsNullOrEmpty(line.classTypeName))
+                    {
+                        // skip this line
+                        continue;
+                    }
                     ScriptGenElementInfo infoLine = new ScriptGenElementInfo();
-                    infoLine.index = line.index-1;
+                    //infoLine.index = line.index-1;
+                    infoLine.index = lineIndex;
                     infoLine.classTypeName = line.classTypeName;
                     infoLine.desc = line.desc;
+                    if (string.IsNullOrEmpty(infoLine.desc))
+                    {
+                        infoLine.desc = line.memberName;
+                    }
                     infoLine.isList = line.isList;
                     infoLine.memberName = line.memberName;
                     infoLine.rangeMax = line.rangeMax;
@@ -311,7 +323,7 @@ namespace ExcelImporter.Importer
             GenScriptLineXmlConfig elem1Line1 = new GenScriptLineXmlConfig();
             elem1Line1.classTypeName = "int";
             elem1Line1.desc = "id";
-            elem1Line1.index = 0;
+            //elem1Line1.index = 0;
             elem1Line1.isList = false;
             elem1Line1.isNullable = false;
             elem1Line1.memberName = "id";
@@ -322,7 +334,7 @@ namespace ExcelImporter.Importer
             GenScriptLineXmlConfig elem1Line2 = new GenScriptLineXmlConfig();
             elem1Line1.classTypeName = "int";
             elem1Line1.desc = "vertexid";
-            elem1Line1.index = 0;
+            //elem1Line1.index = 0;
             elem1Line1.isList = false;
             elem1Line1.isNullable = false;
             elem1Line1.memberName = "vertexid";

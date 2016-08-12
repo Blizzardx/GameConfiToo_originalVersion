@@ -88,13 +88,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 PositionInfoList = new List<DiyPositionInfo>();
-                TList _list137 = iprot.ReadListBegin();
-                for( int _i138 = 0; _i138 < _list137.Count; ++_i138)
+                TList _list153 = iprot.ReadListBegin();
+                for( int _i154 = 0; _i154 < _list153.Count; ++_i154)
                 {
-                  DiyPositionInfo _elem139 = new DiyPositionInfo();
-                  _elem139 = new DiyPositionInfo();
-                  _elem139.Read(iprot);
-                  PositionInfoList.Add(_elem139);
+                  DiyPositionInfo _elem155 = new DiyPositionInfo();
+                  _elem155 = new DiyPositionInfo();
+                  _elem155.Read(iprot);
+                  PositionInfoList.Add(_elem155);
                 }
                 iprot.ReadListEnd();
               }
@@ -130,9 +130,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, PositionInfoList.Count));
-          foreach (DiyPositionInfo _iter140 in PositionInfoList)
+          foreach (DiyPositionInfo _iter156 in PositionInfoList)
           {
-            _iter140.Write(oprot);
+            _iter156.Write(oprot);
           }
           oprot.WriteListEnd();
         }

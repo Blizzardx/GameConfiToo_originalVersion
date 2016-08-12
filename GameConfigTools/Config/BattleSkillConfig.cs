@@ -30,6 +30,7 @@ namespace Config
     private int _cdFrame;
     private int _useLimitId;
     private int _useFunId;
+    private bool _activeOrNot;
 
     public int Id
     {
@@ -122,6 +123,19 @@ namespace Config
       }
     }
 
+    public bool ActiveOrNot
+    {
+      get
+      {
+        return _activeOrNot;
+      }
+      set
+      {
+        __isset.activeOrNot = true;
+        this._activeOrNot = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -135,6 +149,7 @@ namespace Config
       public bool cdFrame;
       public bool useLimitId;
       public bool useFunId;
+      public bool activeOrNot;
     }
 
     public BattleSkillConfig() {
@@ -197,6 +212,13 @@ namespace Config
           case 70:
             if (field.Type == TType.I32) {
               UseFunId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 80:
+            if (field.Type == TType.Bool) {
+              ActiveOrNot = iprot.ReadBool();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -270,6 +292,14 @@ namespace Config
         oprot.WriteI32(UseFunId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.activeOrNot) {
+        field.Name = "activeOrNot";
+        field.Type = TType.Bool;
+        field.ID = 80;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteBool(ActiveOrNot);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -290,6 +320,8 @@ namespace Config
       sb.Append(UseLimitId);
       sb.Append(",UseFunId: ");
       sb.Append(UseFunId);
+      sb.Append(",ActiveOrNot: ");
+      sb.Append(ActiveOrNot);
       sb.Append(")");
       return sb.ToString();
     }

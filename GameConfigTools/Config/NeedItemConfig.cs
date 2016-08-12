@@ -24,7 +24,7 @@ namespace Config
   public partial class NeedItemConfig : TBase
   {
     private int _itemId;
-    private short _count;
+    private int _count;
 
     public int ItemId
     {
@@ -39,7 +39,7 @@ namespace Config
       }
     }
 
-    public short Count
+    public int Count
     {
       get
       {
@@ -85,8 +85,8 @@ namespace Config
             }
             break;
           case 2:
-            if (field.Type == TType.I16) {
-              Count = iprot.ReadI16();
+            if (field.Type == TType.I32) {
+              Count = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -114,10 +114,10 @@ namespace Config
       }
       if (__isset.count) {
         field.Name = "count";
-        field.Type = TType.I16;
+        field.Type = TType.I32;
         field.ID = 2;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI16(Count);
+        oprot.WriteI32(Count);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();

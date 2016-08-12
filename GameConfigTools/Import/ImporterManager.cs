@@ -92,6 +92,13 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.MALL_CONFIG, new MallConfigImporter());
             importerDic.Add(SysConstant.DIY_CHAR_CONFIG, new DiyCharConfigImporter());
             importerDic.Add(SysConstant.AERO_LEVEL_UP_CONFIG, new AeroLevelUpConfigImporter());
+            importerDic.Add(SysConstant.AERO_GROUP_CONFIG, new AeroGroupConfigImporter());
+            importerDic.Add(SysConstant.CONSUME_CONFIG, new ConsumeImporter());
+            importerDic.Add(SysConstant.EXCHANGE_CONFIG, new ExchangeImporter());
+            importerDic.Add(SysConstant.CAD_PLAYER_CONFIG, new CadPlayerConfigImporter());
+            importerDic.Add(SysConstant.CAD_PLAYER_ATTR_CONFIG, new CadPlayerAttrConfigImporter());
+            importerDic.Add(SysConstant.CAD_BOX_CONFIG, new CadBoxConfigImporter());
+            importerDic.Add(SysConstant.DECOMPOSE_CONFIG, new DecomposeImporter());
         }
         /// <summary>
         /// 加载关联导入

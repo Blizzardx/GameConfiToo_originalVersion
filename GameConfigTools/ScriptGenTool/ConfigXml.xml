@@ -3,47 +3,98 @@
   <classConfigList>
     <GenScriptClassXmlConfig className="DiyCharConfig">
       <lineConfigList>
-        <GenScriptLineXmlConfig index="1" classTypeName="int" memberName="id" desc="id"/>
-        <GenScriptLineXmlConfig index="3" classTypeName="int" memberName="positionId" desc="positionId"/>
-        <GenScriptLineXmlConfig index="4" classTypeName="int" memberName="vertexid" desc="vertexid"/>
-        <GenScriptLineXmlConfig index="5" classTypeName="int" memberName="radius" desc="radius"/>
-        <GenScriptLineXmlConfig index="6" classTypeName="int" memberName="min" desc="min"/>
-        <GenScriptLineXmlConfig index="7" classTypeName="int" memberName="max" desc="max"/>
-        <GenScriptLineXmlConfig index="8" classTypeName="int" memberName="dirx" desc="dirx"/>
-        <GenScriptLineXmlConfig index="9" classTypeName="int" memberName="diry" desc="diry"/>
-        <GenScriptLineXmlConfig index="10" classTypeName="int" memberName="dirz" desc="dirz"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="positionId" desc="positionId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="vertexid" desc="vertexid"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="radius" desc="radius"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="min" desc="min"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="max" desc="max"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="dirx" desc="dirx"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="diry" desc="diry"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="dirz" desc="dirz"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
     <GenScriptClassXmlConfig className="AeroLevelUpConfig">
       <lineConfigList>
-        <GenScriptLineXmlConfig index="1" classTypeName="int" memberName="aeroId" desc="aeroId"/>
-        <GenScriptLineXmlConfig index="2" classTypeName="int" memberName="level" desc="level"/>
-        <GenScriptLineXmlConfig index="3" classTypeName="int" memberName="limitId" desc="limitId"/>
-        <GenScriptLineXmlConfig index="4" classTypeName="int" memberName="funcId" desc="funcId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="aeroId" desc="aeroId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="level" desc="level"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="consumeId" desc="consumeId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="limitId" desc="limitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="funcId" desc="funcId"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
   <GenScriptClassXmlConfig className="AeroConfig">
       <lineConfigList>
-        <GenScriptLineXmlConfig index="1" classTypeName="int" memberName="id" desc="id"/>
-        <GenScriptLineXmlConfig index="2" classTypeName="string" memberName="name" desc="name"/>
-        <GenScriptLineXmlConfig index="3" classTypeName="int" memberName="groupId" desc="groupId"/>
-        <GenScriptLineXmlConfig index="4" classTypeName="int" memberName="evolutionLevel" desc="evolutionLevel"/>
-        <GenScriptLineXmlConfig index="5" classTypeName="int" memberName="nameeMessageId" desc="nameeMessageId"/>
-        <GenScriptLineXmlConfig index="6" classTypeName="int" memberName="descMessageId" desc="descMessageId"/>
-        <GenScriptLineXmlConfig index="7" classTypeName="string" memberName="model" desc="model"/>
-        <GenScriptLineXmlConfig index="8" classTypeName="string" memberName="prefab" desc="prefab"/>
-        <GenScriptLineXmlConfig index="9" classTypeName="string" memberName="icon" desc="icon"/>
-        <GenScriptLineXmlConfig index="10" classTypeName="int" memberName="quality" desc="quality"/>
-        <GenScriptLineXmlConfig index="11" classTypeName="int" memberName="moveAdd" desc="moveAdd"/>
-        <GenScriptLineXmlConfig index="12" classTypeName="int" memberName="flyAdd" desc="flyAdd"/>
-        <GenScriptLineXmlConfig index="13" classTypeName="int" memberName="moveMax" desc="moveMax"/>
-        <GenScriptLineXmlConfig index="14" classTypeName="int" memberName="flyMax" desc="flyMax"/>
-        <GenScriptLineXmlConfig index="15" classTypeName="int" memberName="dropAdd" desc="dropAdd"/>
-        <GenScriptLineXmlConfig index="16" classTypeName="int" memberName="dropMax" desc="dropMax"/>
-        <GenScriptLineXmlConfig index="17" classTypeName="int" memberName="friction" desc="friction"/>
-        <GenScriptLineXmlConfig index="18" classTypeName="int" memberName="resistance" desc="resistance"/>      
-        <GenScriptLineXmlConfig index="19" classTypeName="int" memberName="recoverId" desc="recoverId"/>
-        <GenScriptLineXmlConfig index="20" classTypeName="int" memberName="recoverHp" desc="recoverHp"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id" desc="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="name" desc="name"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="groupId" desc="groupId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="evolutionLevel" desc="evolutionLevel"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="evolutionConsumeId" desc="evolutionConsumeId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="decomposeId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nameeMessageId" desc="nameeMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="descMessageId" desc="descMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="model" desc="model"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="prefab" desc="prefab"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="icon" desc="icon"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="quality" desc="quality"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="moveAdd" desc="moveAdd"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="flyAdd" desc="flyAdd"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="moveMax" desc="moveMax"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="flyMax" desc="flyMax"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="dropAdd" desc="dropAdd"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="dropMax" desc="dropMax"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="friction" desc="friction"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="resistance" desc="resistance"/>      
+        <GenScriptLineXmlConfig classTypeName="int" memberName="recoverId" desc="recoverId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="recoverHp" desc="recoverHp"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="AeroGroupConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="groupId" desc="groupId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="showLimitId" desc="showLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeMessageId" desc="activeMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeLimitId" desc="activeLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeConsumeId" desc="activeConsumeId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="order" desc="order"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="CadPlayerConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig />
+        <GenScriptLineXmlConfig classTypeName="int" memberName="type" rangeMin="1" rangeMax="3"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="CadPlayerAttrConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="pid"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="level"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="exp"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="normalSkill"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="skill1"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="maxHp"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="moveSpeed"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="jumpSpeed"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="boxSpeed"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="model"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="dataPrefab"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="CadBoxConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig />
+        <GenScriptLineXmlConfig classTypeName="string" memberName="model"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="dataPrefab"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="durable" rangeMin="1"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="angle"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="collisionLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="collisionFuncId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="deadLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="deadFunId"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="dieEffect"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
   </classConfigList>

@@ -23,9 +23,9 @@ namespace Config.Table
   #endif
   public partial class AeroLevelUpConfigTable : TBase
   {
-    private Dictionary<int, Config.AeroLevelUpConfig> _aeroLevelUpConfigMap;
+    private Dictionary<int, Dictionary<int, Config.AeroLevelUpConfig>> _aeroLevelUpConfigMap;
 
-    public Dictionary<int, Config.AeroLevelUpConfig> AeroLevelUpConfigMap
+    public Dictionary<int, Dictionary<int, Config.AeroLevelUpConfig>> AeroLevelUpConfigMap
     {
       get
       {
@@ -65,15 +65,27 @@ namespace Config.Table
           case 1:
             if (field.Type == TType.Map) {
               {
-                AeroLevelUpConfigMap = new Dictionary<int, Config.AeroLevelUpConfig>();
+                AeroLevelUpConfigMap = new Dictionary<int, Dictionary<int, Config.AeroLevelUpConfig>>();
                 TMap _map293 = iprot.ReadMapBegin();
                 for( int _i294 = 0; _i294 < _map293.Count; ++_i294)
                 {
                   int _key295;
-                  Config.AeroLevelUpConfig _val296;
+                  Dictionary<int, Config.AeroLevelUpConfig> _val296;
                   _key295 = iprot.ReadI32();
-                  _val296 = new Config.AeroLevelUpConfig();
-                  _val296.Read(iprot);
+                  {
+                    _val296 = new Dictionary<int, Config.AeroLevelUpConfig>();
+                    TMap _map297 = iprot.ReadMapBegin();
+                    for( int _i298 = 0; _i298 < _map297.Count; ++_i298)
+                    {
+                      int _key299;
+                      Config.AeroLevelUpConfig _val300;
+                      _key299 = iprot.ReadI32();
+                      _val300 = new Config.AeroLevelUpConfig();
+                      _val300.Read(iprot);
+                      _val296[_key299] = _val300;
+                    }
+                    iprot.ReadMapEnd();
+                  }
                   AeroLevelUpConfigMap[_key295] = _val296;
                 }
                 iprot.ReadMapEnd();
@@ -101,11 +113,19 @@ namespace Config.Table
         field.ID = 1;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, AeroLevelUpConfigMap.Count));
-          foreach (int _iter297 in AeroLevelUpConfigMap.Keys)
+          oprot.WriteMapBegin(new TMap(TType.I32, TType.Map, AeroLevelUpConfigMap.Count));
+          foreach (int _iter301 in AeroLevelUpConfigMap.Keys)
           {
-            oprot.WriteI32(_iter297);
-            AeroLevelUpConfigMap[_iter297].Write(oprot);
+            oprot.WriteI32(_iter301);
+            {
+              oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, AeroLevelUpConfigMap[_iter301].Count));
+              foreach (int _iter302 in AeroLevelUpConfigMap[_iter301].Keys)
+              {
+                oprot.WriteI32(_iter302);
+                AeroLevelUpConfigMap[_iter301][_iter302].Write(oprot);
+              }
+              oprot.WriteMapEnd();
+            }
           }
           oprot.WriteMapEnd();
         }

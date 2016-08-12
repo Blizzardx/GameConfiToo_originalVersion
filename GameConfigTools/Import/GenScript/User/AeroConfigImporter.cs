@@ -45,14 +45,18 @@ namespace GameConfigTools.Import
             XElement aeroE = new XElement("aero");
             root.Add(aeroE);
             aeroE.Add(new XAttribute("id", id));
+            aeroE.Add(new XAttribute("name", name));
             aeroE.Add(new XAttribute("groupId", groupId));
             aeroE.Add(new XAttribute("evolutionLevel", evolutionLevel));
-            aeroE.Add(new XAttribute("name", name));
+            aeroE.Add(new XAttribute("evolutionConsumeId", evolutionConsumeId));
+            aeroE.Add(new XAttribute("decomposeId", decomposeId));
+            
 
             AeroConfig c = new AeroConfig();
             c.Id = id;
             c.GroupId = groupId;
             c.EvolutionLevel = evolutionLevel;
+            c.EvolutionConusmeId = evolutionConsumeId;
             c.NameMessageId = nameeMessageId;
             c.DescMessageId = descMessageId;
             c.Prefab = prefab;

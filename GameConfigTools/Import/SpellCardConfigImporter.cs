@@ -66,6 +66,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，时装名字ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    int decomposeId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out decomposeId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，分解ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     string icon = values[i][index++];
 
                     int activeLimitId;
@@ -74,8 +80,8 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，时装名字ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int activeFuncId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeFuncId))
+                    int activeCostId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeCostId))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，时装名字ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
@@ -114,9 +120,10 @@ namespace GameConfigTools.Import
                     root.Add(monsterE);
                     monsterE.Add(new XAttribute("id", id));
                     monsterE.Add(new XAttribute("name", name));
+                    monsterE.Add(new XAttribute("decomposeId", decomposeId));
                     monsterE.Add(new XAttribute("quality", quality));
                     monsterE.Add(new XAttribute("activeLimitId", activeLimitId));
-                    monsterE.Add(new XAttribute("activeFuncId", activeFuncId));
+                    monsterE.Add(new XAttribute("activeCostId", activeCostId));
                     monsterE.Add(new XAttribute("sortId", sortId));
                     monsterE.Add(new XAttribute("displayLimitId", displayLimitId));
                     //monsterE.Add(new XAttribute("disattachFuncId", disattachFuncId));
@@ -130,7 +137,7 @@ namespace GameConfigTools.Import
                     c.Icon = icon;
                     c.SortId = sortId;
                     c.ActiveLimitId = activeLimitId;
-                    c.ActiveFuncId = activeFuncId;
+                    c.ActiveCostId = activeCostId;
                     c.DisplayLimitId = displayLimitId;
                     c.TipType = tipType;
                     
