@@ -47,6 +47,7 @@ namespace GameConfigTools.Import
             aeroE.Add(new XAttribute("id", id));
             aeroE.Add(new XAttribute("name", name));
             aeroE.Add(new XAttribute("groupId", groupId));
+            aeroE.Add(new XAttribute("quality", quality));
             aeroE.Add(new XAttribute("evolutionLevel", evolutionLevel));
             aeroE.Add(new XAttribute("evolutionConsumeId", evolutionConsumeId));
             aeroE.Add(new XAttribute("decomposeId", decomposeId));
@@ -59,7 +60,9 @@ namespace GameConfigTools.Import
             c.EvolutionConusmeId = evolutionConsumeId;
             c.NameMessageId = nameeMessageId;
             c.DescMessageId = descMessageId;
+            c.Model = model;
             c.Prefab = prefab;
+            c.Quality = quality;
             c.Icon = icon;
             c.MoveAdd = moveAdd;
             c.FlyAdd = flyAdd;
@@ -71,6 +74,7 @@ namespace GameConfigTools.Import
             c.ResistanceAdd = resistance;
             c.RecoverHp = recoverHp;
             c.RecoverId = recoverId;
+            c.AttachPoint = attachPoint;
             config.AeroConfigMap.Add(c.Id, c);
         }
 

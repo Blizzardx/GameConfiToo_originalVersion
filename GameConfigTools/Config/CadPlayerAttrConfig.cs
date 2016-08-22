@@ -31,6 +31,8 @@ namespace Config
     private int _maxHp;
     private int _moveSpeed;
     private int _jumpSpeed;
+    private int _jumpHight;
+    private int _jumpCount;
     private int _boxSpeed;
     private string _model;
     private string _dataPrefab;
@@ -139,6 +141,32 @@ namespace Config
       }
     }
 
+    public int JumpHight
+    {
+      get
+      {
+        return _jumpHight;
+      }
+      set
+      {
+        __isset.jumpHight = true;
+        this._jumpHight = value;
+      }
+    }
+
+    public int JumpCount
+    {
+      get
+      {
+        return _jumpCount;
+      }
+      set
+      {
+        __isset.jumpCount = true;
+        this._jumpCount = value;
+      }
+    }
+
     public int BoxSpeed
     {
       get
@@ -192,6 +220,8 @@ namespace Config
       public bool maxHp;
       public bool moveSpeed;
       public bool jumpSpeed;
+      public bool jumpHight;
+      public bool jumpCount;
       public bool boxSpeed;
       public bool model;
       public bool dataPrefab;
@@ -264,6 +294,20 @@ namespace Config
           case 80:
             if (field.Type == TType.I32) {
               JumpSpeed = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 81:
+            if (field.Type == TType.I32) {
+              JumpHight = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 82:
+            if (field.Type == TType.I32) {
+              JumpCount = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -366,6 +410,22 @@ namespace Config
         oprot.WriteI32(JumpSpeed);
         oprot.WriteFieldEnd();
       }
+      if (__isset.jumpHight) {
+        field.Name = "jumpHight";
+        field.Type = TType.I32;
+        field.ID = 81;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(JumpHight);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.jumpCount) {
+        field.Name = "jumpCount";
+        field.Type = TType.I32;
+        field.ID = 82;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(JumpCount);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.boxSpeed) {
         field.Name = "boxSpeed";
         field.Type = TType.I32;
@@ -412,6 +472,10 @@ namespace Config
       sb.Append(MoveSpeed);
       sb.Append(",JumpSpeed: ");
       sb.Append(JumpSpeed);
+      sb.Append(",JumpHight: ");
+      sb.Append(JumpHight);
+      sb.Append(",JumpCount: ");
+      sb.Append(JumpCount);
       sb.Append(",BoxSpeed: ");
       sb.Append(BoxSpeed);
       sb.Append(",Model: ");

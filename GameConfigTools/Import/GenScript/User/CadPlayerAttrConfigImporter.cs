@@ -36,6 +36,8 @@ namespace GameConfigTools.Import
             c.MaxHp = maxHp;
             c.MoveSpeed = moveSpeed;
             c.JumpSpeed = jumpSpeed;
+            c.JumpHight = jumpHight;
+            c.JumpCount = jumpCount;
             c.BoxSpeed = boxSpeed;
             c.Model = model;
             c.DataPrefab = dataPrefab;

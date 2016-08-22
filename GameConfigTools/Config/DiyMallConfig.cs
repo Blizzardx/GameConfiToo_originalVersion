@@ -29,6 +29,7 @@ namespace Config
     private int _price;
     private List<string> _availableClos;
     private string _defaultColor;
+    private string _resource;
 
     public int ItemId
     {
@@ -108,6 +109,19 @@ namespace Config
       }
     }
 
+    public string Resource
+    {
+      get
+      {
+        return _resource;
+      }
+      set
+      {
+        __isset.resource = true;
+        this._resource = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -120,6 +134,7 @@ namespace Config
       public bool price;
       public bool availableClos;
       public bool defaultColor;
+      public bool resource;
     }
 
     public DiyMallConfig() {
@@ -185,6 +200,13 @@ namespace Config
           case 60:
             if (field.Type == TType.String) {
               DefaultColor = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 70:
+            if (field.Type == TType.String) {
+              Resource = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -257,6 +279,14 @@ namespace Config
         oprot.WriteString(DefaultColor);
         oprot.WriteFieldEnd();
       }
+      if (Resource != null && __isset.resource) {
+        field.Name = "resource";
+        field.Type = TType.String;
+        field.ID = 70;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Resource);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -275,6 +305,8 @@ namespace Config
       sb.Append(AvailableClos);
       sb.Append(",DefaultColor: ");
       sb.Append(DefaultColor);
+      sb.Append(",Resource: ");
+      sb.Append(Resource);
       sb.Append(")");
       return sb.ToString();
     }

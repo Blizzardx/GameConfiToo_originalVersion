@@ -33,7 +33,6 @@ namespace GameConfigTools.Import
             c.Model = model;
             c.DataPrefab = dataPrefab;
             c.Durable = durable;
-            c.Angle = angle;
             c.CollisionLimitId = collisionLimitId;
             c.CollisionFuncId = collisionFuncId;
             c.DeadLimitId = deadLimitId;

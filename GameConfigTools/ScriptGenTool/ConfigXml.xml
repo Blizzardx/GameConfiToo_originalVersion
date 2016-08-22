@@ -48,6 +48,7 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="resistance" desc="resistance"/>      
         <GenScriptLineXmlConfig classTypeName="int" memberName="recoverId" desc="recoverId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="recoverHp" desc="recoverHp"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="attachPoint"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
     <GenScriptClassXmlConfig className="AeroGroupConfig">
@@ -77,6 +78,8 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="maxHp"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="moveSpeed"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="jumpSpeed"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="jumpHight"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="jumpCount"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="boxSpeed"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="model"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="dataPrefab"/>
@@ -89,7 +92,6 @@
         <GenScriptLineXmlConfig classTypeName="string" memberName="model"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="dataPrefab"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="durable" rangeMin="1"/>
-        <GenScriptLineXmlConfig classTypeName="int" memberName="angle"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="collisionLimitId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="collisionFuncId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="deadLimitId"/>

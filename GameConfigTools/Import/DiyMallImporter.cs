@@ -74,6 +74,7 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，价格必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    string resource = values[i][index++];
                     string defaultColor = values[i][index++];
                     if (!string.IsNullOrEmpty(defaultColor))
                     {
@@ -115,6 +116,7 @@ namespace GameConfigTools.Import
                     c.Price = price;
                     c.AvailableClos = colorList;
                     c.DefaultColor = defaultColor;
+                    c.Resource = resource;
                     config.DiyMallConfigMap.Add(c.ItemId, c);
                 }
             }

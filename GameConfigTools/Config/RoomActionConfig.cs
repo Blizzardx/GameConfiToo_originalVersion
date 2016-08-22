@@ -26,6 +26,8 @@ namespace Config
     private int _itemId;
     private string _resource;
     private int _time;
+    private string _attachment;
+    private string _attachpoint;
 
     public int ItemId
     {
@@ -66,6 +68,32 @@ namespace Config
       }
     }
 
+    public string Attachment
+    {
+      get
+      {
+        return _attachment;
+      }
+      set
+      {
+        __isset.attachment = true;
+        this._attachment = value;
+      }
+    }
+
+    public string Attachpoint
+    {
+      get
+      {
+        return _attachpoint;
+      }
+      set
+      {
+        __isset.attachpoint = true;
+        this._attachpoint = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -75,6 +103,8 @@ namespace Config
       public bool itemId;
       public bool resource;
       public bool time;
+      public bool attachment;
+      public bool attachpoint;
     }
 
     public RoomActionConfig() {
@@ -109,6 +139,20 @@ namespace Config
           case 30:
             if (field.Type == TType.I32) {
               Time = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 40:
+            if (field.Type == TType.String) {
+              Attachment = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 50:
+            if (field.Type == TType.String) {
+              Attachpoint = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -150,6 +194,22 @@ namespace Config
         oprot.WriteI32(Time);
         oprot.WriteFieldEnd();
       }
+      if (Attachment != null && __isset.attachment) {
+        field.Name = "attachment";
+        field.Type = TType.String;
+        field.ID = 40;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Attachment);
+        oprot.WriteFieldEnd();
+      }
+      if (Attachpoint != null && __isset.attachpoint) {
+        field.Name = "attachpoint";
+        field.Type = TType.String;
+        field.ID = 50;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Attachpoint);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -162,6 +222,10 @@ namespace Config
       sb.Append(Resource);
       sb.Append(",Time: ");
       sb.Append(Time);
+      sb.Append(",Attachment: ");
+      sb.Append(Attachment);
+      sb.Append(",Attachpoint: ");
+      sb.Append(Attachpoint);
       sb.Append(")");
       return sb.ToString();
     }

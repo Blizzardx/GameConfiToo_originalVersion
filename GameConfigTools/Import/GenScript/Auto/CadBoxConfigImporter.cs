@@ -23,7 +23,6 @@ namespace GameConfigTools.Import
 		private string model;
 		private string dataPrefab;
 		private int durable;
-		private int angle;
 		private int collisionLimitId;
 		private int collisionFuncId;
 		private int deadLimitId;
@@ -73,34 +72,29 @@ if (!VaildUtil.TryConvert(values[i][4], out durable,1,int.MaxValue))
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,4+1, durable,1,int.MaxValue,"int","durable");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][5], out angle,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][5], out collisionLimitId,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,5+1, angle,int.MinValue,int.MaxValue,"int","angle");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,5+1, collisionLimitId,int.MinValue,int.MaxValue,"int","collisionLimitId");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][6], out collisionLimitId,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][6], out collisionFuncId,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,6+1, collisionLimitId,int.MinValue,int.MaxValue,"int","collisionLimitId");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,6+1, collisionFuncId,int.MinValue,int.MaxValue,"int","collisionFuncId");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][7], out collisionFuncId,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][7], out deadLimitId,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,7+1, collisionFuncId,int.MinValue,int.MaxValue,"int","collisionFuncId");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,7+1, deadLimitId,int.MinValue,int.MaxValue,"int","deadLimitId");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][8], out deadLimitId,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][8], out deadFunId,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,8+1, deadLimitId,int.MinValue,int.MaxValue,"int","deadLimitId");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,8+1, deadFunId,int.MinValue,int.MaxValue,"int","deadFunId");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][9], out deadFunId,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][9], out dieEffect,string.Empty,string.Empty))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,9+1, deadFunId,int.MinValue,int.MaxValue,"int","deadFunId");
-	return;
-}
-if (!VaildUtil.TryConvert(values[i][10], out dieEffect,string.Empty,string.Empty))
-{
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,10+1, dieEffect,string.Empty,string.Empty,"string","dieEffect");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,9+1, dieEffect,string.Empty,string.Empty,"string","dieEffect");
 	return;
 }
                     

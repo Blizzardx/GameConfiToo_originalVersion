@@ -27,7 +27,6 @@ namespace Config
     private string _model;
     private string _dataPrefab;
     private int _durable;
-    private int _angle;
     private int _collisionLimitId;
     private int _collisionFuncId;
     private int _deadLimitId;
@@ -83,19 +82,6 @@ namespace Config
       {
         __isset.durable = true;
         this._durable = value;
-      }
-    }
-
-    public int Angle
-    {
-      get
-      {
-        return _angle;
-      }
-      set
-      {
-        __isset.angle = true;
-        this._angle = value;
       }
     }
 
@@ -174,7 +160,6 @@ namespace Config
       public bool model;
       public bool dataPrefab;
       public bool durable;
-      public bool angle;
       public bool collisionLimitId;
       public bool collisionFuncId;
       public bool deadLimitId;
@@ -221,13 +206,6 @@ namespace Config
           case 40:
             if (field.Type == TType.I32) {
               Durable = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 50:
-            if (field.Type == TType.I32) {
-              Angle = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -312,14 +290,6 @@ namespace Config
         oprot.WriteI32(Durable);
         oprot.WriteFieldEnd();
       }
-      if (__isset.angle) {
-        field.Name = "angle";
-        field.Type = TType.I32;
-        field.ID = 50;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Angle);
-        oprot.WriteFieldEnd();
-      }
       if (__isset.collisionLimitId) {
         field.Name = "collisionLimitId";
         field.Type = TType.I32;
@@ -374,8 +344,6 @@ namespace Config
       sb.Append(DataPrefab);
       sb.Append(",Durable: ");
       sb.Append(Durable);
-      sb.Append(",Angle: ");
-      sb.Append(Angle);
       sb.Append(",CollisionLimitId: ");
       sb.Append(CollisionLimitId);
       sb.Append(",CollisionFuncId: ");

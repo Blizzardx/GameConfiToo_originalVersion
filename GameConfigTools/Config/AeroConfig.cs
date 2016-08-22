@@ -32,6 +32,7 @@ namespace Config
     private string _model;
     private string _prefab;
     private string _icon;
+    private int _quality;
     private int _moveAdd;
     private int _flyAdd;
     private int _moveMax;
@@ -42,6 +43,7 @@ namespace Config
     private int _resistanceAdd;
     private int _recoverId;
     private int _recoverHp;
+    private string _attachPoint;
 
     public int Id
     {
@@ -157,6 +159,19 @@ namespace Config
       {
         __isset.icon = true;
         this._icon = value;
+      }
+    }
+
+    public int Quality
+    {
+      get
+      {
+        return _quality;
+      }
+      set
+      {
+        __isset.quality = true;
+        this._quality = value;
       }
     }
 
@@ -290,6 +305,19 @@ namespace Config
       }
     }
 
+    public string AttachPoint
+    {
+      get
+      {
+        return _attachPoint;
+      }
+      set
+      {
+        __isset.attachPoint = true;
+        this._attachPoint = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -305,6 +333,7 @@ namespace Config
       public bool model;
       public bool prefab;
       public bool icon;
+      public bool quality;
       public bool moveAdd;
       public bool flyAdd;
       public bool moveMax;
@@ -315,6 +344,7 @@ namespace Config
       public bool resistanceAdd;
       public bool recoverId;
       public bool recoverHp;
+      public bool attachPoint;
     }
 
     public AeroConfig() {
@@ -395,6 +425,13 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 65:
+            if (field.Type == TType.I32) {
+              Quality = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           case 70:
             if (field.Type == TType.I32) {
               MoveAdd = iprot.ReadI32();
@@ -461,6 +498,13 @@ namespace Config
           case 150:
             if (field.Type == TType.I32) {
               RecoverHp = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 160:
+            if (field.Type == TType.String) {
+              AttachPoint = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -550,6 +594,14 @@ namespace Config
         oprot.WriteString(Icon);
         oprot.WriteFieldEnd();
       }
+      if (__isset.quality) {
+        field.Name = "quality";
+        field.Type = TType.I32;
+        field.ID = 65;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(Quality);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.moveAdd) {
         field.Name = "moveAdd";
         field.Type = TType.I32;
@@ -630,6 +682,14 @@ namespace Config
         oprot.WriteI32(RecoverHp);
         oprot.WriteFieldEnd();
       }
+      if (AttachPoint != null && __isset.attachPoint) {
+        field.Name = "attachPoint";
+        field.Type = TType.String;
+        field.ID = 160;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(AttachPoint);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -654,6 +714,8 @@ namespace Config
       sb.Append(Prefab);
       sb.Append(",Icon: ");
       sb.Append(Icon);
+      sb.Append(",Quality: ");
+      sb.Append(Quality);
       sb.Append(",MoveAdd: ");
       sb.Append(MoveAdd);
       sb.Append(",FlyAdd: ");
@@ -674,6 +736,8 @@ namespace Config
       sb.Append(RecoverId);
       sb.Append(",RecoverHp: ");
       sb.Append(RecoverHp);
+      sb.Append(",AttachPoint: ");
+      sb.Append(AttachPoint);
       sb.Append(")");
       return sb.ToString();
     }

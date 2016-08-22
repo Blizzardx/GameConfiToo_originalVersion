@@ -56,6 +56,9 @@ namespace GameConfigTools.Import
                         return;
                     }
 
+                    string attachment= values[i][index++];
+                    string attachpoint = values[i][index++];
+
                     XElement actionE = new XElement("action");
                     root.Add(actionE);
                     actionE.Add(new XAttribute("itemId", itemId));
@@ -65,6 +68,9 @@ namespace GameConfigTools.Import
                     c.ItemId = itemId;
                     c.Resource = resource;
                     c.Time = time;
+                    c.Attachment = attachment;
+                    c.Attachpoint = attachpoint;
+
                     if (!config.RoomActionConfigMap.ContainsKey(itemId))
                     {
                         config.RoomActionConfigMap.Add(itemId, new List<RoomActionConfig>());

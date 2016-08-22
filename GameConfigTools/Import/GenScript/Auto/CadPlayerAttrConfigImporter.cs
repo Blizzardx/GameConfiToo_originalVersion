@@ -27,6 +27,8 @@ namespace GameConfigTools.Import
 		private int maxHp;
 		private int moveSpeed;
 		private int jumpSpeed;
+		private int jumpHight;
+		private int jumpCount;
 		private int boxSpeed;
 		private string model;
 		private string dataPrefab;
@@ -94,19 +96,29 @@ if (!VaildUtil.TryConvert(values[i][7], out jumpSpeed,int.MinValue,int.MaxValue)
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,7+1, jumpSpeed,int.MinValue,int.MaxValue,"int","jumpSpeed");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][8], out boxSpeed,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][8], out jumpHight,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,8+1, boxSpeed,int.MinValue,int.MaxValue,"int","boxSpeed");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,8+1, jumpHight,int.MinValue,int.MaxValue,"int","jumpHight");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][9], out model,string.Empty,string.Empty))
+if (!VaildUtil.TryConvert(values[i][9], out jumpCount,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,9+1, model,string.Empty,string.Empty,"string","model");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,9+1, jumpCount,int.MinValue,int.MaxValue,"int","jumpCount");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][10], out dataPrefab,string.Empty,string.Empty))
+if (!VaildUtil.TryConvert(values[i][10], out boxSpeed,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,10+1, dataPrefab,string.Empty,string.Empty,"string","dataPrefab");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,10+1, boxSpeed,int.MinValue,int.MaxValue,"int","boxSpeed");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][11], out model,string.Empty,string.Empty))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,11+1, model,string.Empty,string.Empty,"string","model");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][12], out dataPrefab,string.Empty,string.Empty))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,12+1, dataPrefab,string.Empty,string.Empty,"string","dataPrefab");
 	return;
 }
                     
