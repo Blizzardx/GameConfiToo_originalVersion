@@ -86,7 +86,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，关卡描述ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    string showMonster = values[i][index++];
+                    int showMonster;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out showMonster))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，showmnster id必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     int failLimitId;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out failLimitId))
                     {

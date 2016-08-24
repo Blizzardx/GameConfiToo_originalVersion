@@ -31,7 +31,7 @@ namespace Config
     private int _descMessageId;
     private int _stageType;
     private int _unlockLimitId;
-    private string _showMonsterId;
+    private int _showMonsterId;
     private int _failLimitId;
     private int _limitTime;
     private int _winLimitId;
@@ -157,7 +157,7 @@ namespace Config
       }
     }
 
-    public string ShowMonsterId
+    public int ShowMonsterId
     {
       get
       {
@@ -539,8 +539,8 @@ namespace Config
             }
             break;
           case 33:
-            if (field.Type == TType.String) {
-              ShowMonsterId = iprot.ReadString();
+            if (field.Type == TType.I32) {
+              ShowMonsterId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -762,12 +762,12 @@ namespace Config
         oprot.WriteI32(UnlockLimitId);
         oprot.WriteFieldEnd();
       }
-      if (ShowMonsterId != null && __isset.showMonsterId) {
+      if (__isset.showMonsterId) {
         field.Name = "showMonsterId";
-        field.Type = TType.String;
+        field.Type = TType.I32;
         field.ID = 33;
         oprot.WriteFieldBegin(field);
-        oprot.WriteString(ShowMonsterId);
+        oprot.WriteI32(ShowMonsterId);
         oprot.WriteFieldEnd();
       }
       if (__isset.failLimitId) {

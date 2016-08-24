@@ -24,10 +24,10 @@ namespace Config
   public partial class RoomActionConfig : TBase
   {
     private int _itemId;
+    private int _actionType;
     private string _resource;
     private int _time;
-    private string _attachment;
-    private string _attachpoint;
+    private Dictionary<string, string> _attachMap;
 
     public int ItemId
     {
@@ -39,6 +39,19 @@ namespace Config
       {
         __isset.itemId = true;
         this._itemId = value;
+      }
+    }
+
+    public int ActionType
+    {
+      get
+      {
+        return _actionType;
+      }
+      set
+      {
+        __isset.actionType = true;
+        this._actionType = value;
       }
     }
 
@@ -68,29 +81,16 @@ namespace Config
       }
     }
 
-    public string Attachment
+    public Dictionary<string, string> AttachMap
     {
       get
       {
-        return _attachment;
+        return _attachMap;
       }
       set
       {
-        __isset.attachment = true;
-        this._attachment = value;
-      }
-    }
-
-    public string Attachpoint
-    {
-      get
-      {
-        return _attachpoint;
-      }
-      set
-      {
-        __isset.attachpoint = true;
-        this._attachpoint = value;
+        __isset.attachMap = true;
+        this._attachMap = value;
       }
     }
 
@@ -101,10 +101,10 @@ namespace Config
     #endif
     public struct Isset {
       public bool itemId;
+      public bool actionType;
       public bool resource;
       public bool time;
-      public bool attachment;
-      public bool attachpoint;
+      public bool attachMap;
     }
 
     public RoomActionConfig() {
@@ -130,29 +130,41 @@ namespace Config
             }
             break;
           case 20:
+            if (field.Type == TType.I32) {
+              ActionType = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 30:
             if (field.Type == TType.String) {
               Resource = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 30:
+          case 40:
             if (field.Type == TType.I32) {
               Time = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 40:
-            if (field.Type == TType.String) {
-              Attachment = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
           case 50:
-            if (field.Type == TType.String) {
-              Attachpoint = iprot.ReadString();
+            if (field.Type == TType.Map) {
+              {
+                AttachMap = new Dictionary<string, string>();
+                TMap _map149 = iprot.ReadMapBegin();
+                for( int _i150 = 0; _i150 < _map149.Count; ++_i150)
+                {
+                  string _key151;
+                  string _val152;
+                  _key151 = iprot.ReadString();
+                  _val152 = iprot.ReadString();
+                  AttachMap[_key151] = _val152;
+                }
+                iprot.ReadMapEnd();
+              }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -178,10 +190,18 @@ namespace Config
         oprot.WriteI32(ItemId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.actionType) {
+        field.Name = "actionType";
+        field.Type = TType.I32;
+        field.ID = 20;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ActionType);
+        oprot.WriteFieldEnd();
+      }
       if (Resource != null && __isset.resource) {
         field.Name = "resource";
         field.Type = TType.String;
-        field.ID = 20;
+        field.ID = 30;
         oprot.WriteFieldBegin(field);
         oprot.WriteString(Resource);
         oprot.WriteFieldEnd();
@@ -189,25 +209,25 @@ namespace Config
       if (__isset.time) {
         field.Name = "time";
         field.Type = TType.I32;
-        field.ID = 30;
+        field.ID = 40;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(Time);
         oprot.WriteFieldEnd();
       }
-      if (Attachment != null && __isset.attachment) {
-        field.Name = "attachment";
-        field.Type = TType.String;
-        field.ID = 40;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(Attachment);
-        oprot.WriteFieldEnd();
-      }
-      if (Attachpoint != null && __isset.attachpoint) {
-        field.Name = "attachpoint";
-        field.Type = TType.String;
+      if (AttachMap != null && __isset.attachMap) {
+        field.Name = "attachMap";
+        field.Type = TType.Map;
         field.ID = 50;
         oprot.WriteFieldBegin(field);
-        oprot.WriteString(Attachpoint);
+        {
+          oprot.WriteMapBegin(new TMap(TType.String, TType.String, AttachMap.Count));
+          foreach (string _iter153 in AttachMap.Keys)
+          {
+            oprot.WriteString(_iter153);
+            oprot.WriteString(AttachMap[_iter153]);
+          }
+          oprot.WriteMapEnd();
+        }
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -218,14 +238,14 @@ namespace Config
       StringBuilder sb = new StringBuilder("RoomActionConfig(");
       sb.Append("ItemId: ");
       sb.Append(ItemId);
+      sb.Append(",ActionType: ");
+      sb.Append(ActionType);
       sb.Append(",Resource: ");
       sb.Append(Resource);
       sb.Append(",Time: ");
       sb.Append(Time);
-      sb.Append(",Attachment: ");
-      sb.Append(Attachment);
-      sb.Append(",Attachpoint: ");
-      sb.Append(Attachpoint);
+      sb.Append(",AttachMap: ");
+      sb.Append(AttachMap);
       sb.Append(")");
       return sb.ToString();
     }

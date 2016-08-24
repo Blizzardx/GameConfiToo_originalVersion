@@ -66,6 +66,9 @@ namespace GameConfigTools.Import
                         return;
                     }
 
+                    string headIcon = values[i][index++];
+                    string bodyIcon = values[i][index++];
+
                     XElement characterBaseConfig = new XElement("characterBaseConfig");
                     root.Add(characterBaseConfig);
 
@@ -79,6 +82,8 @@ namespace GameConfigTools.Import
                     c.ModelBattle = modelBattle;
                     c.ModelPrepare = modelPrepare;
                     c.DefaultAeroId = defaultAeroId;
+                    c.HeadIcon = headIcon;
+                    c.BodyIcon = bodyIcon;
 
                     config.CharacterBaseConfigMap.Add(c.Id, c);
                 }

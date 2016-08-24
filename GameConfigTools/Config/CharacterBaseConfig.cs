@@ -28,6 +28,8 @@ namespace Config
     private string _modelBattle;
     private string _modelPrepare;
     private int _defaultAeroId;
+    private string _headIcon;
+    private string _bodyIcon;
 
     public int Id
     {
@@ -94,6 +96,32 @@ namespace Config
       }
     }
 
+    public string HeadIcon
+    {
+      get
+      {
+        return _headIcon;
+      }
+      set
+      {
+        __isset.headIcon = true;
+        this._headIcon = value;
+      }
+    }
+
+    public string BodyIcon
+    {
+      get
+      {
+        return _bodyIcon;
+      }
+      set
+      {
+        __isset.bodyIcon = true;
+        this._bodyIcon = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -105,6 +133,8 @@ namespace Config
       public bool modelBattle;
       public bool modelPrepare;
       public bool defaultAeroId;
+      public bool headIcon;
+      public bool bodyIcon;
     }
 
     public CharacterBaseConfig() {
@@ -153,6 +183,20 @@ namespace Config
           case 50:
             if (field.Type == TType.I32) {
               DefaultAeroId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 70:
+            if (field.Type == TType.String) {
+              HeadIcon = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 80:
+            if (field.Type == TType.String) {
+              BodyIcon = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -210,6 +254,22 @@ namespace Config
         oprot.WriteI32(DefaultAeroId);
         oprot.WriteFieldEnd();
       }
+      if (HeadIcon != null && __isset.headIcon) {
+        field.Name = "headIcon";
+        field.Type = TType.String;
+        field.ID = 70;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(HeadIcon);
+        oprot.WriteFieldEnd();
+      }
+      if (BodyIcon != null && __isset.bodyIcon) {
+        field.Name = "bodyIcon";
+        field.Type = TType.String;
+        field.ID = 80;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(BodyIcon);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -226,6 +286,10 @@ namespace Config
       sb.Append(ModelPrepare);
       sb.Append(",DefaultAeroId: ");
       sb.Append(DefaultAeroId);
+      sb.Append(",HeadIcon: ");
+      sb.Append(HeadIcon);
+      sb.Append(",BodyIcon: ");
+      sb.Append(BodyIcon);
       sb.Append(")");
       return sb.ToString();
     }
