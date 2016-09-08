@@ -13,6 +13,7 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="dirx" desc="dirx"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="diry" desc="diry"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="dirz" desc="dirz"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="diyType" rangeMin="1" rangeMax="3"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
     <GenScriptClassXmlConfig className="AeroLevelUpConfig">
@@ -97,6 +98,17 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="deadLimitId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="deadFunId"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="dieEffect"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+  <GenScriptClassXmlConfig className="BattleMachineConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="enterLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="enterFuncId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="stayLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="stayFuncId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="exitLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="exitFuncId"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
   </classConfigList>

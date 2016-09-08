@@ -166,6 +166,7 @@ namespace GameConfigTools.Import
                     stageE.Add(new XAttribute("bekillCraditPet", bekillCraditPet));
                     stageE.Add(new XAttribute("killCraditPet", killCraditPet));
                     stageE.Add(new XAttribute("otherUserCol", otherUserCol));
+                    stageE.Add(new XAttribute("modeId", modeId));
 
                     PvpStageConfig c  =new PvpStageConfig();
                     c.Id = id;

@@ -49,6 +49,7 @@ namespace GameConfigTools.Import
                         return;
                     }
                     string name = values[i][index++];
+                    string prefabname = values[i][index++];
 
                     int begintimemin;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out begintimemin))
@@ -116,6 +117,7 @@ namespace GameConfigTools.Import
                     c.RandomCountMax = randomMax;
                     c.BeginFuncId = funcId;
                     c.OptionList = tmpList;
+                    c.ItemPrefab = prefabname;
                     config.ItemGenMap.Add(c.Id, c);
                 }
             }

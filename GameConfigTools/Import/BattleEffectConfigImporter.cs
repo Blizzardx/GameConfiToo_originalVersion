@@ -77,16 +77,40 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，当总帧数不限制时，最大帧数不能为0", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int collisionLimitId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out collisionLimitId))
+                    int enterLimitId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out enterLimitId))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，碰撞到物体时的条件ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，进入条件ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int collisionFuncId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out collisionFuncId))
+                    int enterFuncId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out enterFuncId))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，碰撞到物体时的功能ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，进入功能ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int stayLimitId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out stayLimitId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，停留条件ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int stayFuncId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out stayFuncId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，停留功能ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int exitLimitId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out exitLimitId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，离开条件ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int exitFuncId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out exitFuncId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，离开功能ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
                     int deadLimitId;
@@ -193,8 +217,12 @@ namespace GameConfigTools.Import
                     c.TotalFrame = totalFrame;
                     c.MaxFrame = maxFrame;
                     c.TargetId = targetId;
-                    c.CollisionLimitId = collisionLimitId;
-                    c.CollisionFuncId = collisionFuncId;
+                    c.EnterLimitId = enterLimitId;
+                    c.EnterFuncId = enterFuncId;
+                    c.StayLimitId = stayLimitId;
+                    c.StayFuncId = stayFuncId;
+                    c.ExitLimitId = exitLimitId;
+                    c.ExitFuncId = exitFuncId;
                     c.DeadLimitId = deadLimitId;
                     c.DeadFunId = deadFunId;
                     c.Type = type;

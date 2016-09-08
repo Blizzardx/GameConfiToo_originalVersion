@@ -28,6 +28,7 @@ namespace GameConfigTools.Import
 		private int dirx;
 		private int diry;
 		private int dirz;
+		private int diyType;
     
         protected override void AutoParasTable(List<string[][]> sheetValues, ref string errMsg)
         {
@@ -95,6 +96,11 @@ if (!VaildUtil.TryConvert(values[i][8], out diry,int.MinValue,int.MaxValue))
 if (!VaildUtil.TryConvert(values[i][9], out dirz,int.MinValue,int.MaxValue))
 {
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,9+1, dirz,int.MinValue,int.MaxValue,"int","dirz");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][10], out diyType,1,3))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,10+1, diyType,1,3,"int","diyType");
 	return;
 }
                     

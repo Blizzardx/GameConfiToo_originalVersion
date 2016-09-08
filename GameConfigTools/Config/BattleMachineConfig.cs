@@ -21,15 +21,15 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class FashionGroupConfig : TBase
+  public partial class BattleMachineConfig : TBase
   {
     private int _id;
-    private int _nameId;
-    private int _descId;
-    private int _sortId;
-    private string _icon;
-    private int _displayLimitId;
-    private List<int> _fashionList;
+    private int _enterLimitId;
+    private int _enterFuncId;
+    private int _stayLimitId;
+    private int _stayFuncId;
+    private int _exitLimitId;
+    private int _exitFuncId;
 
     public int Id
     {
@@ -44,81 +44,81 @@ namespace Config
       }
     }
 
-    public int NameId
+    public int EnterLimitId
     {
       get
       {
-        return _nameId;
+        return _enterLimitId;
       }
       set
       {
-        __isset.nameId = true;
-        this._nameId = value;
+        __isset.enterLimitId = true;
+        this._enterLimitId = value;
       }
     }
 
-    public int DescId
+    public int EnterFuncId
     {
       get
       {
-        return _descId;
+        return _enterFuncId;
       }
       set
       {
-        __isset.descId = true;
-        this._descId = value;
+        __isset.enterFuncId = true;
+        this._enterFuncId = value;
       }
     }
 
-    public int SortId
+    public int StayLimitId
     {
       get
       {
-        return _sortId;
+        return _stayLimitId;
       }
       set
       {
-        __isset.sortId = true;
-        this._sortId = value;
+        __isset.stayLimitId = true;
+        this._stayLimitId = value;
       }
     }
 
-    public string Icon
+    public int StayFuncId
     {
       get
       {
-        return _icon;
+        return _stayFuncId;
       }
       set
       {
-        __isset.icon = true;
-        this._icon = value;
+        __isset.stayFuncId = true;
+        this._stayFuncId = value;
       }
     }
 
-    public int DisplayLimitId
+    public int ExitLimitId
     {
       get
       {
-        return _displayLimitId;
+        return _exitLimitId;
       }
       set
       {
-        __isset.displayLimitId = true;
-        this._displayLimitId = value;
+        __isset.exitLimitId = true;
+        this._exitLimitId = value;
       }
     }
 
-    public List<int> FashionList
+    public int ExitFuncId
     {
       get
       {
-        return _fashionList;
+        return _exitFuncId;
       }
       set
       {
-        __isset.fashionList = true;
-        this._fashionList = value;
+        __isset.exitFuncId = true;
+        this._exitFuncId = value;
       }
     }
 
@@ -129,15 +129,15 @@ namespace Config
     #endif
     public struct Isset {
       public bool id;
-      public bool nameId;
-      public bool descId;
-      public bool sortId;
-      public bool icon;
-      public bool displayLimitId;
-      public bool fashionList;
+      public bool enterLimitId;
+      public bool enterFuncId;
+      public bool stayLimitId;
+      public bool stayFuncId;
+      public bool exitLimitId;
+      public bool exitFuncId;
     }
 
-    public FashionGroupConfig() {
+    public BattleMachineConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -161,52 +161,42 @@ namespace Config
             break;
           case 20:
             if (field.Type == TType.I32) {
-              NameId = iprot.ReadI32();
+              EnterLimitId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 30:
             if (field.Type == TType.I32) {
-              DescId = iprot.ReadI32();
+              EnterFuncId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 40:
             if (field.Type == TType.I32) {
-              SortId = iprot.ReadI32();
+              StayLimitId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 50:
-            if (field.Type == TType.String) {
-              Icon = iprot.ReadString();
+            if (field.Type == TType.I32) {
+              StayFuncId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 60:
             if (field.Type == TType.I32) {
-              DisplayLimitId = iprot.ReadI32();
+              ExitLimitId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 70:
-            if (field.Type == TType.List) {
-              {
-                FashionList = new List<int>();
-                TList _list149 = iprot.ReadListBegin();
-                for( int _i150 = 0; _i150 < _list149.Count; ++_i150)
-                {
-                  int _elem151 = 0;
-                  _elem151 = iprot.ReadI32();
-                  FashionList.Add(_elem151);
-                }
-                iprot.ReadListEnd();
-              }
+            if (field.Type == TType.I32) {
+              ExitFuncId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -221,7 +211,7 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("FashionGroupConfig");
+      TStruct struc = new TStruct("BattleMachineConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
       if (__isset.id) {
@@ -232,59 +222,52 @@ namespace Config
         oprot.WriteI32(Id);
         oprot.WriteFieldEnd();
       }
-      if (__isset.nameId) {
-        field.Name = "nameId";
+      if (__isset.enterLimitId) {
+        field.Name = "enterLimitId";
         field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(NameId);
+        oprot.WriteI32(EnterLimitId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.descId) {
-        field.Name = "descId";
+      if (__isset.enterFuncId) {
+        field.Name = "enterFuncId";
         field.Type = TType.I32;
         field.ID = 30;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(DescId);
+        oprot.WriteI32(EnterFuncId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.sortId) {
-        field.Name = "sortId";
+      if (__isset.stayLimitId) {
+        field.Name = "stayLimitId";
         field.Type = TType.I32;
         field.ID = 40;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(SortId);
+        oprot.WriteI32(StayLimitId);
         oprot.WriteFieldEnd();
       }
-      if (Icon != null && __isset.icon) {
-        field.Name = "icon";
-        field.Type = TType.String;
+      if (__isset.stayFuncId) {
+        field.Name = "stayFuncId";
+        field.Type = TType.I32;
         field.ID = 50;
         oprot.WriteFieldBegin(field);
-        oprot.WriteString(Icon);
+        oprot.WriteI32(StayFuncId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.displayLimitId) {
-        field.Name = "displayLimitId";
+      if (__isset.exitLimitId) {
+        field.Name = "exitLimitId";
         field.Type = TType.I32;
         field.ID = 60;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(DisplayLimitId);
+        oprot.WriteI32(ExitLimitId);
         oprot.WriteFieldEnd();
       }
-      if (FashionList != null && __isset.fashionList) {
-        field.Name = "fashionList";
-        field.Type = TType.List;
+      if (__isset.exitFuncId) {
+        field.Name = "exitFuncId";
+        field.Type = TType.I32;
         field.ID = 70;
         oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteListBegin(new TList(TType.I32, FashionList.Count));
-          foreach (int _iter152 in FashionList)
-          {
-            oprot.WriteI32(_iter152);
-          }
-          oprot.WriteListEnd();
-        }
+        oprot.WriteI32(ExitFuncId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -292,21 +275,21 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("FashionGroupConfig(");
+      StringBuilder sb = new StringBuilder("BattleMachineConfig(");
       sb.Append("Id: ");
       sb.Append(Id);
-      sb.Append(",NameId: ");
-      sb.Append(NameId);
-      sb.Append(",DescId: ");
-      sb.Append(DescId);
-      sb.Append(",SortId: ");
-      sb.Append(SortId);
-      sb.Append(",Icon: ");
-      sb.Append(Icon);
-      sb.Append(",DisplayLimitId: ");
-      sb.Append(DisplayLimitId);
-      sb.Append(",FashionList: ");
-      sb.Append(FashionList);
+      sb.Append(",EnterLimitId: ");
+      sb.Append(EnterLimitId);
+      sb.Append(",EnterFuncId: ");
+      sb.Append(EnterFuncId);
+      sb.Append(",StayLimitId: ");
+      sb.Append(StayLimitId);
+      sb.Append(",StayFuncId: ");
+      sb.Append(StayFuncId);
+      sb.Append(",ExitLimitId: ");
+      sb.Append(ExitLimitId);
+      sb.Append(",ExitFuncId: ");
+      sb.Append(ExitFuncId);
       sb.Append(")");
       return sb.ToString();
     }

@@ -28,7 +28,7 @@ namespace Config
     private string _icon;
     private int _quality;
     private int _firstType;
-    private string _resource;
+    private List<DecorateResourceInfo> _resource;
     private int _descMessageId;
     private int _putonFuncId;
     private int _takeoffFuncId;
@@ -39,7 +39,6 @@ namespace Config
     private int _displayLimitId;
     private int _mainPanelTipType;
     private int _posPanelTipType;
-    private string _attachPos;
     private int _funcDescMessageId;
 
     public int Id
@@ -107,7 +106,7 @@ namespace Config
       }
     }
 
-    public string Resource
+    public List<DecorateResourceInfo> Resource
     {
       get
       {
@@ -250,19 +249,6 @@ namespace Config
       }
     }
 
-    public string AttachPos
-    {
-      get
-      {
-        return _attachPos;
-      }
-      set
-      {
-        __isset.attachPos = true;
-        this._attachPos = value;
-      }
-    }
-
     public int FuncDescMessageId
     {
       get
@@ -298,7 +284,6 @@ namespace Config
       public bool displayLimitId;
       public bool mainPanelTipType;
       public bool posPanelTipType;
-      public bool attachPos;
       public bool funcDescMessageId;
     }
 
@@ -353,8 +338,19 @@ namespace Config
             }
             break;
           case 60:
-            if (field.Type == TType.String) {
-              Resource = iprot.ReadString();
+            if (field.Type == TType.List) {
+              {
+                Resource = new List<DecorateResourceInfo>();
+                TList _list145 = iprot.ReadListBegin();
+                for( int _i146 = 0; _i146 < _list145.Count; ++_i146)
+                {
+                  DecorateResourceInfo _elem147 = new DecorateResourceInfo();
+                  _elem147 = new DecorateResourceInfo();
+                  _elem147.Read(iprot);
+                  Resource.Add(_elem147);
+                }
+                iprot.ReadListEnd();
+              }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -429,13 +425,6 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 150:
-            if (field.Type == TType.String) {
-              AttachPos = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
           case 160:
             if (field.Type == TType.I32) {
               FuncDescMessageId = iprot.ReadI32();
@@ -498,10 +487,17 @@ namespace Config
       }
       if (Resource != null && __isset.resource) {
         field.Name = "resource";
-        field.Type = TType.String;
+        field.Type = TType.List;
         field.ID = 60;
         oprot.WriteFieldBegin(field);
-        oprot.WriteString(Resource);
+        {
+          oprot.WriteListBegin(new TList(TType.Struct, Resource.Count));
+          foreach (DecorateResourceInfo _iter148 in Resource)
+          {
+            _iter148.Write(oprot);
+          }
+          oprot.WriteListEnd();
+        }
         oprot.WriteFieldEnd();
       }
       if (__isset.descMessageId) {
@@ -584,14 +580,6 @@ namespace Config
         oprot.WriteI32(PosPanelTipType);
         oprot.WriteFieldEnd();
       }
-      if (AttachPos != null && __isset.attachPos) {
-        field.Name = "attachPos";
-        field.Type = TType.String;
-        field.ID = 150;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(AttachPos);
-        oprot.WriteFieldEnd();
-      }
       if (__isset.funcDescMessageId) {
         field.Name = "funcDescMessageId";
         field.Type = TType.I32;
@@ -638,8 +626,6 @@ namespace Config
       sb.Append(MainPanelTipType);
       sb.Append(",PosPanelTipType: ");
       sb.Append(PosPanelTipType);
-      sb.Append(",AttachPos: ");
-      sb.Append(AttachPos);
       sb.Append(",FuncDescMessageId: ");
       sb.Append(FuncDescMessageId);
       sb.Append(")");

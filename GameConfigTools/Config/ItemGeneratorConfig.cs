@@ -33,6 +33,7 @@ namespace Config
     private int _randomCountMin;
     private int _randomCountMax;
     private List<OptionElement> _optionList;
+    private string _itemPrefab;
 
     public int Id
     {
@@ -164,6 +165,19 @@ namespace Config
       }
     }
 
+    public string ItemPrefab
+    {
+      get
+      {
+        return _itemPrefab;
+      }
+      set
+      {
+        __isset.itemPrefab = true;
+        this._itemPrefab = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -180,6 +194,7 @@ namespace Config
       public bool randomCountMin;
       public bool randomCountMax;
       public bool optionList;
+      public bool itemPrefab;
     }
 
     public ItemGeneratorConfig() {
@@ -274,6 +289,13 @@ namespace Config
                 }
                 iprot.ReadListEnd();
               }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 90:
+            if (field.Type == TType.String) {
+              ItemPrefab = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -378,6 +400,14 @@ namespace Config
         }
         oprot.WriteFieldEnd();
       }
+      if (ItemPrefab != null && __isset.itemPrefab) {
+        field.Name = "itemPrefab";
+        field.Type = TType.String;
+        field.ID = 90;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(ItemPrefab);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -404,6 +434,8 @@ namespace Config
       sb.Append(RandomCountMax);
       sb.Append(",OptionList: ");
       sb.Append(OptionList);
+      sb.Append(",ItemPrefab: ");
+      sb.Append(ItemPrefab);
       sb.Append(")");
       return sb.ToString();
     }

@@ -28,6 +28,7 @@ namespace Config
     private int _min;
     private int _max;
     private Config.ThriftVector3 _dir;
+    private int _diyType;
 
     public int VertexId
     {
@@ -94,6 +95,19 @@ namespace Config
       }
     }
 
+    public int DiyType
+    {
+      get
+      {
+        return _diyType;
+      }
+      set
+      {
+        __isset.diyType = true;
+        this._diyType = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -105,6 +119,7 @@ namespace Config
       public bool min;
       public bool max;
       public bool dir;
+      public bool diyType;
     }
 
     public DiyVertexInfo() {
@@ -154,6 +169,13 @@ namespace Config
             if (field.Type == TType.Struct) {
               Dir = new Config.ThriftVector3();
               Dir.Read(iprot);
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 60:
+            if (field.Type == TType.I32) {
+              DiyType = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -211,6 +233,14 @@ namespace Config
         Dir.Write(oprot);
         oprot.WriteFieldEnd();
       }
+      if (__isset.diyType) {
+        field.Name = "diyType";
+        field.Type = TType.I32;
+        field.ID = 60;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(DiyType);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -227,6 +257,8 @@ namespace Config
       sb.Append(Max);
       sb.Append(",Dir: ");
       sb.Append(Dir== null ? "<null>" : Dir.ToString());
+      sb.Append(",DiyType: ");
+      sb.Append(DiyType);
       sb.Append(")");
       return sb.ToString();
     }

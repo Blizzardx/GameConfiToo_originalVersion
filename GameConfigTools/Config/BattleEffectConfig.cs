@@ -28,8 +28,12 @@ namespace Config
     private int _totalFrame;
     private int _maxFrame;
     private int _targetId;
-    private int _collisionLimitId;
-    private int _collisionFuncId;
+    private int _enterLimitId;
+    private int _enterFuncId;
+    private int _stayLimitId;
+    private int _stayFuncId;
+    private int _exitLimitId;
+    private int _exitFuncId;
     private int _deadLimitId;
     private int _deadFunId;
     private int _type;
@@ -109,29 +113,81 @@ namespace Config
       }
     }
 
-    public int CollisionLimitId
+    public int EnterLimitId
     {
       get
       {
-        return _collisionLimitId;
+        return _enterLimitId;
       }
       set
       {
-        __isset.collisionLimitId = true;
-        this._collisionLimitId = value;
+        __isset.enterLimitId = true;
+        this._enterLimitId = value;
       }
     }
 
-    public int CollisionFuncId
+    public int EnterFuncId
     {
       get
       {
-        return _collisionFuncId;
+        return _enterFuncId;
       }
       set
       {
-        __isset.collisionFuncId = true;
-        this._collisionFuncId = value;
+        __isset.enterFuncId = true;
+        this._enterFuncId = value;
+      }
+    }
+
+    public int StayLimitId
+    {
+      get
+      {
+        return _stayLimitId;
+      }
+      set
+      {
+        __isset.stayLimitId = true;
+        this._stayLimitId = value;
+      }
+    }
+
+    public int StayFuncId
+    {
+      get
+      {
+        return _stayFuncId;
+      }
+      set
+      {
+        __isset.stayFuncId = true;
+        this._stayFuncId = value;
+      }
+    }
+
+    public int ExitLimitId
+    {
+      get
+      {
+        return _exitLimitId;
+      }
+      set
+      {
+        __isset.exitLimitId = true;
+        this._exitLimitId = value;
+      }
+    }
+
+    public int ExitFuncId
+    {
+      get
+      {
+        return _exitFuncId;
+      }
+      set
+      {
+        __isset.exitFuncId = true;
+        this._exitFuncId = value;
       }
     }
 
@@ -315,8 +371,12 @@ namespace Config
       public bool totalFrame;
       public bool maxFrame;
       public bool targetId;
-      public bool collisionLimitId;
-      public bool collisionFuncId;
+      public bool enterLimitId;
+      public bool enterFuncId;
+      public bool stayLimitId;
+      public bool stayFuncId;
+      public bool exitLimitId;
+      public bool exitFuncId;
       public bool deadLimitId;
       public bool deadFunId;
       public bool type;
@@ -384,14 +444,42 @@ namespace Config
             break;
           case 50:
             if (field.Type == TType.I32) {
-              CollisionLimitId = iprot.ReadI32();
+              EnterLimitId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 60:
             if (field.Type == TType.I32) {
-              CollisionFuncId = iprot.ReadI32();
+              EnterFuncId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 61:
+            if (field.Type == TType.I32) {
+              StayLimitId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 62:
+            if (field.Type == TType.I32) {
+              StayFuncId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 63:
+            if (field.Type == TType.I32) {
+              ExitLimitId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 64:
+            if (field.Type == TType.I32) {
+              ExitFuncId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -540,20 +628,52 @@ namespace Config
         oprot.WriteI32(TargetId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.collisionLimitId) {
-        field.Name = "collisionLimitId";
+      if (__isset.enterLimitId) {
+        field.Name = "enterLimitId";
         field.Type = TType.I32;
         field.ID = 50;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(CollisionLimitId);
+        oprot.WriteI32(EnterLimitId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.collisionFuncId) {
-        field.Name = "collisionFuncId";
+      if (__isset.enterFuncId) {
+        field.Name = "enterFuncId";
         field.Type = TType.I32;
         field.ID = 60;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(CollisionFuncId);
+        oprot.WriteI32(EnterFuncId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.stayLimitId) {
+        field.Name = "stayLimitId";
+        field.Type = TType.I32;
+        field.ID = 61;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(StayLimitId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.stayFuncId) {
+        field.Name = "stayFuncId";
+        field.Type = TType.I32;
+        field.ID = 62;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(StayFuncId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.exitLimitId) {
+        field.Name = "exitLimitId";
+        field.Type = TType.I32;
+        field.ID = 63;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ExitLimitId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.exitFuncId) {
+        field.Name = "exitFuncId";
+        field.Type = TType.I32;
+        field.ID = 64;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ExitFuncId);
         oprot.WriteFieldEnd();
       }
       if (__isset.deadLimitId) {
@@ -676,10 +796,18 @@ namespace Config
       sb.Append(MaxFrame);
       sb.Append(",TargetId: ");
       sb.Append(TargetId);
-      sb.Append(",CollisionLimitId: ");
-      sb.Append(CollisionLimitId);
-      sb.Append(",CollisionFuncId: ");
-      sb.Append(CollisionFuncId);
+      sb.Append(",EnterLimitId: ");
+      sb.Append(EnterLimitId);
+      sb.Append(",EnterFuncId: ");
+      sb.Append(EnterFuncId);
+      sb.Append(",StayLimitId: ");
+      sb.Append(StayLimitId);
+      sb.Append(",StayFuncId: ");
+      sb.Append(StayFuncId);
+      sb.Append(",ExitLimitId: ");
+      sb.Append(ExitLimitId);
+      sb.Append(",ExitFuncId: ");
+      sb.Append(ExitFuncId);
       sb.Append(",DeadLimitId: ");
       sb.Append(DeadLimitId);
       sb.Append(",DeadFunId: ");

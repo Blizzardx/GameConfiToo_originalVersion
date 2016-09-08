@@ -112,16 +112,16 @@ namespace GameConfigTools.Import
                         {
                             continue;
                         }
-                        //if (limitId > 0 && !limitConfig.LimitMap.ContainsKey(limitId))
-                        //{
-                        //    errMsg = string.Format("sheet:[{0}] 第[{1}]行错误，条件组ID:[{2}]在" + SysConstant.LIMIT_CONFIG + "中不存在", sheetName, row, limitId);
-                        //    return;
-                        //}
-                        //if (funcId > 0 && !funcConfig.FuncMap.ContainsKey(funcId))
-                        //{
-                        //    errMsg = string.Format("sheet:[{0}] 第[{1}]行错误，功能组ID:[{2}]在" + SysConstant.FUNC_CONFIG + "中不存在", sheetName, row, funcId);
-                        //    return;
-                        //}
+                        if (limitId > 0 && !limitConfig.LimitMap.ContainsKey(limitId))
+                        {
+                            errMsg = string.Format("sheet:[{0}] 第[{1}]行错误，条件组ID:[{2}]在" + SysConstant.LIMIT_CONFIG + "中不存在", sheetName, row, limitId);
+                            return;
+                        }
+                        if (funcId > 0 && !funcConfig.FuncMap.ContainsKey(funcId))
+                        {
+                            errMsg = string.Format("sheet:[{0}] 第[{1}]行错误，功能组ID:[{2}]在" + SysConstant.FUNC_CONFIG + "中不存在", sheetName, row, funcId);
+                            return;
+                        }
 
                         XElement limitFuncScene = new XElement("limitFuncScene");
                         limitFuncScene.Add(new XAttribute("targetId", targetId));

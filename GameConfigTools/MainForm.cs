@@ -24,9 +24,17 @@ namespace GameConfigTools
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(string[] args)
         {
-            InitializeComponent();
+            if (args.Length == 0 || args[0] != "123456")
+            {
+                DialogResult result = MessageBox.Show(this, "请从正常渠道打开工具", "询问");
+
+            }
+            else
+            {
+                InitializeComponent();
+            }
         }
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {

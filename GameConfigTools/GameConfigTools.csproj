@@ -14,6 +14,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -246,6 +246,7 @@
     <Compile Include="Config\BattleEffectConfig.cs" />
     <Compile Include="Config\BattleEffectEventConfig.cs" />
     <Compile Include="Config\BattleItemConfig.cs" />
+    <Compile Include="Config\BattleMachineConfig.cs" />
     <Compile Include="Config\BattleSkillConfig.cs" />
     <Compile Include="Config\CadBoxConfig.cs" />
     <Compile Include="Config\CadPlayerAttrConfig.cs" />
@@ -261,6 +262,7 @@
     <Compile Include="Config\CycleCounterConfig.cs" />
     <Compile Include="Config\DarkCloudConfig.cs" />
     <Compile Include="Config\DecorateConfig.cs" />
+    <Compile Include="Config\DecorateResourceInfo.cs" />
     <Compile Include="Config\DialogConfig.cs" />
     <Compile Include="Config\DiyCharConfig.cs" />
     <Compile Include="Config\DiyMallConfig.cs" />
@@ -331,6 +333,7 @@
     <Compile Include="Config\Table\BattleEffectConfigTable.cs" />
     <Compile Include="Config\Table\BattleEffectEventConfigTable.cs" />
     <Compile Include="Config\Table\BattleItemConfigTable.cs" />
+    <Compile Include="Config\Table\BattleMachineConfigTable.cs" />
     <Compile Include="Config\Table\BattleSkillConfigTable.cs" />
     <Compile Include="Config\Table\BuffClashConfigTable.cs" />
     <Compile Include="Config\Table\CadBoxConfigTable.cs" />
@@ -392,6 +395,8 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
+    <Compile Include="Import\GenScript\User\BattleMachineConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\BattleMachineConfigImporter.cs" />
     <Compile Include="Import\DecomposeImporter.cs" />
     <Compile Include="Import\GenScript\Auto\CadBoxConfigImporter.cs" />
     <Compile Include="Import\GenScript\Auto\CadPlayerAttrConfigImporter.cs" />
@@ -464,6 +469,7 @@
     <Compile Include="Import\StageLogicPointDescConfigImporter.cs" />
     <Compile Include="Import\StageWeatherPlanConfigImporter.cs" />
     <Compile Include="Import\StoryImporter.cs" />
+    <Compile Include="Import\StoryPlayImporter.cs" />
     <Compile Include="Import\TargetImporter.cs" />
     <Compile Include="Import\AbstractExcelImporter.cs" />
     <Compile Include="Import\AbstractXmlImporter.cs" />

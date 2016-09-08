@@ -166,5 +166,7 @@ namespace GameConfigTools.Constant
 
         public static readonly string DECOMPOSE_CONFIG = "decomposeConfig";
 
-    }
+
+        public static readonly string STORY_PLAY_CONFIG = "storyPlayConfig";
+        public static readonly string BATTLE_MACHINE_CONFIG = "battleMachineConfig";    }
 }

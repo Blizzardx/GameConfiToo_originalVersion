@@ -71,9 +71,9 @@ namespace GameConfigTools.Import
                     }
                     string icon = values[i][index++];
                     int firstType;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out firstType, 1, 3))
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out firstType, 1, 10))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，一级分类必须为1 - 3整型", this.GetConfigName(), sheetName, row, index);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，一级分类必须为1 - 10整型", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
                     int secondType;

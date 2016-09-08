@@ -37,6 +37,7 @@ namespace GameConfigTools.Import
             c.Dir.X = dirx;
             c.Dir.Y = diry;
             c.Dir.Z = dirz;
+            c.DiyType = diyType;
 
             if (config.DiyCharConfigMap.ContainsKey(id))
             {

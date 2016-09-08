@@ -41,6 +41,7 @@ namespace Config
     private int _delLimitId;
     private int _delFuncId;
     private int _trigProb;
+    private int _bindingAction;
 
     public int Id
     {
@@ -276,6 +277,19 @@ namespace Config
       }
     }
 
+    public int BindingAction
+    {
+      get
+      {
+        return _bindingAction;
+      }
+      set
+      {
+        __isset.bindingAction = true;
+        this._bindingAction = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -300,6 +314,7 @@ namespace Config
       public bool delLimitId;
       public bool delFuncId;
       public bool trigProb;
+      public bool bindingAction;
     }
 
     public BattleBuffConfig() {
@@ -439,6 +454,13 @@ namespace Config
           case 140:
             if (field.Type == TType.I32) {
               TrigProb = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 150:
+            if (field.Type == TType.I32) {
+              BindingAction = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -600,6 +622,14 @@ namespace Config
         oprot.WriteI32(TrigProb);
         oprot.WriteFieldEnd();
       }
+      if (__isset.bindingAction) {
+        field.Name = "bindingAction";
+        field.Type = TType.I32;
+        field.ID = 150;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(BindingAction);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -642,6 +672,8 @@ namespace Config
       sb.Append(DelFuncId);
       sb.Append(",TrigProb: ");
       sb.Append(TrigProb);
+      sb.Append(",BindingAction: ");
+      sb.Append(BindingAction);
       sb.Append(")");
       return sb.ToString();
     }

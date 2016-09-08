@@ -246,14 +246,15 @@ namespace GameConfigTools.Util
         #region other
         public static bool VaildColor(string htmlStr)
         {
+            // FORMATE RGBA oxffffffff
             if(htmlStr == null || htmlStr.Trim().Length == 0)
             {
                 return true;
             }
             try
             {
-                int i = Convert.ToInt32(htmlStr, 16);
-                if(i > 0 && i < 0xFFFFFF)
+                long i = Convert.ToInt64(htmlStr, 16);
+                if(i >= 0 && i <= 0xFFFFFFFF)
                 {
                     return true;
                 }

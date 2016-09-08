@@ -99,6 +99,8 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.CAD_PLAYER_ATTR_CONFIG, new CadPlayerAttrConfigImporter());
             importerDic.Add(SysConstant.CAD_BOX_CONFIG, new CadBoxConfigImporter());
             importerDic.Add(SysConstant.DECOMPOSE_CONFIG, new DecomposeImporter());
+            importerDic.Add(SysConstant.BATTLE_MACHINE_CONFIG, new BattleMachineConfigImporter());
+            importerDic.Add(SysConstant.STORY_PLAY_CONFIG, new StoryPlayImporter());
         }
         /// <summary>
         /// 加载关联导入
@@ -115,7 +117,7 @@ namespace GameConfigTools.Import
         {
             //externalConfigDic.Add(SysConstant.TERRAIN_EDITOR_CONFIG, "terrain_txtpkg.bytes");
             //externalConfigDic.Add(SysConstant.FORMATION_EDITOR_CONFIG, "formation_txtpkg.bytes");
-            //externalConfigDic.Add(SysConstant.ANIEDITOR_CONFIG, "anieditordata_txtpkg.bytes");
+            externalConfigDic.Add(SysConstant.STORY_PLAY_CONFIG, "storyPlayConfig_txtpkg.bytes");
         }
 
         public Importer GetImporter(string configName)

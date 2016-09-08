@@ -77,7 +77,7 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    string resource = values[i][index++];
+                    var resourceList = VaildUtil.SplitToList_string(values[i][index++]);
                     string desc = values[i][index++];
 
                     int descMessageId;
@@ -146,8 +146,13 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    string attachPos = values[i][index++];
+                    var attachList = VaildUtil.SplitToList_string(values[i][index++]);
 
+                    if (resourceList.Count != attachList.Count || resourceList.Count == 0)
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，resource 列表 和 attach列表个数不相同或者为空",this.GetConfigName(), sheetName, row, index);
+                        return;
+                    }
                     XElement monsterE = new XElement("decorate");
                     root.Add(monsterE);
                     monsterE.Add(new XAttribute("id", id));
@@ -166,7 +171,6 @@ namespace GameConfigTools.Import
                     c.Icon = icon;
                     c.Quality = quality;
                     c.FirstType = posId;
-                    c.Resource = resource;
                     c.DescMessageId = descMessageId;
                     c.PutonFuncId = putonFuncId;
                     c.TakeoffFuncId = takeoffFuncId;
@@ -177,8 +181,15 @@ namespace GameConfigTools.Import
                     c.DisplayLimitId = displayLimitId;
                     c.MainPanelTipType = mainPanelTipType;
                     c.PosPanelTipType = posPanelTipType;
-                    c.AttachPos = attachPos;
                     c.FuncDescMessageId = funcDescMessageId;
+                    c.Resource = new List<DecorateResourceInfo>();
+                    for (int tmpi = 0; tmpi < resourceList.Count; ++tmpi)
+                    {
+                        DecorateResourceInfo elem = new DecorateResourceInfo();
+                        elem.AttachPos = attachList[tmpi];
+                        elem.Resource = resourceList[tmpi];
+                        c.Resource.Add(elem);
+                    }
                     config.DecorateConfigMap.Add(c.Id, c);
                 }
             }

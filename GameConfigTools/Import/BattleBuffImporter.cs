@@ -153,6 +153,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，buff 消失功能ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, 10000);
                         return;
                     }
+                    int bindingAction;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out bindingAction))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，bindingAction 必须为整型", this.GetConfigName(), sheetName, row, index, 10000);
+                        return;
+                    }
 
                     //XElement buffE = new XElement("buff");
                     //root.Add(buffE);
@@ -192,6 +198,7 @@ namespace GameConfigTools.Import
                     c.DelLimitId = delLimitId;
                     c.DelFuncId = delFuncId;
                     c.TrigProb = triggerProb;
+                    c.BindingAction = bindingAction;
                     config.BuffConfigMap.Add(c.Id, c);
                 }
             }
