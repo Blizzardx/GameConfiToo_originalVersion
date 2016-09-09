@@ -21,10 +21,12 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class ActionGroupConfig : TBase
+  public partial class ChatChannelConfig : TBase
   {
     private int _id;
-    private Dictionary<int, List<string>> _actionGroupMap;
+    private int _costItemId;
+    private int _cdTime;
+    private int _cdCount;
 
     public int Id
     {
@@ -39,16 +41,42 @@ namespace Config
       }
     }
 
-    public Dictionary<int, List<string>> ActionGroupMap
+    public int CostItemId
     {
       get
       {
-        return _actionGroupMap;
+        return _costItemId;
       }
       set
       {
-        __isset.actionGroupMap = true;
-        this._actionGroupMap = value;
+        __isset.costItemId = true;
+        this._costItemId = value;
+      }
+    }
+
+    public int CdTime
+    {
+      get
+      {
+        return _cdTime;
+      }
+      set
+      {
+        __isset.cdTime = true;
+        this._cdTime = value;
+      }
+    }
+
+    public int CdCount
+    {
+      get
+      {
+        return _cdCount;
+      }
+      set
+      {
+        __isset.cdCount = true;
+        this._cdCount = value;
       }
     }
 
@@ -59,10 +87,12 @@ namespace Config
     #endif
     public struct Isset {
       public bool id;
-      public bool actionGroupMap;
+      public bool costItemId;
+      public bool cdTime;
+      public bool cdCount;
     }
 
-    public ActionGroupConfig() {
+    public ChatChannelConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -85,30 +115,22 @@ namespace Config
             }
             break;
           case 20:
-            if (field.Type == TType.Map) {
-              {
-                ActionGroupMap = new Dictionary<int, List<string>>();
-                TMap _map113 = iprot.ReadMapBegin();
-                for( int _i114 = 0; _i114 < _map113.Count; ++_i114)
-                {
-                  int _key115;
-                  List<string> _val116;
-                  _key115 = iprot.ReadI32();
-                  {
-                    _val116 = new List<string>();
-                    TList _list117 = iprot.ReadListBegin();
-                    for( int _i118 = 0; _i118 < _list117.Count; ++_i118)
-                    {
-                      string _elem119 = null;
-                      _elem119 = iprot.ReadString();
-                      _val116.Add(_elem119);
-                    }
-                    iprot.ReadListEnd();
-                  }
-                  ActionGroupMap[_key115] = _val116;
-                }
-                iprot.ReadMapEnd();
-              }
+            if (field.Type == TType.I32) {
+              CostItemId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 30:
+            if (field.Type == TType.I32) {
+              CdTime = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 40:
+            if (field.Type == TType.I32) {
+              CdCount = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -123,7 +145,7 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("ActionGroupConfig");
+      TStruct struc = new TStruct("ChatChannelConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
       if (__isset.id) {
@@ -134,27 +156,28 @@ namespace Config
         oprot.WriteI32(Id);
         oprot.WriteFieldEnd();
       }
-      if (ActionGroupMap != null && __isset.actionGroupMap) {
-        field.Name = "actionGroupMap";
-        field.Type = TType.Map;
+      if (__isset.costItemId) {
+        field.Name = "costItemId";
+        field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteMapBegin(new TMap(TType.I32, TType.List, ActionGroupMap.Count));
-          foreach (int _iter120 in ActionGroupMap.Keys)
-          {
-            oprot.WriteI32(_iter120);
-            {
-              oprot.WriteListBegin(new TList(TType.String, ActionGroupMap[_iter120].Count));
-              foreach (string _iter121 in ActionGroupMap[_iter120])
-              {
-                oprot.WriteString(_iter121);
-              }
-              oprot.WriteListEnd();
-            }
-          }
-          oprot.WriteMapEnd();
-        }
+        oprot.WriteI32(CostItemId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.cdTime) {
+        field.Name = "cdTime";
+        field.Type = TType.I32;
+        field.ID = 30;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(CdTime);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.cdCount) {
+        field.Name = "cdCount";
+        field.Type = TType.I32;
+        field.ID = 40;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(CdCount);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -162,11 +185,15 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("ActionGroupConfig(");
+      StringBuilder sb = new StringBuilder("ChatChannelConfig(");
       sb.Append("Id: ");
       sb.Append(Id);
-      sb.Append(",ActionGroupMap: ");
-      sb.Append(ActionGroupMap);
+      sb.Append(",CostItemId: ");
+      sb.Append(CostItemId);
+      sb.Append(",CdTime: ");
+      sb.Append(CdTime);
+      sb.Append(",CdCount: ");
+      sb.Append(CdCount);
       sb.Append(")");
       return sb.ToString();
     }

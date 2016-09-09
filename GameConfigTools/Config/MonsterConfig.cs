@@ -583,12 +583,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 DropList = new List<int>();
-                TList _list16 = iprot.ReadListBegin();
-                for( int _i17 = 0; _i17 < _list16.Count; ++_i17)
+                TList _list21 = iprot.ReadListBegin();
+                for( int _i22 = 0; _i22 < _list21.Count; ++_i22)
                 {
-                  int _elem18 = 0;
-                  _elem18 = iprot.ReadI32();
-                  DropList.Add(_elem18);
+                  int _elem23 = 0;
+                  _elem23 = iprot.ReadI32();
+                  DropList.Add(_elem23);
                 }
                 iprot.ReadListEnd();
               }
@@ -656,13 +656,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 AiChangeList = new List<MonsterAiParam>();
-                TList _list19 = iprot.ReadListBegin();
-                for( int _i20 = 0; _i20 < _list19.Count; ++_i20)
+                TList _list24 = iprot.ReadListBegin();
+                for( int _i25 = 0; _i25 < _list24.Count; ++_i25)
                 {
-                  MonsterAiParam _elem21 = new MonsterAiParam();
-                  _elem21 = new MonsterAiParam();
-                  _elem21.Read(iprot);
-                  AiChangeList.Add(_elem21);
+                  MonsterAiParam _elem26 = new MonsterAiParam();
+                  _elem26 = new MonsterAiParam();
+                  _elem26.Read(iprot);
+                  AiChangeList.Add(_elem26);
                 }
                 iprot.ReadListEnd();
               }
@@ -674,12 +674,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 SkillIdList = new List<int>();
-                TList _list22 = iprot.ReadListBegin();
-                for( int _i23 = 0; _i23 < _list22.Count; ++_i23)
+                TList _list27 = iprot.ReadListBegin();
+                for( int _i28 = 0; _i28 < _list27.Count; ++_i28)
                 {
-                  int _elem24 = 0;
-                  _elem24 = iprot.ReadI32();
-                  SkillIdList.Add(_elem24);
+                  int _elem29 = 0;
+                  _elem29 = iprot.ReadI32();
+                  SkillIdList.Add(_elem29);
                 }
                 iprot.ReadListEnd();
               }
@@ -842,9 +842,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, DropList.Count));
-          foreach (int _iter25 in DropList)
+          foreach (int _iter30 in DropList)
           {
-            oprot.WriteI32(_iter25);
+            oprot.WriteI32(_iter30);
           }
           oprot.WriteListEnd();
         }
@@ -921,9 +921,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, AiChangeList.Count));
-          foreach (MonsterAiParam _iter26 in AiChangeList)
+          foreach (MonsterAiParam _iter31 in AiChangeList)
           {
-            _iter26.Write(oprot);
+            _iter31.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -936,9 +936,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, SkillIdList.Count));
-          foreach (int _iter27 in SkillIdList)
+          foreach (int _iter32 in SkillIdList)
           {
-            oprot.WriteI32(_iter27);
+            oprot.WriteI32(_iter32);
           }
           oprot.WriteListEnd();
         }

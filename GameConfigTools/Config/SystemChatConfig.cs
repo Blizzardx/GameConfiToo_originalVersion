@@ -21,34 +21,34 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class DiyPositionInfo : TBase
+  public partial class SystemChatConfig : TBase
   {
-    private int _positionId;
-    private List<DiyVertexInfo> _vertexList;
+    private int _chatSpeakerStayTime;
+    private Dictionary<int, ChatChannelConfig> _chatChannelConfigMap;
 
-    public int PositionId
+    public int ChatSpeakerStayTime
     {
       get
       {
-        return _positionId;
+        return _chatSpeakerStayTime;
       }
       set
       {
-        __isset.positionId = true;
-        this._positionId = value;
+        __isset.chatSpeakerStayTime = true;
+        this._chatSpeakerStayTime = value;
       }
     }
 
-    public List<DiyVertexInfo> VertexList
+    public Dictionary<int, ChatChannelConfig> ChatChannelConfigMap
     {
       get
       {
-        return _vertexList;
+        return _chatChannelConfigMap;
       }
       set
       {
-        __isset.vertexList = true;
-        this._vertexList = value;
+        __isset.chatChannelConfigMap = true;
+        this._chatChannelConfigMap = value;
       }
     }
 
@@ -58,11 +58,11 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool positionId;
-      public bool vertexList;
+      public bool chatSpeakerStayTime;
+      public bool chatChannelConfigMap;
     }
 
-    public DiyPositionInfo() {
+    public SystemChatConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -79,24 +79,26 @@ namespace Config
         {
           case 10:
             if (field.Type == TType.I32) {
-              PositionId = iprot.ReadI32();
+              ChatSpeakerStayTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 20:
-            if (field.Type == TType.List) {
+            if (field.Type == TType.Map) {
               {
-                VertexList = new List<DiyVertexInfo>();
-                TList _list163 = iprot.ReadListBegin();
-                for( int _i164 = 0; _i164 < _list163.Count; ++_i164)
+                ChatChannelConfigMap = new Dictionary<int, ChatChannelConfig>();
+                TMap _map8 = iprot.ReadMapBegin();
+                for( int _i9 = 0; _i9 < _map8.Count; ++_i9)
                 {
-                  DiyVertexInfo _elem165 = new DiyVertexInfo();
-                  _elem165 = new DiyVertexInfo();
-                  _elem165.Read(iprot);
-                  VertexList.Add(_elem165);
+                  int _key10;
+                  ChatChannelConfig _val11;
+                  _key10 = iprot.ReadI32();
+                  _val11 = new ChatChannelConfig();
+                  _val11.Read(iprot);
+                  ChatChannelConfigMap[_key10] = _val11;
                 }
-                iprot.ReadListEnd();
+                iprot.ReadMapEnd();
               }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
@@ -112,29 +114,30 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("DiyPositionInfo");
+      TStruct struc = new TStruct("SystemChatConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (__isset.positionId) {
-        field.Name = "positionId";
+      if (__isset.chatSpeakerStayTime) {
+        field.Name = "chatSpeakerStayTime";
         field.Type = TType.I32;
         field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(PositionId);
+        oprot.WriteI32(ChatSpeakerStayTime);
         oprot.WriteFieldEnd();
       }
-      if (VertexList != null && __isset.vertexList) {
-        field.Name = "vertexList";
-        field.Type = TType.List;
+      if (ChatChannelConfigMap != null && __isset.chatChannelConfigMap) {
+        field.Name = "chatChannelConfigMap";
+        field.Type = TType.Map;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteListBegin(new TList(TType.Struct, VertexList.Count));
-          foreach (DiyVertexInfo _iter166 in VertexList)
+          oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, ChatChannelConfigMap.Count));
+          foreach (int _iter12 in ChatChannelConfigMap.Keys)
           {
-            _iter166.Write(oprot);
+            oprot.WriteI32(_iter12);
+            ChatChannelConfigMap[_iter12].Write(oprot);
           }
-          oprot.WriteListEnd();
+          oprot.WriteMapEnd();
         }
         oprot.WriteFieldEnd();
       }
@@ -143,11 +146,11 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("DiyPositionInfo(");
-      sb.Append("PositionId: ");
-      sb.Append(PositionId);
-      sb.Append(",VertexList: ");
-      sb.Append(VertexList);
+      StringBuilder sb = new StringBuilder("SystemChatConfig(");
+      sb.Append("ChatSpeakerStayTime: ");
+      sb.Append(ChatSpeakerStayTime);
+      sb.Append(",ChatChannelConfigMap: ");
+      sb.Append(ChatChannelConfigMap);
       sb.Append(")");
       return sb.ToString();
     }

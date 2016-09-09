@@ -50,6 +50,7 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="recoverId" desc="recoverId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="recoverHp" desc="recoverHp"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="attachPoint"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="deadFuncId"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
     <GenScriptClassXmlConfig className="AeroGroupConfig">

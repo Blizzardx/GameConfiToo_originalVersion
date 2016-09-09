@@ -42,6 +42,7 @@ namespace GameConfigTools.Import
 		private int recoverId;
 		private int recoverHp;
 		private string attachPoint;
+		private int deadFuncId;
     
         protected override void AutoParasTable(List<string[][]> sheetValues, ref string errMsg)
         {
@@ -179,6 +180,11 @@ if (!VaildUtil.TryConvert(values[i][21], out recoverHp,int.MinValue,int.MaxValue
 if (!VaildUtil.TryConvert(values[i][22], out attachPoint,string.Empty,string.Empty))
 {
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,22+1, attachPoint,string.Empty,string.Empty,"string","attachPoint");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][23], out deadFuncId,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,23+1, deadFuncId,int.MinValue,int.MaxValue,"int","deadFuncId");
 	return;
 }
                     

@@ -88,13 +88,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 StoryParam = new List<StoryParamEntry>();
-                TList _list104 = iprot.ReadListBegin();
-                for( int _i105 = 0; _i105 < _list104.Count; ++_i105)
+                TList _list109 = iprot.ReadListBegin();
+                for( int _i110 = 0; _i110 < _list109.Count; ++_i110)
                 {
-                  StoryParamEntry _elem106 = new StoryParamEntry();
-                  _elem106 = new StoryParamEntry();
-                  _elem106.Read(iprot);
-                  StoryParam.Add(_elem106);
+                  StoryParamEntry _elem111 = new StoryParamEntry();
+                  _elem111 = new StoryParamEntry();
+                  _elem111.Read(iprot);
+                  StoryParam.Add(_elem111);
                 }
                 iprot.ReadListEnd();
               }
@@ -130,9 +130,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, StoryParam.Count));
-          foreach (StoryParamEntry _iter107 in StoryParam)
+          foreach (StoryParamEntry _iter112 in StoryParam)
           {
-            _iter107.Write(oprot);
+            _iter112.Write(oprot);
           }
           oprot.WriteListEnd();
         }

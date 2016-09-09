@@ -341,13 +341,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 Resource = new List<DecorateResourceInfo>();
-                TList _list145 = iprot.ReadListBegin();
-                for( int _i146 = 0; _i146 < _list145.Count; ++_i146)
+                TList _list150 = iprot.ReadListBegin();
+                for( int _i151 = 0; _i151 < _list150.Count; ++_i151)
                 {
-                  DecorateResourceInfo _elem147 = new DecorateResourceInfo();
-                  _elem147 = new DecorateResourceInfo();
-                  _elem147.Read(iprot);
-                  Resource.Add(_elem147);
+                  DecorateResourceInfo _elem152 = new DecorateResourceInfo();
+                  _elem152 = new DecorateResourceInfo();
+                  _elem152.Read(iprot);
+                  Resource.Add(_elem152);
                 }
                 iprot.ReadListEnd();
               }
@@ -492,9 +492,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, Resource.Count));
-          foreach (DecorateResourceInfo _iter148 in Resource)
+          foreach (DecorateResourceInfo _iter153 in Resource)
           {
-            _iter148.Write(oprot);
+            _iter153.Write(oprot);
           }
           oprot.WriteListEnd();
         }

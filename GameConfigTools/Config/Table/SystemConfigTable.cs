@@ -25,6 +25,7 @@ namespace Config.Table
   {
     private Config.SystemRoomConfig _roomConfig;
     private Config.SystemDecorateTypeSortConfig _decorateTypeSrotConfig;
+    private Config.SystemChatConfig _chatConfig;
 
     public Config.SystemRoomConfig RoomConfig
     {
@@ -52,6 +53,19 @@ namespace Config.Table
       }
     }
 
+    public Config.SystemChatConfig ChatConfig
+    {
+      get
+      {
+        return _chatConfig;
+      }
+      set
+      {
+        __isset.chatConfig = true;
+        this._chatConfig = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -60,6 +74,7 @@ namespace Config.Table
     public struct Isset {
       public bool roomConfig;
       public bool decorateTypeSrotConfig;
+      public bool chatConfig;
     }
 
     public SystemConfigTable() {
@@ -93,6 +108,14 @@ namespace Config.Table
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 30:
+            if (field.Type == TType.Struct) {
+              ChatConfig = new Config.SystemChatConfig();
+              ChatConfig.Read(iprot);
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           default: 
             TProtocolUtil.Skip(iprot, field.Type);
             break;
@@ -122,6 +145,14 @@ namespace Config.Table
         DecorateTypeSrotConfig.Write(oprot);
         oprot.WriteFieldEnd();
       }
+      if (ChatConfig != null && __isset.chatConfig) {
+        field.Name = "chatConfig";
+        field.Type = TType.Struct;
+        field.ID = 30;
+        oprot.WriteFieldBegin(field);
+        ChatConfig.Write(oprot);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -132,6 +163,8 @@ namespace Config.Table
       sb.Append(RoomConfig== null ? "<null>" : RoomConfig.ToString());
       sb.Append(",DecorateTypeSrotConfig: ");
       sb.Append(DecorateTypeSrotConfig== null ? "<null>" : DecorateTypeSrotConfig.ToString());
+      sb.Append(",ChatConfig: ");
+      sb.Append(ChatConfig== null ? "<null>" : ChatConfig.ToString());
       sb.Append(")");
       return sb.ToString();
     }

@@ -66,13 +66,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 SortInfoList = new List<SystemDecorateTypeSortInfo>();
-                TList _list8 = iprot.ReadListBegin();
-                for( int _i9 = 0; _i9 < _list8.Count; ++_i9)
+                TList _list13 = iprot.ReadListBegin();
+                for( int _i14 = 0; _i14 < _list13.Count; ++_i14)
                 {
-                  SystemDecorateTypeSortInfo _elem10 = new SystemDecorateTypeSortInfo();
-                  _elem10 = new SystemDecorateTypeSortInfo();
-                  _elem10.Read(iprot);
-                  SortInfoList.Add(_elem10);
+                  SystemDecorateTypeSortInfo _elem15 = new SystemDecorateTypeSortInfo();
+                  _elem15 = new SystemDecorateTypeSortInfo();
+                  _elem15.Read(iprot);
+                  SortInfoList.Add(_elem15);
                 }
                 iprot.ReadListEnd();
               }
@@ -100,9 +100,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, SortInfoList.Count));
-          foreach (SystemDecorateTypeSortInfo _iter11 in SortInfoList)
+          foreach (SystemDecorateTypeSortInfo _iter16 in SortInfoList)
           {
-            _iter11.Write(oprot);
+            _iter16.Write(oprot);
           }
           oprot.WriteListEnd();
         }

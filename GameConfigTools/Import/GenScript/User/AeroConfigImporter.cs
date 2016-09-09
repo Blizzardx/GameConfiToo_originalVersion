@@ -75,6 +75,7 @@ namespace GameConfigTools.Import
             c.RecoverHp = recoverHp;
             c.RecoverId = recoverId;
             c.AttachPoint = attachPoint;
+            c.DeadFuncId = deadFuncId;
             config.AeroConfigMap.Add(c.Id, c);
         }
 

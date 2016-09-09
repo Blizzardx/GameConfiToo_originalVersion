@@ -44,6 +44,7 @@ namespace Config
     private int _recoverId;
     private int _recoverHp;
     private string _attachPoint;
+    private int _deadFuncId;
 
     public int Id
     {
@@ -318,6 +319,19 @@ namespace Config
       }
     }
 
+    public int DeadFuncId
+    {
+      get
+      {
+        return _deadFuncId;
+      }
+      set
+      {
+        __isset.deadFuncId = true;
+        this._deadFuncId = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -345,6 +359,7 @@ namespace Config
       public bool recoverId;
       public bool recoverHp;
       public bool attachPoint;
+      public bool deadFuncId;
     }
 
     public AeroConfig() {
@@ -505,6 +520,13 @@ namespace Config
           case 160:
             if (field.Type == TType.String) {
               AttachPoint = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 170:
+            if (field.Type == TType.I32) {
+              DeadFuncId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -690,6 +712,14 @@ namespace Config
         oprot.WriteString(AttachPoint);
         oprot.WriteFieldEnd();
       }
+      if (__isset.deadFuncId) {
+        field.Name = "deadFuncId";
+        field.Type = TType.I32;
+        field.ID = 170;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(DeadFuncId);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -738,6 +768,8 @@ namespace Config
       sb.Append(RecoverHp);
       sb.Append(",AttachPoint: ");
       sb.Append(AttachPoint);
+      sb.Append(",DeadFuncId: ");
+      sb.Append(DeadFuncId);
       sb.Append(")");
       return sb.ToString();
     }

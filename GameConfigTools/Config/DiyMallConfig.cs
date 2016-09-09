@@ -184,12 +184,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 AvailableClos = new List<string>();
-                TList _list141 = iprot.ReadListBegin();
-                for( int _i142 = 0; _i142 < _list141.Count; ++_i142)
+                TList _list146 = iprot.ReadListBegin();
+                for( int _i147 = 0; _i147 < _list146.Count; ++_i147)
                 {
-                  string _elem143 = null;
-                  _elem143 = iprot.ReadString();
-                  AvailableClos.Add(_elem143);
+                  string _elem148 = null;
+                  _elem148 = iprot.ReadString();
+                  AvailableClos.Add(_elem148);
                 }
                 iprot.ReadListEnd();
               }
@@ -263,9 +263,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.String, AvailableClos.Count));
-          foreach (string _iter144 in AvailableClos)
+          foreach (string _iter149 in AvailableClos)
           {
-            oprot.WriteString(_iter144);
+            oprot.WriteString(_iter149);
           }
           oprot.WriteListEnd();
         }

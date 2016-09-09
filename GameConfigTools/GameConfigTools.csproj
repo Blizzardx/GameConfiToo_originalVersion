@@ -256,6 +256,7 @@
     <Compile Include="Config\ChapterConfig.cs" />
     <Compile Include="Config\CharacterBaseConfig.cs" />
     <Compile Include="Config\CharacterExpConfig.cs" />
+    <Compile Include="Config\ChatChannelConfig.cs" />
     <Compile Include="Config\CloudConfig.cs" />
     <Compile Include="Config\CommonSkillConfig.cs" />
     <Compile Include="Config\ConsumeConfig.cs" />
@@ -317,6 +318,7 @@
     <Compile Include="Config\StageWeatherPlanConfig.cs" />
     <Compile Include="Config\StoryConfig.cs" />
     <Compile Include="Config\StoryParamEntry.cs" />
+    <Compile Include="Config\SystemChatConfig.cs" />
     <Compile Include="Config\SystemDecorateTypeSortConfig.cs" />
     <Compile Include="Config\SystemDecorateTypeSortInfo.cs" />
     <Compile Include="Config\SystemRoomConfig.cs" />

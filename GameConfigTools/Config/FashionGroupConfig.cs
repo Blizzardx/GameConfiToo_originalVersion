@@ -198,12 +198,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 FashionList = new List<int>();
-                TList _list149 = iprot.ReadListBegin();
-                for( int _i150 = 0; _i150 < _list149.Count; ++_i150)
+                TList _list154 = iprot.ReadListBegin();
+                for( int _i155 = 0; _i155 < _list154.Count; ++_i155)
                 {
-                  int _elem151 = 0;
-                  _elem151 = iprot.ReadI32();
-                  FashionList.Add(_elem151);
+                  int _elem156 = 0;
+                  _elem156 = iprot.ReadI32();
+                  FashionList.Add(_elem156);
                 }
                 iprot.ReadListEnd();
               }
@@ -279,9 +279,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, FashionList.Count));
-          foreach (int _iter152 in FashionList)
+          foreach (int _iter157 in FashionList)
           {
-            oprot.WriteI32(_iter152);
+            oprot.WriteI32(_iter157);
           }
           oprot.WriteListEnd();
         }
