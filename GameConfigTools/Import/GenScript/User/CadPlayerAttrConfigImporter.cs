@@ -41,6 +41,7 @@ namespace GameConfigTools.Import
             c.BoxSpeed = boxSpeed;
             c.Model = model;
             c.DataPrefab = dataPrefab;
+            
             if (!config.CadPlayerAttrConfigMap.ContainsKey(pid))
             {
                 config.CadPlayerAttrConfigMap.Add(pid, new Dictionary<int, CadPlayerAttrConfig>());

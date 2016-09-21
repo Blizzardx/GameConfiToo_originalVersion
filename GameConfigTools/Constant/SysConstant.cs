@@ -118,7 +118,7 @@ namespace GameConfigTools.Constant
 
         public static readonly string PVP_STAGE_CONFIG = "pvpStageConfig";
 
-        public static readonly string RESULT_CONFIG = "resultConfig";
+        public static readonly string BATTLE_RESULT_CONFIG = "battleResultConfig";
 
         public static readonly string ROOM_CHANNEL_CONFIG = "roomChannelConfig";
 
@@ -168,5 +168,13 @@ namespace GameConfigTools.Constant
 
 
         public static readonly string STORY_PLAY_CONFIG = "storyPlayConfig";
-        public static readonly string BATTLE_MACHINE_CONFIG = "battleMachineConfig";    }
+        public static readonly string BATTLE_MACHINE_CONFIG = "battleMachineConfig";
+        public static readonly string MONSTER_BORN_CONFIG = "monsterBornConfig";
+        public static readonly string PENTAKILL_CONFIG = "pentaKillConfig";
+
+        public static readonly string EMOTICON_CONFIG = "emoticonConfig";
+
+        public static readonly string CHARACTER_EXP_CONFIG = "characterExpConfig";
+
+    }
 }

@@ -414,12 +414,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 ShowDropItemIdList = new List<int>();
-                TList _list142 = iprot.ReadListBegin();
-                for( int _i143 = 0; _i143 < _list142.Count; ++_i143)
+                TList _list150 = iprot.ReadListBegin();
+                for( int _i151 = 0; _i151 < _list150.Count; ++_i151)
                 {
-                  int _elem144 = 0;
-                  _elem144 = iprot.ReadI32();
-                  ShowDropItemIdList.Add(_elem144);
+                  int _elem152 = 0;
+                  _elem152 = iprot.ReadI32();
+                  ShowDropItemIdList.Add(_elem152);
                 }
                 iprot.ReadListEnd();
               }
@@ -589,9 +589,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, ShowDropItemIdList.Count));
-          foreach (int _iter145 in ShowDropItemIdList)
+          foreach (int _iter153 in ShowDropItemIdList)
           {
-            oprot.WriteI32(_iter145);
+            oprot.WriteI32(_iter153);
           }
           oprot.WriteListEnd();
         }

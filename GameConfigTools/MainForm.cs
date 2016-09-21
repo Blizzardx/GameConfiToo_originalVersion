@@ -29,7 +29,6 @@ namespace GameConfigTools
             if (args.Length == 0 || args[0] != "123456")
             {
                 DialogResult result = MessageBox.Show(this, "请从正常渠道打开工具", "询问");
-
             }
             else
             {

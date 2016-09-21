@@ -112,5 +112,37 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="exitFuncId"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="PentakillConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="killCount"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="killEffect"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="killAddition"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="bekilledAddition"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="killRadio"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="bekilledRadio"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="CharacterExpConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="level"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="totalExp"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="levelUpLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="levelUpFuncId"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="BattleResultConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig />
+        <GenScriptLineXmlConfig classTypeName="int" memberName="baseExp"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="baseGold"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="itemId1"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="baseCount1"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="itemId2"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="baseCount2"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="itemId3"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="baseCount3"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
   </classConfigList>
 </root>

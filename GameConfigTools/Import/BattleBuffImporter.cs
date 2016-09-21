@@ -159,6 +159,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，bindingAction 必须为整型", this.GetConfigName(), sheetName, row, index, 10000);
                         return;
                     }
+                    int buffDurability;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out buffDurability))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，buffDurability  必须为整型", this.GetConfigName(), sheetName, row, index, 10000);
+                        return;
+                    }
 
                     //XElement buffE = new XElement("buff");
                     //root.Add(buffE);
@@ -199,6 +205,7 @@ namespace GameConfigTools.Import
                     c.DelFuncId = delFuncId;
                     c.TrigProb = triggerProb;
                     c.BindingAction = bindingAction;
+                    c.BuffDurability = buffDurability;
                     config.BuffConfigMap.Add(c.Id, c);
                 }
             }

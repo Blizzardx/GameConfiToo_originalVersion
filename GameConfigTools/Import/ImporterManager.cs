@@ -75,7 +75,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.STAGE_LOGIC_POINT_DESC_CONFIG,new StageLogicPointDescConfigImporter());
             importerDic.Add(SysConstant.PVP_STAGE_CONFIG,new PvpStageConfigImporter());
             importerDic.Add(SysConstant.MODE_CONFIG,new ModeConfigImporter());
-            importerDic.Add(SysConstant.RESULT_CONFIG,new ResultConfigImporter());
+            importerDic.Add(SysConstant.BATTLE_RESULT_CONFIG, new BattleResultConfigImporter());
             importerDic.Add(SysConstant.ROOM_CHANNEL_CONFIG, new RoomChannelImporter());
             importerDic.Add(SysConstant.PROPS_CONFIG, new PropsImporter());
             importerDic.Add(SysConstant.DIY_MALL_CONFIG, new DiyMallImporter());
@@ -101,6 +101,10 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.DECOMPOSE_CONFIG, new DecomposeImporter());
             importerDic.Add(SysConstant.BATTLE_MACHINE_CONFIG, new BattleMachineConfigImporter());
             importerDic.Add(SysConstant.STORY_PLAY_CONFIG, new StoryPlayImporter());
+            importerDic.Add(SysConstant.MONSTER_BORN_CONFIG, new MonsterBornImporter());
+            importerDic.Add(SysConstant.PENTAKILL_CONFIG, new PentakillConfigImporter());
+            importerDic.Add(SysConstant.EMOTICON_CONFIG, new EmoticonConfigImporter());
+            importerDic.Add(SysConstant.CHARACTER_EXP_CONFIG, new CharacterExpConfigImporter());
         }
         /// <summary>
         /// 加载关联导入

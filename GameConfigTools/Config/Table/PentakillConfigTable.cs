@@ -15,26 +15,26 @@ using System.Runtime.Serialization;
 using Thrift.Protocol;
 using Thrift.Transport;
 
-namespace Config
+namespace Config.Table
 {
 
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class SystemDecorateTypeSortConfig : TBase
+  public partial class PentakillConfigTable : TBase
   {
-    private List<SystemDecorateTypeSortInfo> _sortInfoList;
+    private Dictionary<int, Config.PentakillConfig> _pentakillConfigMap;
 
-    public List<SystemDecorateTypeSortInfo> SortInfoList
+    public Dictionary<int, Config.PentakillConfig> PentakillConfigMap
     {
       get
       {
-        return _sortInfoList;
+        return _pentakillConfigMap;
       }
       set
       {
-        __isset.sortInfoList = true;
-        this._sortInfoList = value;
+        __isset.pentakillConfigMap = true;
+        this._pentakillConfigMap = value;
       }
     }
 
@@ -44,10 +44,10 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool sortInfoList;
+      public bool pentakillConfigMap;
     }
 
-    public SystemDecorateTypeSortConfig() {
+    public PentakillConfigTable() {
     }
 
     public void Read (TProtocol iprot)
@@ -63,18 +63,20 @@ namespace Config
         switch (field.ID)
         {
           case 1:
-            if (field.Type == TType.List) {
+            if (field.Type == TType.Map) {
               {
-                SortInfoList = new List<SystemDecorateTypeSortInfo>();
-                TList _list21 = iprot.ReadListBegin();
-                for( int _i22 = 0; _i22 < _list21.Count; ++_i22)
+                PentakillConfigMap = new Dictionary<int, Config.PentakillConfig>();
+                TMap _map348 = iprot.ReadMapBegin();
+                for( int _i349 = 0; _i349 < _map348.Count; ++_i349)
                 {
-                  SystemDecorateTypeSortInfo _elem23 = new SystemDecorateTypeSortInfo();
-                  _elem23 = new SystemDecorateTypeSortInfo();
-                  _elem23.Read(iprot);
-                  SortInfoList.Add(_elem23);
+                  int _key350;
+                  Config.PentakillConfig _val351;
+                  _key350 = iprot.ReadI32();
+                  _val351 = new Config.PentakillConfig();
+                  _val351.Read(iprot);
+                  PentakillConfigMap[_key350] = _val351;
                 }
-                iprot.ReadListEnd();
+                iprot.ReadMapEnd();
               }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
@@ -90,21 +92,22 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("SystemDecorateTypeSortConfig");
+      TStruct struc = new TStruct("PentakillConfigTable");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (SortInfoList != null && __isset.sortInfoList) {
-        field.Name = "sortInfoList";
-        field.Type = TType.List;
+      if (PentakillConfigMap != null && __isset.pentakillConfigMap) {
+        field.Name = "pentakillConfigMap";
+        field.Type = TType.Map;
         field.ID = 1;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteListBegin(new TList(TType.Struct, SortInfoList.Count));
-          foreach (SystemDecorateTypeSortInfo _iter24 in SortInfoList)
+          oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, PentakillConfigMap.Count));
+          foreach (int _iter352 in PentakillConfigMap.Keys)
           {
-            _iter24.Write(oprot);
+            oprot.WriteI32(_iter352);
+            PentakillConfigMap[_iter352].Write(oprot);
           }
-          oprot.WriteListEnd();
+          oprot.WriteMapEnd();
         }
         oprot.WriteFieldEnd();
       }
@@ -113,9 +116,9 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("SystemDecorateTypeSortConfig(");
-      sb.Append("SortInfoList: ");
-      sb.Append(SortInfoList);
+      StringBuilder sb = new StringBuilder("PentakillConfigTable(");
+      sb.Append("PentakillConfigMap: ");
+      sb.Append(PentakillConfigMap);
       sb.Append(")");
       return sb.ToString();
     }

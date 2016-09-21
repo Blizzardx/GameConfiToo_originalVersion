@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -272,6 +272,7 @@
     <Compile Include="Config\DiyVertexInfo.cs" />
     <Compile Include="Config\DropItem.cs" />
     <Compile Include="Config\DropListConfig.cs" />
+    <Compile Include="Config\EmoticonConfig.cs" />
     <Compile Include="Config\ExchangeConfig.cs" />
     <Compile Include="Config\FashionConfig.cs" />
     <Compile Include="Config\FashionGroupConfig.cs" />
@@ -285,6 +286,7 @@
     <Compile Include="Config\HeroQualityLevelUpConfig.cs" />
     <Compile Include="Config\HeroStarLevelUpConfig.cs" />
     <Compile Include="Config\InitAttrRateConfig.cs" />
+    <Compile Include="Config\InitDIYConfig.cs" />
     <Compile Include="Config\ItemGeneratorConfig.cs" />
     <Compile Include="Config\LimitData.cs" />
     <Compile Include="Config\LimitFuncSceneConfig.cs" />
@@ -294,16 +296,18 @@
     <Compile Include="Config\MallConfig.cs" />
     <Compile Include="Config\ModeConfig.cs" />
     <Compile Include="Config\MonsterAiParam.cs" />
+    <Compile Include="Config\MonsterBornConfig.cs" />
     <Compile Include="Config\MonsterConfig.cs" />
     <Compile Include="Config\MonsterSkillGroupConfig.cs" />
+    <Compile Include="Config\MonsterWeightConfig.cs" />
     <Compile Include="Config\NeedCurrencyConfig.cs" />
     <Compile Include="Config\NeedItemConfig.cs" />
     <Compile Include="Config\OptionElement.cs" />
     <Compile Include="Config\OrdinaryCounterConfig.cs" />
+    <Compile Include="Config\PentakillConfig.cs" />
     <Compile Include="Config\PropsConfig.cs" />
     <Compile Include="Config\PvpStageConfig.cs" />
     <Compile Include="Config\RainConfig.cs" />
-    <Compile Include="Config\ResultConfig.cs" />
     <Compile Include="Config\RoomActionConfig.cs" />
     <Compile Include="Config\RoomActionMallConfig.cs" />
     <Compile Include="Config\SceneConfig.cs" />
@@ -318,6 +322,7 @@
     <Compile Include="Config\StageWeatherPlanConfig.cs" />
     <Compile Include="Config\StoryConfig.cs" />
     <Compile Include="Config\StoryParamEntry.cs" />
+    <Compile Include="Config\SystemCharacterConfig.cs" />
     <Compile Include="Config\SystemChatConfig.cs" />
     <Compile Include="Config\SystemDecorateTypeSortConfig.cs" />
     <Compile Include="Config\SystemDecorateTypeSortInfo.cs" />
@@ -343,6 +348,7 @@
     <Compile Include="Config\Table\CadPlayerConfigTable.cs" />
     <Compile Include="Config\Table\ChapterConfigTable.cs" />
     <Compile Include="Config\Table\CharacterBaseConfigTable.cs" />
+    <Compile Include="Config\Table\CharacterExpConfigTable.cs" />
     <Compile Include="Config\Table\CloudConfigTable.cs" />
     <Compile Include="Config\Table\ConsumeConfigTable.cs" />
     <Compile Include="Config\Table\CounterConfigTable.cs" />
@@ -355,6 +361,7 @@
     <Compile Include="Config\Table\DiyPresetConfigTable.cs" />
     <Compile Include="Config\Table\DropConfigTable.cs" />
     <Compile Include="Config\Table\EffectItemCollideTable.cs" />
+    <Compile Include="Config\Table\EmoticonConfigTable.cs" />
     <Compile Include="Config\Table\ExchangeConfigTable.cs" />
     <Compile Include="Config\Table\FashionConfigTable.cs" />
     <Compile Include="Config\Table\FashionGroupConfigTable.cs" />
@@ -365,12 +372,13 @@
     <Compile Include="Config\Table\MallConfigTable.cs" />
     <Compile Include="Config\Table\MessageConfigTable.cs" />
     <Compile Include="Config\Table\ModeConfigTable.cs" />
+    <Compile Include="Config\Table\MonsterBornConfigTable.cs" />
     <Compile Include="Config\Table\MonsterConfigTable.cs" />
     <Compile Include="Config\Table\MonsterSkillGroupConfigTable.cs" />
+    <Compile Include="Config\Table\PentakillConfigTable.cs" />
     <Compile Include="Config\Table\PropsConfigTable.cs" />
     <Compile Include="Config\Table\PvpStageConfigTable.cs" />
     <Compile Include="Config\Table\RainConfigTable.cs" />
-    <Compile Include="Config\Table\ResultConfigTable.cs" />
     <Compile Include="Config\Table\RoomActionConfigTable.cs" />
     <Compile Include="Config\Table\RoomActionMallConfigTable.cs" />
     <Compile Include="Config\Table\ShockConfigTable.cs" />
@@ -397,6 +405,13 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
+<Compile Include="Import\GenScript\User\BattleResultConfigImporter.cs" />
+<Compile Include="Import\GenScript\Auto\BattleResultConfigImporter.cs" />
+    <Compile Include="Import\EmoticonConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\CharacterExpConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\CharacterExpConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\PentakillConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\PentakillConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\BattleMachineConfigImporter.cs" />
     <Compile Include="Import\GenScript\Auto\BattleMachineConfigImporter.cs" />
     <Compile Include="Import\DecomposeImporter.cs" />
@@ -455,12 +470,12 @@
     <Compile Include="Import\ItemGeneratorConfigImporter.cs" />
     <Compile Include="Import\MallConfigImporter.cs" />
     <Compile Include="Import\ModeConfigImporter.cs" />
+    <Compile Include="Import\MonsterBornImporter.cs" />
     <Compile Include="Import\MonsterImporter.cs" />
     <Compile Include="Import\MonsterSkillGroupConfigImporter.cs" />
     <Compile Include="Import\PropsImporter.cs" />
     <Compile Include="Import\PvpStageConfigImporter.cs" />
     <Compile Include="Import\RainConfigImporter.cs" />
-    <Compile Include="Import\ResultConfigImporter.cs" />
     <Compile Include="Import\RoomActionImporter.cs" />
     <Compile Include="Import\RoomActionMallImport.cs" />
     <Compile Include="Import\RoomChannelImporter.cs" />

@@ -23,12 +23,12 @@ namespace Config
   #endif
   public partial class CharacterExpConfig : TBase
   {
-    private short _level;
-    private int _exp;
+    private int _level;
+    private int _totalExp;
     private int _levelUpLimitId;
     private int _LevelUpFuncId;
 
-    public short Level
+    public int Level
     {
       get
       {
@@ -41,16 +41,16 @@ namespace Config
       }
     }
 
-    public int Exp
+    public int TotalExp
     {
       get
       {
-        return _exp;
+        return _totalExp;
       }
       set
       {
-        __isset.exp = true;
-        this._exp = value;
+        __isset.totalExp = true;
+        this._totalExp = value;
       }
     }
 
@@ -87,7 +87,7 @@ namespace Config
     #endif
     public struct Isset {
       public bool level;
-      public bool exp;
+      public bool totalExp;
       public bool levelUpLimitId;
       public bool LevelUpFuncId;
     }
@@ -108,15 +108,15 @@ namespace Config
         switch (field.ID)
         {
           case 10:
-            if (field.Type == TType.I16) {
-              Level = iprot.ReadI16();
+            if (field.Type == TType.I32) {
+              Level = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 20:
             if (field.Type == TType.I32) {
-              Exp = iprot.ReadI32();
+              TotalExp = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -150,18 +150,18 @@ namespace Config
       TField field = new TField();
       if (__isset.level) {
         field.Name = "level";
-        field.Type = TType.I16;
+        field.Type = TType.I32;
         field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI16(Level);
+        oprot.WriteI32(Level);
         oprot.WriteFieldEnd();
       }
-      if (__isset.exp) {
-        field.Name = "exp";
+      if (__isset.totalExp) {
+        field.Name = "totalExp";
         field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Exp);
+        oprot.WriteI32(TotalExp);
         oprot.WriteFieldEnd();
       }
       if (__isset.levelUpLimitId) {
@@ -188,8 +188,8 @@ namespace Config
       StringBuilder sb = new StringBuilder("CharacterExpConfig(");
       sb.Append("Level: ");
       sb.Append(Level);
-      sb.Append(",Exp: ");
-      sb.Append(Exp);
+      sb.Append(",TotalExp: ");
+      sb.Append(TotalExp);
       sb.Append(",LevelUpLimitId: ");
       sb.Append(LevelUpLimitId);
       sb.Append(",LevelUpFuncId: ");

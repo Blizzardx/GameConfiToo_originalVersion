@@ -21,20 +21,20 @@ namespace Config.Table
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class ResultConfigTable : TBase
+  public partial class EmoticonConfigTable : TBase
   {
-    private Dictionary<int, Config.ResultConfig> _resultConfigMap;
+    private Dictionary<int, Config.EmoticonConfig> _emotionConfigMap;
 
-    public Dictionary<int, Config.ResultConfig> ResultConfigMap
+    public Dictionary<int, Config.EmoticonConfig> EmotionConfigMap
     {
       get
       {
-        return _resultConfigMap;
+        return _emotionConfigMap;
       }
       set
       {
-        __isset.resultConfigMap = true;
-        this._resultConfigMap = value;
+        __isset.emotionConfigMap = true;
+        this._emotionConfigMap = value;
       }
     }
 
@@ -44,10 +44,10 @@ namespace Config.Table
     [Serializable]
     #endif
     public struct Isset {
-      public bool resultConfigMap;
+      public bool emotionConfigMap;
     }
 
-    public ResultConfigTable() {
+    public EmoticonConfigTable() {
     }
 
     public void Read (TProtocol iprot)
@@ -65,16 +65,16 @@ namespace Config.Table
           case 1:
             if (field.Type == TType.Map) {
               {
-                ResultConfigMap = new Dictionary<int, Config.ResultConfig>();
-                TMap _map210 = iprot.ReadMapBegin();
-                for( int _i211 = 0; _i211 < _map210.Count; ++_i211)
+                EmotionConfigMap = new Dictionary<int, Config.EmoticonConfig>();
+                TMap _map353 = iprot.ReadMapBegin();
+                for( int _i354 = 0; _i354 < _map353.Count; ++_i354)
                 {
-                  int _key212;
-                  Config.ResultConfig _val213;
-                  _key212 = iprot.ReadI32();
-                  _val213 = new Config.ResultConfig();
-                  _val213.Read(iprot);
-                  ResultConfigMap[_key212] = _val213;
+                  int _key355;
+                  Config.EmoticonConfig _val356;
+                  _key355 = iprot.ReadI32();
+                  _val356 = new Config.EmoticonConfig();
+                  _val356.Read(iprot);
+                  EmotionConfigMap[_key355] = _val356;
                 }
                 iprot.ReadMapEnd();
               }
@@ -92,20 +92,20 @@ namespace Config.Table
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("ResultConfigTable");
+      TStruct struc = new TStruct("EmoticonConfigTable");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (ResultConfigMap != null && __isset.resultConfigMap) {
-        field.Name = "resultConfigMap";
+      if (EmotionConfigMap != null && __isset.emotionConfigMap) {
+        field.Name = "emotionConfigMap";
         field.Type = TType.Map;
         field.ID = 1;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, ResultConfigMap.Count));
-          foreach (int _iter214 in ResultConfigMap.Keys)
+          oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, EmotionConfigMap.Count));
+          foreach (int _iter357 in EmotionConfigMap.Keys)
           {
-            oprot.WriteI32(_iter214);
-            ResultConfigMap[_iter214].Write(oprot);
+            oprot.WriteI32(_iter357);
+            EmotionConfigMap[_iter357].Write(oprot);
           }
           oprot.WriteMapEnd();
         }
@@ -116,9 +116,9 @@ namespace Config.Table
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("ResultConfigTable(");
-      sb.Append("ResultConfigMap: ");
-      sb.Append(ResultConfigMap);
+      StringBuilder sb = new StringBuilder("EmoticonConfigTable(");
+      sb.Append("EmotionConfigMap: ");
+      sb.Append(EmotionConfigMap);
       sb.Append(")");
       return sb.ToString();
     }

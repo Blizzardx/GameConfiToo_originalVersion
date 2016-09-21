@@ -15,26 +15,26 @@ using System.Runtime.Serialization;
 using Thrift.Protocol;
 using Thrift.Transport;
 
-namespace Config
+namespace Config.Table
 {
 
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class SystemDecorateTypeSortConfig : TBase
+  public partial class MonsterBornConfigTable : TBase
   {
-    private List<SystemDecorateTypeSortInfo> _sortInfoList;
+    private Dictionary<int, Config.MonsterBornConfig> _monsterBornConfigMap;
 
-    public List<SystemDecorateTypeSortInfo> SortInfoList
+    public Dictionary<int, Config.MonsterBornConfig> MonsterBornConfigMap
     {
       get
       {
-        return _sortInfoList;
+        return _monsterBornConfigMap;
       }
       set
       {
-        __isset.sortInfoList = true;
-        this._sortInfoList = value;
+        __isset.monsterBornConfigMap = true;
+        this._monsterBornConfigMap = value;
       }
     }
 
@@ -44,10 +44,10 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool sortInfoList;
+      public bool monsterBornConfigMap;
     }
 
-    public SystemDecorateTypeSortConfig() {
+    public MonsterBornConfigTable() {
     }
 
     public void Read (TProtocol iprot)
@@ -63,18 +63,20 @@ namespace Config
         switch (field.ID)
         {
           case 1:
-            if (field.Type == TType.List) {
+            if (field.Type == TType.Map) {
               {
-                SortInfoList = new List<SystemDecorateTypeSortInfo>();
-                TList _list21 = iprot.ReadListBegin();
-                for( int _i22 = 0; _i22 < _list21.Count; ++_i22)
+                MonsterBornConfigMap = new Dictionary<int, Config.MonsterBornConfig>();
+                TMap _map343 = iprot.ReadMapBegin();
+                for( int _i344 = 0; _i344 < _map343.Count; ++_i344)
                 {
-                  SystemDecorateTypeSortInfo _elem23 = new SystemDecorateTypeSortInfo();
-                  _elem23 = new SystemDecorateTypeSortInfo();
-                  _elem23.Read(iprot);
-                  SortInfoList.Add(_elem23);
+                  int _key345;
+                  Config.MonsterBornConfig _val346;
+                  _key345 = iprot.ReadI32();
+                  _val346 = new Config.MonsterBornConfig();
+                  _val346.Read(iprot);
+                  MonsterBornConfigMap[_key345] = _val346;
                 }
-                iprot.ReadListEnd();
+                iprot.ReadMapEnd();
               }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
@@ -90,21 +92,22 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("SystemDecorateTypeSortConfig");
+      TStruct struc = new TStruct("MonsterBornConfigTable");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (SortInfoList != null && __isset.sortInfoList) {
-        field.Name = "sortInfoList";
-        field.Type = TType.List;
+      if (MonsterBornConfigMap != null && __isset.monsterBornConfigMap) {
+        field.Name = "monsterBornConfigMap";
+        field.Type = TType.Map;
         field.ID = 1;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteListBegin(new TList(TType.Struct, SortInfoList.Count));
-          foreach (SystemDecorateTypeSortInfo _iter24 in SortInfoList)
+          oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, MonsterBornConfigMap.Count));
+          foreach (int _iter347 in MonsterBornConfigMap.Keys)
           {
-            _iter24.Write(oprot);
+            oprot.WriteI32(_iter347);
+            MonsterBornConfigMap[_iter347].Write(oprot);
           }
-          oprot.WriteListEnd();
+          oprot.WriteMapEnd();
         }
         oprot.WriteFieldEnd();
       }
@@ -113,9 +116,9 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("SystemDecorateTypeSortConfig(");
-      sb.Append("SortInfoList: ");
-      sb.Append(SortInfoList);
+      StringBuilder sb = new StringBuilder("MonsterBornConfigTable(");
+      sb.Append("MonsterBornConfigMap: ");
+      sb.Append(MonsterBornConfigMap);
       sb.Append(")");
       return sb.ToString();
     }

@@ -79,13 +79,13 @@ namespace GameConfigTools.Import
                     int modeId;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out modeId))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，标签ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，模式必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int resultPlanId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out resultPlanId))
+                    int resultId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out resultId))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，标签ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，结算ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
                     List<int> dropIdList = VaildUtil.SplitToList(values[i][index++]);
@@ -160,13 +160,15 @@ namespace GameConfigTools.Import
                     stageE.Add(new XAttribute("name", name));
                     stageE.Add(new XAttribute("endLimitId", endLimitId));
                     stageE.Add(new XAttribute("endFuncId", endFuncId));
+                    stageE.Add(new XAttribute("modeId", modeId));
+                    stageE.Add(new XAttribute("resultId", resultId));
                     stageE.Add(new XAttribute("godStateTime", godStateTime));
                     stageE.Add(new XAttribute("initCradit", initCradit));
                     stageE.Add(new XAttribute("atkCraditPet", atkCraditPet));
                     stageE.Add(new XAttribute("bekillCraditPet", bekillCraditPet));
                     stageE.Add(new XAttribute("killCraditPet", killCraditPet));
                     stageE.Add(new XAttribute("otherUserCol", otherUserCol));
-                    stageE.Add(new XAttribute("modeId", modeId));
+                    
 
                     PvpStageConfig c  =new PvpStageConfig();
                     c.Id = id;
@@ -177,7 +179,6 @@ namespace GameConfigTools.Import
                     c.EndLimitId = endLimitId;
                     c.EndFuncId = endFuncId;
                     c.ModeId = modeId;
-                    c.ResultPlanId = resultPlanId;
                     c.ShowDropItemIdList = dropIdList;
                     c.StarBit4CountId = starbyteCounterId;
                     c.WeatherPlanId = weatherPlanId;

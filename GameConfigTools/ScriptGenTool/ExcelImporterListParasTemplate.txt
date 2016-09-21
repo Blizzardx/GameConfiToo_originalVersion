@@ -1,6 +1,6 @@
  try
 {
-    VaildUtil.SplitToList_{classname}(values[i][{index}]);
+    {membername} = VaildUtil.SplitToList_{classname}(values[i][{index}]);
 }
 catch (Exception e)
 {

@@ -21,34 +21,34 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class StageWeatherPlanConfig : TBase
+  public partial class InitDIYConfig : TBase
   {
-    private int _id;
-    private List<OptionElement> _optionList;
+    private int _pos;
+    private int _itemId;
 
-    public int Id
+    public int Pos
     {
       get
       {
-        return _id;
+        return _pos;
       }
       set
       {
-        __isset.id = true;
-        this._id = value;
+        __isset.pos = true;
+        this._pos = value;
       }
     }
 
-    public List<OptionElement> OptionList
+    public int ItemId
     {
       get
       {
-        return _optionList;
+        return _itemId;
       }
       set
       {
-        __isset.optionList = true;
-        this._optionList = value;
+        __isset.itemId = true;
+        this._itemId = value;
       }
     }
 
@@ -58,11 +58,11 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool id;
-      public bool optionList;
+      public bool pos;
+      public bool itemId;
     }
 
-    public StageWeatherPlanConfig() {
+    public InitDIYConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -79,25 +79,14 @@ namespace Config
         {
           case 10:
             if (field.Type == TType.I32) {
-              Id = iprot.ReadI32();
+              Pos = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 20:
-            if (field.Type == TType.List) {
-              {
-                OptionList = new List<OptionElement>();
-                TList _list138 = iprot.ReadListBegin();
-                for( int _i139 = 0; _i139 < _list138.Count; ++_i139)
-                {
-                  OptionElement _elem140 = new OptionElement();
-                  _elem140 = new OptionElement();
-                  _elem140.Read(iprot);
-                  OptionList.Add(_elem140);
-                }
-                iprot.ReadListEnd();
-              }
+            if (field.Type == TType.I32) {
+              ItemId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -112,30 +101,23 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("StageWeatherPlanConfig");
+      TStruct struc = new TStruct("InitDIYConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (__isset.id) {
-        field.Name = "id";
+      if (__isset.pos) {
+        field.Name = "pos";
         field.Type = TType.I32;
         field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Id);
+        oprot.WriteI32(Pos);
         oprot.WriteFieldEnd();
       }
-      if (OptionList != null && __isset.optionList) {
-        field.Name = "optionList";
-        field.Type = TType.List;
+      if (__isset.itemId) {
+        field.Name = "itemId";
+        field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteListBegin(new TList(TType.Struct, OptionList.Count));
-          foreach (OptionElement _iter141 in OptionList)
-          {
-            _iter141.Write(oprot);
-          }
-          oprot.WriteListEnd();
-        }
+        oprot.WriteI32(ItemId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -143,11 +125,11 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("StageWeatherPlanConfig(");
-      sb.Append("Id: ");
-      sb.Append(Id);
-      sb.Append(",OptionList: ");
-      sb.Append(OptionList);
+      StringBuilder sb = new StringBuilder("InitDIYConfig(");
+      sb.Append("Pos: ");
+      sb.Append(Pos);
+      sb.Append(",ItemId: ");
+      sb.Append(ItemId);
       sb.Append(")");
       return sb.ToString();
     }

@@ -68,6 +68,7 @@ namespace ExcelImporter.Importer
                     paras = paras.Replace("{index}", elem.index.ToString());
                     paras = paras.Replace("{classname}", elem.classTypeName);
                     paras = paras.Replace("{desc}", elem.desc);
+                    paras = paras.Replace("{membername}", elem.memberName);
                 }
                 else if (elem.classTypeName.EndsWith("DateTime"))
                 {

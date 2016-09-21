@@ -88,15 +88,15 @@ namespace Config
             if (field.Type == TType.Map) {
               {
                 ChatChannelConfigMap = new Dictionary<int, ChatChannelConfig>();
-                TMap _map8 = iprot.ReadMapBegin();
-                for( int _i9 = 0; _i9 < _map8.Count; ++_i9)
+                TMap _map16 = iprot.ReadMapBegin();
+                for( int _i17 = 0; _i17 < _map16.Count; ++_i17)
                 {
-                  int _key10;
-                  ChatChannelConfig _val11;
-                  _key10 = iprot.ReadI32();
-                  _val11 = new ChatChannelConfig();
-                  _val11.Read(iprot);
-                  ChatChannelConfigMap[_key10] = _val11;
+                  int _key18;
+                  ChatChannelConfig _val19;
+                  _key18 = iprot.ReadI32();
+                  _val19 = new ChatChannelConfig();
+                  _val19.Read(iprot);
+                  ChatChannelConfigMap[_key18] = _val19;
                 }
                 iprot.ReadMapEnd();
               }
@@ -132,10 +132,10 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, ChatChannelConfigMap.Count));
-          foreach (int _iter12 in ChatChannelConfigMap.Keys)
+          foreach (int _iter20 in ChatChannelConfigMap.Keys)
           {
-            oprot.WriteI32(_iter12);
-            ChatChannelConfigMap[_iter12].Write(oprot);
+            oprot.WriteI32(_iter20);
+            ChatChannelConfigMap[_iter20].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

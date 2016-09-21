@@ -88,13 +88,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 PlanList = new List<WeatherElement>();
-                TList _list126 = iprot.ReadListBegin();
-                for( int _i127 = 0; _i127 < _list126.Count; ++_i127)
+                TList _list134 = iprot.ReadListBegin();
+                for( int _i135 = 0; _i135 < _list134.Count; ++_i135)
                 {
-                  WeatherElement _elem128 = new WeatherElement();
-                  _elem128 = new WeatherElement();
-                  _elem128.Read(iprot);
-                  PlanList.Add(_elem128);
+                  WeatherElement _elem136 = new WeatherElement();
+                  _elem136 = new WeatherElement();
+                  _elem136.Read(iprot);
+                  PlanList.Add(_elem136);
                 }
                 iprot.ReadListEnd();
               }
@@ -130,9 +130,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, PlanList.Count));
-          foreach (WeatherElement _iter129 in PlanList)
+          foreach (WeatherElement _iter137 in PlanList)
           {
-            _iter129.Write(oprot);
+            _iter137.Write(oprot);
           }
           oprot.WriteListEnd();
         }

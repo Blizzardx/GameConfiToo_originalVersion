@@ -21,13 +21,11 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class ResultConfig : TBase
+  public partial class EmoticonConfig : TBase
   {
     private int _id;
-    private int _type;
-    private int _expBase;
-    private int _expModeRatio;
-    private int _expOtherRatio;
+    private int _packageId;
+    private List<string> _resourceList;
 
     public int Id
     {
@@ -42,55 +40,29 @@ namespace Config
       }
     }
 
-    public int Type
+    public int PackageId
     {
       get
       {
-        return _type;
+        return _packageId;
       }
       set
       {
-        __isset.type = true;
-        this._type = value;
+        __isset.packageId = true;
+        this._packageId = value;
       }
     }
 
-    public int ExpBase
+    public List<string> ResourceList
     {
       get
       {
-        return _expBase;
+        return _resourceList;
       }
       set
       {
-        __isset.expBase = true;
-        this._expBase = value;
-      }
-    }
-
-    public int ExpModeRatio
-    {
-      get
-      {
-        return _expModeRatio;
-      }
-      set
-      {
-        __isset.expModeRatio = true;
-        this._expModeRatio = value;
-      }
-    }
-
-    public int ExpOtherRatio
-    {
-      get
-      {
-        return _expOtherRatio;
-      }
-      set
-      {
-        __isset.expOtherRatio = true;
-        this._expOtherRatio = value;
+        __isset.resourceList = true;
+        this._resourceList = value;
       }
     }
 
@@ -101,13 +73,11 @@ namespace Config
     #endif
     public struct Isset {
       public bool id;
-      public bool type;
-      public bool expBase;
-      public bool expModeRatio;
-      public bool expOtherRatio;
+      public bool packageId;
+      public bool resourceList;
     }
 
-    public ResultConfig() {
+    public EmoticonConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -131,28 +101,24 @@ namespace Config
             break;
           case 20:
             if (field.Type == TType.I32) {
-              Type = iprot.ReadI32();
+              PackageId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 30:
-            if (field.Type == TType.I32) {
-              ExpBase = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 40:
-            if (field.Type == TType.I32) {
-              ExpModeRatio = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 50:
-            if (field.Type == TType.I32) {
-              ExpOtherRatio = iprot.ReadI32();
+            if (field.Type == TType.List) {
+              {
+                ResourceList = new List<string>();
+                TList _list183 = iprot.ReadListBegin();
+                for( int _i184 = 0; _i184 < _list183.Count; ++_i184)
+                {
+                  string _elem185 = null;
+                  _elem185 = iprot.ReadString();
+                  ResourceList.Add(_elem185);
+                }
+                iprot.ReadListEnd();
+              }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -167,7 +133,7 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("ResultConfig");
+      TStruct struc = new TStruct("EmoticonConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
       if (__isset.id) {
@@ -178,36 +144,27 @@ namespace Config
         oprot.WriteI32(Id);
         oprot.WriteFieldEnd();
       }
-      if (__isset.type) {
-        field.Name = "type";
+      if (__isset.packageId) {
+        field.Name = "packageId";
         field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Type);
+        oprot.WriteI32(PackageId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.expBase) {
-        field.Name = "expBase";
-        field.Type = TType.I32;
+      if (ResourceList != null && __isset.resourceList) {
+        field.Name = "resourceList";
+        field.Type = TType.List;
         field.ID = 30;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(ExpBase);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.expModeRatio) {
-        field.Name = "expModeRatio";
-        field.Type = TType.I32;
-        field.ID = 40;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(ExpModeRatio);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.expOtherRatio) {
-        field.Name = "expOtherRatio";
-        field.Type = TType.I32;
-        field.ID = 50;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(ExpOtherRatio);
+        {
+          oprot.WriteListBegin(new TList(TType.String, ResourceList.Count));
+          foreach (string _iter186 in ResourceList)
+          {
+            oprot.WriteString(_iter186);
+          }
+          oprot.WriteListEnd();
+        }
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -215,17 +172,13 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("ResultConfig(");
+      StringBuilder sb = new StringBuilder("EmoticonConfig(");
       sb.Append("Id: ");
       sb.Append(Id);
-      sb.Append(",Type: ");
-      sb.Append(Type);
-      sb.Append(",ExpBase: ");
-      sb.Append(ExpBase);
-      sb.Append(",ExpModeRatio: ");
-      sb.Append(ExpModeRatio);
-      sb.Append(",ExpOtherRatio: ");
-      sb.Append(ExpOtherRatio);
+      sb.Append(",PackageId: ");
+      sb.Append(PackageId);
+      sb.Append(",ResourceList: ");
+      sb.Append(ResourceList);
       sb.Append(")");
       return sb.ToString();
     }
