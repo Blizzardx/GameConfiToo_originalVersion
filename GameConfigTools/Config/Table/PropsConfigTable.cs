@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 PropsConfigMap = new Dictionary<int, Config.PropsConfig>();
-                TMap _map220 = iprot.ReadMapBegin();
-                for( int _i221 = 0; _i221 < _map220.Count; ++_i221)
+                TMap _map215 = iprot.ReadMapBegin();
+                for( int _i216 = 0; _i216 < _map215.Count; ++_i216)
                 {
-                  int _key222;
-                  Config.PropsConfig _val223;
-                  _key222 = iprot.ReadI32();
-                  _val223 = new Config.PropsConfig();
-                  _val223.Read(iprot);
-                  PropsConfigMap[_key222] = _val223;
+                  int _key217;
+                  Config.PropsConfig _val218;
+                  _key217 = iprot.ReadI32();
+                  _val218 = new Config.PropsConfig();
+                  _val218.Read(iprot);
+                  PropsConfigMap[_key217] = _val218;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, PropsConfigMap.Count));
-          foreach (int _iter224 in PropsConfigMap.Keys)
+          foreach (int _iter219 in PropsConfigMap.Keys)
           {
-            oprot.WriteI32(_iter224);
-            PropsConfigMap[_iter224].Write(oprot);
+            oprot.WriteI32(_iter219);
+            PropsConfigMap[_iter219].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

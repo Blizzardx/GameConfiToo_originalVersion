@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 RoomActionMallConfigMap = new Dictionary<int, Config.RoomActionMallConfig>();
-                TMap _map264 = iprot.ReadMapBegin();
-                for( int _i265 = 0; _i265 < _map264.Count; ++_i265)
+                TMap _map259 = iprot.ReadMapBegin();
+                for( int _i260 = 0; _i260 < _map259.Count; ++_i260)
                 {
-                  int _key266;
-                  Config.RoomActionMallConfig _val267;
-                  _key266 = iprot.ReadI32();
-                  _val267 = new Config.RoomActionMallConfig();
-                  _val267.Read(iprot);
-                  RoomActionMallConfigMap[_key266] = _val267;
+                  int _key261;
+                  Config.RoomActionMallConfig _val262;
+                  _key261 = iprot.ReadI32();
+                  _val262 = new Config.RoomActionMallConfig();
+                  _val262.Read(iprot);
+                  RoomActionMallConfigMap[_key261] = _val262;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, RoomActionMallConfigMap.Count));
-          foreach (int _iter268 in RoomActionMallConfigMap.Keys)
+          foreach (int _iter263 in RoomActionMallConfigMap.Keys)
           {
-            oprot.WriteI32(_iter268);
-            RoomActionMallConfigMap[_iter268].Write(oprot);
+            oprot.WriteI32(_iter263);
+            RoomActionMallConfigMap[_iter263].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

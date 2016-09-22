@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 SpellCardConfigMap = new Dictionary<int, Config.SpellCardConfig>();
-                TMap _map250 = iprot.ReadMapBegin();
-                for( int _i251 = 0; _i251 < _map250.Count; ++_i251)
+                TMap _map245 = iprot.ReadMapBegin();
+                for( int _i246 = 0; _i246 < _map245.Count; ++_i246)
                 {
-                  int _key252;
-                  Config.SpellCardConfig _val253;
-                  _key252 = iprot.ReadI32();
-                  _val253 = new Config.SpellCardConfig();
-                  _val253.Read(iprot);
-                  SpellCardConfigMap[_key252] = _val253;
+                  int _key247;
+                  Config.SpellCardConfig _val248;
+                  _key247 = iprot.ReadI32();
+                  _val248 = new Config.SpellCardConfig();
+                  _val248.Read(iprot);
+                  SpellCardConfigMap[_key247] = _val248;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, SpellCardConfigMap.Count));
-          foreach (int _iter254 in SpellCardConfigMap.Keys)
+          foreach (int _iter249 in SpellCardConfigMap.Keys)
           {
-            oprot.WriteI32(_iter254);
-            SpellCardConfigMap[_iter254].Write(oprot);
+            oprot.WriteI32(_iter249);
+            SpellCardConfigMap[_iter249].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

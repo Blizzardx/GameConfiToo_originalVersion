@@ -13,7 +13,7 @@ namespace GameConfigTools.Import
 {
     public partial class PentakillConfigImporter : AbstractExcelImporter
     {
-        private PentakillConfigTable m_Config;
+        private PentaKillConfigTable m_Config;
 
         protected override void GenerateConfig(List<string[][]> sheetValues, ref string errMsg, out XElement root, out TBase tbase)
         {
@@ -45,7 +45,7 @@ namespace GameConfigTools.Import
 
         protected override void OnAutoParasBegin()
         {
-            m_Config = new PentakillConfigTable();
+            m_Config = new PentaKillConfigTable();
             m_Config.PentakillConfigMap = new Dictionary<int, PentakillConfig>();
         }
     }

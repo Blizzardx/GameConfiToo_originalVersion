@@ -21,7 +21,7 @@ namespace Config.Table
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class PentakillConfigTable : TBase
+  public partial class PentaKillConfigTable : TBase
   {
     private Dictionary<int, Config.PentakillConfig> _pentakillConfigMap;
 
@@ -47,7 +47,7 @@ namespace Config.Table
       public bool pentakillConfigMap;
     }
 
-    public PentakillConfigTable() {
+    public PentaKillConfigTable() {
     }
 
     public void Read (TProtocol iprot)
@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 PentakillConfigMap = new Dictionary<int, Config.PentakillConfig>();
-                TMap _map348 = iprot.ReadMapBegin();
-                for( int _i349 = 0; _i349 < _map348.Count; ++_i349)
+                TMap _map343 = iprot.ReadMapBegin();
+                for( int _i344 = 0; _i344 < _map343.Count; ++_i344)
                 {
-                  int _key350;
-                  Config.PentakillConfig _val351;
-                  _key350 = iprot.ReadI32();
-                  _val351 = new Config.PentakillConfig();
-                  _val351.Read(iprot);
-                  PentakillConfigMap[_key350] = _val351;
+                  int _key345;
+                  Config.PentakillConfig _val346;
+                  _key345 = iprot.ReadI32();
+                  _val346 = new Config.PentakillConfig();
+                  _val346.Read(iprot);
+                  PentakillConfigMap[_key345] = _val346;
                 }
                 iprot.ReadMapEnd();
               }
@@ -92,7 +92,7 @@ namespace Config.Table
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("PentakillConfigTable");
+      TStruct struc = new TStruct("PentaKillConfigTable");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
       if (PentakillConfigMap != null && __isset.pentakillConfigMap) {
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, PentakillConfigMap.Count));
-          foreach (int _iter352 in PentakillConfigMap.Keys)
+          foreach (int _iter347 in PentakillConfigMap.Keys)
           {
-            oprot.WriteI32(_iter352);
-            PentakillConfigMap[_iter352].Write(oprot);
+            oprot.WriteI32(_iter347);
+            PentakillConfigMap[_iter347].Write(oprot);
           }
           oprot.WriteMapEnd();
         }
@@ -116,7 +116,7 @@ namespace Config.Table
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("PentakillConfigTable(");
+      StringBuilder sb = new StringBuilder("PentaKillConfigTable(");
       sb.Append("PentakillConfigMap: ");
       sb.Append(PentakillConfigMap);
       sb.Append(")");

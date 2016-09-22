@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 EmotionConfigMap = new Dictionary<int, Config.EmoticonConfig>();
-                TMap _map353 = iprot.ReadMapBegin();
-                for( int _i354 = 0; _i354 < _map353.Count; ++_i354)
+                TMap _map348 = iprot.ReadMapBegin();
+                for( int _i349 = 0; _i349 < _map348.Count; ++_i349)
                 {
-                  int _key355;
-                  Config.EmoticonConfig _val356;
-                  _key355 = iprot.ReadI32();
-                  _val356 = new Config.EmoticonConfig();
-                  _val356.Read(iprot);
-                  EmotionConfigMap[_key355] = _val356;
+                  int _key350;
+                  Config.EmoticonConfig _val351;
+                  _key350 = iprot.ReadI32();
+                  _val351 = new Config.EmoticonConfig();
+                  _val351.Read(iprot);
+                  EmotionConfigMap[_key350] = _val351;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, EmotionConfigMap.Count));
-          foreach (int _iter357 in EmotionConfigMap.Keys)
+          foreach (int _iter352 in EmotionConfigMap.Keys)
           {
-            oprot.WriteI32(_iter357);
-            EmotionConfigMap[_iter357].Write(oprot);
+            oprot.WriteI32(_iter352);
+            EmotionConfigMap[_iter352].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

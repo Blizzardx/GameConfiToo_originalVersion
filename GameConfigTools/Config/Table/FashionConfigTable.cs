@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 FashionConfigMap = new Dictionary<int, Config.FashionConfig>();
-                TMap _map245 = iprot.ReadMapBegin();
-                for( int _i246 = 0; _i246 < _map245.Count; ++_i246)
+                TMap _map240 = iprot.ReadMapBegin();
+                for( int _i241 = 0; _i241 < _map240.Count; ++_i241)
                 {
-                  int _key247;
-                  Config.FashionConfig _val248;
-                  _key247 = iprot.ReadI32();
-                  _val248 = new Config.FashionConfig();
-                  _val248.Read(iprot);
-                  FashionConfigMap[_key247] = _val248;
+                  int _key242;
+                  Config.FashionConfig _val243;
+                  _key242 = iprot.ReadI32();
+                  _val243 = new Config.FashionConfig();
+                  _val243.Read(iprot);
+                  FashionConfigMap[_key242] = _val243;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, FashionConfigMap.Count));
-          foreach (int _iter249 in FashionConfigMap.Keys)
+          foreach (int _iter244 in FashionConfigMap.Keys)
           {
-            oprot.WriteI32(_iter249);
-            FashionConfigMap[_iter249].Write(oprot);
+            oprot.WriteI32(_iter244);
+            FashionConfigMap[_iter244].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

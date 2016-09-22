@@ -66,27 +66,27 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 CadPlayerAttrConfigMap = new Dictionary<int, Dictionary<int, Config.CadPlayerAttrConfig>>();
-                TMap _map323 = iprot.ReadMapBegin();
-                for( int _i324 = 0; _i324 < _map323.Count; ++_i324)
+                TMap _map318 = iprot.ReadMapBegin();
+                for( int _i319 = 0; _i319 < _map318.Count; ++_i319)
                 {
-                  int _key325;
-                  Dictionary<int, Config.CadPlayerAttrConfig> _val326;
-                  _key325 = iprot.ReadI32();
+                  int _key320;
+                  Dictionary<int, Config.CadPlayerAttrConfig> _val321;
+                  _key320 = iprot.ReadI32();
                   {
-                    _val326 = new Dictionary<int, Config.CadPlayerAttrConfig>();
-                    TMap _map327 = iprot.ReadMapBegin();
-                    for( int _i328 = 0; _i328 < _map327.Count; ++_i328)
+                    _val321 = new Dictionary<int, Config.CadPlayerAttrConfig>();
+                    TMap _map322 = iprot.ReadMapBegin();
+                    for( int _i323 = 0; _i323 < _map322.Count; ++_i323)
                     {
-                      int _key329;
-                      Config.CadPlayerAttrConfig _val330;
-                      _key329 = iprot.ReadI32();
-                      _val330 = new Config.CadPlayerAttrConfig();
-                      _val330.Read(iprot);
-                      _val326[_key329] = _val330;
+                      int _key324;
+                      Config.CadPlayerAttrConfig _val325;
+                      _key324 = iprot.ReadI32();
+                      _val325 = new Config.CadPlayerAttrConfig();
+                      _val325.Read(iprot);
+                      _val321[_key324] = _val325;
                     }
                     iprot.ReadMapEnd();
                   }
-                  CadPlayerAttrConfigMap[_key325] = _val326;
+                  CadPlayerAttrConfigMap[_key320] = _val321;
                 }
                 iprot.ReadMapEnd();
               }
@@ -114,15 +114,15 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Map, CadPlayerAttrConfigMap.Count));
-          foreach (int _iter331 in CadPlayerAttrConfigMap.Keys)
+          foreach (int _iter326 in CadPlayerAttrConfigMap.Keys)
           {
-            oprot.WriteI32(_iter331);
+            oprot.WriteI32(_iter326);
             {
-              oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, CadPlayerAttrConfigMap[_iter331].Count));
-              foreach (int _iter332 in CadPlayerAttrConfigMap[_iter331].Keys)
+              oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, CadPlayerAttrConfigMap[_iter326].Count));
+              foreach (int _iter327 in CadPlayerAttrConfigMap[_iter326].Keys)
               {
-                oprot.WriteI32(_iter332);
-                CadPlayerAttrConfigMap[_iter331][_iter332].Write(oprot);
+                oprot.WriteI32(_iter327);
+                CadPlayerAttrConfigMap[_iter326][_iter327].Write(oprot);
               }
               oprot.WriteMapEnd();
             }
