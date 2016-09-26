@@ -26,6 +26,7 @@ namespace GameConfigTools.Import
 		private int stayFuncId;
 		private int exitLimitId;
 		private int exitFuncId;
+		private int delayTime;
     
         protected override void AutoParasTable(List<string[][]> sheetValues, ref string errMsg)
         {
@@ -83,6 +84,11 @@ if (!VaildUtil.TryConvert(values[i][5], out exitLimitId,int.MinValue,int.MaxValu
 if (!VaildUtil.TryConvert(values[i][6], out exitFuncId,int.MinValue,int.MaxValue))
 {
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,6+1, exitFuncId,int.MinValue,int.MaxValue,"int","exitFuncId");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][7], out delayTime,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,7+1, delayTime,int.MinValue,int.MaxValue,"int","delayTime");
 	return;
 }
                     

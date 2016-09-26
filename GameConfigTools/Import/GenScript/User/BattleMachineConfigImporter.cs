@@ -35,6 +35,7 @@ namespace GameConfigTools.Import
             c.StayFuncId = stayFuncId;
             c.ExitLimitId = exitLimitId;
             c.ExitFuncId = exitFuncId;
+            c.DelayTime = delayTime;
 
             config.BattleMachineConfigMap.Add(id, c);
         }

@@ -30,6 +30,7 @@ namespace Config
     private int _stayFuncId;
     private int _exitLimitId;
     private int _exitFuncId;
+    private int _delayTime;
 
     public int Id
     {
@@ -122,6 +123,19 @@ namespace Config
       }
     }
 
+    public int DelayTime
+    {
+      get
+      {
+        return _delayTime;
+      }
+      set
+      {
+        __isset.delayTime = true;
+        this._delayTime = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -135,6 +149,7 @@ namespace Config
       public bool stayFuncId;
       public bool exitLimitId;
       public bool exitFuncId;
+      public bool delayTime;
     }
 
     public BattleMachineConfig() {
@@ -197,6 +212,13 @@ namespace Config
           case 70:
             if (field.Type == TType.I32) {
               ExitFuncId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 80:
+            if (field.Type == TType.I32) {
+              DelayTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -270,6 +292,14 @@ namespace Config
         oprot.WriteI32(ExitFuncId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.delayTime) {
+        field.Name = "delayTime";
+        field.Type = TType.I32;
+        field.ID = 80;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(DelayTime);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -290,6 +320,8 @@ namespace Config
       sb.Append(ExitLimitId);
       sb.Append(",ExitFuncId: ");
       sb.Append(ExitFuncId);
+      sb.Append(",DelayTime: ");
+      sb.Append(DelayTime);
       sb.Append(")");
       return sb.ToString();
     }

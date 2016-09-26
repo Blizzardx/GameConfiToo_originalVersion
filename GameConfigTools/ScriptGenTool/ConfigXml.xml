@@ -110,6 +110,7 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="stayFuncId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="exitLimitId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="exitFuncId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="delayTime"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
     <GenScriptClassXmlConfig className="PentakillConfig">
