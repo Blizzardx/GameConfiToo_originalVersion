@@ -47,6 +47,7 @@ namespace Config
     private int _addSpeedY;
     private string _dataPrefab;
     private string _dieEffect;
+    private int _bornRotate;
 
     public int Id
     {
@@ -360,6 +361,19 @@ namespace Config
       }
     }
 
+    public int BornRotate
+    {
+      get
+      {
+        return _bornRotate;
+      }
+      set
+      {
+        __isset.bornRotate = true;
+        this._bornRotate = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -390,6 +404,7 @@ namespace Config
       public bool addSpeedY;
       public bool dataPrefab;
       public bool dieEffect;
+      public bool bornRotate;
     }
 
     public BattleEffectConfig() {
@@ -571,6 +586,13 @@ namespace Config
           case 180:
             if (field.Type == TType.String) {
               DieEffect = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 190:
+            if (field.Type == TType.I32) {
+              BornRotate = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -780,6 +802,14 @@ namespace Config
         oprot.WriteString(DieEffect);
         oprot.WriteFieldEnd();
       }
+      if (__isset.bornRotate) {
+        field.Name = "bornRotate";
+        field.Type = TType.I32;
+        field.ID = 190;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(BornRotate);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -834,6 +864,8 @@ namespace Config
       sb.Append(DataPrefab);
       sb.Append(",DieEffect: ");
       sb.Append(DieEffect);
+      sb.Append(",BornRotate: ");
+      sb.Append(BornRotate);
       sb.Append(")");
       return sb.ToString();
     }

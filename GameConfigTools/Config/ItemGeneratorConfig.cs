@@ -32,7 +32,7 @@ namespace Config
     private bool _isReplace;
     private int _randomCountMin;
     private int _randomCountMax;
-    private List<OptionElement> _optionList;
+    private List<int> _optionList;
     private string _itemPrefab;
 
     public int Id
@@ -152,7 +152,7 @@ namespace Config
       }
     }
 
-    public List<OptionElement> OptionList
+    public List<int> OptionList
     {
       get
       {
@@ -278,13 +278,12 @@ namespace Config
           case 80:
             if (field.Type == TType.List) {
               {
-                OptionList = new List<OptionElement>();
+                OptionList = new List<int>();
                 TList _list142 = iprot.ReadListBegin();
                 for( int _i143 = 0; _i143 < _list142.Count; ++_i143)
                 {
-                  OptionElement _elem144 = new OptionElement();
-                  _elem144 = new OptionElement();
-                  _elem144.Read(iprot);
+                  int _elem144 = 0;
+                  _elem144 = iprot.ReadI32();
                   OptionList.Add(_elem144);
                 }
                 iprot.ReadListEnd();
@@ -391,10 +390,10 @@ namespace Config
         field.ID = 80;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteListBegin(new TList(TType.Struct, OptionList.Count));
-          foreach (OptionElement _iter145 in OptionList)
+          oprot.WriteListBegin(new TList(TType.I32, OptionList.Count));
+          foreach (int _iter145 in OptionList)
           {
-            _iter145.Write(oprot);
+            oprot.WriteI32(_iter145);
           }
           oprot.WriteListEnd();
         }

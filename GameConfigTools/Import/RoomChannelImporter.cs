@@ -63,6 +63,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，频道类型必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
+                    int show;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out show, 0, 1))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，显示类型必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
+                        return;
+                    }
 
                     XElement channelE = new XElement("channel");
                     channelE.Add(new XAttribute("id", id));
@@ -70,6 +76,7 @@ namespace GameConfigTools.Import
                     channelE.Add(new XAttribute("nameMessageId", nameMessageId));
                     channelE.Add(new XAttribute("enterLimitId", enterLimitId));
                     channelE.Add(new XAttribute("type", type));
+                    channelE.Add(new XAttribute("show", show));
 
                     root.Add(channelE);
                 }

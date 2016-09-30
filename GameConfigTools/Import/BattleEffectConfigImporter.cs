@@ -206,11 +206,12 @@ namespace GameConfigTools.Import
                     }
                     string dieEffect = values[i][index++];
 
-                    ////if (addSpeedY > 0 && addSpeedY < 10000)
-                    ////{
-                    ////    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，浮点型最小单位为10000", this.GetConfigName(), sheetName, row, index);
-                    ////    return;
-                    ////}
+                    int bornRotate;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out bornRotate, int.MinValue, int.MaxValue))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，bornRotate必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
+                        return;
+                    }
                     BattleEffectConfig c = new BattleEffectConfig();
                     c.Id = id;
                     c.Res = res;
@@ -236,6 +237,7 @@ namespace GameConfigTools.Import
                     c.AddSpeedY = addSpeedY;
                     c.DataPrefab = dataPrefab;
                     c.DieEffect = dieEffect;
+                    c.BornRotate = bornRotate;
                     config.BattleEffectConfigMap.Add(c.Id, c);
                 }
             }

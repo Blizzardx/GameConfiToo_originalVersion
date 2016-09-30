@@ -100,10 +100,15 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，funcid必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    List<OptionElement> tmpList = new List<OptionElement>();
-                    if (!DecodeOptionList(values[i], ref index, tmpList))
+                    List<int> tmpList = null;
+                    try
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，权重列表解析出错", this.GetConfigName(), sheetName, row, index);
+
+                        tmpList = VaildUtil.SplitToList_int(values[i][index++]);
+                    }
+                    catch (Exception e)
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，权重列表解析出错 {4}", this.GetConfigName(), sheetName, row, index,e.Message);
                         return;
                     }
                     ItemGeneratorConfig c = new ItemGeneratorConfig();
