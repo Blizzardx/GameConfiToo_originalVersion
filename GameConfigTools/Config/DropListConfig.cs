@@ -110,13 +110,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 DropItemList = new List<DropItem>();
-                TList _list93 = iprot.ReadListBegin();
-                for( int _i94 = 0; _i94 < _list93.Count; ++_i94)
+                TList _list97 = iprot.ReadListBegin();
+                for( int _i98 = 0; _i98 < _list97.Count; ++_i98)
                 {
-                  DropItem _elem95 = new DropItem();
-                  _elem95 = new DropItem();
-                  _elem95.Read(iprot);
-                  DropItemList.Add(_elem95);
+                  DropItem _elem99 = new DropItem();
+                  _elem99 = new DropItem();
+                  _elem99.Read(iprot);
+                  DropItemList.Add(_elem99);
                 }
                 iprot.ReadListEnd();
               }
@@ -160,9 +160,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, DropItemList.Count));
-          foreach (DropItem _iter96 in DropItemList)
+          foreach (DropItem _iter100 in DropItemList)
           {
-            _iter96.Write(oprot);
+            _iter100.Write(oprot);
           }
           oprot.WriteListEnd();
         }

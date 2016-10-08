@@ -339,13 +339,14 @@ namespace GameConfigTools
                 MessageBox.Show(this, "请选择要导入的配置", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Importer importer = ImporterManager.instance.GetImporter(configComboBox.SelectedItem.ToString());
+            string configName = configComboBox.SelectedItem as string;
+            Importer importer = ImporterManager.instance.GetImporter(configName);
             if (importer == null)
             {
-                MessageBox.Show(this, "不支持导入配置:" + configComboBox.SelectedItem.ToString(), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "不支持导入配置:" + configName, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string[] linkImporters = ImporterManager.instance.GetLinkImporters(configComboBox.SelectedItem.ToString());
+            string[] linkImporters = ImporterManager.instance.GetLinkImporters(configName);
             if (linkImporters != null)
             {
                 DialogResult dr = MessageBox.Show(this, string.Format("导入该配置需要关联[{0}]配置进行验证，是否确认?", string.Join(",", linkImporters)), "询问", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

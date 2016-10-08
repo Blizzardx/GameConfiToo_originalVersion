@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 CloudConfigMap = new Dictionary<int, Config.CloudConfig>();
-                TMap _map165 = iprot.ReadMapBegin();
-                for( int _i166 = 0; _i166 < _map165.Count; ++_i166)
+                TMap _map160 = iprot.ReadMapBegin();
+                for( int _i161 = 0; _i161 < _map160.Count; ++_i161)
                 {
-                  int _key167;
-                  Config.CloudConfig _val168;
-                  _key167 = iprot.ReadI32();
-                  _val168 = new Config.CloudConfig();
-                  _val168.Read(iprot);
-                  CloudConfigMap[_key167] = _val168;
+                  int _key162;
+                  Config.CloudConfig _val163;
+                  _key162 = iprot.ReadI32();
+                  _val163 = new Config.CloudConfig();
+                  _val163.Read(iprot);
+                  CloudConfigMap[_key162] = _val163;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, CloudConfigMap.Count));
-          foreach (int _iter169 in CloudConfigMap.Keys)
+          foreach (int _iter164 in CloudConfigMap.Keys)
           {
-            oprot.WriteI32(_iter169);
-            CloudConfigMap[_iter169].Write(oprot);
+            oprot.WriteI32(_iter164);
+            CloudConfigMap[_iter164].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

@@ -66,25 +66,25 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 SpellcardLevelupConfigMap = new Dictionary<int, List<Config.SpellCardLevelupConfig>>();
-                TMap _map250 = iprot.ReadMapBegin();
-                for( int _i251 = 0; _i251 < _map250.Count; ++_i251)
+                TMap _map245 = iprot.ReadMapBegin();
+                for( int _i246 = 0; _i246 < _map245.Count; ++_i246)
                 {
-                  int _key252;
-                  List<Config.SpellCardLevelupConfig> _val253;
-                  _key252 = iprot.ReadI32();
+                  int _key247;
+                  List<Config.SpellCardLevelupConfig> _val248;
+                  _key247 = iprot.ReadI32();
                   {
-                    _val253 = new List<Config.SpellCardLevelupConfig>();
-                    TList _list254 = iprot.ReadListBegin();
-                    for( int _i255 = 0; _i255 < _list254.Count; ++_i255)
+                    _val248 = new List<Config.SpellCardLevelupConfig>();
+                    TList _list249 = iprot.ReadListBegin();
+                    for( int _i250 = 0; _i250 < _list249.Count; ++_i250)
                     {
-                      Config.SpellCardLevelupConfig _elem256 = new Config.SpellCardLevelupConfig();
-                      _elem256 = new Config.SpellCardLevelupConfig();
-                      _elem256.Read(iprot);
-                      _val253.Add(_elem256);
+                      Config.SpellCardLevelupConfig _elem251 = new Config.SpellCardLevelupConfig();
+                      _elem251 = new Config.SpellCardLevelupConfig();
+                      _elem251.Read(iprot);
+                      _val248.Add(_elem251);
                     }
                     iprot.ReadListEnd();
                   }
-                  SpellcardLevelupConfigMap[_key252] = _val253;
+                  SpellcardLevelupConfigMap[_key247] = _val248;
                 }
                 iprot.ReadMapEnd();
               }
@@ -112,14 +112,14 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.List, SpellcardLevelupConfigMap.Count));
-          foreach (int _iter257 in SpellcardLevelupConfigMap.Keys)
+          foreach (int _iter252 in SpellcardLevelupConfigMap.Keys)
           {
-            oprot.WriteI32(_iter257);
+            oprot.WriteI32(_iter252);
             {
-              oprot.WriteListBegin(new TList(TType.Struct, SpellcardLevelupConfigMap[_iter257].Count));
-              foreach (Config.SpellCardLevelupConfig _iter258 in SpellcardLevelupConfigMap[_iter257])
+              oprot.WriteListBegin(new TList(TType.Struct, SpellcardLevelupConfigMap[_iter252].Count));
+              foreach (Config.SpellCardLevelupConfig _iter253 in SpellcardLevelupConfigMap[_iter252])
               {
-                _iter258.Write(oprot);
+                _iter253.Write(oprot);
               }
               oprot.WriteListEnd();
             }

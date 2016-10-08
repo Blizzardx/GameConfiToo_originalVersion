@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 DarkcloudConfigMap = new Dictionary<int, Config.DarkCloudConfig>();
-                TMap _map160 = iprot.ReadMapBegin();
-                for( int _i161 = 0; _i161 < _map160.Count; ++_i161)
+                TMap _map155 = iprot.ReadMapBegin();
+                for( int _i156 = 0; _i156 < _map155.Count; ++_i156)
                 {
-                  int _key162;
-                  Config.DarkCloudConfig _val163;
-                  _key162 = iprot.ReadI32();
-                  _val163 = new Config.DarkCloudConfig();
-                  _val163.Read(iprot);
-                  DarkcloudConfigMap[_key162] = _val163;
+                  int _key157;
+                  Config.DarkCloudConfig _val158;
+                  _key157 = iprot.ReadI32();
+                  _val158 = new Config.DarkCloudConfig();
+                  _val158.Read(iprot);
+                  DarkcloudConfigMap[_key157] = _val158;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, DarkcloudConfigMap.Count));
-          foreach (int _iter164 in DarkcloudConfigMap.Keys)
+          foreach (int _iter159 in DarkcloudConfigMap.Keys)
           {
-            oprot.WriteI32(_iter164);
-            DarkcloudConfigMap[_iter164].Write(oprot);
+            oprot.WriteI32(_iter159);
+            DarkcloudConfigMap[_iter159].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

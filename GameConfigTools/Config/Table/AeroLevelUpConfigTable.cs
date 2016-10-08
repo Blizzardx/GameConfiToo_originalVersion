@@ -66,27 +66,27 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 AeroLevelUpConfigMap = new Dictionary<int, Dictionary<int, Config.AeroLevelUpConfig>>();
-                TMap _map288 = iprot.ReadMapBegin();
-                for( int _i289 = 0; _i289 < _map288.Count; ++_i289)
+                TMap _map283 = iprot.ReadMapBegin();
+                for( int _i284 = 0; _i284 < _map283.Count; ++_i284)
                 {
-                  int _key290;
-                  Dictionary<int, Config.AeroLevelUpConfig> _val291;
-                  _key290 = iprot.ReadI32();
+                  int _key285;
+                  Dictionary<int, Config.AeroLevelUpConfig> _val286;
+                  _key285 = iprot.ReadI32();
                   {
-                    _val291 = new Dictionary<int, Config.AeroLevelUpConfig>();
-                    TMap _map292 = iprot.ReadMapBegin();
-                    for( int _i293 = 0; _i293 < _map292.Count; ++_i293)
+                    _val286 = new Dictionary<int, Config.AeroLevelUpConfig>();
+                    TMap _map287 = iprot.ReadMapBegin();
+                    for( int _i288 = 0; _i288 < _map287.Count; ++_i288)
                     {
-                      int _key294;
-                      Config.AeroLevelUpConfig _val295;
-                      _key294 = iprot.ReadI32();
-                      _val295 = new Config.AeroLevelUpConfig();
-                      _val295.Read(iprot);
-                      _val291[_key294] = _val295;
+                      int _key289;
+                      Config.AeroLevelUpConfig _val290;
+                      _key289 = iprot.ReadI32();
+                      _val290 = new Config.AeroLevelUpConfig();
+                      _val290.Read(iprot);
+                      _val286[_key289] = _val290;
                     }
                     iprot.ReadMapEnd();
                   }
-                  AeroLevelUpConfigMap[_key290] = _val291;
+                  AeroLevelUpConfigMap[_key285] = _val286;
                 }
                 iprot.ReadMapEnd();
               }
@@ -114,15 +114,15 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Map, AeroLevelUpConfigMap.Count));
-          foreach (int _iter296 in AeroLevelUpConfigMap.Keys)
+          foreach (int _iter291 in AeroLevelUpConfigMap.Keys)
           {
-            oprot.WriteI32(_iter296);
+            oprot.WriteI32(_iter291);
             {
-              oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, AeroLevelUpConfigMap[_iter296].Count));
-              foreach (int _iter297 in AeroLevelUpConfigMap[_iter296].Keys)
+              oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, AeroLevelUpConfigMap[_iter291].Count));
+              foreach (int _iter292 in AeroLevelUpConfigMap[_iter291].Keys)
               {
-                oprot.WriteI32(_iter297);
-                AeroLevelUpConfigMap[_iter296][_iter297].Write(oprot);
+                oprot.WriteI32(_iter292);
+                AeroLevelUpConfigMap[_iter291][_iter292].Write(oprot);
               }
               oprot.WriteMapEnd();
             }

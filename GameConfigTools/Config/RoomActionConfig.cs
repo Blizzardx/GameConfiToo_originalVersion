@@ -154,14 +154,14 @@ namespace Config
             if (field.Type == TType.Map) {
               {
                 AttachMap = new Dictionary<string, string>();
-                TMap _map166 = iprot.ReadMapBegin();
-                for( int _i167 = 0; _i167 < _map166.Count; ++_i167)
+                TMap _map170 = iprot.ReadMapBegin();
+                for( int _i171 = 0; _i171 < _map170.Count; ++_i171)
                 {
-                  string _key168;
-                  string _val169;
-                  _key168 = iprot.ReadString();
-                  _val169 = iprot.ReadString();
-                  AttachMap[_key168] = _val169;
+                  string _key172;
+                  string _val173;
+                  _key172 = iprot.ReadString();
+                  _val173 = iprot.ReadString();
+                  AttachMap[_key172] = _val173;
                 }
                 iprot.ReadMapEnd();
               }
@@ -221,10 +221,10 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.String, TType.String, AttachMap.Count));
-          foreach (string _iter170 in AttachMap.Keys)
+          foreach (string _iter174 in AttachMap.Keys)
           {
-            oprot.WriteString(_iter170);
-            oprot.WriteString(AttachMap[_iter170]);
+            oprot.WriteString(_iter174);
+            oprot.WriteString(AttachMap[_iter174]);
           }
           oprot.WriteMapEnd();
         }

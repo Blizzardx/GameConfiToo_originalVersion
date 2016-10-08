@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 ChapterConfigMap = new Dictionary<int, Config.ChapterConfig>();
-                TMap _map145 = iprot.ReadMapBegin();
-                for( int _i146 = 0; _i146 < _map145.Count; ++_i146)
+                TMap _map140 = iprot.ReadMapBegin();
+                for( int _i141 = 0; _i141 < _map140.Count; ++_i141)
                 {
-                  int _key147;
-                  Config.ChapterConfig _val148;
-                  _key147 = iprot.ReadI32();
-                  _val148 = new Config.ChapterConfig();
-                  _val148.Read(iprot);
-                  ChapterConfigMap[_key147] = _val148;
+                  int _key142;
+                  Config.ChapterConfig _val143;
+                  _key142 = iprot.ReadI32();
+                  _val143 = new Config.ChapterConfig();
+                  _val143.Read(iprot);
+                  ChapterConfigMap[_key142] = _val143;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, ChapterConfigMap.Count));
-          foreach (int _iter149 in ChapterConfigMap.Keys)
+          foreach (int _iter144 in ChapterConfigMap.Keys)
           {
-            oprot.WriteI32(_iter149);
-            ChapterConfigMap[_iter149].Write(oprot);
+            oprot.WriteI32(_iter144);
+            ChapterConfigMap[_iter144].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

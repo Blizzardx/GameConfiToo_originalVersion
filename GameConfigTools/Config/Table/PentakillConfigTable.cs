@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 PentakillConfigMap = new Dictionary<int, Config.PentakillConfig>();
-                TMap _map343 = iprot.ReadMapBegin();
-                for( int _i344 = 0; _i344 < _map343.Count; ++_i344)
+                TMap _map338 = iprot.ReadMapBegin();
+                for( int _i339 = 0; _i339 < _map338.Count; ++_i339)
                 {
-                  int _key345;
-                  Config.PentakillConfig _val346;
-                  _key345 = iprot.ReadI32();
-                  _val346 = new Config.PentakillConfig();
-                  _val346.Read(iprot);
-                  PentakillConfigMap[_key345] = _val346;
+                  int _key340;
+                  Config.PentakillConfig _val341;
+                  _key340 = iprot.ReadI32();
+                  _val341 = new Config.PentakillConfig();
+                  _val341.Read(iprot);
+                  PentakillConfigMap[_key340] = _val341;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, PentakillConfigMap.Count));
-          foreach (int _iter347 in PentakillConfigMap.Keys)
+          foreach (int _iter342 in PentakillConfigMap.Keys)
           {
-            oprot.WriteI32(_iter347);
-            PentakillConfigMap[_iter347].Write(oprot);
+            oprot.WriteI32(_iter342);
+            PentakillConfigMap[_iter342].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

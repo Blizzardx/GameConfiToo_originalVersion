@@ -66,25 +66,25 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 BattleActionEventConfigMap = new Dictionary<int, List<Config.BattleActionEventConfig>>();
-                TMap _map77 = iprot.ReadMapBegin();
-                for( int _i78 = 0; _i78 < _map77.Count; ++_i78)
+                TMap _map72 = iprot.ReadMapBegin();
+                for( int _i73 = 0; _i73 < _map72.Count; ++_i73)
                 {
-                  int _key79;
-                  List<Config.BattleActionEventConfig> _val80;
-                  _key79 = iprot.ReadI32();
+                  int _key74;
+                  List<Config.BattleActionEventConfig> _val75;
+                  _key74 = iprot.ReadI32();
                   {
-                    _val80 = new List<Config.BattleActionEventConfig>();
-                    TList _list81 = iprot.ReadListBegin();
-                    for( int _i82 = 0; _i82 < _list81.Count; ++_i82)
+                    _val75 = new List<Config.BattleActionEventConfig>();
+                    TList _list76 = iprot.ReadListBegin();
+                    for( int _i77 = 0; _i77 < _list76.Count; ++_i77)
                     {
-                      Config.BattleActionEventConfig _elem83 = new Config.BattleActionEventConfig();
-                      _elem83 = new Config.BattleActionEventConfig();
-                      _elem83.Read(iprot);
-                      _val80.Add(_elem83);
+                      Config.BattleActionEventConfig _elem78 = new Config.BattleActionEventConfig();
+                      _elem78 = new Config.BattleActionEventConfig();
+                      _elem78.Read(iprot);
+                      _val75.Add(_elem78);
                     }
                     iprot.ReadListEnd();
                   }
-                  BattleActionEventConfigMap[_key79] = _val80;
+                  BattleActionEventConfigMap[_key74] = _val75;
                 }
                 iprot.ReadMapEnd();
               }
@@ -112,14 +112,14 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.List, BattleActionEventConfigMap.Count));
-          foreach (int _iter84 in BattleActionEventConfigMap.Keys)
+          foreach (int _iter79 in BattleActionEventConfigMap.Keys)
           {
-            oprot.WriteI32(_iter84);
+            oprot.WriteI32(_iter79);
             {
-              oprot.WriteListBegin(new TList(TType.Struct, BattleActionEventConfigMap[_iter84].Count));
-              foreach (Config.BattleActionEventConfig _iter85 in BattleActionEventConfigMap[_iter84])
+              oprot.WriteListBegin(new TList(TType.Struct, BattleActionEventConfigMap[_iter79].Count));
+              foreach (Config.BattleActionEventConfig _iter80 in BattleActionEventConfigMap[_iter79])
               {
-                _iter85.Write(oprot);
+                _iter80.Write(oprot);
               }
               oprot.WriteListEnd();
             }

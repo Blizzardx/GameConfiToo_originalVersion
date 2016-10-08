@@ -23,21 +23,7 @@ namespace Config.Table
   #endif
   public partial class CounterConfigTable : TBase
   {
-    private Dictionary<sbyte, Config.OrdinaryCounterConfig> _ordinaryCounterConfigMap;
     private Dictionary<int, Config.CycleCounterConfig> _cycleCounterConfigMap;
-
-    public Dictionary<sbyte, Config.OrdinaryCounterConfig> OrdinaryCounterConfigMap
-    {
-      get
-      {
-        return _ordinaryCounterConfigMap;
-      }
-      set
-      {
-        __isset.ordinaryCounterConfigMap = true;
-        this._ordinaryCounterConfigMap = value;
-      }
-    }
 
     public Dictionary<int, Config.CycleCounterConfig> CycleCounterConfigMap
     {
@@ -58,7 +44,6 @@ namespace Config.Table
     [Serializable]
     #endif
     public struct Isset {
-      public bool ordinaryCounterConfigMap;
       public bool cycleCounterConfigMap;
     }
 
@@ -77,39 +62,19 @@ namespace Config.Table
         }
         switch (field.ID)
         {
-          case 1:
-            if (field.Type == TType.Map) {
-              {
-                OrdinaryCounterConfigMap = new Dictionary<sbyte, Config.OrdinaryCounterConfig>();
-                TMap _map38 = iprot.ReadMapBegin();
-                for( int _i39 = 0; _i39 < _map38.Count; ++_i39)
-                {
-                  sbyte _key40;
-                  Config.OrdinaryCounterConfig _val41;
-                  _key40 = iprot.ReadByte();
-                  _val41 = new Config.OrdinaryCounterConfig();
-                  _val41.Read(iprot);
-                  OrdinaryCounterConfigMap[_key40] = _val41;
-                }
-                iprot.ReadMapEnd();
-              }
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
           case 2:
             if (field.Type == TType.Map) {
               {
                 CycleCounterConfigMap = new Dictionary<int, Config.CycleCounterConfig>();
-                TMap _map42 = iprot.ReadMapBegin();
-                for( int _i43 = 0; _i43 < _map42.Count; ++_i43)
+                TMap _map38 = iprot.ReadMapBegin();
+                for( int _i39 = 0; _i39 < _map38.Count; ++_i39)
                 {
-                  int _key44;
-                  Config.CycleCounterConfig _val45;
-                  _key44 = iprot.ReadI32();
-                  _val45 = new Config.CycleCounterConfig();
-                  _val45.Read(iprot);
-                  CycleCounterConfigMap[_key44] = _val45;
+                  int _key40;
+                  Config.CycleCounterConfig _val41;
+                  _key40 = iprot.ReadI32();
+                  _val41 = new Config.CycleCounterConfig();
+                  _val41.Read(iprot);
+                  CycleCounterConfigMap[_key40] = _val41;
                 }
                 iprot.ReadMapEnd();
               }
@@ -130,22 +95,6 @@ namespace Config.Table
       TStruct struc = new TStruct("CounterConfigTable");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (OrdinaryCounterConfigMap != null && __isset.ordinaryCounterConfigMap) {
-        field.Name = "ordinaryCounterConfigMap";
-        field.Type = TType.Map;
-        field.ID = 1;
-        oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteMapBegin(new TMap(TType.Byte, TType.Struct, OrdinaryCounterConfigMap.Count));
-          foreach (sbyte _iter46 in OrdinaryCounterConfigMap.Keys)
-          {
-            oprot.WriteByte(_iter46);
-            OrdinaryCounterConfigMap[_iter46].Write(oprot);
-          }
-          oprot.WriteMapEnd();
-        }
-        oprot.WriteFieldEnd();
-      }
       if (CycleCounterConfigMap != null && __isset.cycleCounterConfigMap) {
         field.Name = "cycleCounterConfigMap";
         field.Type = TType.Map;
@@ -153,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, CycleCounterConfigMap.Count));
-          foreach (int _iter47 in CycleCounterConfigMap.Keys)
+          foreach (int _iter42 in CycleCounterConfigMap.Keys)
           {
-            oprot.WriteI32(_iter47);
-            CycleCounterConfigMap[_iter47].Write(oprot);
+            oprot.WriteI32(_iter42);
+            CycleCounterConfigMap[_iter42].Write(oprot);
           }
           oprot.WriteMapEnd();
         }
@@ -168,9 +117,7 @@ namespace Config.Table
 
     public override string ToString() {
       StringBuilder sb = new StringBuilder("CounterConfigTable(");
-      sb.Append("OrdinaryCounterConfigMap: ");
-      sb.Append(OrdinaryCounterConfigMap);
-      sb.Append(",CycleCounterConfigMap: ");
+      sb.Append("CycleCounterConfigMap: ");
       sb.Append(CycleCounterConfigMap);
       sb.Append(")");
       return sb.ToString();

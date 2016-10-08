@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 ItemGenMap = new Dictionary<int, Config.ItemGeneratorConfig>();
-                TMap _map195 = iprot.ReadMapBegin();
-                for( int _i196 = 0; _i196 < _map195.Count; ++_i196)
+                TMap _map190 = iprot.ReadMapBegin();
+                for( int _i191 = 0; _i191 < _map190.Count; ++_i191)
                 {
-                  int _key197;
-                  Config.ItemGeneratorConfig _val198;
-                  _key197 = iprot.ReadI32();
-                  _val198 = new Config.ItemGeneratorConfig();
-                  _val198.Read(iprot);
-                  ItemGenMap[_key197] = _val198;
+                  int _key192;
+                  Config.ItemGeneratorConfig _val193;
+                  _key192 = iprot.ReadI32();
+                  _val193 = new Config.ItemGeneratorConfig();
+                  _val193.Read(iprot);
+                  ItemGenMap[_key192] = _val193;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, ItemGenMap.Count));
-          foreach (int _iter199 in ItemGenMap.Keys)
+          foreach (int _iter194 in ItemGenMap.Keys)
           {
-            oprot.WriteI32(_iter199);
-            ItemGenMap[_iter199].Write(oprot);
+            oprot.WriteI32(_iter194);
+            ItemGenMap[_iter194].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

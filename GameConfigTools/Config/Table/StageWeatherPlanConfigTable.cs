@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 StageWeatherPlanConfigMap = new Dictionary<int, Config.StageWeatherPlanConfig>();
-                TMap _map180 = iprot.ReadMapBegin();
-                for( int _i181 = 0; _i181 < _map180.Count; ++_i181)
+                TMap _map175 = iprot.ReadMapBegin();
+                for( int _i176 = 0; _i176 < _map175.Count; ++_i176)
                 {
-                  int _key182;
-                  Config.StageWeatherPlanConfig _val183;
-                  _key182 = iprot.ReadI32();
-                  _val183 = new Config.StageWeatherPlanConfig();
-                  _val183.Read(iprot);
-                  StageWeatherPlanConfigMap[_key182] = _val183;
+                  int _key177;
+                  Config.StageWeatherPlanConfig _val178;
+                  _key177 = iprot.ReadI32();
+                  _val178 = new Config.StageWeatherPlanConfig();
+                  _val178.Read(iprot);
+                  StageWeatherPlanConfigMap[_key177] = _val178;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, StageWeatherPlanConfigMap.Count));
-          foreach (int _iter184 in StageWeatherPlanConfigMap.Keys)
+          foreach (int _iter179 in StageWeatherPlanConfigMap.Keys)
           {
-            oprot.WriteI32(_iter184);
-            StageWeatherPlanConfigMap[_iter184].Write(oprot);
+            oprot.WriteI32(_iter179);
+            StageWeatherPlanConfigMap[_iter179].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 SkillGroupConfigMap = new Dictionary<int, Config.MonsterSkillGroupConfig>();
-                TMap _map125 = iprot.ReadMapBegin();
-                for( int _i126 = 0; _i126 < _map125.Count; ++_i126)
+                TMap _map120 = iprot.ReadMapBegin();
+                for( int _i121 = 0; _i121 < _map120.Count; ++_i121)
                 {
-                  int _key127;
-                  Config.MonsterSkillGroupConfig _val128;
-                  _key127 = iprot.ReadI32();
-                  _val128 = new Config.MonsterSkillGroupConfig();
-                  _val128.Read(iprot);
-                  SkillGroupConfigMap[_key127] = _val128;
+                  int _key122;
+                  Config.MonsterSkillGroupConfig _val123;
+                  _key122 = iprot.ReadI32();
+                  _val123 = new Config.MonsterSkillGroupConfig();
+                  _val123.Read(iprot);
+                  SkillGroupConfigMap[_key122] = _val123;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, SkillGroupConfigMap.Count));
-          foreach (int _iter129 in SkillGroupConfigMap.Keys)
+          foreach (int _iter124 in SkillGroupConfigMap.Keys)
           {
-            oprot.WriteI32(_iter129);
-            SkillGroupConfigMap[_iter129].Write(oprot);
+            oprot.WriteI32(_iter124);
+            SkillGroupConfigMap[_iter124].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

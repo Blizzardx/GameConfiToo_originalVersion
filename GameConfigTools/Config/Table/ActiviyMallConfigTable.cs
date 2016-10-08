@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 ActivityMallConfigMap = new Dictionary<int, Config.ActiviyMallConfig>();
-                TMap _map273 = iprot.ReadMapBegin();
-                for( int _i274 = 0; _i274 < _map273.Count; ++_i274)
+                TMap _map268 = iprot.ReadMapBegin();
+                for( int _i269 = 0; _i269 < _map268.Count; ++_i269)
                 {
-                  int _key275;
-                  Config.ActiviyMallConfig _val276;
-                  _key275 = iprot.ReadI32();
-                  _val276 = new Config.ActiviyMallConfig();
-                  _val276.Read(iprot);
-                  ActivityMallConfigMap[_key275] = _val276;
+                  int _key270;
+                  Config.ActiviyMallConfig _val271;
+                  _key270 = iprot.ReadI32();
+                  _val271 = new Config.ActiviyMallConfig();
+                  _val271.Read(iprot);
+                  ActivityMallConfigMap[_key270] = _val271;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, ActivityMallConfigMap.Count));
-          foreach (int _iter277 in ActivityMallConfigMap.Keys)
+          foreach (int _iter272 in ActivityMallConfigMap.Keys)
           {
-            oprot.WriteI32(_iter277);
-            ActivityMallConfigMap[_iter277].Write(oprot);
+            oprot.WriteI32(_iter272);
+            ActivityMallConfigMap[_iter272].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

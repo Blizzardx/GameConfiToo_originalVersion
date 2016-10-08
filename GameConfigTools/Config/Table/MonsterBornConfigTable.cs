@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 MonsterBornConfigMap = new Dictionary<int, Config.MonsterBornConfig>();
-                TMap _map338 = iprot.ReadMapBegin();
-                for( int _i339 = 0; _i339 < _map338.Count; ++_i339)
+                TMap _map333 = iprot.ReadMapBegin();
+                for( int _i334 = 0; _i334 < _map333.Count; ++_i334)
                 {
-                  int _key340;
-                  Config.MonsterBornConfig _val341;
-                  _key340 = iprot.ReadI32();
-                  _val341 = new Config.MonsterBornConfig();
-                  _val341.Read(iprot);
-                  MonsterBornConfigMap[_key340] = _val341;
+                  int _key335;
+                  Config.MonsterBornConfig _val336;
+                  _key335 = iprot.ReadI32();
+                  _val336 = new Config.MonsterBornConfig();
+                  _val336.Read(iprot);
+                  MonsterBornConfigMap[_key335] = _val336;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, MonsterBornConfigMap.Count));
-          foreach (int _iter342 in MonsterBornConfigMap.Keys)
+          foreach (int _iter337 in MonsterBornConfigMap.Keys)
           {
-            oprot.WriteI32(_iter342);
-            MonsterBornConfigMap[_iter342].Write(oprot);
+            oprot.WriteI32(_iter337);
+            MonsterBornConfigMap[_iter337].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 CharacterBaseConfigMap = new Dictionary<int, Config.CharacterBaseConfig>();
-                TMap _map63 = iprot.ReadMapBegin();
-                for( int _i64 = 0; _i64 < _map63.Count; ++_i64)
+                TMap _map58 = iprot.ReadMapBegin();
+                for( int _i59 = 0; _i59 < _map58.Count; ++_i59)
                 {
-                  int _key65;
-                  Config.CharacterBaseConfig _val66;
-                  _key65 = iprot.ReadI32();
-                  _val66 = new Config.CharacterBaseConfig();
-                  _val66.Read(iprot);
-                  CharacterBaseConfigMap[_key65] = _val66;
+                  int _key60;
+                  Config.CharacterBaseConfig _val61;
+                  _key60 = iprot.ReadI32();
+                  _val61 = new Config.CharacterBaseConfig();
+                  _val61.Read(iprot);
+                  CharacterBaseConfigMap[_key60] = _val61;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, CharacterBaseConfigMap.Count));
-          foreach (int _iter67 in CharacterBaseConfigMap.Keys)
+          foreach (int _iter62 in CharacterBaseConfigMap.Keys)
           {
-            oprot.WriteI32(_iter67);
-            CharacterBaseConfigMap[_iter67].Write(oprot);
+            oprot.WriteI32(_iter62);
+            CharacterBaseConfigMap[_iter62].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

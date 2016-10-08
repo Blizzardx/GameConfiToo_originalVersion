@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 StoryConfigMap = new Dictionary<int, Config.StoryConfig>();
-                TMap _map130 = iprot.ReadMapBegin();
-                for( int _i131 = 0; _i131 < _map130.Count; ++_i131)
+                TMap _map125 = iprot.ReadMapBegin();
+                for( int _i126 = 0; _i126 < _map125.Count; ++_i126)
                 {
-                  int _key132;
-                  Config.StoryConfig _val133;
-                  _key132 = iprot.ReadI32();
-                  _val133 = new Config.StoryConfig();
-                  _val133.Read(iprot);
-                  StoryConfigMap[_key132] = _val133;
+                  int _key127;
+                  Config.StoryConfig _val128;
+                  _key127 = iprot.ReadI32();
+                  _val128 = new Config.StoryConfig();
+                  _val128.Read(iprot);
+                  StoryConfigMap[_key127] = _val128;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, StoryConfigMap.Count));
-          foreach (int _iter134 in StoryConfigMap.Keys)
+          foreach (int _iter129 in StoryConfigMap.Keys)
           {
-            oprot.WriteI32(_iter134);
-            StoryConfigMap[_iter134].Write(oprot);
+            oprot.WriteI32(_iter129);
+            StoryConfigMap[_iter129].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

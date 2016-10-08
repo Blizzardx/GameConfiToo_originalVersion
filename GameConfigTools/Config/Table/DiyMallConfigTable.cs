@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 DiyMallConfigMap = new Dictionary<int, Config.DiyMallConfig>();
-                TMap _map220 = iprot.ReadMapBegin();
-                for( int _i221 = 0; _i221 < _map220.Count; ++_i221)
+                TMap _map215 = iprot.ReadMapBegin();
+                for( int _i216 = 0; _i216 < _map215.Count; ++_i216)
                 {
-                  int _key222;
-                  Config.DiyMallConfig _val223;
-                  _key222 = iprot.ReadI32();
-                  _val223 = new Config.DiyMallConfig();
-                  _val223.Read(iprot);
-                  DiyMallConfigMap[_key222] = _val223;
+                  int _key217;
+                  Config.DiyMallConfig _val218;
+                  _key217 = iprot.ReadI32();
+                  _val218 = new Config.DiyMallConfig();
+                  _val218.Read(iprot);
+                  DiyMallConfigMap[_key217] = _val218;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, DiyMallConfigMap.Count));
-          foreach (int _iter224 in DiyMallConfigMap.Keys)
+          foreach (int _iter219 in DiyMallConfigMap.Keys)
           {
-            oprot.WriteI32(_iter224);
-            DiyMallConfigMap[_iter224].Write(oprot);
+            oprot.WriteI32(_iter219);
+            DiyMallConfigMap[_iter219].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

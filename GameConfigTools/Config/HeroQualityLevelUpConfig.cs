@@ -110,13 +110,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 NeedItemList = new List<NeedItemConfig>();
-                TList _list97 = iprot.ReadListBegin();
-                for( int _i98 = 0; _i98 < _list97.Count; ++_i98)
+                TList _list101 = iprot.ReadListBegin();
+                for( int _i102 = 0; _i102 < _list101.Count; ++_i102)
                 {
-                  NeedItemConfig _elem99 = new NeedItemConfig();
-                  _elem99 = new NeedItemConfig();
-                  _elem99.Read(iprot);
-                  NeedItemList.Add(_elem99);
+                  NeedItemConfig _elem103 = new NeedItemConfig();
+                  _elem103 = new NeedItemConfig();
+                  _elem103.Read(iprot);
+                  NeedItemList.Add(_elem103);
                 }
                 iprot.ReadListEnd();
               }
@@ -160,9 +160,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, NeedItemList.Count));
-          foreach (NeedItemConfig _iter100 in NeedItemList)
+          foreach (NeedItemConfig _iter104 in NeedItemList)
           {
-            _iter100.Write(oprot);
+            _iter104.Write(oprot);
           }
           oprot.WriteListEnd();
         }

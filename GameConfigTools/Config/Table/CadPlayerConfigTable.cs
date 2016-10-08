@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 CadPlayerConfigMap = new Dictionary<int, Config.CadPlayerConfig>();
-                TMap _map313 = iprot.ReadMapBegin();
-                for( int _i314 = 0; _i314 < _map313.Count; ++_i314)
+                TMap _map308 = iprot.ReadMapBegin();
+                for( int _i309 = 0; _i309 < _map308.Count; ++_i309)
                 {
-                  int _key315;
-                  Config.CadPlayerConfig _val316;
-                  _key315 = iprot.ReadI32();
-                  _val316 = new Config.CadPlayerConfig();
-                  _val316.Read(iprot);
-                  CadPlayerConfigMap[_key315] = _val316;
+                  int _key310;
+                  Config.CadPlayerConfig _val311;
+                  _key310 = iprot.ReadI32();
+                  _val311 = new Config.CadPlayerConfig();
+                  _val311.Read(iprot);
+                  CadPlayerConfigMap[_key310] = _val311;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, CadPlayerConfigMap.Count));
-          foreach (int _iter317 in CadPlayerConfigMap.Keys)
+          foreach (int _iter312 in CadPlayerConfigMap.Keys)
           {
-            oprot.WriteI32(_iter317);
-            CadPlayerConfigMap[_iter317].Write(oprot);
+            oprot.WriteI32(_iter312);
+            CadPlayerConfigMap[_iter312].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

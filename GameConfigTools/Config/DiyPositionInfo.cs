@@ -88,13 +88,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 VertexList = new List<DiyVertexInfo>();
-                TList _list171 = iprot.ReadListBegin();
-                for( int _i172 = 0; _i172 < _list171.Count; ++_i172)
+                TList _list175 = iprot.ReadListBegin();
+                for( int _i176 = 0; _i176 < _list175.Count; ++_i176)
                 {
-                  DiyVertexInfo _elem173 = new DiyVertexInfo();
-                  _elem173 = new DiyVertexInfo();
-                  _elem173.Read(iprot);
-                  VertexList.Add(_elem173);
+                  DiyVertexInfo _elem177 = new DiyVertexInfo();
+                  _elem177 = new DiyVertexInfo();
+                  _elem177.Read(iprot);
+                  VertexList.Add(_elem177);
                 }
                 iprot.ReadListEnd();
               }
@@ -130,9 +130,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, VertexList.Count));
-          foreach (DiyVertexInfo _iter174 in VertexList)
+          foreach (DiyVertexInfo _iter178 in VertexList)
           {
-            _iter174.Write(oprot);
+            _iter178.Write(oprot);
           }
           oprot.WriteListEnd();
         }

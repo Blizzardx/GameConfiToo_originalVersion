@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 LogicPointMap = new Dictionary<int, Config.StageLogicPointDescConfig>();
-                TMap _map200 = iprot.ReadMapBegin();
-                for( int _i201 = 0; _i201 < _map200.Count; ++_i201)
+                TMap _map195 = iprot.ReadMapBegin();
+                for( int _i196 = 0; _i196 < _map195.Count; ++_i196)
                 {
-                  int _key202;
-                  Config.StageLogicPointDescConfig _val203;
-                  _key202 = iprot.ReadI32();
-                  _val203 = new Config.StageLogicPointDescConfig();
-                  _val203.Read(iprot);
-                  LogicPointMap[_key202] = _val203;
+                  int _key197;
+                  Config.StageLogicPointDescConfig _val198;
+                  _key197 = iprot.ReadI32();
+                  _val198 = new Config.StageLogicPointDescConfig();
+                  _val198.Read(iprot);
+                  LogicPointMap[_key197] = _val198;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, LogicPointMap.Count));
-          foreach (int _iter204 in LogicPointMap.Keys)
+          foreach (int _iter199 in LogicPointMap.Keys)
           {
-            oprot.WriteI32(_iter204);
-            LogicPointMap[_iter204].Write(oprot);
+            oprot.WriteI32(_iter199);
+            LogicPointMap[_iter199].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

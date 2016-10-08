@@ -66,14 +66,14 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 EffectItemCollideMap = new Dictionary<string, int>();
-                TMap _map190 = iprot.ReadMapBegin();
-                for( int _i191 = 0; _i191 < _map190.Count; ++_i191)
+                TMap _map185 = iprot.ReadMapBegin();
+                for( int _i186 = 0; _i186 < _map185.Count; ++_i186)
                 {
-                  string _key192;
-                  int _val193;
-                  _key192 = iprot.ReadString();
-                  _val193 = iprot.ReadI32();
-                  EffectItemCollideMap[_key192] = _val193;
+                  string _key187;
+                  int _val188;
+                  _key187 = iprot.ReadString();
+                  _val188 = iprot.ReadI32();
+                  EffectItemCollideMap[_key187] = _val188;
                 }
                 iprot.ReadMapEnd();
               }
@@ -101,10 +101,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.String, TType.I32, EffectItemCollideMap.Count));
-          foreach (string _iter194 in EffectItemCollideMap.Keys)
+          foreach (string _iter189 in EffectItemCollideMap.Keys)
           {
-            oprot.WriteString(_iter194);
-            oprot.WriteI32(EffectItemCollideMap[_iter194]);
+            oprot.WriteString(_iter189);
+            oprot.WriteI32(EffectItemCollideMap[_iter189]);
           }
           oprot.WriteMapEnd();
         }

@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 ShockConfigMap = new Dictionary<int, Config.ShockConfig>();
-                TMap _map155 = iprot.ReadMapBegin();
-                for( int _i156 = 0; _i156 < _map155.Count; ++_i156)
+                TMap _map150 = iprot.ReadMapBegin();
+                for( int _i151 = 0; _i151 < _map150.Count; ++_i151)
                 {
-                  int _key157;
-                  Config.ShockConfig _val158;
-                  _key157 = iprot.ReadI32();
-                  _val158 = new Config.ShockConfig();
-                  _val158.Read(iprot);
-                  ShockConfigMap[_key157] = _val158;
+                  int _key152;
+                  Config.ShockConfig _val153;
+                  _key152 = iprot.ReadI32();
+                  _val153 = new Config.ShockConfig();
+                  _val153.Read(iprot);
+                  ShockConfigMap[_key152] = _val153;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, ShockConfigMap.Count));
-          foreach (int _iter159 in ShockConfigMap.Keys)
+          foreach (int _iter154 in ShockConfigMap.Keys)
           {
-            oprot.WriteI32(_iter159);
-            ShockConfigMap[_iter159].Write(oprot);
+            oprot.WriteI32(_iter154);
+            ShockConfigMap[_iter154].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

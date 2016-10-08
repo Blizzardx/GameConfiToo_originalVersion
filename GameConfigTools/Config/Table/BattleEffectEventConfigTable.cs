@@ -66,25 +66,25 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 BattleEffectEventConfigMap = new Dictionary<int, List<Config.BattleEffectEventConfig>>();
-                TMap _map96 = iprot.ReadMapBegin();
-                for( int _i97 = 0; _i97 < _map96.Count; ++_i97)
+                TMap _map91 = iprot.ReadMapBegin();
+                for( int _i92 = 0; _i92 < _map91.Count; ++_i92)
                 {
-                  int _key98;
-                  List<Config.BattleEffectEventConfig> _val99;
-                  _key98 = iprot.ReadI32();
+                  int _key93;
+                  List<Config.BattleEffectEventConfig> _val94;
+                  _key93 = iprot.ReadI32();
                   {
-                    _val99 = new List<Config.BattleEffectEventConfig>();
-                    TList _list100 = iprot.ReadListBegin();
-                    for( int _i101 = 0; _i101 < _list100.Count; ++_i101)
+                    _val94 = new List<Config.BattleEffectEventConfig>();
+                    TList _list95 = iprot.ReadListBegin();
+                    for( int _i96 = 0; _i96 < _list95.Count; ++_i96)
                     {
-                      Config.BattleEffectEventConfig _elem102 = new Config.BattleEffectEventConfig();
-                      _elem102 = new Config.BattleEffectEventConfig();
-                      _elem102.Read(iprot);
-                      _val99.Add(_elem102);
+                      Config.BattleEffectEventConfig _elem97 = new Config.BattleEffectEventConfig();
+                      _elem97 = new Config.BattleEffectEventConfig();
+                      _elem97.Read(iprot);
+                      _val94.Add(_elem97);
                     }
                     iprot.ReadListEnd();
                   }
-                  BattleEffectEventConfigMap[_key98] = _val99;
+                  BattleEffectEventConfigMap[_key93] = _val94;
                 }
                 iprot.ReadMapEnd();
               }
@@ -112,14 +112,14 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.List, BattleEffectEventConfigMap.Count));
-          foreach (int _iter103 in BattleEffectEventConfigMap.Keys)
+          foreach (int _iter98 in BattleEffectEventConfigMap.Keys)
           {
-            oprot.WriteI32(_iter103);
+            oprot.WriteI32(_iter98);
             {
-              oprot.WriteListBegin(new TList(TType.Struct, BattleEffectEventConfigMap[_iter103].Count));
-              foreach (Config.BattleEffectEventConfig _iter104 in BattleEffectEventConfigMap[_iter103])
+              oprot.WriteListBegin(new TList(TType.Struct, BattleEffectEventConfigMap[_iter98].Count));
+              foreach (Config.BattleEffectEventConfig _iter99 in BattleEffectEventConfigMap[_iter98])
               {
-                _iter104.Write(oprot);
+                _iter99.Write(oprot);
               }
               oprot.WriteListEnd();
             }

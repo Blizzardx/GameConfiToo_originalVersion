@@ -21,25 +21,26 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class OrdinaryCounterConfig : TBase
+  public partial class SystemLoverExpStepInfo : TBase
   {
-    private sbyte _type;
-    private short _max;
+    private int _min;
+    private int _max;
+    private string _icon;
 
-    public sbyte Type
+    public int Min
     {
       get
       {
-        return _type;
+        return _min;
       }
       set
       {
-        __isset.type = true;
-        this._type = value;
+        __isset.min = true;
+        this._min = value;
       }
     }
 
-    public short Max
+    public int Max
     {
       get
       {
@@ -52,17 +53,31 @@ namespace Config
       }
     }
 
+    public string Icon
+    {
+      get
+      {
+        return _icon;
+      }
+      set
+      {
+        __isset.icon = true;
+        this._icon = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
     [Serializable]
     #endif
     public struct Isset {
-      public bool type;
+      public bool min;
       public bool max;
+      public bool icon;
     }
 
-    public OrdinaryCounterConfig() {
+    public SystemLoverExpStepInfo() {
     }
 
     public void Read (TProtocol iprot)
@@ -77,16 +92,23 @@ namespace Config
         }
         switch (field.ID)
         {
-          case 1:
-            if (field.Type == TType.Byte) {
-              Type = iprot.ReadByte();
+          case 10:
+            if (field.Type == TType.I32) {
+              Min = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 2:
-            if (field.Type == TType.I16) {
-              Max = iprot.ReadI16();
+          case 20:
+            if (field.Type == TType.I32) {
+              Max = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 30:
+            if (field.Type == TType.String) {
+              Icon = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -101,23 +123,31 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("OrdinaryCounterConfig");
+      TStruct struc = new TStruct("SystemLoverExpStepInfo");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (__isset.type) {
-        field.Name = "type";
-        field.Type = TType.Byte;
-        field.ID = 1;
+      if (__isset.min) {
+        field.Name = "min";
+        field.Type = TType.I32;
+        field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteByte(Type);
+        oprot.WriteI32(Min);
         oprot.WriteFieldEnd();
       }
       if (__isset.max) {
         field.Name = "max";
-        field.Type = TType.I16;
-        field.ID = 2;
+        field.Type = TType.I32;
+        field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI16(Max);
+        oprot.WriteI32(Max);
+        oprot.WriteFieldEnd();
+      }
+      if (Icon != null && __isset.icon) {
+        field.Name = "icon";
+        field.Type = TType.String;
+        field.ID = 30;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Icon);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -125,11 +155,13 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("OrdinaryCounterConfig(");
-      sb.Append("Type: ");
-      sb.Append(Type);
+      StringBuilder sb = new StringBuilder("SystemLoverExpStepInfo(");
+      sb.Append("Min: ");
+      sb.Append(Min);
       sb.Append(",Max: ");
       sb.Append(Max);
+      sb.Append(",Icon: ");
+      sb.Append(Icon);
       sb.Append(")");
       return sb.ToString();
     }

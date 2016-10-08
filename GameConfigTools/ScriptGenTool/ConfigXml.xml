@@ -145,5 +145,56 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="baseCount3"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="NecklaceConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="name"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nameMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="icon"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="quality"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="resource"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="desc"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="descMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeLoverExp"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="putonfuncid"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="takeofffuncid"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="attachPos"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="DifficultyCurveConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="difficultyMin"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="difficultyMax"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="EndlessStageConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="name"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="descMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="limitMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="difficultyDegree"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="startCurveId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="endCurveId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="cycleStartCurveId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="cycleEndCurveId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="rewardMessageId"  isList="true"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="thumbnail"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="scenceIds" isList="true"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="sequenceNum"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="maxScore"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="rewardItemIds" isList="true"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="EndlessScenceConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="resource"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="styleId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="difficulty"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="direction"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
   </classConfigList>
 </root>

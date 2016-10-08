@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 StageConfigMap = new Dictionary<int, Config.StageConfig>();
-                TMap _map150 = iprot.ReadMapBegin();
-                for( int _i151 = 0; _i151 < _map150.Count; ++_i151)
+                TMap _map145 = iprot.ReadMapBegin();
+                for( int _i146 = 0; _i146 < _map145.Count; ++_i146)
                 {
-                  int _key152;
-                  Config.StageConfig _val153;
-                  _key152 = iprot.ReadI32();
-                  _val153 = new Config.StageConfig();
-                  _val153.Read(iprot);
-                  StageConfigMap[_key152] = _val153;
+                  int _key147;
+                  Config.StageConfig _val148;
+                  _key147 = iprot.ReadI32();
+                  _val148 = new Config.StageConfig();
+                  _val148.Read(iprot);
+                  StageConfigMap[_key147] = _val148;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, StageConfigMap.Count));
-          foreach (int _iter154 in StageConfigMap.Keys)
+          foreach (int _iter149 in StageConfigMap.Keys)
           {
-            oprot.WriteI32(_iter154);
-            StageConfigMap[_iter154].Write(oprot);
+            oprot.WriteI32(_iter149);
+            StageConfigMap[_iter149].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

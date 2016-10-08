@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 BuffConfigMap = new Dictionary<int, Config.BattleBuffConfig>();
-                TMap _map48 = iprot.ReadMapBegin();
-                for( int _i49 = 0; _i49 < _map48.Count; ++_i49)
+                TMap _map43 = iprot.ReadMapBegin();
+                for( int _i44 = 0; _i44 < _map43.Count; ++_i44)
                 {
-                  int _key50;
-                  Config.BattleBuffConfig _val51;
-                  _key50 = iprot.ReadI32();
-                  _val51 = new Config.BattleBuffConfig();
-                  _val51.Read(iprot);
-                  BuffConfigMap[_key50] = _val51;
+                  int _key45;
+                  Config.BattleBuffConfig _val46;
+                  _key45 = iprot.ReadI32();
+                  _val46 = new Config.BattleBuffConfig();
+                  _val46.Read(iprot);
+                  BuffConfigMap[_key45] = _val46;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, BuffConfigMap.Count));
-          foreach (int _iter52 in BuffConfigMap.Keys)
+          foreach (int _iter47 in BuffConfigMap.Keys)
           {
-            oprot.WriteI32(_iter52);
-            BuffConfigMap[_iter52].Write(oprot);
+            oprot.WriteI32(_iter47);
+            BuffConfigMap[_iter47].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

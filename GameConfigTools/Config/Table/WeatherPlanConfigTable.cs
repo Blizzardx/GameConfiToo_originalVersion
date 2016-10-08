@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 WeatherPlanConfigMap = new Dictionary<int, Config.WeatherPlanConfig>();
-                TMap _map175 = iprot.ReadMapBegin();
-                for( int _i176 = 0; _i176 < _map175.Count; ++_i176)
+                TMap _map170 = iprot.ReadMapBegin();
+                for( int _i171 = 0; _i171 < _map170.Count; ++_i171)
                 {
-                  int _key177;
-                  Config.WeatherPlanConfig _val178;
-                  _key177 = iprot.ReadI32();
-                  _val178 = new Config.WeatherPlanConfig();
-                  _val178.Read(iprot);
-                  WeatherPlanConfigMap[_key177] = _val178;
+                  int _key172;
+                  Config.WeatherPlanConfig _val173;
+                  _key172 = iprot.ReadI32();
+                  _val173 = new Config.WeatherPlanConfig();
+                  _val173.Read(iprot);
+                  WeatherPlanConfigMap[_key172] = _val173;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, WeatherPlanConfigMap.Count));
-          foreach (int _iter179 in WeatherPlanConfigMap.Keys)
+          foreach (int _iter174 in WeatherPlanConfigMap.Keys)
           {
-            oprot.WriteI32(_iter179);
-            WeatherPlanConfigMap[_iter179].Write(oprot);
+            oprot.WriteI32(_iter174);
+            WeatherPlanConfigMap[_iter174].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

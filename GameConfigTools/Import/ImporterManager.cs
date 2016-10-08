@@ -105,6 +105,10 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.PENTAKILL_CONFIG, new PentakillConfigImporter());
             importerDic.Add(SysConstant.EMOTICON_CONFIG, new EmoticonConfigImporter());
             importerDic.Add(SysConstant.CHARACTER_EXP_CONFIG, new CharacterExpConfigImporter());
+            importerDic.Add(SysConstant.NECKLACE_CONFIG, new NecklaceConfigImporter());
+            importerDic.Add(SysConstant.DIFFICULTY_CURVE_CONFIG, new DifficultyCurveConfigImporter());
+            importerDic.Add(SysConstant.ENDLESS_STAGE_CONFIG, new EndlessStageConfigImporter());
+            importerDic.Add(SysConstant.ENDLESS_SCENE_CONFIG, new EndlessScenceConfigImporter());
         }
         /// <summary>
         /// 加载关联导入

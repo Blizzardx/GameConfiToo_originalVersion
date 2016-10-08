@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 DropListConfigMap = new Dictionary<int, Config.DropListConfig>();
-                TMap _map120 = iprot.ReadMapBegin();
-                for( int _i121 = 0; _i121 < _map120.Count; ++_i121)
+                TMap _map115 = iprot.ReadMapBegin();
+                for( int _i116 = 0; _i116 < _map115.Count; ++_i116)
                 {
-                  int _key122;
-                  Config.DropListConfig _val123;
-                  _key122 = iprot.ReadI32();
-                  _val123 = new Config.DropListConfig();
-                  _val123.Read(iprot);
-                  DropListConfigMap[_key122] = _val123;
+                  int _key117;
+                  Config.DropListConfig _val118;
+                  _key117 = iprot.ReadI32();
+                  _val118 = new Config.DropListConfig();
+                  _val118.Read(iprot);
+                  DropListConfigMap[_key117] = _val118;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, DropListConfigMap.Count));
-          foreach (int _iter124 in DropListConfigMap.Keys)
+          foreach (int _iter119 in DropListConfigMap.Keys)
           {
-            oprot.WriteI32(_iter124);
-            DropListConfigMap[_iter124].Write(oprot);
+            oprot.WriteI32(_iter119);
+            DropListConfigMap[_iter119].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

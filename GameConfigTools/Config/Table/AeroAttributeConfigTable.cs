@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 AeroConfigMap = new Dictionary<string, Config.AeroAttributeConfig>();
-                TMap _map110 = iprot.ReadMapBegin();
-                for( int _i111 = 0; _i111 < _map110.Count; ++_i111)
+                TMap _map105 = iprot.ReadMapBegin();
+                for( int _i106 = 0; _i106 < _map105.Count; ++_i106)
                 {
-                  string _key112;
-                  Config.AeroAttributeConfig _val113;
-                  _key112 = iprot.ReadString();
-                  _val113 = new Config.AeroAttributeConfig();
-                  _val113.Read(iprot);
-                  AeroConfigMap[_key112] = _val113;
+                  string _key107;
+                  Config.AeroAttributeConfig _val108;
+                  _key107 = iprot.ReadString();
+                  _val108 = new Config.AeroAttributeConfig();
+                  _val108.Read(iprot);
+                  AeroConfigMap[_key107] = _val108;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.String, TType.Struct, AeroConfigMap.Count));
-          foreach (string _iter114 in AeroConfigMap.Keys)
+          foreach (string _iter109 in AeroConfigMap.Keys)
           {
-            oprot.WriteString(_iter114);
-            AeroConfigMap[_iter114].Write(oprot);
+            oprot.WriteString(_iter109);
+            AeroConfigMap[_iter109].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

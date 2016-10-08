@@ -23,6 +23,164 @@ namespace Config
   #endif
   public partial class NecklaceConfig : TBase
   {
+    private int _id;
+    private int _nameMessageId;
+    private string _icon;
+    private int _quality;
+    private string _resource;
+    private int _descMessageId;
+    private int _activeLoverExp;
+    private int _putonFuncId;
+    private int _takeoffFuncId;
+    private string _attachPosition;
+
+    public int Id
+    {
+      get
+      {
+        return _id;
+      }
+      set
+      {
+        __isset.id = true;
+        this._id = value;
+      }
+    }
+
+    public int NameMessageId
+    {
+      get
+      {
+        return _nameMessageId;
+      }
+      set
+      {
+        __isset.nameMessageId = true;
+        this._nameMessageId = value;
+      }
+    }
+
+    public string Icon
+    {
+      get
+      {
+        return _icon;
+      }
+      set
+      {
+        __isset.icon = true;
+        this._icon = value;
+      }
+    }
+
+    public int Quality
+    {
+      get
+      {
+        return _quality;
+      }
+      set
+      {
+        __isset.quality = true;
+        this._quality = value;
+      }
+    }
+
+    public string Resource
+    {
+      get
+      {
+        return _resource;
+      }
+      set
+      {
+        __isset.resource = true;
+        this._resource = value;
+      }
+    }
+
+    public int DescMessageId
+    {
+      get
+      {
+        return _descMessageId;
+      }
+      set
+      {
+        __isset.descMessageId = true;
+        this._descMessageId = value;
+      }
+    }
+
+    public int ActiveLoverExp
+    {
+      get
+      {
+        return _activeLoverExp;
+      }
+      set
+      {
+        __isset.activeLoverExp = true;
+        this._activeLoverExp = value;
+      }
+    }
+
+    public int PutonFuncId
+    {
+      get
+      {
+        return _putonFuncId;
+      }
+      set
+      {
+        __isset.putonFuncId = true;
+        this._putonFuncId = value;
+      }
+    }
+
+    public int TakeoffFuncId
+    {
+      get
+      {
+        return _takeoffFuncId;
+      }
+      set
+      {
+        __isset.takeoffFuncId = true;
+        this._takeoffFuncId = value;
+      }
+    }
+
+    public string AttachPosition
+    {
+      get
+      {
+        return _attachPosition;
+      }
+      set
+      {
+        __isset.attachPosition = true;
+        this._attachPosition = value;
+      }
+    }
+
+
+    public Isset __isset;
+    #if !SILVERLIGHT
+    [Serializable]
+    #endif
+    public struct Isset {
+      public bool id;
+      public bool nameMessageId;
+      public bool icon;
+      public bool quality;
+      public bool resource;
+      public bool descMessageId;
+      public bool activeLoverExp;
+      public bool putonFuncId;
+      public bool takeoffFuncId;
+      public bool attachPosition;
+    }
 
     public NecklaceConfig() {
     }
@@ -39,6 +197,76 @@ namespace Config
         }
         switch (field.ID)
         {
+          case 10:
+            if (field.Type == TType.I32) {
+              Id = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 20:
+            if (field.Type == TType.I32) {
+              NameMessageId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 30:
+            if (field.Type == TType.String) {
+              Icon = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 40:
+            if (field.Type == TType.I32) {
+              Quality = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 50:
+            if (field.Type == TType.String) {
+              Resource = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 60:
+            if (field.Type == TType.I32) {
+              DescMessageId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 70:
+            if (field.Type == TType.I32) {
+              ActiveLoverExp = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 80:
+            if (field.Type == TType.I32) {
+              PutonFuncId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 90:
+            if (field.Type == TType.I32) {
+              TakeoffFuncId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 100:
+            if (field.Type == TType.String) {
+              AttachPosition = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           default: 
             TProtocolUtil.Skip(iprot, field.Type);
             break;
@@ -51,12 +279,113 @@ namespace Config
     public void Write(TProtocol oprot) {
       TStruct struc = new TStruct("NecklaceConfig");
       oprot.WriteStructBegin(struc);
+      TField field = new TField();
+      if (__isset.id) {
+        field.Name = "id";
+        field.Type = TType.I32;
+        field.ID = 10;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(Id);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.nameMessageId) {
+        field.Name = "nameMessageId";
+        field.Type = TType.I32;
+        field.ID = 20;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(NameMessageId);
+        oprot.WriteFieldEnd();
+      }
+      if (Icon != null && __isset.icon) {
+        field.Name = "icon";
+        field.Type = TType.String;
+        field.ID = 30;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Icon);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.quality) {
+        field.Name = "quality";
+        field.Type = TType.I32;
+        field.ID = 40;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(Quality);
+        oprot.WriteFieldEnd();
+      }
+      if (Resource != null && __isset.resource) {
+        field.Name = "resource";
+        field.Type = TType.String;
+        field.ID = 50;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Resource);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.descMessageId) {
+        field.Name = "descMessageId";
+        field.Type = TType.I32;
+        field.ID = 60;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(DescMessageId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.activeLoverExp) {
+        field.Name = "activeLoverExp";
+        field.Type = TType.I32;
+        field.ID = 70;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ActiveLoverExp);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.putonFuncId) {
+        field.Name = "putonFuncId";
+        field.Type = TType.I32;
+        field.ID = 80;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(PutonFuncId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.takeoffFuncId) {
+        field.Name = "takeoffFuncId";
+        field.Type = TType.I32;
+        field.ID = 90;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(TakeoffFuncId);
+        oprot.WriteFieldEnd();
+      }
+      if (AttachPosition != null && __isset.attachPosition) {
+        field.Name = "attachPosition";
+        field.Type = TType.String;
+        field.ID = 100;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(AttachPosition);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
 
     public override string ToString() {
       StringBuilder sb = new StringBuilder("NecklaceConfig(");
+      sb.Append("Id: ");
+      sb.Append(Id);
+      sb.Append(",NameMessageId: ");
+      sb.Append(NameMessageId);
+      sb.Append(",Icon: ");
+      sb.Append(Icon);
+      sb.Append(",Quality: ");
+      sb.Append(Quality);
+      sb.Append(",Resource: ");
+      sb.Append(Resource);
+      sb.Append(",DescMessageId: ");
+      sb.Append(DescMessageId);
+      sb.Append(",ActiveLoverExp: ");
+      sb.Append(ActiveLoverExp);
+      sb.Append(",PutonFuncId: ");
+      sb.Append(PutonFuncId);
+      sb.Append(",TakeoffFuncId: ");
+      sb.Append(TakeoffFuncId);
+      sb.Append(",AttachPosition: ");
+      sb.Append(AttachPosition);
       sb.Append(")");
       return sb.ToString();
     }

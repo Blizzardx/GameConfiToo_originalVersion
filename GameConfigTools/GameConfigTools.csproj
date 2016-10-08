@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -265,6 +265,7 @@
     <Compile Include="Config\DecorateConfig.cs" />
     <Compile Include="Config\DecorateResourceInfo.cs" />
     <Compile Include="Config\DialogConfig.cs" />
+    <Compile Include="Config\DifficultyCurveConfig.cs" />
     <Compile Include="Config\DiyCharConfig.cs" />
     <Compile Include="Config\DiyMallConfig.cs" />
     <Compile Include="Config\DiyPositionInfo.cs" />
@@ -273,6 +274,8 @@
     <Compile Include="Config\DropItem.cs" />
     <Compile Include="Config\DropListConfig.cs" />
     <Compile Include="Config\EmoticonConfig.cs" />
+    <Compile Include="Config\EndlessScenceConfig.cs" />
+    <Compile Include="Config\EndlessStageConfig.cs" />
     <Compile Include="Config\ExchangeConfig.cs" />
     <Compile Include="Config\FashionConfig.cs" />
     <Compile Include="Config\FashionGroupConfig.cs" />
@@ -300,10 +303,10 @@
     <Compile Include="Config\MonsterConfig.cs" />
     <Compile Include="Config\MonsterSkillGroupConfig.cs" />
     <Compile Include="Config\MonsterWeightConfig.cs" />
+    <Compile Include="Config\NecklaceConfig.cs" />
     <Compile Include="Config\NeedCurrencyConfig.cs" />
     <Compile Include="Config\NeedItemConfig.cs" />
     <Compile Include="Config\OptionElement.cs" />
-    <Compile Include="Config\OrdinaryCounterConfig.cs" />
     <Compile Include="Config\PentakillConfig.cs" />
     <Compile Include="Config\PropsConfig.cs" />
     <Compile Include="Config\PvpStageConfig.cs" />
@@ -326,6 +329,8 @@
     <Compile Include="Config\SystemChatConfig.cs" />
     <Compile Include="Config\SystemDecorateTypeSortConfig.cs" />
     <Compile Include="Config\SystemDecorateTypeSortInfo.cs" />
+    <Compile Include="Config\SystemLoverConfig.cs" />
+    <Compile Include="Config\SystemLoverExpStepInfo.cs" />
     <Compile Include="Config\SystemRoomConfig.cs" />
     <Compile Include="Config\Table\ActionGroupConfigTable.cs" />
     <Compile Include="Config\Table\ActiviyMallConfigTable.cs" />
@@ -355,6 +360,7 @@
     <Compile Include="Config\Table\DarkCloudConfigTable.cs" />
     <Compile Include="Config\Table\DecorateConfigTable.cs" />
     <Compile Include="Config\Table\DialogConfigTable.cs" />
+    <Compile Include="Config\Table\DifficultyCurveConfigTable.cs" />
     <Compile Include="Config\Table\DirtywordConfigTable.cs" />
     <Compile Include="Config\Table\DiyCharConfigTable.cs" />
     <Compile Include="Config\Table\DiyMallConfigTable.cs" />
@@ -362,6 +368,8 @@
     <Compile Include="Config\Table\DropConfigTable.cs" />
     <Compile Include="Config\Table\EffectItemCollideTable.cs" />
     <Compile Include="Config\Table\EmoticonConfigTable.cs" />
+    <Compile Include="Config\Table\EndlessScenceConfigTable.cs" />
+    <Compile Include="Config\Table\EndlessStageConfigTable.cs" />
     <Compile Include="Config\Table\ExchangeConfigTable.cs" />
     <Compile Include="Config\Table\FashionConfigTable.cs" />
     <Compile Include="Config\Table\FashionGroupConfigTable.cs" />
@@ -375,6 +383,7 @@
     <Compile Include="Config\Table\MonsterBornConfigTable.cs" />
     <Compile Include="Config\Table\MonsterConfigTable.cs" />
     <Compile Include="Config\Table\MonsterSkillGroupConfigTable.cs" />
+    <Compile Include="Config\Table\NecklaceConfigTable.cs" />
     <Compile Include="Config\Table\PentakillConfigTable.cs" />
     <Compile Include="Config\Table\PropsConfigTable.cs" />
     <Compile Include="Config\Table\PvpStageConfigTable.cs" />
@@ -405,8 +414,16 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
-<Compile Include="Import\GenScript\User\BattleResultConfigImporter.cs" />
-<Compile Include="Import\GenScript\Auto\BattleResultConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\EndlessScenceConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\EndlessScenceConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\EndlessStageConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\EndlessStageConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\DifficultyCurveConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\DifficultyCurveConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\NecklaceConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\NecklaceConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\BattleResultConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\BattleResultConfigImporter.cs" />
     <Compile Include="Import\EmoticonConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\CharacterExpConfigImporter.cs" />
     <Compile Include="Import\GenScript\Auto\CharacterExpConfigImporter.cs" />

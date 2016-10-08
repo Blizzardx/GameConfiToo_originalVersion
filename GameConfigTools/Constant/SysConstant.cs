@@ -168,13 +168,24 @@ namespace GameConfigTools.Constant
 
 
         public static readonly string STORY_PLAY_CONFIG = "storyPlayConfig";
+
         public static readonly string BATTLE_MACHINE_CONFIG = "battleMachineConfig";
+
         public static readonly string MONSTER_BORN_CONFIG = "monsterBornConfig";
+
         public static readonly string PENTAKILL_CONFIG = "pentaKillConfig";
 
         public static readonly string EMOTICON_CONFIG = "emoticonConfig";
 
         public static readonly string CHARACTER_EXP_CONFIG = "characterExpConfig";
+
+        public static readonly string NECKLACE_CONFIG = "necklaceConfig";
+
+        public static readonly string DIFFICULTY_CURVE_CONFIG = "difficultyCurveConfig";
+
+        public static readonly string ENDLESS_STAGE_CONFIG = "endlessStageConfig";
+
+        public static readonly string ENDLESS_SCENE_CONFIG = "endlessScenceConfig";
 
     }
 }

@@ -27,6 +27,7 @@ namespace Config.Table
     private Config.SystemDecorateTypeSortConfig _decorateTypeSrotConfig;
     private Config.SystemChatConfig _chatConfig;
     private Config.SystemCharacterConfig _characterConfig;
+    private Config.SystemLoverConfig _loverConfig;
 
     public Config.SystemRoomConfig RoomConfig
     {
@@ -80,6 +81,19 @@ namespace Config.Table
       }
     }
 
+    public Config.SystemLoverConfig LoverConfig
+    {
+      get
+      {
+        return _loverConfig;
+      }
+      set
+      {
+        __isset.loverConfig = true;
+        this._loverConfig = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -90,6 +104,7 @@ namespace Config.Table
       public bool decorateTypeSrotConfig;
       public bool chatConfig;
       public bool characterConfig;
+      public bool loverConfig;
     }
 
     public SystemConfigTable() {
@@ -139,6 +154,14 @@ namespace Config.Table
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 50:
+            if (field.Type == TType.Struct) {
+              LoverConfig = new Config.SystemLoverConfig();
+              LoverConfig.Read(iprot);
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           default: 
             TProtocolUtil.Skip(iprot, field.Type);
             break;
@@ -184,6 +207,14 @@ namespace Config.Table
         CharacterConfig.Write(oprot);
         oprot.WriteFieldEnd();
       }
+      if (LoverConfig != null && __isset.loverConfig) {
+        field.Name = "loverConfig";
+        field.Type = TType.Struct;
+        field.ID = 50;
+        oprot.WriteFieldBegin(field);
+        LoverConfig.Write(oprot);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -198,6 +229,8 @@ namespace Config.Table
       sb.Append(ChatConfig== null ? "<null>" : ChatConfig.ToString());
       sb.Append(",CharacterConfig: ");
       sb.Append(CharacterConfig== null ? "<null>" : CharacterConfig.ToString());
+      sb.Append(",LoverConfig: ");
+      sb.Append(LoverConfig== null ? "<null>" : LoverConfig.ToString());
       sb.Append(")");
       return sb.ToString();
     }

@@ -25,11 +25,6 @@ namespace Config.Table
   {
     private Dictionary<sbyte, Dictionary<sbyte, sbyte>> _buffClashConfigMap;
 
-    /// <summary>
-    /// key:待加的buff  value:  k:碰撞类型集合，判断时检查身上的buff是否在集合中存在
-    /// value: 碰撞的结果，1、替换，2、叠加，3、无效
-    /// 
-    /// </summary>
     public Dictionary<sbyte, Dictionary<sbyte, sbyte>> BuffClashConfigMap
     {
       get
@@ -71,26 +66,26 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 BuffClashConfigMap = new Dictionary<sbyte, Dictionary<sbyte, sbyte>>();
-                TMap _map53 = iprot.ReadMapBegin();
-                for( int _i54 = 0; _i54 < _map53.Count; ++_i54)
+                TMap _map48 = iprot.ReadMapBegin();
+                for( int _i49 = 0; _i49 < _map48.Count; ++_i49)
                 {
-                  sbyte _key55;
-                  Dictionary<sbyte, sbyte> _val56;
-                  _key55 = iprot.ReadByte();
+                  sbyte _key50;
+                  Dictionary<sbyte, sbyte> _val51;
+                  _key50 = iprot.ReadByte();
                   {
-                    _val56 = new Dictionary<sbyte, sbyte>();
-                    TMap _map57 = iprot.ReadMapBegin();
-                    for( int _i58 = 0; _i58 < _map57.Count; ++_i58)
+                    _val51 = new Dictionary<sbyte, sbyte>();
+                    TMap _map52 = iprot.ReadMapBegin();
+                    for( int _i53 = 0; _i53 < _map52.Count; ++_i53)
                     {
-                      sbyte _key59;
-                      sbyte _val60;
-                      _key59 = iprot.ReadByte();
-                      _val60 = iprot.ReadByte();
-                      _val56[_key59] = _val60;
+                      sbyte _key54;
+                      sbyte _val55;
+                      _key54 = iprot.ReadByte();
+                      _val55 = iprot.ReadByte();
+                      _val51[_key54] = _val55;
                     }
                     iprot.ReadMapEnd();
                   }
-                  BuffClashConfigMap[_key55] = _val56;
+                  BuffClashConfigMap[_key50] = _val51;
                 }
                 iprot.ReadMapEnd();
               }
@@ -118,15 +113,15 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.Byte, TType.Map, BuffClashConfigMap.Count));
-          foreach (sbyte _iter61 in BuffClashConfigMap.Keys)
+          foreach (sbyte _iter56 in BuffClashConfigMap.Keys)
           {
-            oprot.WriteByte(_iter61);
+            oprot.WriteByte(_iter56);
             {
-              oprot.WriteMapBegin(new TMap(TType.Byte, TType.Byte, BuffClashConfigMap[_iter61].Count));
-              foreach (sbyte _iter62 in BuffClashConfigMap[_iter61].Keys)
+              oprot.WriteMapBegin(new TMap(TType.Byte, TType.Byte, BuffClashConfigMap[_iter56].Count));
+              foreach (sbyte _iter57 in BuffClashConfigMap[_iter56].Keys)
               {
-                oprot.WriteByte(_iter62);
-                oprot.WriteByte(BuffClashConfigMap[_iter61][_iter62]);
+                oprot.WriteByte(_iter57);
+                oprot.WriteByte(BuffClashConfigMap[_iter56][_iter57]);
               }
               oprot.WriteMapEnd();
             }

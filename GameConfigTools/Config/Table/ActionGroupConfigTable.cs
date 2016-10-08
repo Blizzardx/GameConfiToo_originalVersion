@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 ActionGroupMap = new Dictionary<int, Config.ActionGroupConfig>();
-                TMap _map140 = iprot.ReadMapBegin();
-                for( int _i141 = 0; _i141 < _map140.Count; ++_i141)
+                TMap _map135 = iprot.ReadMapBegin();
+                for( int _i136 = 0; _i136 < _map135.Count; ++_i136)
                 {
-                  int _key142;
-                  Config.ActionGroupConfig _val143;
-                  _key142 = iprot.ReadI32();
-                  _val143 = new Config.ActionGroupConfig();
-                  _val143.Read(iprot);
-                  ActionGroupMap[_key142] = _val143;
+                  int _key137;
+                  Config.ActionGroupConfig _val138;
+                  _key137 = iprot.ReadI32();
+                  _val138 = new Config.ActionGroupConfig();
+                  _val138.Read(iprot);
+                  ActionGroupMap[_key137] = _val138;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, ActionGroupMap.Count));
-          foreach (int _iter144 in ActionGroupMap.Keys)
+          foreach (int _iter139 in ActionGroupMap.Keys)
           {
-            oprot.WriteI32(_iter144);
-            ActionGroupMap[_iter144].Write(oprot);
+            oprot.WriteI32(_iter139);
+            ActionGroupMap[_iter139].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

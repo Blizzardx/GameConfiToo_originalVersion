@@ -16,36 +16,64 @@ namespace GameConfigTools.Import
 
         protected override bool Valid(XElement root, out TBase tbase, ref string errMsg)
         {
-            tbase = null;
             CounterConfigTable config = new CounterConfigTable();
-            config.OrdinaryCounterConfigMap = new Dictionary<sbyte, OrdinaryCounterConfig>();
-
-            XElement ordinaryCountersConfigE = root.Element("ordinaryCountersConfig");
-            XElement playerCountersE = ordinaryCountersConfigE.Element("playerCounters");
-            var ordinaryCounterEList = playerCountersE.Elements("ordinaryCounter");
-            foreach (var ordinaryCounterE in ordinaryCounterEList)
+            tbase = config;
+            config.CycleCounterConfigMap = new Dictionary<int, CycleCounterConfig>();
+            
+            if (!ValidCycleCounterConfig(root, config.CycleCounterConfigMap, ref errMsg))
             {
-                int type;
-                if (!VaildUtil.TryConvertInt(ordinaryCounterE.Attribute("type").Value, out type, 0, 3))
-                {
-                    errMsg = "计数器类型必须是0 - 3之间的整数";
-                    return false;
-                }
-                int max;
-                if (!VaildUtil.TryConvertInt(ordinaryCounterE.Attribute("type").Value, out max, 1, short.MaxValue))
-                {
-                    errMsg = string.Format("计数器类型必须是0 - {0}之间的整数", short.MaxValue);
-                    return false;
-                }
-
-                OrdinaryCounterConfig c = new OrdinaryCounterConfig();
-                c.Type = (sbyte)type;
-                c.Max = (short)max;
-
+                return false;
             }
-
-            return base.Valid(root, out tbase, ref errMsg);
+            return true;
         }
+
+        private bool ValidCycleCounterConfig(XElement root, Dictionary<int, CycleCounterConfig> config, ref string errMsg)
+        {
+            root = root.Element("cycleCountersConfig").Element("playerCounters");
+
+            var tmpList = root.Elements("cycleCounter");
+            foreach (var elem in tmpList)
+            {
+                CycleCounterConfig elemInfo = new CycleCounterConfig();
+                int id = 0;
+                int cycleTime = 0;
+                short max = 0;
+                DateTime? baseDate = null;
+                if (!int.TryParse(elem.Attribute("id").Value, out id))
+                {
+                    errMsg = "<id> 必须为整数";
+                    return false;
+                }
+                elemInfo.Id = id;
+                if (!int.TryParse(elem.Attribute("cycleTime").Value, out cycleTime))
+                {
+                    errMsg = "<cycleTime> 必须为整数";
+                    return false;
+                }
+                elemInfo.CycleTime = cycleTime;
+                if (!short.TryParse(elem.Attribute("max").Value, out max))
+                {
+                    errMsg = "<max> 必须为short";
+                    return false;
+                }
+                elemInfo.Max = max;
+                if (config.ContainsKey(id))
+                {
+                    errMsg = "<id> 重复 "+id;
+                    return false;
+                }
+                if (!VaildUtil.VaildDateTime(elem.Attribute("baseDate").Value, false, out baseDate))
+                {
+                    errMsg = "<baseDate> 不合法";
+                    return false;
+                }
+                elemInfo.BaseDate =
+                    Convert.ToInt64((baseDate - new DateTime(1970, 1, 1, 0, 0, 0, 0)).Value.TotalMilliseconds);
+                config.Add(id, elemInfo);
+            }
+            return true;
+        }
+
         protected override string GetConfigName()
         {
             return SysConstant.COUNTER_CONFIG;

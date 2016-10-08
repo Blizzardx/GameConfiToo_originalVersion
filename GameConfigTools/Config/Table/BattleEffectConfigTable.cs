@@ -66,15 +66,15 @@ namespace Config.Table
             if (field.Type == TType.Map) {
               {
                 BattleEffectConfigMap = new Dictionary<int, Config.BattleEffectConfig>();
-                TMap _map91 = iprot.ReadMapBegin();
-                for( int _i92 = 0; _i92 < _map91.Count; ++_i92)
+                TMap _map86 = iprot.ReadMapBegin();
+                for( int _i87 = 0; _i87 < _map86.Count; ++_i87)
                 {
-                  int _key93;
-                  Config.BattleEffectConfig _val94;
-                  _key93 = iprot.ReadI32();
-                  _val94 = new Config.BattleEffectConfig();
-                  _val94.Read(iprot);
-                  BattleEffectConfigMap[_key93] = _val94;
+                  int _key88;
+                  Config.BattleEffectConfig _val89;
+                  _key88 = iprot.ReadI32();
+                  _val89 = new Config.BattleEffectConfig();
+                  _val89.Read(iprot);
+                  BattleEffectConfigMap[_key88] = _val89;
                 }
                 iprot.ReadMapEnd();
               }
@@ -102,10 +102,10 @@ namespace Config.Table
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, BattleEffectConfigMap.Count));
-          foreach (int _iter95 in BattleEffectConfigMap.Keys)
+          foreach (int _iter90 in BattleEffectConfigMap.Keys)
           {
-            oprot.WriteI32(_iter95);
-            BattleEffectConfigMap[_iter95].Write(oprot);
+            oprot.WriteI32(_iter90);
+            BattleEffectConfigMap[_iter90].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

@@ -21,6 +21,8 @@ namespace GameConfigTools.Import
             systemConfig.DecorateTypeSrotConfig = new SystemDecorateTypeSortConfig();
             systemConfig.ChatConfig = new SystemChatConfig();
             systemConfig.CharacterConfig = new SystemCharacterConfig();
+            systemConfig.LoverConfig = new SystemLoverConfig();
+
             if (!ValidRoomConfig(root, systemConfig.RoomConfig, ref errMsg))
             {
                 return false;
@@ -37,8 +39,13 @@ namespace GameConfigTools.Import
             {
                 return false;
             }
+            if (!ValidLoverConfig(root, systemConfig.LoverConfig, ref errMsg))
+            {
+                return false;
+            }
             return true;
         }
+
 
         private bool ValidRoomConfig(XElement e, SystemRoomConfig config, ref string errMsg)
         {
@@ -126,7 +133,6 @@ namespace GameConfigTools.Import
             }
             return true;
         }
-
         private bool ValidCharacterConfig(XElement root, SystemCharacterConfig config, ref string errMsg)
         {
             config.MaleInitDIYList = new List<InitDIYConfig>();
@@ -196,6 +202,61 @@ namespace GameConfigTools.Import
                 c.Pos = pos;
                 c.ItemId = itemId;
                 config.FemaleInitDIYList.Add(c);
+            }
+            return true;
+        }
+        private bool ValidLoverConfig(XElement root, SystemLoverConfig config, ref string errMsg)
+        {
+            root = root.Element("friend");
+            config.ExpStepInfoList = new List<SystemLoverExpStepInfo>();
+            var list = root.Element("loverExpSteps").Elements("loverExpStep");
+            foreach (var elem in list)
+            {
+                SystemLoverExpStepInfo elemInfo = new SystemLoverExpStepInfo();
+                int min, max;
+                if (!int.TryParse(elem.Attribute("min").Value, out min))
+                {
+                    errMsg = "<loverExpSteps-min> 必须为整数";
+                    return false;
+                }
+                if (!int.TryParse(elem.Attribute("max").Value, out max))
+                {
+                    errMsg = "<loverExpSteps-max> 必须为整数";
+                    return false;
+                }
+                elemInfo.Icon = elem.Attribute("icon").Value;
+                elemInfo.Min = min;
+                elemInfo.Max = max;
+
+                config.ExpStepInfoList.Add(elemInfo);
+            }
+            int maxLoverExp = 0;
+            int battleAddLoverExpCycleId = 0;
+            int battleAddLoverExpCounterId = 0;
+            int findLoverIB = 0;
+
+            if (!int.TryParse(root.Element("maxLoverExp").Value, out maxLoverExp))
+            {
+                errMsg = "<maxLoverExp> 必须为整数";
+                return false;
+            }
+            config.MaxLoverExp = maxLoverExp;
+            if (!int.TryParse(root.Element("battleAddLoverExpCycleId").Value, out battleAddLoverExpCycleId))
+            {
+                errMsg = "<battleAddLoverExpCycleId> 必须为整数";
+                return false;
+            }
+            config.BattleAddLoverExpCycleId = battleAddLoverExpCycleId;
+            if (!int.TryParse(root.Element("battleAddLoverExpCounterId").Value, out battleAddLoverExpCounterId))
+            {
+                errMsg = "<battleAddLoverExpCounterId> 必须为整数";
+                return false;
+            }
+            config.BattleAddLoverExpCounterId = battleAddLoverExpCounterId;
+            if (!int.TryParse(root.Element("findLoverIB").Value, out findLoverIB))
+            {
+                errMsg = "<findLoverIB> 必须为整数";
+                return false;
             }
             return true;
         }
