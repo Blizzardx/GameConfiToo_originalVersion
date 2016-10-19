@@ -28,6 +28,7 @@ namespace Config.Table
     private Config.SystemChatConfig _chatConfig;
     private Config.SystemCharacterConfig _characterConfig;
     private Config.SystemLoverConfig _loverConfig;
+    private Config.SystemEndlessConfig _endlessConfig;
 
     public Config.SystemRoomConfig RoomConfig
     {
@@ -94,6 +95,19 @@ namespace Config.Table
       }
     }
 
+    public Config.SystemEndlessConfig EndlessConfig
+    {
+      get
+      {
+        return _endlessConfig;
+      }
+      set
+      {
+        __isset.endlessConfig = true;
+        this._endlessConfig = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -105,6 +119,7 @@ namespace Config.Table
       public bool chatConfig;
       public bool characterConfig;
       public bool loverConfig;
+      public bool endlessConfig;
     }
 
     public SystemConfigTable() {
@@ -162,6 +177,14 @@ namespace Config.Table
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 60:
+            if (field.Type == TType.Struct) {
+              EndlessConfig = new Config.SystemEndlessConfig();
+              EndlessConfig.Read(iprot);
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           default: 
             TProtocolUtil.Skip(iprot, field.Type);
             break;
@@ -215,6 +238,14 @@ namespace Config.Table
         LoverConfig.Write(oprot);
         oprot.WriteFieldEnd();
       }
+      if (EndlessConfig != null && __isset.endlessConfig) {
+        field.Name = "endlessConfig";
+        field.Type = TType.Struct;
+        field.ID = 60;
+        oprot.WriteFieldBegin(field);
+        EndlessConfig.Write(oprot);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -231,6 +262,8 @@ namespace Config.Table
       sb.Append(CharacterConfig== null ? "<null>" : CharacterConfig.ToString());
       sb.Append(",LoverConfig: ");
       sb.Append(LoverConfig== null ? "<null>" : LoverConfig.ToString());
+      sb.Append(",EndlessConfig: ");
+      sb.Append(EndlessConfig== null ? "<null>" : EndlessConfig.ToString());
       sb.Append(")");
       return sb.ToString();
     }

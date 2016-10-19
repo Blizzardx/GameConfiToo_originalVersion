@@ -29,6 +29,7 @@ namespace Config
     private int _quality;
     private string _resource;
     private int _descMessageId;
+    private int _funcDescMessageId;
     private int _activeLoverExp;
     private int _putonFuncId;
     private int _takeoffFuncId;
@@ -112,6 +113,19 @@ namespace Config
       }
     }
 
+    public int FuncDescMessageId
+    {
+      get
+      {
+        return _funcDescMessageId;
+      }
+      set
+      {
+        __isset.funcDescMessageId = true;
+        this._funcDescMessageId = value;
+      }
+    }
+
     public int ActiveLoverExp
     {
       get
@@ -176,6 +190,7 @@ namespace Config
       public bool quality;
       public bool resource;
       public bool descMessageId;
+      public bool funcDescMessageId;
       public bool activeLoverExp;
       public bool putonFuncId;
       public bool takeoffFuncId;
@@ -235,6 +250,13 @@ namespace Config
           case 60:
             if (field.Type == TType.I32) {
               DescMessageId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 61:
+            if (field.Type == TType.I32) {
+              FuncDescMessageId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -328,6 +350,14 @@ namespace Config
         oprot.WriteI32(DescMessageId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.funcDescMessageId) {
+        field.Name = "funcDescMessageId";
+        field.Type = TType.I32;
+        field.ID = 61;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(FuncDescMessageId);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.activeLoverExp) {
         field.Name = "activeLoverExp";
         field.Type = TType.I32;
@@ -378,6 +408,8 @@ namespace Config
       sb.Append(Resource);
       sb.Append(",DescMessageId: ");
       sb.Append(DescMessageId);
+      sb.Append(",FuncDescMessageId: ");
+      sb.Append(FuncDescMessageId);
       sb.Append(",ActiveLoverExp: ");
       sb.Append(ActiveLoverExp);
       sb.Append(",PutonFuncId: ");

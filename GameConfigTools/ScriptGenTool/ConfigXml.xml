@@ -155,6 +155,7 @@
         <GenScriptLineXmlConfig classTypeName="string" memberName="resource"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="desc"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="descMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="funcMessageId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="activeLoverExp"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="putonfuncid"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="takeofffuncid"/>
@@ -171,7 +172,7 @@
     <GenScriptClassXmlConfig className="EndlessStageConfig">
       <lineConfigList>
         <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
-        <GenScriptLineXmlConfig classTypeName="string" memberName="name"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nameMessageId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="descMessageId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="activeLimitId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="limitMessageId"/>

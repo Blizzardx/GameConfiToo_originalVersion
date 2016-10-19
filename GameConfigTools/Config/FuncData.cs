@@ -147,12 +147,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 ParamStringList = new List<string>();
-                TList _list57 = iprot.ReadListBegin();
-                for( int _i58 = 0; _i58 < _list57.Count; ++_i58)
+                TList _list61 = iprot.ReadListBegin();
+                for( int _i62 = 0; _i62 < _list61.Count; ++_i62)
                 {
-                  string _elem59 = null;
-                  _elem59 = iprot.ReadString();
-                  ParamStringList.Add(_elem59);
+                  string _elem63 = null;
+                  _elem63 = iprot.ReadString();
+                  ParamStringList.Add(_elem63);
                 }
                 iprot.ReadListEnd();
               }
@@ -164,12 +164,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 ParamIntList = new List<int>();
-                TList _list60 = iprot.ReadListBegin();
-                for( int _i61 = 0; _i61 < _list60.Count; ++_i61)
+                TList _list64 = iprot.ReadListBegin();
+                for( int _i65 = 0; _i65 < _list64.Count; ++_i65)
                 {
-                  int _elem62 = 0;
-                  _elem62 = iprot.ReadI32();
-                  ParamIntList.Add(_elem62);
+                  int _elem66 = 0;
+                  _elem66 = iprot.ReadI32();
+                  ParamIntList.Add(_elem66);
                 }
                 iprot.ReadListEnd();
               }
@@ -221,9 +221,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.String, ParamStringList.Count));
-          foreach (string _iter63 in ParamStringList)
+          foreach (string _iter67 in ParamStringList)
           {
-            oprot.WriteString(_iter63);
+            oprot.WriteString(_iter67);
           }
           oprot.WriteListEnd();
         }
@@ -236,9 +236,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, ParamIntList.Count));
-          foreach (int _iter64 in ParamIntList)
+          foreach (int _iter68 in ParamIntList)
           {
-            oprot.WriteI32(_iter64);
+            oprot.WriteI32(_iter68);
           }
           oprot.WriteListEnd();
         }

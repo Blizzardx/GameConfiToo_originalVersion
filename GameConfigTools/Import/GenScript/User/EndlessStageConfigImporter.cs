@@ -44,7 +44,7 @@ namespace GameConfigTools.Import
             XElement endlessStageE = new XElement("endlessStage");
             e.Add(endlessStageE);
             endlessStageE.Add(new XAttribute("id", id));
-            endlessStageE.Add(new XAttribute("name", name));
+            endlessStageE.Add(new XAttribute("name", nameMessageId));
             endlessStageE.Add(new XAttribute("activeLimitId", activeLimitId));
 
             if (rewardItemIds != null && rewardItemIds.Count > 0)
@@ -59,6 +59,7 @@ namespace GameConfigTools.Import
 
             EndlessStageConfig c = new EndlessStageConfig();
             c.Id = id;
+            c.NameMessageId = nameMessageId;
             c.DescMessageId = descMessageId;
             c.ActiveLimitId = activeLimitId;
             c.DifficultyDegree = difficultyDegree;

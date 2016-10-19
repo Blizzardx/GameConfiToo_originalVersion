@@ -22,6 +22,7 @@ namespace GameConfigTools.Import
             systemConfig.ChatConfig = new SystemChatConfig();
             systemConfig.CharacterConfig = new SystemCharacterConfig();
             systemConfig.LoverConfig = new SystemLoverConfig();
+            systemConfig.EndlessConfig = new SystemEndlessConfig();
 
             if (!ValidRoomConfig(root, systemConfig.RoomConfig, ref errMsg))
             {
@@ -43,9 +44,12 @@ namespace GameConfigTools.Import
             {
                 return false;
             }
+            if (!ValidEndlessConfig(root, systemConfig.EndlessConfig, ref errMsg))
+            {
+                return false;
+            }
             return true;
         }
-
 
         private bool ValidRoomConfig(XElement e, SystemRoomConfig config, ref string errMsg)
         {
@@ -234,6 +238,10 @@ namespace GameConfigTools.Import
             int battleAddLoverExpCycleId = 0;
             int battleAddLoverExpCounterId = 0;
             int findLoverIB = 0;
+            int battleAddLoverExp = 0;
+            int battleAddLoverExpCount = 0;
+            int loverGiftListCycleId = 0;
+            int loverGiftListCounterId = 0;
 
             if (!int.TryParse(root.Element("maxLoverExp").Value, out maxLoverExp))
             {
@@ -258,6 +266,129 @@ namespace GameConfigTools.Import
                 errMsg = "<findLoverIB> 必须为整数";
                 return false;
             }
+            config.FindLoverIB = findLoverIB;
+
+            if (!int.TryParse(root.Element("battleAddLoverExp").Value, out battleAddLoverExp))
+            {
+                errMsg = "<battleAddLoverExp> 必须为整数";
+                return false;
+            }
+            config.BattleAddLoverExp = battleAddLoverExp;
+
+            if (!int.TryParse(root.Element("battleAddLoverExpCount").Value, out battleAddLoverExpCount))
+            {
+                errMsg = "<battleAddLoverExpCount> 必须为整数";
+                return false;
+            }
+            config.BattleAddLoverExpCount = battleAddLoverExpCount;
+
+            if (!int.TryParse(root.Element("loverGiftListCycleId").Value, out loverGiftListCycleId))
+            {
+                errMsg = "<loverGiftListCycleId> 必须为整数";
+                return false;
+            }
+            config.LoverGiftListCycleId = loverGiftListCycleId;
+
+            if (!int.TryParse(root.Element("loverGiftListCounterId").Value, out loverGiftListCounterId))
+            {
+                errMsg = "<loverGiftListCounterId> 必须为整数";
+                return false;
+            }
+            config.LoverGiftListCounterId = loverGiftListCounterId;
+
+            var giftlist = root.Element("loverGifts").Elements("loverGift");
+            config.GiftInfoList = new List<SystemLoverGiftInfo>();
+            foreach (var elem in giftlist)
+            {
+                SystemLoverGiftInfo elemInfo = new SystemLoverGiftInfo();
+                int itemId, counterId, max;
+
+                if (!int.TryParse(elem.Attribute("itemId").Value, out itemId))
+                {
+                    errMsg = "<loverGift-itemId> 必须为整数";
+                    return false;
+                }
+                if (!int.TryParse(elem.Attribute("counterId").Value, out counterId))
+                {
+                    errMsg = "<loverGift-counterId> 必须为整数";
+                    return false;
+                }
+                if (!int.TryParse(elem.Attribute("max").Value, out max))
+                {
+                    errMsg = "<loverGift-max> 必须为整数";
+                    return false;
+                }
+
+                elemInfo.ItemId = itemId;
+                elemInfo.CounterId = counterId;
+                elemInfo.Max = max;
+
+                config.GiftInfoList.Add(elemInfo);
+            }
+
+            return true;
+        }
+        private bool ValidEndlessConfig(XElement root, SystemEndlessConfig config, ref string errMsg)
+        {
+            root = root.Element("endless");
+
+            int friendInvitationCd;
+            int guildInvitationCd;
+            int IdleInvitationCd;
+            int treasureCountId ;
+            int treasureFreeCountId ;
+            int treasureInitNum ;
+            int treasureBuyNum;
+
+            if (!int.TryParse(root.Element("friendInvitationCd").Value, out friendInvitationCd))
+            {
+                errMsg = "<friendInvitationCd> 必须为整数";
+                return false;
+            }
+            config.FriendInvitationCd = friendInvitationCd;
+
+            if (!int.TryParse(root.Element("guildInvitationCd").Value, out guildInvitationCd))
+            {
+                errMsg = "<guildInvitationCd> 必须为整数";
+                return false;
+            }
+            config.GuildInvitationCd = guildInvitationCd;
+
+            if (!int.TryParse(root.Element("IdleInvitationCd").Value, out IdleInvitationCd))
+            {
+                errMsg = "<IdleInvitationCd> 必须为整数";
+                return false;
+            }
+            config.IdleInvitationCd = IdleInvitationCd;
+
+            if (!int.TryParse(root.Element("treasureCountId").Value, out treasureCountId))
+            {
+                errMsg = "<treasureCountId> 必须为整数";
+                return false;
+            }
+            config.TreasureCountId = treasureCountId;
+
+            if (!int.TryParse(root.Element("treasureFreeCountId").Value, out treasureFreeCountId))
+            {
+                errMsg = "<treasureFreeCountId> 必须为整数";
+                return false;
+            }
+            config.TreasureFreeCountId = treasureFreeCountId;
+
+            if (!int.TryParse(root.Element("treasureInitNum").Value, out treasureInitNum))
+            {
+                errMsg = "<treasureInitNum> 必须为整数";
+                return false;
+            }
+            config.TreasureInitNum = treasureInitNum;
+
+            if (!int.TryParse(root.Element("treasureBuyNum").Value, out treasureBuyNum))
+            {
+                errMsg = "<treasureBuyNum> 必须为整数";
+                return false;
+            }
+            config.TreasureBuyNum = treasureBuyNum;
+
             return true;
         }
 

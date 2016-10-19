@@ -24,6 +24,7 @@ namespace Config
   public partial class EndlessStageConfig : TBase
   {
     private int _id;
+    private int _nameMessageId;
     private int _descMessageId;
     private int _activeLimitId;
     private int _difficultyDegree;
@@ -49,6 +50,19 @@ namespace Config
       {
         __isset.id = true;
         this._id = value;
+      }
+    }
+
+    public int NameMessageId
+    {
+      get
+      {
+        return _nameMessageId;
+      }
+      set
+      {
+        __isset.nameMessageId = true;
+        this._nameMessageId = value;
       }
     }
 
@@ -241,6 +255,7 @@ namespace Config
     #endif
     public struct Isset {
       public bool id;
+      public bool nameMessageId;
       public bool descMessageId;
       public bool activeLimitId;
       public bool difficultyDegree;
@@ -275,6 +290,13 @@ namespace Config
           case 10:
             if (field.Type == TType.I32) {
               Id = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 11:
+            if (field.Type == TType.I32) {
+              NameMessageId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -332,12 +354,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 RewardMessageId = new List<int>();
-                TList _list191 = iprot.ReadListBegin();
-                for( int _i192 = 0; _i192 < _list191.Count; ++_i192)
+                TList _list195 = iprot.ReadListBegin();
+                for( int _i196 = 0; _i196 < _list195.Count; ++_i196)
                 {
-                  int _elem193 = 0;
-                  _elem193 = iprot.ReadI32();
-                  RewardMessageId.Add(_elem193);
+                  int _elem197 = 0;
+                  _elem197 = iprot.ReadI32();
+                  RewardMessageId.Add(_elem197);
                 }
                 iprot.ReadListEnd();
               }
@@ -356,12 +378,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 ScenceIdList = new List<int>();
-                TList _list194 = iprot.ReadListBegin();
-                for( int _i195 = 0; _i195 < _list194.Count; ++_i195)
+                TList _list198 = iprot.ReadListBegin();
+                for( int _i199 = 0; _i199 < _list198.Count; ++_i199)
                 {
-                  int _elem196 = 0;
-                  _elem196 = iprot.ReadI32();
-                  ScenceIdList.Add(_elem196);
+                  int _elem200 = 0;
+                  _elem200 = iprot.ReadI32();
+                  ScenceIdList.Add(_elem200);
                 }
                 iprot.ReadListEnd();
               }
@@ -387,12 +409,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 RewardItemIdList = new List<int>();
-                TList _list197 = iprot.ReadListBegin();
-                for( int _i198 = 0; _i198 < _list197.Count; ++_i198)
+                TList _list201 = iprot.ReadListBegin();
+                for( int _i202 = 0; _i202 < _list201.Count; ++_i202)
                 {
-                  int _elem199 = 0;
-                  _elem199 = iprot.ReadI32();
-                  RewardItemIdList.Add(_elem199);
+                  int _elem203 = 0;
+                  _elem203 = iprot.ReadI32();
+                  RewardItemIdList.Add(_elem203);
                 }
                 iprot.ReadListEnd();
               }
@@ -426,6 +448,14 @@ namespace Config
         field.ID = 10;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(Id);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.nameMessageId) {
+        field.Name = "nameMessageId";
+        field.Type = TType.I32;
+        field.ID = 11;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(NameMessageId);
         oprot.WriteFieldEnd();
       }
       if (__isset.descMessageId) {
@@ -491,9 +521,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, RewardMessageId.Count));
-          foreach (int _iter200 in RewardMessageId)
+          foreach (int _iter204 in RewardMessageId)
           {
-            oprot.WriteI32(_iter200);
+            oprot.WriteI32(_iter204);
           }
           oprot.WriteListEnd();
         }
@@ -514,9 +544,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, ScenceIdList.Count));
-          foreach (int _iter201 in ScenceIdList)
+          foreach (int _iter205 in ScenceIdList)
           {
-            oprot.WriteI32(_iter201);
+            oprot.WriteI32(_iter205);
           }
           oprot.WriteListEnd();
         }
@@ -545,9 +575,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, RewardItemIdList.Count));
-          foreach (int _iter202 in RewardItemIdList)
+          foreach (int _iter206 in RewardItemIdList)
           {
-            oprot.WriteI32(_iter202);
+            oprot.WriteI32(_iter206);
           }
           oprot.WriteListEnd();
         }
@@ -569,6 +599,8 @@ namespace Config
       StringBuilder sb = new StringBuilder("EndlessStageConfig(");
       sb.Append("Id: ");
       sb.Append(Id);
+      sb.Append(",NameMessageId: ");
+      sb.Append(NameMessageId);
       sb.Append(",DescMessageId: ");
       sb.Append(DescMessageId);
       sb.Append(",ActiveLimitId: ");

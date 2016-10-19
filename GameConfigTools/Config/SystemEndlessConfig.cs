@@ -21,104 +21,104 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class FashionGroupConfig : TBase
+  public partial class SystemEndlessConfig : TBase
   {
-    private int _id;
-    private int _nameId;
-    private int _descId;
-    private int _sortId;
-    private string _icon;
-    private int _displayLimitId;
-    private List<int> _fashionList;
+    private int _friendInvitationCd;
+    private int _guildInvitationCd;
+    private int _IdleInvitationCd;
+    private int _treasureCountId;
+    private int _treasureFreeCountId;
+    private int _treasureInitNum;
+    private int _treasureBuyNum;
 
-    public int Id
+    public int FriendInvitationCd
     {
       get
       {
-        return _id;
+        return _friendInvitationCd;
       }
       set
       {
-        __isset.id = true;
-        this._id = value;
+        __isset.friendInvitationCd = true;
+        this._friendInvitationCd = value;
       }
     }
 
-    public int NameId
+    public int GuildInvitationCd
     {
       get
       {
-        return _nameId;
+        return _guildInvitationCd;
       }
       set
       {
-        __isset.nameId = true;
-        this._nameId = value;
+        __isset.guildInvitationCd = true;
+        this._guildInvitationCd = value;
       }
     }
 
-    public int DescId
+    public int IdleInvitationCd
     {
       get
       {
-        return _descId;
+        return _IdleInvitationCd;
       }
       set
       {
-        __isset.descId = true;
-        this._descId = value;
+        __isset.IdleInvitationCd = true;
+        this._IdleInvitationCd = value;
       }
     }
 
-    public int SortId
+    public int TreasureCountId
     {
       get
       {
-        return _sortId;
+        return _treasureCountId;
       }
       set
       {
-        __isset.sortId = true;
-        this._sortId = value;
+        __isset.treasureCountId = true;
+        this._treasureCountId = value;
       }
     }
 
-    public string Icon
+    public int TreasureFreeCountId
     {
       get
       {
-        return _icon;
+        return _treasureFreeCountId;
       }
       set
       {
-        __isset.icon = true;
-        this._icon = value;
+        __isset.treasureFreeCountId = true;
+        this._treasureFreeCountId = value;
       }
     }
 
-    public int DisplayLimitId
+    public int TreasureInitNum
     {
       get
       {
-        return _displayLimitId;
+        return _treasureInitNum;
       }
       set
       {
-        __isset.displayLimitId = true;
-        this._displayLimitId = value;
+        __isset.treasureInitNum = true;
+        this._treasureInitNum = value;
       }
     }
 
-    public List<int> FashionList
+    public int TreasureBuyNum
     {
       get
       {
-        return _fashionList;
+        return _treasureBuyNum;
       }
       set
       {
-        __isset.fashionList = true;
-        this._fashionList = value;
+        __isset.treasureBuyNum = true;
+        this._treasureBuyNum = value;
       }
     }
 
@@ -128,16 +128,16 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool id;
-      public bool nameId;
-      public bool descId;
-      public bool sortId;
-      public bool icon;
-      public bool displayLimitId;
-      public bool fashionList;
+      public bool friendInvitationCd;
+      public bool guildInvitationCd;
+      public bool IdleInvitationCd;
+      public bool treasureCountId;
+      public bool treasureFreeCountId;
+      public bool treasureInitNum;
+      public bool treasureBuyNum;
     }
 
-    public FashionGroupConfig() {
+    public SystemEndlessConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -154,59 +154,49 @@ namespace Config
         {
           case 10:
             if (field.Type == TType.I32) {
-              Id = iprot.ReadI32();
+              FriendInvitationCd = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 20:
             if (field.Type == TType.I32) {
-              NameId = iprot.ReadI32();
+              GuildInvitationCd = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 30:
             if (field.Type == TType.I32) {
-              DescId = iprot.ReadI32();
+              IdleInvitationCd = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 40:
             if (field.Type == TType.I32) {
-              SortId = iprot.ReadI32();
+              TreasureCountId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 50:
-            if (field.Type == TType.String) {
-              Icon = iprot.ReadString();
+            if (field.Type == TType.I32) {
+              TreasureFreeCountId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 60:
             if (field.Type == TType.I32) {
-              DisplayLimitId = iprot.ReadI32();
+              TreasureInitNum = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 70:
-            if (field.Type == TType.List) {
-              {
-                FashionList = new List<int>();
-                TList _list170 = iprot.ReadListBegin();
-                for( int _i171 = 0; _i171 < _list170.Count; ++_i171)
-                {
-                  int _elem172 = 0;
-                  _elem172 = iprot.ReadI32();
-                  FashionList.Add(_elem172);
-                }
-                iprot.ReadListEnd();
-              }
+            if (field.Type == TType.I32) {
+              TreasureBuyNum = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -221,70 +211,63 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("FashionGroupConfig");
+      TStruct struc = new TStruct("SystemEndlessConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (__isset.id) {
-        field.Name = "id";
+      if (__isset.friendInvitationCd) {
+        field.Name = "friendInvitationCd";
         field.Type = TType.I32;
         field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Id);
+        oprot.WriteI32(FriendInvitationCd);
         oprot.WriteFieldEnd();
       }
-      if (__isset.nameId) {
-        field.Name = "nameId";
+      if (__isset.guildInvitationCd) {
+        field.Name = "guildInvitationCd";
         field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(NameId);
+        oprot.WriteI32(GuildInvitationCd);
         oprot.WriteFieldEnd();
       }
-      if (__isset.descId) {
-        field.Name = "descId";
+      if (__isset.IdleInvitationCd) {
+        field.Name = "IdleInvitationCd";
         field.Type = TType.I32;
         field.ID = 30;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(DescId);
+        oprot.WriteI32(IdleInvitationCd);
         oprot.WriteFieldEnd();
       }
-      if (__isset.sortId) {
-        field.Name = "sortId";
+      if (__isset.treasureCountId) {
+        field.Name = "treasureCountId";
         field.Type = TType.I32;
         field.ID = 40;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(SortId);
+        oprot.WriteI32(TreasureCountId);
         oprot.WriteFieldEnd();
       }
-      if (Icon != null && __isset.icon) {
-        field.Name = "icon";
-        field.Type = TType.String;
+      if (__isset.treasureFreeCountId) {
+        field.Name = "treasureFreeCountId";
+        field.Type = TType.I32;
         field.ID = 50;
         oprot.WriteFieldBegin(field);
-        oprot.WriteString(Icon);
+        oprot.WriteI32(TreasureFreeCountId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.displayLimitId) {
-        field.Name = "displayLimitId";
+      if (__isset.treasureInitNum) {
+        field.Name = "treasureInitNum";
         field.Type = TType.I32;
         field.ID = 60;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(DisplayLimitId);
+        oprot.WriteI32(TreasureInitNum);
         oprot.WriteFieldEnd();
       }
-      if (FashionList != null && __isset.fashionList) {
-        field.Name = "fashionList";
-        field.Type = TType.List;
+      if (__isset.treasureBuyNum) {
+        field.Name = "treasureBuyNum";
+        field.Type = TType.I32;
         field.ID = 70;
         oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteListBegin(new TList(TType.I32, FashionList.Count));
-          foreach (int _iter173 in FashionList)
-          {
-            oprot.WriteI32(_iter173);
-          }
-          oprot.WriteListEnd();
-        }
+        oprot.WriteI32(TreasureBuyNum);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -292,21 +275,21 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("FashionGroupConfig(");
-      sb.Append("Id: ");
-      sb.Append(Id);
-      sb.Append(",NameId: ");
-      sb.Append(NameId);
-      sb.Append(",DescId: ");
-      sb.Append(DescId);
-      sb.Append(",SortId: ");
-      sb.Append(SortId);
-      sb.Append(",Icon: ");
-      sb.Append(Icon);
-      sb.Append(",DisplayLimitId: ");
-      sb.Append(DisplayLimitId);
-      sb.Append(",FashionList: ");
-      sb.Append(FashionList);
+      StringBuilder sb = new StringBuilder("SystemEndlessConfig(");
+      sb.Append("FriendInvitationCd: ");
+      sb.Append(FriendInvitationCd);
+      sb.Append(",GuildInvitationCd: ");
+      sb.Append(GuildInvitationCd);
+      sb.Append(",IdleInvitationCd: ");
+      sb.Append(IdleInvitationCd);
+      sb.Append(",TreasureCountId: ");
+      sb.Append(TreasureCountId);
+      sb.Append(",TreasureFreeCountId: ");
+      sb.Append(TreasureFreeCountId);
+      sb.Append(",TreasureInitNum: ");
+      sb.Append(TreasureInitNum);
+      sb.Append(",TreasureBuyNum: ");
+      sb.Append(TreasureBuyNum);
       sb.Append(")");
       return sb.ToString();
     }

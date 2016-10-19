@@ -20,7 +20,7 @@ namespace GameConfigTools.Import
     public partial class EndlessStageConfigImporter : AbstractExcelImporter
     {
 		private int id;
-		private string name;
+		private int nameMessageId;
 		private int descMessageId;
 		private int activeLimitId;
 		private int limitMessageId;
@@ -64,9 +64,9 @@ if (!VaildUtil.TryConvert(values[i][0], out id,int.MinValue,int.MaxValue))
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,0+1, id,int.MinValue,int.MaxValue,"int","id");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][1], out name,string.Empty,string.Empty))
+if (!VaildUtil.TryConvert(values[i][1], out nameMessageId,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,1+1, name,string.Empty,string.Empty,"string","name");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,1+1, nameMessageId,int.MinValue,int.MaxValue,"int","nameMessageId");
 	return;
 }
 if (!VaildUtil.TryConvert(values[i][2], out descMessageId,int.MinValue,int.MaxValue))

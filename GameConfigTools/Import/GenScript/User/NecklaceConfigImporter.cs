@@ -36,6 +36,8 @@ namespace GameConfigTools.Import
             c.Quality = quality;
             c.Resource = resource;
             c.TakeoffFuncId = takeofffuncid;
+            c.FuncDescMessageId = funcMessageId;
+
             // check id 
             if (m_Config.NecklaceConfigMap.ContainsKey(c.Id))
             {
@@ -50,8 +52,8 @@ namespace GameConfigTools.Import
             xmlE.Add(new XAttribute("name", name));
             xmlE.Add(new XAttribute("quality", quality));
             xmlE.Add(new XAttribute("activeLoverExp", activeLoverExp));
-            xmlE.Add(new XAttribute("takeofffuncid", takeofffuncid));
-            xmlE.Add(new XAttribute("putonfuncid", putonfuncid));
+            xmlE.Add(new XAttribute("takeoffFuncId", takeofffuncid));
+            xmlE.Add(new XAttribute("putonFuncId", putonfuncid));
         }
 
         protected override void OnAutoParasBegin()

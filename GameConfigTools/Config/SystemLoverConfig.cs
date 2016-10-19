@@ -28,6 +28,11 @@ namespace Config
     private int _battleAddLoverExpCycleId;
     private int _battleAddLoverExpCounterId;
     private int _findLoverIB;
+    private int _battleAddLoverExp;
+    private int _battleAddLoverExpCount;
+    private int _loverGiftListCycleId;
+    private int _loverGiftListCounterId;
+    private List<SystemLoverGiftInfo> _giftInfoList;
 
     public List<SystemLoverExpStepInfo> ExpStepInfoList
     {
@@ -94,6 +99,71 @@ namespace Config
       }
     }
 
+    public int BattleAddLoverExp
+    {
+      get
+      {
+        return _battleAddLoverExp;
+      }
+      set
+      {
+        __isset.battleAddLoverExp = true;
+        this._battleAddLoverExp = value;
+      }
+    }
+
+    public int BattleAddLoverExpCount
+    {
+      get
+      {
+        return _battleAddLoverExpCount;
+      }
+      set
+      {
+        __isset.battleAddLoverExpCount = true;
+        this._battleAddLoverExpCount = value;
+      }
+    }
+
+    public int LoverGiftListCycleId
+    {
+      get
+      {
+        return _loverGiftListCycleId;
+      }
+      set
+      {
+        __isset.loverGiftListCycleId = true;
+        this._loverGiftListCycleId = value;
+      }
+    }
+
+    public int LoverGiftListCounterId
+    {
+      get
+      {
+        return _loverGiftListCounterId;
+      }
+      set
+      {
+        __isset.loverGiftListCounterId = true;
+        this._loverGiftListCounterId = value;
+      }
+    }
+
+    public List<SystemLoverGiftInfo> GiftInfoList
+    {
+      get
+      {
+        return _giftInfoList;
+      }
+      set
+      {
+        __isset.giftInfoList = true;
+        this._giftInfoList = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -105,6 +175,11 @@ namespace Config
       public bool battleAddLoverExpCycleId;
       public bool battleAddLoverExpCounterId;
       public bool findLoverIB;
+      public bool battleAddLoverExp;
+      public bool battleAddLoverExpCount;
+      public bool loverGiftListCycleId;
+      public bool loverGiftListCounterId;
+      public bool giftInfoList;
     }
 
     public SystemLoverConfig() {
@@ -168,6 +243,52 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 60:
+            if (field.Type == TType.I32) {
+              BattleAddLoverExp = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 70:
+            if (field.Type == TType.I32) {
+              BattleAddLoverExpCount = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 80:
+            if (field.Type == TType.I32) {
+              LoverGiftListCycleId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 90:
+            if (field.Type == TType.I32) {
+              LoverGiftListCounterId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 100:
+            if (field.Type == TType.List) {
+              {
+                GiftInfoList = new List<SystemLoverGiftInfo>();
+                TList _list28 = iprot.ReadListBegin();
+                for( int _i29 = 0; _i29 < _list28.Count; ++_i29)
+                {
+                  SystemLoverGiftInfo _elem30 = new SystemLoverGiftInfo();
+                  _elem30 = new SystemLoverGiftInfo();
+                  _elem30.Read(iprot);
+                  GiftInfoList.Add(_elem30);
+                }
+                iprot.ReadListEnd();
+              }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           default: 
             TProtocolUtil.Skip(iprot, field.Type);
             break;
@@ -188,9 +309,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, ExpStepInfoList.Count));
-          foreach (SystemLoverExpStepInfo _iter28 in ExpStepInfoList)
+          foreach (SystemLoverExpStepInfo _iter31 in ExpStepInfoList)
           {
-            _iter28.Write(oprot);
+            _iter31.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -228,6 +349,53 @@ namespace Config
         oprot.WriteI32(FindLoverIB);
         oprot.WriteFieldEnd();
       }
+      if (__isset.battleAddLoverExp) {
+        field.Name = "battleAddLoverExp";
+        field.Type = TType.I32;
+        field.ID = 60;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(BattleAddLoverExp);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.battleAddLoverExpCount) {
+        field.Name = "battleAddLoverExpCount";
+        field.Type = TType.I32;
+        field.ID = 70;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(BattleAddLoverExpCount);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.loverGiftListCycleId) {
+        field.Name = "loverGiftListCycleId";
+        field.Type = TType.I32;
+        field.ID = 80;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(LoverGiftListCycleId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.loverGiftListCounterId) {
+        field.Name = "loverGiftListCounterId";
+        field.Type = TType.I32;
+        field.ID = 90;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(LoverGiftListCounterId);
+        oprot.WriteFieldEnd();
+      }
+      if (GiftInfoList != null && __isset.giftInfoList) {
+        field.Name = "giftInfoList";
+        field.Type = TType.List;
+        field.ID = 100;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.Struct, GiftInfoList.Count));
+          foreach (SystemLoverGiftInfo _iter32 in GiftInfoList)
+          {
+            _iter32.Write(oprot);
+          }
+          oprot.WriteListEnd();
+        }
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -244,6 +412,16 @@ namespace Config
       sb.Append(BattleAddLoverExpCounterId);
       sb.Append(",FindLoverIB: ");
       sb.Append(FindLoverIB);
+      sb.Append(",BattleAddLoverExp: ");
+      sb.Append(BattleAddLoverExp);
+      sb.Append(",BattleAddLoverExpCount: ");
+      sb.Append(BattleAddLoverExpCount);
+      sb.Append(",LoverGiftListCycleId: ");
+      sb.Append(LoverGiftListCycleId);
+      sb.Append(",LoverGiftListCounterId: ");
+      sb.Append(LoverGiftListCounterId);
+      sb.Append(",GiftInfoList: ");
+      sb.Append(GiftInfoList);
       sb.Append(")");
       return sb.ToString();
     }

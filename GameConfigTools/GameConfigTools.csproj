@@ -329,8 +329,10 @@
     <Compile Include="Config\SystemChatConfig.cs" />
     <Compile Include="Config\SystemDecorateTypeSortConfig.cs" />
     <Compile Include="Config\SystemDecorateTypeSortInfo.cs" />
+    <Compile Include="Config\SystemEndlessConfig.cs" />
     <Compile Include="Config\SystemLoverConfig.cs" />
     <Compile Include="Config\SystemLoverExpStepInfo.cs" />
+    <Compile Include="Config\SystemLoverGiftInfo.cs" />
     <Compile Include="Config\SystemRoomConfig.cs" />
     <Compile Include="Config\Table\ActionGroupConfigTable.cs" />
     <Compile Include="Config\Table\ActiviyMallConfigTable.cs" />

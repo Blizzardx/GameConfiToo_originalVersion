@@ -27,6 +27,7 @@ namespace GameConfigTools.Import
 		private string resource;
 		private string desc;
 		private int descMessageId;
+		private int funcMessageId;
 		private int activeLoverExp;
 		private int putonfuncid;
 		private int takeofffuncid;
@@ -95,24 +96,29 @@ if (!VaildUtil.TryConvert(values[i][7], out descMessageId,int.MinValue,int.MaxVa
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,7+1, descMessageId,int.MinValue,int.MaxValue,"int","descMessageId");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][8], out activeLoverExp,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][8], out funcMessageId,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,8+1, activeLoverExp,int.MinValue,int.MaxValue,"int","activeLoverExp");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,8+1, funcMessageId,int.MinValue,int.MaxValue,"int","funcMessageId");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][9], out putonfuncid,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][9], out activeLoverExp,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,9+1, putonfuncid,int.MinValue,int.MaxValue,"int","putonfuncid");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,9+1, activeLoverExp,int.MinValue,int.MaxValue,"int","activeLoverExp");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][10], out takeofffuncid,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][10], out putonfuncid,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,10+1, takeofffuncid,int.MinValue,int.MaxValue,"int","takeofffuncid");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,10+1, putonfuncid,int.MinValue,int.MaxValue,"int","putonfuncid");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][11], out attachPos,string.Empty,string.Empty))
+if (!VaildUtil.TryConvert(values[i][11], out takeofffuncid,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,11+1, attachPos,string.Empty,string.Empty,"string","attachPos");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,11+1, takeofffuncid,int.MinValue,int.MaxValue,"int","takeofffuncid");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][12], out attachPos,string.Empty,string.Empty))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,12+1, attachPos,string.Empty,string.Empty,"string","attachPos");
 	return;
 }
                     
