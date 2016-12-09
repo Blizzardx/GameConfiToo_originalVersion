@@ -21,16 +21,17 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class BattleSkillConfig : TBase
+  public partial class WeaponConfig : TBase
   {
     private int _id;
+    private int _decomposeId;
     private int _nameMessageId;
     private int _descMessageId;
+    private string _model;
+    private string _prefab;
     private string _icon;
-    private int _cdTime;
-    private int _useLimitId;
-    private int _useFunId;
-    private bool _passive;
+    private int _quality;
+    private string _attachPoint;
 
     public int Id
     {
@@ -42,6 +43,19 @@ namespace Config
       {
         __isset.id = true;
         this._id = value;
+      }
+    }
+
+    public int DecomposeId
+    {
+      get
+      {
+        return _decomposeId;
+      }
+      set
+      {
+        __isset.decomposeId = true;
+        this._decomposeId = value;
       }
     }
 
@@ -71,6 +85,32 @@ namespace Config
       }
     }
 
+    public string Model
+    {
+      get
+      {
+        return _model;
+      }
+      set
+      {
+        __isset.model = true;
+        this._model = value;
+      }
+    }
+
+    public string Prefab
+    {
+      get
+      {
+        return _prefab;
+      }
+      set
+      {
+        __isset.prefab = true;
+        this._prefab = value;
+      }
+    }
+
     public string Icon
     {
       get
@@ -84,55 +124,29 @@ namespace Config
       }
     }
 
-    public int CdTime
+    public int Quality
     {
       get
       {
-        return _cdTime;
+        return _quality;
       }
       set
       {
-        __isset.cdTime = true;
-        this._cdTime = value;
+        __isset.quality = true;
+        this._quality = value;
       }
     }
 
-    public int UseLimitId
+    public string AttachPoint
     {
       get
       {
-        return _useLimitId;
+        return _attachPoint;
       }
       set
       {
-        __isset.useLimitId = true;
-        this._useLimitId = value;
-      }
-    }
-
-    public int UseFunId
-    {
-      get
-      {
-        return _useFunId;
-      }
-      set
-      {
-        __isset.useFunId = true;
-        this._useFunId = value;
-      }
-    }
-
-    public bool Passive
-    {
-      get
-      {
-        return _passive;
-      }
-      set
-      {
-        __isset.passive = true;
-        this._passive = value;
+        __isset.attachPoint = true;
+        this._attachPoint = value;
       }
     }
 
@@ -143,16 +157,17 @@ namespace Config
     #endif
     public struct Isset {
       public bool id;
+      public bool decomposeId;
       public bool nameMessageId;
       public bool descMessageId;
+      public bool model;
+      public bool prefab;
       public bool icon;
-      public bool cdTime;
-      public bool useLimitId;
-      public bool useFunId;
-      public bool passive;
+      public bool quality;
+      public bool attachPoint;
     }
 
-    public BattleSkillConfig() {
+    public WeaponConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -176,49 +191,56 @@ namespace Config
             break;
           case 20:
             if (field.Type == TType.I32) {
-              NameMessageId = iprot.ReadI32();
+              DecomposeId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 30:
             if (field.Type == TType.I32) {
-              DescMessageId = iprot.ReadI32();
+              NameMessageId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 40:
+            if (field.Type == TType.I32) {
+              DescMessageId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 50:
+            if (field.Type == TType.String) {
+              Model = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 60:
+            if (field.Type == TType.String) {
+              Prefab = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 70:
             if (field.Type == TType.String) {
               Icon = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 50:
-            if (field.Type == TType.I32) {
-              CdTime = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 60:
-            if (field.Type == TType.I32) {
-              UseLimitId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 70:
-            if (field.Type == TType.I32) {
-              UseFunId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
           case 80:
-            if (field.Type == TType.Bool) {
-              Passive = iprot.ReadBool();
+            if (field.Type == TType.I32) {
+              Quality = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 90:
+            if (field.Type == TType.String) {
+              AttachPoint = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -233,7 +255,7 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("BattleSkillConfig");
+      TStruct struc = new TStruct("WeaponConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
       if (__isset.id) {
@@ -244,10 +266,18 @@ namespace Config
         oprot.WriteI32(Id);
         oprot.WriteFieldEnd();
       }
+      if (__isset.decomposeId) {
+        field.Name = "decomposeId";
+        field.Type = TType.I32;
+        field.ID = 20;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(DecomposeId);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.nameMessageId) {
         field.Name = "nameMessageId";
         field.Type = TType.I32;
-        field.ID = 20;
+        field.ID = 30;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(NameMessageId);
         oprot.WriteFieldEnd();
@@ -255,49 +285,49 @@ namespace Config
       if (__isset.descMessageId) {
         field.Name = "descMessageId";
         field.Type = TType.I32;
-        field.ID = 30;
+        field.ID = 40;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(DescMessageId);
+        oprot.WriteFieldEnd();
+      }
+      if (Model != null && __isset.model) {
+        field.Name = "model";
+        field.Type = TType.String;
+        field.ID = 50;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Model);
+        oprot.WriteFieldEnd();
+      }
+      if (Prefab != null && __isset.prefab) {
+        field.Name = "prefab";
+        field.Type = TType.String;
+        field.ID = 60;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Prefab);
         oprot.WriteFieldEnd();
       }
       if (Icon != null && __isset.icon) {
         field.Name = "icon";
         field.Type = TType.String;
-        field.ID = 40;
+        field.ID = 70;
         oprot.WriteFieldBegin(field);
         oprot.WriteString(Icon);
         oprot.WriteFieldEnd();
       }
-      if (__isset.cdTime) {
-        field.Name = "cdTime";
+      if (__isset.quality) {
+        field.Name = "quality";
         field.Type = TType.I32;
-        field.ID = 50;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(CdTime);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.useLimitId) {
-        field.Name = "useLimitId";
-        field.Type = TType.I32;
-        field.ID = 60;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(UseLimitId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.useFunId) {
-        field.Name = "useFunId";
-        field.Type = TType.I32;
-        field.ID = 70;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(UseFunId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.passive) {
-        field.Name = "passive";
-        field.Type = TType.Bool;
         field.ID = 80;
         oprot.WriteFieldBegin(field);
-        oprot.WriteBool(Passive);
+        oprot.WriteI32(Quality);
+        oprot.WriteFieldEnd();
+      }
+      if (AttachPoint != null && __isset.attachPoint) {
+        field.Name = "attachPoint";
+        field.Type = TType.String;
+        field.ID = 90;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(AttachPoint);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -305,23 +335,25 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("BattleSkillConfig(");
+      StringBuilder sb = new StringBuilder("WeaponConfig(");
       sb.Append("Id: ");
       sb.Append(Id);
+      sb.Append(",DecomposeId: ");
+      sb.Append(DecomposeId);
       sb.Append(",NameMessageId: ");
       sb.Append(NameMessageId);
       sb.Append(",DescMessageId: ");
       sb.Append(DescMessageId);
+      sb.Append(",Model: ");
+      sb.Append(Model);
+      sb.Append(",Prefab: ");
+      sb.Append(Prefab);
       sb.Append(",Icon: ");
       sb.Append(Icon);
-      sb.Append(",CdTime: ");
-      sb.Append(CdTime);
-      sb.Append(",UseLimitId: ");
-      sb.Append(UseLimitId);
-      sb.Append(",UseFunId: ");
-      sb.Append(UseFunId);
-      sb.Append(",Passive: ");
-      sb.Append(Passive);
+      sb.Append(",Quality: ");
+      sb.Append(Quality);
+      sb.Append(",AttachPoint: ");
+      sb.Append(AttachPoint);
       sb.Append(")");
       return sb.ToString();
     }

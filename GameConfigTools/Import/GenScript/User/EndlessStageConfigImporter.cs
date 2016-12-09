@@ -46,6 +46,8 @@ namespace GameConfigTools.Import
             endlessStageE.Add(new XAttribute("id", id));
             endlessStageE.Add(new XAttribute("name", nameMessageId));
             endlessStageE.Add(new XAttribute("activeLimitId", activeLimitId));
+            endlessStageE.Add(new XAttribute("difficultyDegree", difficultyDegree));
+            endlessStageE.Add(new XAttribute("maxScore", maxScore));
 
             if (rewardItemIds != null && rewardItemIds.Count > 0)
             {

@@ -15,7 +15,7 @@ namespace GameConfigTools.Import
     {
         protected override void GenerateConfig(List<string[][]> sheetValues, ref string errMsg, out XElement root, out TBase tbase)
         {
-            root = null;
+            root = new XElement("root");
             tbase = null;
             if (sheetValues == null || sheetValues.Count == 0)
             {
@@ -52,29 +52,36 @@ namespace GameConfigTools.Import
                         return;
                     }
                     index++;
-                    string res = values[i][index++];
+                    string model = values[i][index++];
                     string dataPrefab = values[i][index++];
-                    int totalFrame;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out totalFrame))
+                    string blush = values[i][index++];
+                    int totalTime;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out totalTime))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int maxFrame;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out maxFrame))
+                    int maxTime;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out maxTime))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，最大帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int targetId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out targetId))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，目标函数ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
-                        return;
-                    }
-                    if (totalFrame == 0 && maxFrame == 0)
+                    if (totalTime == 0 && maxTime == 0)
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，当总帧数不限制时，最大帧数不能为0", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int collisionLimitId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out collisionLimitId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，碰撞条件ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int collisionFuncId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out collisionFuncId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，碰撞功能ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
                     int enterLimitId;
@@ -137,10 +144,16 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，追踪检查间隔时间必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int isWorld;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out isWorld))
+                    int coordType;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out coordType))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，位置是否基于世界坐标系必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，参考坐标系必须为整型", this.GetConfigName(), sheetName, row, index);
+                        return;
+                    }
+                    int floatTime;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out floatTime))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，直线飞行时间必须为整型", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
                     int posX;
@@ -212,12 +225,29 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，bornRotate必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
                         return;
                     }
+
+                    XElement effectE = new XElement("effect");
+                    root.Add(effectE);
+                    effectE.Add(new XAttribute("id", id));
+                    effectE.Add(new XAttribute("totalTime", totalTime));
+                    effectE.Add(new XAttribute("maxTime", maxTime));
+                    effectE.Add(new XAttribute("collisionLimitId", collisionLimitId));
+                    effectE.Add(new XAttribute("collisionFuncId", collisionFuncId));
+                    effectE.Add(new XAttribute("enterLimitId", enterLimitId));
+                    effectE.Add(new XAttribute("enterFuncId", enterFuncId));
+                    effectE.Add(new XAttribute("stayLimitId", stayLimitId));
+                    effectE.Add(new XAttribute("stayFuncId", stayFuncId));
+
+
                     BattleEffectConfig c = new BattleEffectConfig();
                     c.Id = id;
-                    c.Res = res;
-                    c.TotalFrame = totalFrame;
-                    c.MaxFrame = maxFrame;
-                    c.TargetId = targetId;
+                    c.Model = model;
+                    c.DataPrefab = dataPrefab;
+                    c.Blush = blush;
+                    c.TotalTime = totalTime / SysConstant.CLIENT_FRAME_TIME;
+                    c.MaxTime= maxTime / SysConstant.CLIENT_FRAME_TIME;
+                    c.CollisionLimitId = collisionLimitId;
+                    c.CollisionFuncId = collisionFuncId;
                     c.EnterLimitId = enterLimitId;
                     c.EnterFuncId = enterFuncId;
                     c.StayLimitId = stayLimitId;
@@ -228,14 +258,13 @@ namespace GameConfigTools.Import
                     c.DeadFunId = deadFunId;
                     c.Type = type;
                     c.FollowInterval = followInterval;
-                    c.IsWorld = isWorld != 0;
+                    c.CoordType = coordType;
                     c.PosX = posX;
                     c.PosY = posY;
                     c.InitSpeedX = initSpeedX;
                     c.InitSpeedY = initSpeedY;
                     c.AddSpeedX = addSpeedX;
                     c.AddSpeedY = addSpeedY;
-                    c.DataPrefab = dataPrefab;
                     c.DieEffect = dieEffect;
                     c.BornRotate = bornRotate;
                     config.BattleEffectConfigMap.Add(c.Id, c);

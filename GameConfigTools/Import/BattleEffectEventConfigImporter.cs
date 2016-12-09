@@ -47,20 +47,20 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，特效ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int eventFrame;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out eventFrame))
+                    int eventTime;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out eventTime))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，触发事件的帧必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，事件时间必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int frameLimitId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out frameLimitId))
+                    int limitId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out limitId))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，关键帧条件ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int frameFuncId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out frameFuncId))
+                    int funcId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out funcId))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，关键帧功能ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
@@ -69,9 +69,9 @@ namespace GameConfigTools.Import
                     
                     BattleEffectEventConfig c = new BattleEffectEventConfig();
                     c.EffectId = effectId;
-                    c.EventFrame = eventFrame;
-                    c.FrameLimitId = frameLimitId;
-                    c.FrameFuncId = frameFuncId;
+                    c.EventTime = eventTime / SysConstant.CLIENT_FRAME_TIME;
+                    c.LimitId = limitId;
+                    c.FuncId = funcId;
 
                     List<BattleEffectEventConfig> list = null;
                     if (!config.BattleEffectEventConfigMap.ContainsKey(c.EffectId))

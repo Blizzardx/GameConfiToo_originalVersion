@@ -147,6 +147,7 @@ namespace GameConfigTools.Import
                     root.Add(monsterE);
                     monsterE.Add(new XAttribute("id", id));
                     monsterE.Add(new XAttribute("name", name));
+                    monsterE.Add(new XAttribute("nameMessageId", nameMessageId));
                     monsterE.Add(new XAttribute("firstType", firstType));
                     monsterE.Add(new XAttribute("secondType", secondType));
                     monsterE.Add(new XAttribute("quality", quality));

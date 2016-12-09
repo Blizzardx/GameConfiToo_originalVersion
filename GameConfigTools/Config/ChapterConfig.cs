@@ -36,6 +36,7 @@ namespace Config
     private int _award3LimitId;
     private int _award3FuncId;
     private int _flag3Id;
+    private string _mapResource;
 
     public int Id
     {
@@ -206,6 +207,19 @@ namespace Config
       }
     }
 
+    public string MapResource
+    {
+      get
+      {
+        return _mapResource;
+      }
+      set
+      {
+        __isset.mapResource = true;
+        this._mapResource = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -225,6 +239,7 @@ namespace Config
       public bool award3LimitId;
       public bool award3FuncId;
       public bool flag3Id;
+      public bool mapResource;
     }
 
     public ChapterConfig() {
@@ -329,6 +344,13 @@ namespace Config
           case 130:
             if (field.Type == TType.I32) {
               Flag3Id = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 140:
+            if (field.Type == TType.String) {
+              MapResource = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -450,6 +472,14 @@ namespace Config
         oprot.WriteI32(Flag3Id);
         oprot.WriteFieldEnd();
       }
+      if (MapResource != null && __isset.mapResource) {
+        field.Name = "mapResource";
+        field.Type = TType.String;
+        field.ID = 140;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(MapResource);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -482,6 +512,8 @@ namespace Config
       sb.Append(Award3FuncId);
       sb.Append(",Flag3Id: ");
       sb.Append(Flag3Id);
+      sb.Append(",MapResource: ");
+      sb.Append(MapResource);
       sb.Append(")");
       return sb.ToString();
     }

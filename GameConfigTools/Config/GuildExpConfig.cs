@@ -21,62 +21,62 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class SystemLoverGiftInfo : TBase
+  public partial class GuildExpConfig : TBase
   {
-    private int _itemId;
-    private int _counterId;
-    private int _max;
-    private int _broadcastMessageId;
+    private int _level;
+    private int _totalExp;
+    private int _maxMemberCount;
+    private int _maxViceLeaderCount;
 
-    public int ItemId
+    public int Level
     {
       get
       {
-        return _itemId;
+        return _level;
       }
       set
       {
-        __isset.itemId = true;
-        this._itemId = value;
+        __isset.level = true;
+        this._level = value;
       }
     }
 
-    public int CounterId
+    public int TotalExp
     {
       get
       {
-        return _counterId;
+        return _totalExp;
       }
       set
       {
-        __isset.counterId = true;
-        this._counterId = value;
+        __isset.totalExp = true;
+        this._totalExp = value;
       }
     }
 
-    public int Max
+    public int MaxMemberCount
     {
       get
       {
-        return _max;
+        return _maxMemberCount;
       }
       set
       {
-        __isset.max = true;
-        this._max = value;
+        __isset.maxMemberCount = true;
+        this._maxMemberCount = value;
       }
     }
 
-    public int BroadcastMessageId
+    public int MaxViceLeaderCount
     {
       get
       {
-        return _broadcastMessageId;
+        return _maxViceLeaderCount;
       }
       set
       {
-        __isset.broadcastMessageId = true;
-        this._broadcastMessageId = value;
+        __isset.maxViceLeaderCount = true;
+        this._maxViceLeaderCount = value;
       }
     }
 
@@ -86,13 +86,13 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool itemId;
-      public bool counterId;
-      public bool max;
-      public bool broadcastMessageId;
+      public bool level;
+      public bool totalExp;
+      public bool maxMemberCount;
+      public bool maxViceLeaderCount;
     }
 
-    public SystemLoverGiftInfo() {
+    public GuildExpConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -109,28 +109,28 @@ namespace Config
         {
           case 10:
             if (field.Type == TType.I32) {
-              ItemId = iprot.ReadI32();
+              Level = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 20:
             if (field.Type == TType.I32) {
-              CounterId = iprot.ReadI32();
+              TotalExp = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 30:
             if (field.Type == TType.I32) {
-              Max = iprot.ReadI32();
+              MaxMemberCount = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 40:
             if (field.Type == TType.I32) {
-              BroadcastMessageId = iprot.ReadI32();
+              MaxViceLeaderCount = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -145,39 +145,39 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("SystemLoverGiftInfo");
+      TStruct struc = new TStruct("GuildExpConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (__isset.itemId) {
-        field.Name = "itemId";
+      if (__isset.level) {
+        field.Name = "level";
         field.Type = TType.I32;
         field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(ItemId);
+        oprot.WriteI32(Level);
         oprot.WriteFieldEnd();
       }
-      if (__isset.counterId) {
-        field.Name = "counterId";
+      if (__isset.totalExp) {
+        field.Name = "totalExp";
         field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(CounterId);
+        oprot.WriteI32(TotalExp);
         oprot.WriteFieldEnd();
       }
-      if (__isset.max) {
-        field.Name = "max";
+      if (__isset.maxMemberCount) {
+        field.Name = "maxMemberCount";
         field.Type = TType.I32;
         field.ID = 30;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Max);
+        oprot.WriteI32(MaxMemberCount);
         oprot.WriteFieldEnd();
       }
-      if (__isset.broadcastMessageId) {
-        field.Name = "broadcastMessageId";
+      if (__isset.maxViceLeaderCount) {
+        field.Name = "maxViceLeaderCount";
         field.Type = TType.I32;
         field.ID = 40;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(BroadcastMessageId);
+        oprot.WriteI32(MaxViceLeaderCount);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -185,15 +185,15 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("SystemLoverGiftInfo(");
-      sb.Append("ItemId: ");
-      sb.Append(ItemId);
-      sb.Append(",CounterId: ");
-      sb.Append(CounterId);
-      sb.Append(",Max: ");
-      sb.Append(Max);
-      sb.Append(",BroadcastMessageId: ");
-      sb.Append(BroadcastMessageId);
+      StringBuilder sb = new StringBuilder("GuildExpConfig(");
+      sb.Append("Level: ");
+      sb.Append(Level);
+      sb.Append(",TotalExp: ");
+      sb.Append(TotalExp);
+      sb.Append(",MaxMemberCount: ");
+      sb.Append(MaxMemberCount);
+      sb.Append(",MaxViceLeaderCount: ");
+      sb.Append(MaxViceLeaderCount);
       sb.Append(")");
       return sb.ToString();
     }

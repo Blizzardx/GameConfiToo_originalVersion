@@ -15,7 +15,7 @@ namespace GameConfigTools.Import
     {
         protected override void GenerateConfig(List<string[][]> sheetValues, ref string errMsg, out XElement root, out TBase tbase)
         {
-            root = null;
+            root = new XElement("root");
             tbase = null;
             if (sheetValues == null || sheetValues.Count == 0)
             {
@@ -57,7 +57,7 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，技能名字字典id必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    index++;
+                    string name = values[i][index++];
                     int descMessageId;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out descMessageId))
                     {
@@ -65,8 +65,8 @@ namespace GameConfigTools.Import
                         return;
                     }
                     string icon = values[i][index++];
-                    int cdFrame;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out cdFrame))
+                    int cdTime;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out cdTime))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，技能cd必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
@@ -83,21 +83,31 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，功能函数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int activeOrNot;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeOrNot))
+                    int passive;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out passive))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，功能函数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否是被动技能必须为0 - 1整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+
+                    XElement skillE = new XElement("skill");
+                    root.Add(skillE);
+                    skillE.Add(new XAttribute("id", id));
+                    skillE.Add(new XAttribute("cdTime", cdTime));
+                    skillE.Add(new XAttribute("name", name));
+                    skillE.Add(new XAttribute("useLimitId", useLimitId));
+                    skillE.Add(new XAttribute("useFunId", useFunId));
+                    skillE.Add(new XAttribute("passive", passive != 0));
+
                     BattleSkillConfig c = new BattleSkillConfig();
                     c.Id = id;
                     c.NameMessageId = nameMessageId;
                     c.DescMessageId = descMessageId;
                     c.Icon = icon;
-                    c.CdFrame = cdFrame;
+                    c.CdTime = cdTime / SysConstant.CLIENT_FRAME_TIME;
                     c.UseLimitId = useLimitId;
                     c.UseFunId = useFunId;
-                    c.ActiveOrNot = activeOrNot != 0;
+                    c.Passive = passive != 0;
                     config.BattleSkillConfigMap.Add(c.Id, c);
                 }
             }

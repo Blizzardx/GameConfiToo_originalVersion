@@ -196,6 +196,36 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="difficulty"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="direction"/>
       </lineConfigList>
+    </GenScriptClassXmlConfig> 
+    <GenScriptClassXmlConfig className="GuildPrizeConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="itemId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="itemCount"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="weight"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="hitCount"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="AmapConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="name"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="adcode"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="HornAttrConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig />
+        <GenScriptLineXmlConfig classTypeName="string" memberName="background"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="GuildExpConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="level"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="totalExp"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="maxMemberCount"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="maxViceLeaderCount"/>
+      </lineConfigList>
     </GenScriptClassXmlConfig>
   </classConfigList>
 </root>

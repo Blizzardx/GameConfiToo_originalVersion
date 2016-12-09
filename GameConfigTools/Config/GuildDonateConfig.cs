@@ -21,15 +21,15 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class BattleActionConfig : TBase
+  public partial class GuildDonateConfig : TBase
   {
     private int _id;
-    private int _skillId;
-    private string _name;
-    private bool _canMove;
-    private bool _canJump;
-    private int _totalTime;
-    private bool _isLoop;
+    private GuildDonateType _type;
+    private int _currencyType;
+    private int _itemId;
+    private int _count;
+    private int _cycleId;
+    private int _cycleCounterId;
 
     public int Id
     {
@@ -44,81 +44,85 @@ namespace Config
       }
     }
 
-    public int SkillId
+    /// <summary>
+    /// 
+    /// <seealso cref="GuildDonateType"/>
+    /// </summary>
+    public GuildDonateType Type
     {
       get
       {
-        return _skillId;
+        return _type;
       }
       set
       {
-        __isset.skillId = true;
-        this._skillId = value;
+        __isset.type = true;
+        this._type = value;
       }
     }
 
-    public string Name
+    public int CurrencyType
     {
       get
       {
-        return _name;
+        return _currencyType;
       }
       set
       {
-        __isset.name = true;
-        this._name = value;
+        __isset.currencyType = true;
+        this._currencyType = value;
       }
     }
 
-    public bool CanMove
+    public int ItemId
     {
       get
       {
-        return _canMove;
+        return _itemId;
       }
       set
       {
-        __isset.canMove = true;
-        this._canMove = value;
+        __isset.itemId = true;
+        this._itemId = value;
       }
     }
 
-    public bool CanJump
+    public int Count
     {
       get
       {
-        return _canJump;
+        return _count;
       }
       set
       {
-        __isset.canJump = true;
-        this._canJump = value;
+        __isset.count = true;
+        this._count = value;
       }
     }
 
-    public int TotalTime
+    public int CycleId
     {
       get
       {
-        return _totalTime;
+        return _cycleId;
       }
       set
       {
-        __isset.totalTime = true;
-        this._totalTime = value;
+        __isset.cycleId = true;
+        this._cycleId = value;
       }
     }
 
-    public bool IsLoop
+    public int CycleCounterId
     {
       get
       {
-        return _isLoop;
+        return _cycleCounterId;
       }
       set
       {
-        __isset.isLoop = true;
-        this._isLoop = value;
+        __isset.cycleCounterId = true;
+        this._cycleCounterId = value;
       }
     }
 
@@ -129,15 +133,15 @@ namespace Config
     #endif
     public struct Isset {
       public bool id;
-      public bool skillId;
-      public bool name;
-      public bool canMove;
-      public bool canJump;
-      public bool totalTime;
-      public bool isLoop;
+      public bool type;
+      public bool currencyType;
+      public bool itemId;
+      public bool count;
+      public bool cycleId;
+      public bool cycleCounterId;
     }
 
-    public BattleActionConfig() {
+    public GuildDonateConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -161,42 +165,42 @@ namespace Config
             break;
           case 20:
             if (field.Type == TType.I32) {
-              SkillId = iprot.ReadI32();
+              Type = (GuildDonateType)iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 30:
-            if (field.Type == TType.String) {
-              Name = iprot.ReadString();
+            if (field.Type == TType.I32) {
+              CurrencyType = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 40:
-            if (field.Type == TType.Bool) {
-              CanMove = iprot.ReadBool();
+            if (field.Type == TType.I32) {
+              ItemId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 50:
-            if (field.Type == TType.Bool) {
-              CanJump = iprot.ReadBool();
+            if (field.Type == TType.I32) {
+              Count = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 60:
             if (field.Type == TType.I32) {
-              TotalTime = iprot.ReadI32();
+              CycleId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 70:
-            if (field.Type == TType.Bool) {
-              IsLoop = iprot.ReadBool();
+            if (field.Type == TType.I32) {
+              CycleCounterId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -211,7 +215,7 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("BattleActionConfig");
+      TStruct struc = new TStruct("GuildDonateConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
       if (__isset.id) {
@@ -222,52 +226,52 @@ namespace Config
         oprot.WriteI32(Id);
         oprot.WriteFieldEnd();
       }
-      if (__isset.skillId) {
-        field.Name = "skillId";
+      if (__isset.type) {
+        field.Name = "type";
         field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(SkillId);
+        oprot.WriteI32((int)Type);
         oprot.WriteFieldEnd();
       }
-      if (Name != null && __isset.name) {
-        field.Name = "name";
-        field.Type = TType.String;
+      if (__isset.currencyType) {
+        field.Name = "currencyType";
+        field.Type = TType.I32;
         field.ID = 30;
         oprot.WriteFieldBegin(field);
-        oprot.WriteString(Name);
+        oprot.WriteI32(CurrencyType);
         oprot.WriteFieldEnd();
       }
-      if (__isset.canMove) {
-        field.Name = "canMove";
-        field.Type = TType.Bool;
+      if (__isset.itemId) {
+        field.Name = "itemId";
+        field.Type = TType.I32;
         field.ID = 40;
         oprot.WriteFieldBegin(field);
-        oprot.WriteBool(CanMove);
+        oprot.WriteI32(ItemId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.canJump) {
-        field.Name = "canJump";
-        field.Type = TType.Bool;
+      if (__isset.count) {
+        field.Name = "count";
+        field.Type = TType.I32;
         field.ID = 50;
         oprot.WriteFieldBegin(field);
-        oprot.WriteBool(CanJump);
+        oprot.WriteI32(Count);
         oprot.WriteFieldEnd();
       }
-      if (__isset.totalTime) {
-        field.Name = "totalTime";
+      if (__isset.cycleId) {
+        field.Name = "cycleId";
         field.Type = TType.I32;
         field.ID = 60;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(TotalTime);
+        oprot.WriteI32(CycleId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.isLoop) {
-        field.Name = "isLoop";
-        field.Type = TType.Bool;
+      if (__isset.cycleCounterId) {
+        field.Name = "cycleCounterId";
+        field.Type = TType.I32;
         field.ID = 70;
         oprot.WriteFieldBegin(field);
-        oprot.WriteBool(IsLoop);
+        oprot.WriteI32(CycleCounterId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -275,21 +279,21 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("BattleActionConfig(");
+      StringBuilder sb = new StringBuilder("GuildDonateConfig(");
       sb.Append("Id: ");
       sb.Append(Id);
-      sb.Append(",SkillId: ");
-      sb.Append(SkillId);
-      sb.Append(",Name: ");
-      sb.Append(Name);
-      sb.Append(",CanMove: ");
-      sb.Append(CanMove);
-      sb.Append(",CanJump: ");
-      sb.Append(CanJump);
-      sb.Append(",TotalTime: ");
-      sb.Append(TotalTime);
-      sb.Append(",IsLoop: ");
-      sb.Append(IsLoop);
+      sb.Append(",Type: ");
+      sb.Append(Type);
+      sb.Append(",CurrencyType: ");
+      sb.Append(CurrencyType);
+      sb.Append(",ItemId: ");
+      sb.Append(ItemId);
+      sb.Append(",Count: ");
+      sb.Append(Count);
+      sb.Append(",CycleId: ");
+      sb.Append(CycleId);
+      sb.Append(",CycleCounterId: ");
+      sb.Append(CycleCounterId);
       sb.Append(")");
       return sb.ToString();
     }

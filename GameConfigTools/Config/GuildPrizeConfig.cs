@@ -21,12 +21,24 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class SystemLoverGiftInfo : TBase
+  public partial class GuildPrizeConfig : TBase
   {
+    private int _id;
     private int _itemId;
-    private int _counterId;
-    private int _max;
-    private int _broadcastMessageId;
+    private int _count;
+
+    public int Id
+    {
+      get
+      {
+        return _id;
+      }
+      set
+      {
+        __isset.id = true;
+        this._id = value;
+      }
+    }
 
     public int ItemId
     {
@@ -41,42 +53,16 @@ namespace Config
       }
     }
 
-    public int CounterId
+    public int Count
     {
       get
       {
-        return _counterId;
+        return _count;
       }
       set
       {
-        __isset.counterId = true;
-        this._counterId = value;
-      }
-    }
-
-    public int Max
-    {
-      get
-      {
-        return _max;
-      }
-      set
-      {
-        __isset.max = true;
-        this._max = value;
-      }
-    }
-
-    public int BroadcastMessageId
-    {
-      get
-      {
-        return _broadcastMessageId;
-      }
-      set
-      {
-        __isset.broadcastMessageId = true;
-        this._broadcastMessageId = value;
+        __isset.count = true;
+        this._count = value;
       }
     }
 
@@ -86,13 +72,12 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
+      public bool id;
       public bool itemId;
-      public bool counterId;
-      public bool max;
-      public bool broadcastMessageId;
+      public bool count;
     }
 
-    public SystemLoverGiftInfo() {
+    public GuildPrizeConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -109,28 +94,21 @@ namespace Config
         {
           case 10:
             if (field.Type == TType.I32) {
-              ItemId = iprot.ReadI32();
+              Id = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 20:
             if (field.Type == TType.I32) {
-              CounterId = iprot.ReadI32();
+              ItemId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 30:
             if (field.Type == TType.I32) {
-              Max = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 40:
-            if (field.Type == TType.I32) {
-              BroadcastMessageId = iprot.ReadI32();
+              Count = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -145,39 +123,31 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("SystemLoverGiftInfo");
+      TStruct struc = new TStruct("GuildPrizeConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
+      if (__isset.id) {
+        field.Name = "id";
+        field.Type = TType.I32;
+        field.ID = 10;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(Id);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.itemId) {
         field.Name = "itemId";
         field.Type = TType.I32;
-        field.ID = 10;
+        field.ID = 20;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(ItemId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.counterId) {
-        field.Name = "counterId";
-        field.Type = TType.I32;
-        field.ID = 20;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(CounterId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.max) {
-        field.Name = "max";
+      if (__isset.count) {
+        field.Name = "count";
         field.Type = TType.I32;
         field.ID = 30;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Max);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.broadcastMessageId) {
-        field.Name = "broadcastMessageId";
-        field.Type = TType.I32;
-        field.ID = 40;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(BroadcastMessageId);
+        oprot.WriteI32(Count);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -185,15 +155,13 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("SystemLoverGiftInfo(");
-      sb.Append("ItemId: ");
+      StringBuilder sb = new StringBuilder("GuildPrizeConfig(");
+      sb.Append("Id: ");
+      sb.Append(Id);
+      sb.Append(",ItemId: ");
       sb.Append(ItemId);
-      sb.Append(",CounterId: ");
-      sb.Append(CounterId);
-      sb.Append(",Max: ");
-      sb.Append(Max);
-      sb.Append(",BroadcastMessageId: ");
-      sb.Append(BroadcastMessageId);
+      sb.Append(",Count: ");
+      sb.Append(Count);
       sb.Append(")");
       return sb.ToString();
     }

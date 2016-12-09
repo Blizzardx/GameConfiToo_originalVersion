@@ -29,6 +29,7 @@ namespace Config.Table
     private Config.SystemCharacterConfig _characterConfig;
     private Config.SystemLoverConfig _loverConfig;
     private Config.SystemEndlessConfig _endlessConfig;
+    private Config.SystemGuildConfig _guildConfig;
 
     public Config.SystemRoomConfig RoomConfig
     {
@@ -108,6 +109,19 @@ namespace Config.Table
       }
     }
 
+    public Config.SystemGuildConfig GuildConfig
+    {
+      get
+      {
+        return _guildConfig;
+      }
+      set
+      {
+        __isset.guildConfig = true;
+        this._guildConfig = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -120,6 +134,7 @@ namespace Config.Table
       public bool characterConfig;
       public bool loverConfig;
       public bool endlessConfig;
+      public bool guildConfig;
     }
 
     public SystemConfigTable() {
@@ -185,6 +200,14 @@ namespace Config.Table
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 70:
+            if (field.Type == TType.Struct) {
+              GuildConfig = new Config.SystemGuildConfig();
+              GuildConfig.Read(iprot);
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           default: 
             TProtocolUtil.Skip(iprot, field.Type);
             break;
@@ -246,6 +269,14 @@ namespace Config.Table
         EndlessConfig.Write(oprot);
         oprot.WriteFieldEnd();
       }
+      if (GuildConfig != null && __isset.guildConfig) {
+        field.Name = "guildConfig";
+        field.Type = TType.Struct;
+        field.ID = 70;
+        oprot.WriteFieldBegin(field);
+        GuildConfig.Write(oprot);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -264,6 +295,8 @@ namespace Config.Table
       sb.Append(LoverConfig== null ? "<null>" : LoverConfig.ToString());
       sb.Append(",EndlessConfig: ");
       sb.Append(EndlessConfig== null ? "<null>" : EndlessConfig.ToString());
+      sb.Append(",GuildConfig: ");
+      sb.Append(GuildConfig== null ? "<null>" : GuildConfig.ToString());
       sb.Append(")");
       return sb.ToString();
     }

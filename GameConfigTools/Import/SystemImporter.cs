@@ -23,6 +23,7 @@ namespace GameConfigTools.Import
             systemConfig.CharacterConfig = new SystemCharacterConfig();
             systemConfig.LoverConfig = new SystemLoverConfig();
             systemConfig.EndlessConfig = new SystemEndlessConfig();
+            systemConfig.GuildConfig = new SystemGuildConfig();
 
             if (!ValidRoomConfig(root, systemConfig.RoomConfig, ref errMsg))
             {
@@ -45,6 +46,10 @@ namespace GameConfigTools.Import
                 return false;
             }
             if (!ValidEndlessConfig(root, systemConfig.EndlessConfig, ref errMsg))
+            {
+                return false;
+            }
+            if (!ValidGuildConfig(root, systemConfig.GuildConfig, ref errMsg))
             {
                 return false;
             }
@@ -301,7 +306,7 @@ namespace GameConfigTools.Import
             foreach (var elem in giftlist)
             {
                 SystemLoverGiftInfo elemInfo = new SystemLoverGiftInfo();
-                int itemId, counterId, max;
+                int itemId, counterId, max,broadcastMessageId;
 
                 if (!int.TryParse(elem.Attribute("itemId").Value, out itemId))
                 {
@@ -318,11 +323,16 @@ namespace GameConfigTools.Import
                     errMsg = "<loverGift-max> 必须为整数";
                     return false;
                 }
+                if (!int.TryParse(elem.Attribute("broadcastMessageId").Value, out broadcastMessageId))
+                {
+                    errMsg = "<loverGift-broadcastMessageId> 必须为整数";
+                    return false;
+                }
 
                 elemInfo.ItemId = itemId;
                 elemInfo.CounterId = counterId;
                 elemInfo.Max = max;
-
+                elemInfo.BroadcastMessageId = broadcastMessageId;
                 config.GiftInfoList.Add(elemInfo);
             }
 
@@ -389,6 +399,172 @@ namespace GameConfigTools.Import
             }
             config.TreasureBuyNum = treasureBuyNum;
 
+            return true;
+        }
+
+        private bool ValidGuildConfig(XElement root, SystemGuildConfig config, ref string errMsg)
+        {
+            XElement guildE = root.Element("guild");
+            int createGuildPrice;
+            if (!int.TryParse(guildE.Element("createGuildPrice").Value, out createGuildPrice))
+            {
+                errMsg = "<createGuildPrice> 必须为整数";
+                return false;
+            }
+            int changeGuildNamePrice;
+            if (!int.TryParse(guildE.Element("changeGuildNamePrice").Value, out changeGuildNamePrice))
+            {
+                errMsg = "<changeGuildNamePrice> 必须为整数";
+                return false;
+            }
+            int changeGuildIconPrice;
+            if (!int.TryParse(guildE.Element("changeGuildIconPrice").Value, out changeGuildIconPrice))
+            {
+                errMsg = "<changeGuildIconPrice> 必须为整数";
+                return false;
+            }
+            int localRecruitPrice;
+            if (!int.TryParse(guildE.Element("localRecruitPrice").Value, out localRecruitPrice))
+            {
+                errMsg = "<localRecruitPrice> 必须为整数";
+                return false;
+            }
+            int crossRecruitPrice;
+            if (!int.TryParse(guildE.Element("crossRecruitPrice").Value, out crossRecruitPrice))
+            {
+                errMsg = "<crossRecruitPrice> 必须为整数";
+                return false;
+            }
+            config.CreateGuildPrice = createGuildPrice;
+            config.ChangeGuildNamePrice = changeGuildNamePrice;
+            config.ChangeGuildIconPrice = changeGuildIconPrice;
+            config.LocalRecruitPrice = localRecruitPrice;
+            config.CrossRecruitPrice = crossRecruitPrice;
+
+            config.PowerConfigMap = new Dictionary<int, GuildPowerConfig>();
+
+            var powersE = guildE.Element("powers").Elements("power");
+            foreach (var powerE in powersE)
+            {
+                int id;
+                if (!int.TryParse(powerE.Attribute("id").Value, out id))
+                {
+                    errMsg = "<power> id属性必须为整数";
+                    return false;
+                }
+                int weight;
+                if (!int.TryParse(powerE.Attribute("weight").Value, out weight))
+                {
+                    errMsg = "<power> weight属性必须为整数";
+                    return false;
+                }
+                GuildPowerConfig c = new GuildPowerConfig();
+                c.PowerId = id;
+                c.Weight = weight;
+                config.PowerConfigMap.Add(c.PowerId, c);
+            }
+            config.RightConfigMap = new Dictionary<int, GuildRightConfig>();
+            var rightsE = guildE.Element("rights").Elements("right");
+            foreach (var rightE in rightsE)
+            {
+                int id;
+                if (!int.TryParse(rightE.Attribute("id").Value, out id))
+                {
+                    errMsg = "<right> id属性必须为整数";
+                    return false;
+                }
+                int weight;
+                if (!int.TryParse(rightE.Attribute("weight").Value, out weight))
+                {
+                    errMsg = "<right> weight属性必须为整数";
+                    return false;
+                }
+                GuildRightConfig c = new GuildRightConfig();
+                c.RightId = id;
+                c.Weight = weight;
+                config.RightConfigMap.Add(c.RightId, c);
+            }
+            config.DonateConfigList = new List<GuildDonateConfig>();
+            var donatesE = guildE.Element("donates").Elements("donate");
+            foreach (var donateE in donatesE)
+            {
+                GuildDonateConfig c = new GuildDonateConfig();
+
+                int id;
+                if (!int.TryParse(donateE.Attribute("id").Value, out id))
+                {
+                    errMsg = "<donate> id属性必须为整数";
+                    return false;
+                }
+                int type;
+                if (!VaildUtil.TryConvertInt(donateE.Attribute("type").Value, out type, 1, 2))
+                {
+                    errMsg = "<donate> type属性必须为1-2整数";
+                    return false;
+                }
+                int currencyType;
+                if (donateE.Attribute("currencyType") != null)
+                {
+                    if (!VaildUtil.TryConvertInt(donateE.Attribute("currencyType").Value, out currencyType, 1, 4))
+                    {
+                        errMsg = "<donate> currencyType属性必须为1-4整数";
+                        return false;
+                    }
+                    c.CurrencyType = currencyType;
+                }
+                else
+                {
+                    if (type == 1)
+                    {
+                        errMsg = "<donate> type等于1时必须要配置currencyType属性";
+                        return false;
+                    }
+                }
+
+                int itemId;
+                if (donateE.Attribute("itemId") != null)
+                {
+                    if (!int.TryParse(donateE.Attribute("itemId").Value, out itemId))
+                    {
+                        errMsg = "<donate> count属性必须为整数";
+                        return false;
+                    }
+                    c.ItemId = itemId;
+                }
+                else
+                {
+                    if (type == 2)
+                    {
+                        errMsg = "<donate> type等于2时必须要配置itemId属性";
+                        return false;
+                    }
+                }
+                
+                int count;
+                if (!int.TryParse(donateE.Attribute("count").Value, out count))
+                {
+                    errMsg = "<donate> count属性必须为整数";
+                    return false;
+                }
+                int cycleId;
+                if (!int.TryParse(donateE.Attribute("cycleId").Value, out cycleId))
+                {
+                    errMsg = "<donate> cycleId属性必须为整数";
+                    return false;
+                }
+                int cycleCounterId;
+                if (!int.TryParse(donateE.Attribute("cycleCounterId").Value, out cycleCounterId))
+                {
+                    errMsg = "<donate> cycleCounterId属性必须为整数";
+                    return false;
+                }
+                c.Id = id;
+                c.Type = (GuildDonateType)type;
+                c.Count = count;
+                c.CycleId = cycleId;
+                c.CycleCounterId = cycleCounterId;
+                config.DonateConfigList.Add(c);
+            }
             return true;
         }
 

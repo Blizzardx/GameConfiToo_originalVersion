@@ -66,15 +66,15 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.STAGE_CONFIG, new StageImporter());
             importerDic.Add(SysConstant.AERO_CONFIG, new AeroConfigImporter());
             importerDic.Add(SysConstant.DARK_CLOUD_CONFIG, new DarkCloudConfigImporter());
-            importerDic.Add(SysConstant.CLOUD_CONFIG,new CloudConfigImporter());
-            importerDic.Add(SysConstant.RAIN_CONFIG,new RainConfigImporter());
-            importerDic.Add(SysConstant.SHOCK_CONFIG,new ShockConfigImporter());
-            importerDic.Add(SysConstant.WEATHER_PLAN_CONFIG,new WeatherPlanConfigImporter());
-            importerDic.Add(SysConstant.STAGE_WEATHER_PLAN_CONFIG,new StageWeatherPlanConfigImporter());
-            importerDic.Add(SysConstant.ITEM_GENERATOR_CONFIG,new ItemGeneratorConfigImporter());
-            importerDic.Add(SysConstant.STAGE_LOGIC_POINT_DESC_CONFIG,new StageLogicPointDescConfigImporter());
-            importerDic.Add(SysConstant.PVP_STAGE_CONFIG,new PvpStageConfigImporter());
-            importerDic.Add(SysConstant.MODE_CONFIG,new ModeConfigImporter());
+            importerDic.Add(SysConstant.CLOUD_CONFIG, new CloudConfigImporter());
+            importerDic.Add(SysConstant.RAIN_CONFIG, new RainConfigImporter());
+            importerDic.Add(SysConstant.SHOCK_CONFIG, new ShockConfigImporter());
+            importerDic.Add(SysConstant.WEATHER_PLAN_CONFIG, new WeatherPlanConfigImporter());
+            importerDic.Add(SysConstant.STAGE_WEATHER_PLAN_CONFIG, new StageWeatherPlanConfigImporter());
+            importerDic.Add(SysConstant.ITEM_GENERATOR_CONFIG, new ItemGeneratorConfigImporter());
+            importerDic.Add(SysConstant.STAGE_LOGIC_POINT_DESC_CONFIG, new StageLogicPointDescConfigImporter());
+            importerDic.Add(SysConstant.PVP_STAGE_CONFIG, new PvpStageConfigImporter());
+            importerDic.Add(SysConstant.MODE_CONFIG, new ModeConfigImporter());
             importerDic.Add(SysConstant.BATTLE_RESULT_CONFIG, new BattleResultConfigImporter());
             importerDic.Add(SysConstant.ROOM_CHANNEL_CONFIG, new RoomChannelImporter());
             importerDic.Add(SysConstant.PROPS_CONFIG, new PropsImporter());
@@ -109,6 +109,12 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.DIFFICULTY_CURVE_CONFIG, new DifficultyCurveConfigImporter());
             importerDic.Add(SysConstant.ENDLESS_STAGE_CONFIG, new EndlessStageConfigImporter());
             importerDic.Add(SysConstant.ENDLESS_SCENE_CONFIG, new EndlessScenceConfigImporter());
+            importerDic.Add(SysConstant.GUILD_PRIZE_CONFIG, new GuildPrizeConfigImporter());
+            importerDic.Add(SysConstant.AMAP_CONFIG, new AmapConfigImporter());
+            importerDic.Add(SysConstant.HORN_ATTR_CONFIG, new HornAttrConfigImporter());
+            importerDic.Add(SysConstant.GUILD_EXP_CONFIG, new GuildExpConfigImporter());
+            importerDic.Add(SysConstant.WEAPON_CONFIG, new WeaponConfigImporter());
+            importerDic.Add(SysConstant.WEAPON_ATTRIBUTE_CONFIG, new WeaponAttributeConfigImporter());
         }
         /// <summary>
         /// 加载关联导入

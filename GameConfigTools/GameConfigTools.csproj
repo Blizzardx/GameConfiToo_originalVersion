@@ -257,6 +257,7 @@
     <Compile Include="Config\CharacterBaseConfig.cs" />
     <Compile Include="Config\CharacterExpConfig.cs" />
     <Compile Include="Config\ChatChannelConfig.cs" />
+    <Compile Include="Config\CityConfig.cs" />
     <Compile Include="Config\CloudConfig.cs" />
     <Compile Include="Config\CommonSkillConfig.cs" />
     <Compile Include="Config\ConsumeConfig.cs" />
@@ -282,6 +283,12 @@
     <Compile Include="Config\FuncData.cs" />
     <Compile Include="Config\FuncGroup.cs" />
     <Compile Include="Config\GrowAttrRateConfig.cs" />
+    <Compile Include="Config\GuildDonateConfig.cs" />
+    <Compile Include="Config\GuildDonateType.cs" />
+    <Compile Include="Config\GuildExpConfig.cs" />
+    <Compile Include="Config\GuildPowerConfig.cs" />
+    <Compile Include="Config\GuildPrizeConfig.cs" />
+    <Compile Include="Config\GuildRightConfig.cs" />
     <Compile Include="Config\HeadConfig.cs" />
     <Compile Include="Config\HeadsConfig.cs" />
     <Compile Include="Config\HeroConfig.cs" />
@@ -309,6 +316,7 @@
     <Compile Include="Config\OptionElement.cs" />
     <Compile Include="Config\PentakillConfig.cs" />
     <Compile Include="Config\PropsConfig.cs" />
+    <Compile Include="Config\ProvinceConfig.cs" />
     <Compile Include="Config\PvpStageConfig.cs" />
     <Compile Include="Config\RainConfig.cs" />
     <Compile Include="Config\RoomActionConfig.cs" />
@@ -330,6 +338,7 @@
     <Compile Include="Config\SystemDecorateTypeSortConfig.cs" />
     <Compile Include="Config\SystemDecorateTypeSortInfo.cs" />
     <Compile Include="Config\SystemEndlessConfig.cs" />
+    <Compile Include="Config\SystemGuildConfig.cs" />
     <Compile Include="Config\SystemLoverConfig.cs" />
     <Compile Include="Config\SystemLoverExpStepInfo.cs" />
     <Compile Include="Config\SystemLoverGiftInfo.cs" />
@@ -341,6 +350,7 @@
     <Compile Include="Config\Table\AeroGroupConfigTable.cs" />
     <Compile Include="Config\Table\AeroLevelUpConfigTable.cs" />
     <Compile Include="Config\Table\AiConfigTable.cs" />
+    <Compile Include="Config\Table\AmapConfigTable.cs" />
     <Compile Include="Config\Table\BattleActionConfigTable.cs" />
     <Compile Include="Config\Table\BattleActionEventConfigTable.cs" />
     <Compile Include="Config\Table\BattleBuffConfigTable.cs" />
@@ -376,6 +386,8 @@
     <Compile Include="Config\Table\FashionConfigTable.cs" />
     <Compile Include="Config\Table\FashionGroupConfigTable.cs" />
     <Compile Include="Config\Table\FuncConfigTable.cs" />
+    <Compile Include="Config\Table\GuildExpConfigTable.cs" />
+    <Compile Include="Config\Table\GuildPrizeConfigTable.cs" />
     <Compile Include="Config\Table\ItemGeneratorConfigTable.cs" />
     <Compile Include="Config\Table\LimitConfigTable.cs" />
     <Compile Include="Config\Table\LimitFuncSceneConfigTable.cs" />
@@ -401,10 +413,14 @@
     <Compile Include="Config\Table\StoryConfigTable.cs" />
     <Compile Include="Config\Table\SystemConfigTable.cs" />
     <Compile Include="Config\Table\TargetConfigTable.cs" />
+    <Compile Include="Config\Table\WeaponAttributeConfigTable.cs" />
+    <Compile Include="Config\Table\WeaponConfigTable.cs" />
     <Compile Include="Config\Table\WeatherPlanConfigTable.cs" />
     <Compile Include="Config\TargetData.cs" />
     <Compile Include="Config\TargetGroup.cs" />
     <Compile Include="Config\ThriftVector3.cs" />
+    <Compile Include="Config\WeaponAttributeConfig.cs" />
+    <Compile Include="Config\WeaponConfig.cs" />
     <Compile Include="Config\WeatherElement.cs" />
     <Compile Include="Config\WeatherPlanConfig.cs" />
     <Compile Include="Config\WeatherType.cs" />
@@ -416,6 +432,14 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
+    <Compile Include="Import\GenScript\User\GuildExpConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\GuildExpConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\HornAttrConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\HornAttrConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\AmapConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\AmapConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\GuildPrizeConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\GuildPrizeConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\EndlessScenceConfigImporter.cs" />
     <Compile Include="Import\GenScript\Auto\EndlessScenceConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\EndlessStageConfigImporter.cs" />
@@ -520,6 +544,8 @@
     <Compile Include="Import\FuncImporter.cs" />
     <Compile Include="Import\RandomNameImporter.cs" />
     <Compile Include="Import\SystemImporter.cs" />
+    <Compile Include="Import\WeaponAttributeConfigImporter.cs" />
+    <Compile Include="Import\WeaponConfigImporter.cs" />
     <Compile Include="Import\WeatherPlanConfigImporter.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

@@ -24,9 +24,9 @@ namespace Config
   public partial class BattleEffectEventConfig : TBase
   {
     private int _effectId;
-    private int _eventFrame;
-    private int _frameLimitId;
-    private int _frameFuncId;
+    private int _eventTime;
+    private int _limitId;
+    private int _funcId;
 
     public int EffectId
     {
@@ -41,42 +41,42 @@ namespace Config
       }
     }
 
-    public int EventFrame
+    public int EventTime
     {
       get
       {
-        return _eventFrame;
+        return _eventTime;
       }
       set
       {
-        __isset.eventFrame = true;
-        this._eventFrame = value;
+        __isset.eventTime = true;
+        this._eventTime = value;
       }
     }
 
-    public int FrameLimitId
+    public int LimitId
     {
       get
       {
-        return _frameLimitId;
+        return _limitId;
       }
       set
       {
-        __isset.frameLimitId = true;
-        this._frameLimitId = value;
+        __isset.limitId = true;
+        this._limitId = value;
       }
     }
 
-    public int FrameFuncId
+    public int FuncId
     {
       get
       {
-        return _frameFuncId;
+        return _funcId;
       }
       set
       {
-        __isset.frameFuncId = true;
-        this._frameFuncId = value;
+        __isset.funcId = true;
+        this._funcId = value;
       }
     }
 
@@ -87,9 +87,9 @@ namespace Config
     #endif
     public struct Isset {
       public bool effectId;
-      public bool eventFrame;
-      public bool frameLimitId;
-      public bool frameFuncId;
+      public bool eventTime;
+      public bool limitId;
+      public bool funcId;
     }
 
     public BattleEffectEventConfig() {
@@ -116,21 +116,21 @@ namespace Config
             break;
           case 20:
             if (field.Type == TType.I32) {
-              EventFrame = iprot.ReadI32();
+              EventTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 30:
             if (field.Type == TType.I32) {
-              FrameLimitId = iprot.ReadI32();
+              LimitId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 40:
             if (field.Type == TType.I32) {
-              FrameFuncId = iprot.ReadI32();
+              FuncId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -156,28 +156,28 @@ namespace Config
         oprot.WriteI32(EffectId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.eventFrame) {
-        field.Name = "eventFrame";
+      if (__isset.eventTime) {
+        field.Name = "eventTime";
         field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(EventFrame);
+        oprot.WriteI32(EventTime);
         oprot.WriteFieldEnd();
       }
-      if (__isset.frameLimitId) {
-        field.Name = "frameLimitId";
+      if (__isset.limitId) {
+        field.Name = "limitId";
         field.Type = TType.I32;
         field.ID = 30;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(FrameLimitId);
+        oprot.WriteI32(LimitId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.frameFuncId) {
-        field.Name = "frameFuncId";
+      if (__isset.funcId) {
+        field.Name = "funcId";
         field.Type = TType.I32;
         field.ID = 40;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(FrameFuncId);
+        oprot.WriteI32(FuncId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -188,12 +188,12 @@ namespace Config
       StringBuilder sb = new StringBuilder("BattleEffectEventConfig(");
       sb.Append("EffectId: ");
       sb.Append(EffectId);
-      sb.Append(",EventFrame: ");
-      sb.Append(EventFrame);
-      sb.Append(",FrameLimitId: ");
-      sb.Append(FrameLimitId);
-      sb.Append(",FrameFuncId: ");
-      sb.Append(FrameFuncId);
+      sb.Append(",EventTime: ");
+      sb.Append(EventTime);
+      sb.Append(",LimitId: ");
+      sb.Append(LimitId);
+      sb.Append(",FuncId: ");
+      sb.Append(FuncId);
       sb.Append(")");
       return sb.ToString();
     }

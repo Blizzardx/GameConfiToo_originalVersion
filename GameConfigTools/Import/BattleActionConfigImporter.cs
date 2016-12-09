@@ -56,53 +56,29 @@ namespace GameConfigTools.Import
                     }
                     string name = values[i][index++];
 
-                    int isMoveBreak;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out isMoveBreak, 0, 1))
+                    int canMove;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out canMove, 0, 1))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否移动打断必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否可以移动必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
 
-                    int isFlyBreak;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out isFlyBreak, 0, 1))
+                    int canJump;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out canJump, 0, 1))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否飞行打断必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否可以跳必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
-                    int isSkillBreak;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out isSkillBreak, 0, 1))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否技能打断必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
-                        return;
-                    }
-                    int isDemageBreak;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out isDemageBreak, 0, 1))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否受击打断必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
-                        return;
-                    }
-                    int isCollisionBreak;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out isCollisionBreak, 0, 1))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否碰撞打断必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
-                        return;
-                    }
-                    int isFloat;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out isFloat, 0, 1))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否受悬浮必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
-                        return;
-                    }
-                    int canUseOnDrop;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out canUseOnDrop, 0, 1))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，降落伞状态能否使用必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
-                        return;
-                    }
-                    int totalFrame;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out totalFrame))
+                    int totalTime;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out totalTime))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int isLoop;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out isLoop))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否循环必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
 
@@ -110,14 +86,10 @@ namespace GameConfigTools.Import
                     c.Id = id;
                     c.SkillId = skillId;
                     c.Name = name;
-                    c.IsMoveBreak = isMoveBreak != 0;
-                    c.IsFlyBreak = isFlyBreak != 0;
-                    c.IsSkillBreak = isSkillBreak != 0;
-                    c.IsDemageBreak = isDemageBreak != 0;
-                    c.IsCollisionBreak = isCollisionBreak != 0;
-                    c.IsFloat = isFloat != 0;
-                    c.CanUseOnDrop = canUseOnDrop != 0;
-                    c.TotalFrame = totalFrame;
+                    c.CanMove = canMove != 0;
+                    c.CanJump = canJump != 0;
+                    c.TotalTime = totalTime / SysConstant.CLIENT_FRAME_TIME;
+                    c.IsLoop = isLoop != 0;
 
                     List<BattleActionConfig> list = null;
                     if (!config.BattleActionConfigMap.ContainsKey(c.SkillId))

@@ -53,6 +53,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，下一章节ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    string mapResource = values[i][index++];
+                    if (string.IsNullOrEmpty(mapResource))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，map resource can't be null or empty", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     int nameMessageId;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out nameMessageId))
                     {
@@ -149,6 +155,7 @@ namespace GameConfigTools.Import
                     c.Award3LimitId = award3LimitId;
                     c.Award3FuncId = award3FuncId;
                     c.Flag3Id = flag3Id;
+                    c.MapResource = mapResource;
                     config.ChapterConfigMap.Add(c.Id, c);
                 }
             }

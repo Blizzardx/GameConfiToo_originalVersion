@@ -24,10 +24,13 @@ namespace Config
   public partial class BattleEffectConfig : TBase
   {
     private int _id;
-    private string _res;
-    private int _totalFrame;
-    private int _maxFrame;
-    private int _targetId;
+    private string _model;
+    private string _dataPrefab;
+    private string _blush;
+    private int _totalTime;
+    private int _maxTime;
+    private int _collisionLimitId;
+    private int _collisionFuncId;
     private int _enterLimitId;
     private int _enterFuncId;
     private int _stayLimitId;
@@ -38,14 +41,14 @@ namespace Config
     private int _deadFunId;
     private int _type;
     private int _followInterval;
-    private bool _isWorld;
+    private int _coordType;
+    private int _floatTime;
     private int _posX;
     private int _posY;
     private int _initSpeedX;
     private int _initSpeedY;
     private int _addSpeedX;
     private int _addSpeedY;
-    private string _dataPrefab;
     private string _dieEffect;
     private int _bornRotate;
 
@@ -62,55 +65,94 @@ namespace Config
       }
     }
 
-    public string Res
+    public string Model
     {
       get
       {
-        return _res;
+        return _model;
       }
       set
       {
-        __isset.res = true;
-        this._res = value;
+        __isset.model = true;
+        this._model = value;
       }
     }
 
-    public int TotalFrame
+    public string DataPrefab
     {
       get
       {
-        return _totalFrame;
+        return _dataPrefab;
       }
       set
       {
-        __isset.totalFrame = true;
-        this._totalFrame = value;
+        __isset.dataPrefab = true;
+        this._dataPrefab = value;
       }
     }
 
-    public int MaxFrame
+    public string Blush
     {
       get
       {
-        return _maxFrame;
+        return _blush;
       }
       set
       {
-        __isset.maxFrame = true;
-        this._maxFrame = value;
+        __isset.blush = true;
+        this._blush = value;
       }
     }
 
-    public int TargetId
+    public int TotalTime
     {
       get
       {
-        return _targetId;
+        return _totalTime;
       }
       set
       {
-        __isset.targetId = true;
-        this._targetId = value;
+        __isset.totalTime = true;
+        this._totalTime = value;
+      }
+    }
+
+    public int MaxTime
+    {
+      get
+      {
+        return _maxTime;
+      }
+      set
+      {
+        __isset.maxTime = true;
+        this._maxTime = value;
+      }
+    }
+
+    public int CollisionLimitId
+    {
+      get
+      {
+        return _collisionLimitId;
+      }
+      set
+      {
+        __isset.collisionLimitId = true;
+        this._collisionLimitId = value;
+      }
+    }
+
+    public int CollisionFuncId
+    {
+      get
+      {
+        return _collisionFuncId;
+      }
+      set
+      {
+        __isset.collisionFuncId = true;
+        this._collisionFuncId = value;
       }
     }
 
@@ -244,16 +286,29 @@ namespace Config
       }
     }
 
-    public bool IsWorld
+    public int CoordType
     {
       get
       {
-        return _isWorld;
+        return _coordType;
       }
       set
       {
-        __isset.isWorld = true;
-        this._isWorld = value;
+        __isset.coordType = true;
+        this._coordType = value;
+      }
+    }
+
+    public int FloatTime
+    {
+      get
+      {
+        return _floatTime;
+      }
+      set
+      {
+        __isset.floatTime = true;
+        this._floatTime = value;
       }
     }
 
@@ -335,19 +390,6 @@ namespace Config
       }
     }
 
-    public string DataPrefab
-    {
-      get
-      {
-        return _dataPrefab;
-      }
-      set
-      {
-        __isset.dataPrefab = true;
-        this._dataPrefab = value;
-      }
-    }
-
     public string DieEffect
     {
       get
@@ -381,10 +423,13 @@ namespace Config
     #endif
     public struct Isset {
       public bool id;
-      public bool res;
-      public bool totalFrame;
-      public bool maxFrame;
-      public bool targetId;
+      public bool model;
+      public bool dataPrefab;
+      public bool blush;
+      public bool totalTime;
+      public bool maxTime;
+      public bool collisionLimitId;
+      public bool collisionFuncId;
       public bool enterLimitId;
       public bool enterFuncId;
       public bool stayLimitId;
@@ -395,14 +440,14 @@ namespace Config
       public bool deadFunId;
       public bool type;
       public bool followInterval;
-      public bool isWorld;
+      public bool coordType;
+      public bool floatTime;
       public bool posX;
       public bool posY;
       public bool initSpeedX;
       public bool initSpeedY;
       public bool addSpeedX;
       public bool addSpeedY;
-      public bool dataPrefab;
       public bool dieEffect;
       public bool bornRotate;
     }
@@ -431,28 +476,49 @@ namespace Config
             break;
           case 20:
             if (field.Type == TType.String) {
-              Res = iprot.ReadString();
+              Model = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 21:
+            if (field.Type == TType.String) {
+              DataPrefab = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 22:
+            if (field.Type == TType.String) {
+              Blush = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 30:
             if (field.Type == TType.I32) {
-              TotalFrame = iprot.ReadI32();
+              TotalTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 40:
             if (field.Type == TType.I32) {
-              MaxFrame = iprot.ReadI32();
+              MaxTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 45:
             if (field.Type == TType.I32) {
-              TargetId = iprot.ReadI32();
+              CollisionLimitId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 46:
+            if (field.Type == TType.I32) {
+              CollisionFuncId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -528,8 +594,15 @@ namespace Config
             }
             break;
           case 100:
-            if (field.Type == TType.Bool) {
-              IsWorld = iprot.ReadBool();
+            if (field.Type == TType.I32) {
+              CoordType = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 101:
+            if (field.Type == TType.I32) {
+              FloatTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -576,13 +649,6 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 170:
-            if (field.Type == TType.String) {
-              DataPrefab = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
           case 180:
             if (field.Type == TType.String) {
               DieEffect = iprot.ReadString();
@@ -618,36 +684,60 @@ namespace Config
         oprot.WriteI32(Id);
         oprot.WriteFieldEnd();
       }
-      if (Res != null && __isset.res) {
-        field.Name = "res";
+      if (Model != null && __isset.model) {
+        field.Name = "model";
         field.Type = TType.String;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteString(Res);
+        oprot.WriteString(Model);
         oprot.WriteFieldEnd();
       }
-      if (__isset.totalFrame) {
-        field.Name = "totalFrame";
+      if (DataPrefab != null && __isset.dataPrefab) {
+        field.Name = "dataPrefab";
+        field.Type = TType.String;
+        field.ID = 21;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(DataPrefab);
+        oprot.WriteFieldEnd();
+      }
+      if (Blush != null && __isset.blush) {
+        field.Name = "blush";
+        field.Type = TType.String;
+        field.ID = 22;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Blush);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.totalTime) {
+        field.Name = "totalTime";
         field.Type = TType.I32;
         field.ID = 30;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(TotalFrame);
+        oprot.WriteI32(TotalTime);
         oprot.WriteFieldEnd();
       }
-      if (__isset.maxFrame) {
-        field.Name = "maxFrame";
+      if (__isset.maxTime) {
+        field.Name = "maxTime";
         field.Type = TType.I32;
         field.ID = 40;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(MaxFrame);
+        oprot.WriteI32(MaxTime);
         oprot.WriteFieldEnd();
       }
-      if (__isset.targetId) {
-        field.Name = "targetId";
+      if (__isset.collisionLimitId) {
+        field.Name = "collisionLimitId";
         field.Type = TType.I32;
         field.ID = 45;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(TargetId);
+        oprot.WriteI32(CollisionLimitId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.collisionFuncId) {
+        field.Name = "collisionFuncId";
+        field.Type = TType.I32;
+        field.ID = 46;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(CollisionFuncId);
         oprot.WriteFieldEnd();
       }
       if (__isset.enterLimitId) {
@@ -730,12 +820,20 @@ namespace Config
         oprot.WriteI32(FollowInterval);
         oprot.WriteFieldEnd();
       }
-      if (__isset.isWorld) {
-        field.Name = "isWorld";
-        field.Type = TType.Bool;
+      if (__isset.coordType) {
+        field.Name = "coordType";
+        field.Type = TType.I32;
         field.ID = 100;
         oprot.WriteFieldBegin(field);
-        oprot.WriteBool(IsWorld);
+        oprot.WriteI32(CoordType);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.floatTime) {
+        field.Name = "floatTime";
+        field.Type = TType.I32;
+        field.ID = 101;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(FloatTime);
         oprot.WriteFieldEnd();
       }
       if (__isset.posX) {
@@ -786,14 +884,6 @@ namespace Config
         oprot.WriteI32(AddSpeedY);
         oprot.WriteFieldEnd();
       }
-      if (DataPrefab != null && __isset.dataPrefab) {
-        field.Name = "dataPrefab";
-        field.Type = TType.String;
-        field.ID = 170;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteString(DataPrefab);
-        oprot.WriteFieldEnd();
-      }
       if (DieEffect != null && __isset.dieEffect) {
         field.Name = "dieEffect";
         field.Type = TType.String;
@@ -818,14 +908,20 @@ namespace Config
       StringBuilder sb = new StringBuilder("BattleEffectConfig(");
       sb.Append("Id: ");
       sb.Append(Id);
-      sb.Append(",Res: ");
-      sb.Append(Res);
-      sb.Append(",TotalFrame: ");
-      sb.Append(TotalFrame);
-      sb.Append(",MaxFrame: ");
-      sb.Append(MaxFrame);
-      sb.Append(",TargetId: ");
-      sb.Append(TargetId);
+      sb.Append(",Model: ");
+      sb.Append(Model);
+      sb.Append(",DataPrefab: ");
+      sb.Append(DataPrefab);
+      sb.Append(",Blush: ");
+      sb.Append(Blush);
+      sb.Append(",TotalTime: ");
+      sb.Append(TotalTime);
+      sb.Append(",MaxTime: ");
+      sb.Append(MaxTime);
+      sb.Append(",CollisionLimitId: ");
+      sb.Append(CollisionLimitId);
+      sb.Append(",CollisionFuncId: ");
+      sb.Append(CollisionFuncId);
       sb.Append(",EnterLimitId: ");
       sb.Append(EnterLimitId);
       sb.Append(",EnterFuncId: ");
@@ -846,8 +942,10 @@ namespace Config
       sb.Append(Type);
       sb.Append(",FollowInterval: ");
       sb.Append(FollowInterval);
-      sb.Append(",IsWorld: ");
-      sb.Append(IsWorld);
+      sb.Append(",CoordType: ");
+      sb.Append(CoordType);
+      sb.Append(",FloatTime: ");
+      sb.Append(FloatTime);
       sb.Append(",PosX: ");
       sb.Append(PosX);
       sb.Append(",PosY: ");
@@ -860,8 +958,6 @@ namespace Config
       sb.Append(AddSpeedX);
       sb.Append(",AddSpeedY: ");
       sb.Append(AddSpeedY);
-      sb.Append(",DataPrefab: ");
-      sb.Append(DataPrefab);
       sb.Append(",DieEffect: ");
       sb.Append(DieEffect);
       sb.Append(",BornRotate: ");

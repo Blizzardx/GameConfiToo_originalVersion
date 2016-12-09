@@ -29,6 +29,9 @@ namespace GameConfigTools.Constant
         //上传配置
         public static readonly string UPDATE_CONFIG = "/config/updateConfig.do";
 
+        //客户端一帧多长时间，毫秒
+        public static readonly int CLIENT_FRAME_TIME = 33;
+
         /// <summary>
         /// messageConfig配置
         /// </summary>
@@ -186,6 +189,18 @@ namespace GameConfigTools.Constant
         public static readonly string ENDLESS_STAGE_CONFIG = "endlessStageConfig";
 
         public static readonly string ENDLESS_SCENE_CONFIG = "endlessScenceConfig";
+
+        public static readonly string GUILD_PRIZE_CONFIG = "guildPrizeConfig";
+
+        public static readonly string AMAP_CONFIG = "amapConfig";
+
+        public static readonly string HORN_ATTR_CONFIG = "hornAttrConfig";
+
+        public static readonly string GUILD_EXP_CONFIG = "guildExpConfig";
+
+        public static readonly string WEAPON_CONFIG = "weaponConfig";
+
+        public static readonly string WEAPON_ATTRIBUTE_CONFIG = "weaponAttributeConfig";
 
     }
 }
