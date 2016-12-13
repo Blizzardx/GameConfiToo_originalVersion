@@ -191,12 +191,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 PassiveSkillList = new List<int>();
-                TList _list226 = iprot.ReadListBegin();
-                for( int _i227 = 0; _i227 < _list226.Count; ++_i227)
+                TList _list234 = iprot.ReadListBegin();
+                for( int _i235 = 0; _i235 < _list234.Count; ++_i235)
                 {
-                  int _elem228 = 0;
-                  _elem228 = iprot.ReadI32();
-                  PassiveSkillList.Add(_elem228);
+                  int _elem236 = 0;
+                  _elem236 = iprot.ReadI32();
+                  PassiveSkillList.Add(_elem236);
                 }
                 iprot.ReadListEnd();
               }
@@ -208,14 +208,14 @@ namespace Config
             if (field.Type == TType.Map) {
               {
                 AttrMap = new Dictionary<int, int>();
-                TMap _map229 = iprot.ReadMapBegin();
-                for( int _i230 = 0; _i230 < _map229.Count; ++_i230)
+                TMap _map237 = iprot.ReadMapBegin();
+                for( int _i238 = 0; _i238 < _map237.Count; ++_i238)
                 {
-                  int _key231;
-                  int _val232;
-                  _key231 = iprot.ReadI32();
-                  _val232 = iprot.ReadI32();
-                  AttrMap[_key231] = _val232;
+                  int _key239;
+                  int _val240;
+                  _key239 = iprot.ReadI32();
+                  _val240 = iprot.ReadI32();
+                  AttrMap[_key239] = _val240;
                 }
                 iprot.ReadMapEnd();
               }
@@ -283,9 +283,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, PassiveSkillList.Count));
-          foreach (int _iter233 in PassiveSkillList)
+          foreach (int _iter241 in PassiveSkillList)
           {
-            oprot.WriteI32(_iter233);
+            oprot.WriteI32(_iter241);
           }
           oprot.WriteListEnd();
         }
@@ -298,10 +298,10 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.I32, AttrMap.Count));
-          foreach (int _iter234 in AttrMap.Keys)
+          foreach (int _iter242 in AttrMap.Keys)
           {
-            oprot.WriteI32(_iter234);
-            oprot.WriteI32(AttrMap[_iter234]);
+            oprot.WriteI32(_iter242);
+            oprot.WriteI32(AttrMap[_iter242]);
           }
           oprot.WriteMapEnd();
         }

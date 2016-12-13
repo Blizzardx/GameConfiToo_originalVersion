@@ -354,12 +354,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 RewardMessageId = new List<int>();
-                TList _list195 = iprot.ReadListBegin();
-                for( int _i196 = 0; _i196 < _list195.Count; ++_i196)
+                TList _list203 = iprot.ReadListBegin();
+                for( int _i204 = 0; _i204 < _list203.Count; ++_i204)
                 {
-                  int _elem197 = 0;
-                  _elem197 = iprot.ReadI32();
-                  RewardMessageId.Add(_elem197);
+                  int _elem205 = 0;
+                  _elem205 = iprot.ReadI32();
+                  RewardMessageId.Add(_elem205);
                 }
                 iprot.ReadListEnd();
               }
@@ -378,12 +378,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 ScenceIdList = new List<int>();
-                TList _list198 = iprot.ReadListBegin();
-                for( int _i199 = 0; _i199 < _list198.Count; ++_i199)
+                TList _list206 = iprot.ReadListBegin();
+                for( int _i207 = 0; _i207 < _list206.Count; ++_i207)
                 {
-                  int _elem200 = 0;
-                  _elem200 = iprot.ReadI32();
-                  ScenceIdList.Add(_elem200);
+                  int _elem208 = 0;
+                  _elem208 = iprot.ReadI32();
+                  ScenceIdList.Add(_elem208);
                 }
                 iprot.ReadListEnd();
               }
@@ -409,12 +409,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 RewardItemIdList = new List<int>();
-                TList _list201 = iprot.ReadListBegin();
-                for( int _i202 = 0; _i202 < _list201.Count; ++_i202)
+                TList _list209 = iprot.ReadListBegin();
+                for( int _i210 = 0; _i210 < _list209.Count; ++_i210)
                 {
-                  int _elem203 = 0;
-                  _elem203 = iprot.ReadI32();
-                  RewardItemIdList.Add(_elem203);
+                  int _elem211 = 0;
+                  _elem211 = iprot.ReadI32();
+                  RewardItemIdList.Add(_elem211);
                 }
                 iprot.ReadListEnd();
               }
@@ -521,9 +521,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, RewardMessageId.Count));
-          foreach (int _iter204 in RewardMessageId)
+          foreach (int _iter212 in RewardMessageId)
           {
-            oprot.WriteI32(_iter204);
+            oprot.WriteI32(_iter212);
           }
           oprot.WriteListEnd();
         }
@@ -544,9 +544,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, ScenceIdList.Count));
-          foreach (int _iter205 in ScenceIdList)
+          foreach (int _iter213 in ScenceIdList)
           {
-            oprot.WriteI32(_iter205);
+            oprot.WriteI32(_iter213);
           }
           oprot.WriteListEnd();
         }
@@ -575,9 +575,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, RewardItemIdList.Count));
-          foreach (int _iter206 in RewardItemIdList)
+          foreach (int _iter214 in RewardItemIdList)
           {
-            oprot.WriteI32(_iter206);
+            oprot.WriteI32(_iter214);
           }
           oprot.WriteListEnd();
         }

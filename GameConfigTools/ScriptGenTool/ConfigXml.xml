@@ -227,5 +227,37 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="maxViceLeaderCount"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="FashionConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="name"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nameMessageId"/>
+        <GenScriptLineXmlConfig />
+        <GenScriptLineXmlConfig classTypeName="int" memberName="descMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="decomposeId"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="icon"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="firstType"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="resource"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeCostId"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="animation"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="dyeingCostId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="dyeingIdList"  isList="true"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="CustomizedIdList"  isList="true"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="FashionDyeingConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="RgbaValue"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="FashionCustomizedConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="texture"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="costId"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
   </classConfigList>
 </root>

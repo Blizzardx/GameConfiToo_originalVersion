@@ -202,5 +202,9 @@ namespace GameConfigTools.Constant
 
         public static readonly string WEAPON_ATTRIBUTE_CONFIG = "weaponAttributeConfig";
 
+        public static readonly string FASHION_DYEING_CONFIG = "fashionDyeingConfig";
+
+        public static readonly string FASHION_CUSTOMIZED_CONFIG = "fashionCustomizedConfig";
+
     }
 }

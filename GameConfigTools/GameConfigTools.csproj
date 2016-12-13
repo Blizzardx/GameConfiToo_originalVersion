@@ -279,6 +279,8 @@
     <Compile Include="Config\EndlessStageConfig.cs" />
     <Compile Include="Config\ExchangeConfig.cs" />
     <Compile Include="Config\FashionConfig.cs" />
+    <Compile Include="Config\FashionCustomizedConfig.cs" />
+    <Compile Include="Config\FashionDyeingConfig.cs" />
     <Compile Include="Config\FashionGroupConfig.cs" />
     <Compile Include="Config\FuncData.cs" />
     <Compile Include="Config\FuncGroup.cs" />
@@ -384,6 +386,8 @@
     <Compile Include="Config\Table\EndlessStageConfigTable.cs" />
     <Compile Include="Config\Table\ExchangeConfigTable.cs" />
     <Compile Include="Config\Table\FashionConfigTable.cs" />
+    <Compile Include="Config\Table\FashionCustomizedConfigTable.cs" />
+    <Compile Include="Config\Table\FashionDyeingConfigTable.cs" />
     <Compile Include="Config\Table\FashionGroupConfigTable.cs" />
     <Compile Include="Config\Table\FuncConfigTable.cs" />
     <Compile Include="Config\Table\GuildExpConfigTable.cs" />
@@ -432,6 +436,12 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
+    <Compile Include="Import\GenScript\User\FashionCustomizedConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\FashionCustomizedConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\FashionDyeingConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\FashionDyeingConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\FashionConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\FashionConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\GuildExpConfigImporter.cs" />
     <Compile Include="Import\GenScript\Auto\GuildExpConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\HornAttrConfigImporter.cs" />

@@ -31,9 +31,10 @@ namespace Config
     private string _resource;
     private int _activeCostId;
     private int _activeLimitId;
-    private int _mainPanelTipType;
-    private int _posPanelTipType;
-    private int _activeType;
+    private string _animation;
+    private int _dyeingCostId;
+    private List<int> _dyeingList;
+    private List<int> _CustomizedList;
 
     public int Id
     {
@@ -139,42 +140,55 @@ namespace Config
       }
     }
 
-    public int MainPanelTipType
+    public string Animation
     {
       get
       {
-        return _mainPanelTipType;
+        return _animation;
       }
       set
       {
-        __isset.mainPanelTipType = true;
-        this._mainPanelTipType = value;
+        __isset.animation = true;
+        this._animation = value;
       }
     }
 
-    public int PosPanelTipType
+    public int DyeingCostId
     {
       get
       {
-        return _posPanelTipType;
+        return _dyeingCostId;
       }
       set
       {
-        __isset.posPanelTipType = true;
-        this._posPanelTipType = value;
+        __isset.dyeingCostId = true;
+        this._dyeingCostId = value;
       }
     }
 
-    public int ActiveType
+    public List<int> DyeingList
     {
       get
       {
-        return _activeType;
+        return _dyeingList;
       }
       set
       {
-        __isset.activeType = true;
-        this._activeType = value;
+        __isset.dyeingList = true;
+        this._dyeingList = value;
+      }
+    }
+
+    public List<int> CustomizedList
+    {
+      get
+      {
+        return _CustomizedList;
+      }
+      set
+      {
+        __isset.CustomizedList = true;
+        this._CustomizedList = value;
       }
     }
 
@@ -192,9 +206,10 @@ namespace Config
       public bool resource;
       public bool activeCostId;
       public bool activeLimitId;
-      public bool mainPanelTipType;
-      public bool posPanelTipType;
-      public bool activeType;
+      public bool animation;
+      public bool dyeingCostId;
+      public bool dyeingList;
+      public bool CustomizedList;
     }
 
     public FashionConfig() {
@@ -269,22 +284,49 @@ namespace Config
             }
             break;
           case 90:
+            if (field.Type == TType.String) {
+              Animation = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 91:
             if (field.Type == TType.I32) {
-              MainPanelTipType = iprot.ReadI32();
+              DyeingCostId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 100:
-            if (field.Type == TType.I32) {
-              PosPanelTipType = iprot.ReadI32();
+            if (field.Type == TType.List) {
+              {
+                DyeingList = new List<int>();
+                TList _list174 = iprot.ReadListBegin();
+                for( int _i175 = 0; _i175 < _list174.Count; ++_i175)
+                {
+                  int _elem176 = 0;
+                  _elem176 = iprot.ReadI32();
+                  DyeingList.Add(_elem176);
+                }
+                iprot.ReadListEnd();
+              }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 110:
-            if (field.Type == TType.I32) {
-              ActiveType = iprot.ReadI32();
+            if (field.Type == TType.List) {
+              {
+                CustomizedList = new List<int>();
+                TList _list177 = iprot.ReadListBegin();
+                for( int _i178 = 0; _i178 < _list177.Count; ++_i178)
+                {
+                  int _elem179 = 0;
+                  _elem179 = iprot.ReadI32();
+                  CustomizedList.Add(_elem179);
+                }
+                iprot.ReadListEnd();
+              }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -366,28 +408,50 @@ namespace Config
         oprot.WriteI32(ActiveLimitId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.mainPanelTipType) {
-        field.Name = "mainPanelTipType";
-        field.Type = TType.I32;
+      if (Animation != null && __isset.animation) {
+        field.Name = "animation";
+        field.Type = TType.String;
         field.ID = 90;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(MainPanelTipType);
+        oprot.WriteString(Animation);
         oprot.WriteFieldEnd();
       }
-      if (__isset.posPanelTipType) {
-        field.Name = "posPanelTipType";
+      if (__isset.dyeingCostId) {
+        field.Name = "dyeingCostId";
         field.Type = TType.I32;
+        field.ID = 91;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(DyeingCostId);
+        oprot.WriteFieldEnd();
+      }
+      if (DyeingList != null && __isset.dyeingList) {
+        field.Name = "dyeingList";
+        field.Type = TType.List;
         field.ID = 100;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(PosPanelTipType);
+        {
+          oprot.WriteListBegin(new TList(TType.I32, DyeingList.Count));
+          foreach (int _iter180 in DyeingList)
+          {
+            oprot.WriteI32(_iter180);
+          }
+          oprot.WriteListEnd();
+        }
         oprot.WriteFieldEnd();
       }
-      if (__isset.activeType) {
-        field.Name = "activeType";
-        field.Type = TType.I32;
+      if (CustomizedList != null && __isset.CustomizedList) {
+        field.Name = "CustomizedList";
+        field.Type = TType.List;
         field.ID = 110;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(ActiveType);
+        {
+          oprot.WriteListBegin(new TList(TType.I32, CustomizedList.Count));
+          foreach (int _iter181 in CustomizedList)
+          {
+            oprot.WriteI32(_iter181);
+          }
+          oprot.WriteListEnd();
+        }
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -412,12 +476,14 @@ namespace Config
       sb.Append(ActiveCostId);
       sb.Append(",ActiveLimitId: ");
       sb.Append(ActiveLimitId);
-      sb.Append(",MainPanelTipType: ");
-      sb.Append(MainPanelTipType);
-      sb.Append(",PosPanelTipType: ");
-      sb.Append(PosPanelTipType);
-      sb.Append(",ActiveType: ");
-      sb.Append(ActiveType);
+      sb.Append(",Animation: ");
+      sb.Append(Animation);
+      sb.Append(",DyeingCostId: ");
+      sb.Append(DyeingCostId);
+      sb.Append(",DyeingList: ");
+      sb.Append(DyeingList);
+      sb.Append(",CustomizedList: ");
+      sb.Append(CustomizedList);
       sb.Append(")");
       return sb.ToString();
     }

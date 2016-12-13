@@ -21,34 +21,48 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class DiyPositionInfo : TBase
+  public partial class FashionCustomizedConfig : TBase
   {
-    private int _positionId;
-    private List<DiyVertexInfo> _vertexList;
+    private int _id;
+    private int _costId;
+    private string _texture;
 
-    public int PositionId
+    public int Id
     {
       get
       {
-        return _positionId;
+        return _id;
       }
       set
       {
-        __isset.positionId = true;
-        this._positionId = value;
+        __isset.id = true;
+        this._id = value;
       }
     }
 
-    public List<DiyVertexInfo> VertexList
+    public int CostId
     {
       get
       {
-        return _vertexList;
+        return _costId;
       }
       set
       {
-        __isset.vertexList = true;
-        this._vertexList = value;
+        __isset.costId = true;
+        this._costId = value;
+      }
+    }
+
+    public string Texture
+    {
+      get
+      {
+        return _texture;
+      }
+      set
+      {
+        __isset.texture = true;
+        this._texture = value;
       }
     }
 
@@ -58,11 +72,12 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool positionId;
-      public bool vertexList;
+      public bool id;
+      public bool costId;
+      public bool texture;
     }
 
-    public DiyPositionInfo() {
+    public FashionCustomizedConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -79,25 +94,21 @@ namespace Config
         {
           case 10:
             if (field.Type == TType.I32) {
-              PositionId = iprot.ReadI32();
+              Id = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 20:
-            if (field.Type == TType.List) {
-              {
-                VertexList = new List<DiyVertexInfo>();
-                TList _list187 = iprot.ReadListBegin();
-                for( int _i188 = 0; _i188 < _list187.Count; ++_i188)
-                {
-                  DiyVertexInfo _elem189 = new DiyVertexInfo();
-                  _elem189 = new DiyVertexInfo();
-                  _elem189.Read(iprot);
-                  VertexList.Add(_elem189);
-                }
-                iprot.ReadListEnd();
-              }
+            if (field.Type == TType.I32) {
+              CostId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 30:
+            if (field.Type == TType.String) {
+              Texture = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -112,30 +123,31 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("DiyPositionInfo");
+      TStruct struc = new TStruct("FashionCustomizedConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (__isset.positionId) {
-        field.Name = "positionId";
+      if (__isset.id) {
+        field.Name = "id";
         field.Type = TType.I32;
         field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(PositionId);
+        oprot.WriteI32(Id);
         oprot.WriteFieldEnd();
       }
-      if (VertexList != null && __isset.vertexList) {
-        field.Name = "vertexList";
-        field.Type = TType.List;
+      if (__isset.costId) {
+        field.Name = "costId";
+        field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteListBegin(new TList(TType.Struct, VertexList.Count));
-          foreach (DiyVertexInfo _iter190 in VertexList)
-          {
-            _iter190.Write(oprot);
-          }
-          oprot.WriteListEnd();
-        }
+        oprot.WriteI32(CostId);
+        oprot.WriteFieldEnd();
+      }
+      if (Texture != null && __isset.texture) {
+        field.Name = "texture";
+        field.Type = TType.String;
+        field.ID = 30;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Texture);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -143,11 +155,13 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("DiyPositionInfo(");
-      sb.Append("PositionId: ");
-      sb.Append(PositionId);
-      sb.Append(",VertexList: ");
-      sb.Append(VertexList);
+      StringBuilder sb = new StringBuilder("FashionCustomizedConfig(");
+      sb.Append("Id: ");
+      sb.Append(Id);
+      sb.Append(",CostId: ");
+      sb.Append(CostId);
+      sb.Append(",Texture: ");
+      sb.Append(Texture);
       sb.Append(")");
       return sb.ToString();
     }

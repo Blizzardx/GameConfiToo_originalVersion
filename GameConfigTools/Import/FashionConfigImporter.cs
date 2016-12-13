@@ -8,7 +8,7 @@ using Thrift.Protocol;
 
 namespace GameConfigTools.Import
 {
-    class FashionConfigImporter : AbstractExcelImporter
+    class FashionConfigImporter1 : AbstractExcelImporter
     {
         protected override void GenerateConfig(List<string[][]> sheetValues, ref string errMsg, out XElement root, out TBase tbase)
         {
@@ -122,9 +122,9 @@ namespace GameConfigTools.Import
                     c.Resource = resource;
                     c.ActiveCostId = activeCostId;
                     c.ActiveLimitId = activeLimit;
-                    c.MainPanelTipType = mainPanelTipType;
-                    c.PosPanelTipType = positionPanelTipType;
-                    c.ActiveType = activeType;
+                    //c.MainPanelTipType = mainPanelTipType;
+                    //c.PosPanelTipType = positionPanelTipType;
+                    //c.ActiveType = activeType;
 
                     if (config.FashionConfigMap.ContainsKey(id))
                     {

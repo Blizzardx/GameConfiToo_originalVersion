@@ -206,15 +206,15 @@ namespace Config
             if (field.Type == TType.Map) {
               {
                 PowerConfigMap = new Dictionary<int, GuildPowerConfig>();
-                TMap _map212 = iprot.ReadMapBegin();
-                for( int _i213 = 0; _i213 < _map212.Count; ++_i213)
+                TMap _map220 = iprot.ReadMapBegin();
+                for( int _i221 = 0; _i221 < _map220.Count; ++_i221)
                 {
-                  int _key214;
-                  GuildPowerConfig _val215;
-                  _key214 = iprot.ReadI32();
-                  _val215 = new GuildPowerConfig();
-                  _val215.Read(iprot);
-                  PowerConfigMap[_key214] = _val215;
+                  int _key222;
+                  GuildPowerConfig _val223;
+                  _key222 = iprot.ReadI32();
+                  _val223 = new GuildPowerConfig();
+                  _val223.Read(iprot);
+                  PowerConfigMap[_key222] = _val223;
                 }
                 iprot.ReadMapEnd();
               }
@@ -226,15 +226,15 @@ namespace Config
             if (field.Type == TType.Map) {
               {
                 RightConfigMap = new Dictionary<int, GuildRightConfig>();
-                TMap _map216 = iprot.ReadMapBegin();
-                for( int _i217 = 0; _i217 < _map216.Count; ++_i217)
+                TMap _map224 = iprot.ReadMapBegin();
+                for( int _i225 = 0; _i225 < _map224.Count; ++_i225)
                 {
-                  int _key218;
-                  GuildRightConfig _val219;
-                  _key218 = iprot.ReadI32();
-                  _val219 = new GuildRightConfig();
-                  _val219.Read(iprot);
-                  RightConfigMap[_key218] = _val219;
+                  int _key226;
+                  GuildRightConfig _val227;
+                  _key226 = iprot.ReadI32();
+                  _val227 = new GuildRightConfig();
+                  _val227.Read(iprot);
+                  RightConfigMap[_key226] = _val227;
                 }
                 iprot.ReadMapEnd();
               }
@@ -246,13 +246,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 DonateConfigList = new List<GuildDonateConfig>();
-                TList _list220 = iprot.ReadListBegin();
-                for( int _i221 = 0; _i221 < _list220.Count; ++_i221)
+                TList _list228 = iprot.ReadListBegin();
+                for( int _i229 = 0; _i229 < _list228.Count; ++_i229)
                 {
-                  GuildDonateConfig _elem222 = new GuildDonateConfig();
-                  _elem222 = new GuildDonateConfig();
-                  _elem222.Read(iprot);
-                  DonateConfigList.Add(_elem222);
+                  GuildDonateConfig _elem230 = new GuildDonateConfig();
+                  _elem230 = new GuildDonateConfig();
+                  _elem230.Read(iprot);
+                  DonateConfigList.Add(_elem230);
                 }
                 iprot.ReadListEnd();
               }
@@ -320,10 +320,10 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, PowerConfigMap.Count));
-          foreach (int _iter223 in PowerConfigMap.Keys)
+          foreach (int _iter231 in PowerConfigMap.Keys)
           {
-            oprot.WriteI32(_iter223);
-            PowerConfigMap[_iter223].Write(oprot);
+            oprot.WriteI32(_iter231);
+            PowerConfigMap[_iter231].Write(oprot);
           }
           oprot.WriteMapEnd();
         }
@@ -336,10 +336,10 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, RightConfigMap.Count));
-          foreach (int _iter224 in RightConfigMap.Keys)
+          foreach (int _iter232 in RightConfigMap.Keys)
           {
-            oprot.WriteI32(_iter224);
-            RightConfigMap[_iter224].Write(oprot);
+            oprot.WriteI32(_iter232);
+            RightConfigMap[_iter232].Write(oprot);
           }
           oprot.WriteMapEnd();
         }
@@ -352,9 +352,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, DonateConfigList.Count));
-          foreach (GuildDonateConfig _iter225 in DonateConfigList)
+          foreach (GuildDonateConfig _iter233 in DonateConfigList)
           {
-            _iter225.Write(oprot);
+            _iter233.Write(oprot);
           }
           oprot.WriteListEnd();
         }

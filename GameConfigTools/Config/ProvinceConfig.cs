@@ -110,15 +110,15 @@ namespace Config
             if (field.Type == TType.Map) {
               {
                 CityConfigMap = new Dictionary<int, CityConfig>();
-                TMap _map207 = iprot.ReadMapBegin();
-                for( int _i208 = 0; _i208 < _map207.Count; ++_i208)
+                TMap _map215 = iprot.ReadMapBegin();
+                for( int _i216 = 0; _i216 < _map215.Count; ++_i216)
                 {
-                  int _key209;
-                  CityConfig _val210;
-                  _key209 = iprot.ReadI32();
-                  _val210 = new CityConfig();
-                  _val210.Read(iprot);
-                  CityConfigMap[_key209] = _val210;
+                  int _key217;
+                  CityConfig _val218;
+                  _key217 = iprot.ReadI32();
+                  _val218 = new CityConfig();
+                  _val218.Read(iprot);
+                  CityConfigMap[_key217] = _val218;
                 }
                 iprot.ReadMapEnd();
               }
@@ -162,10 +162,10 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.Struct, CityConfigMap.Count));
-          foreach (int _iter211 in CityConfigMap.Keys)
+          foreach (int _iter219 in CityConfigMap.Keys)
           {
-            oprot.WriteI32(_iter211);
-            CityConfigMap[_iter211].Write(oprot);
+            oprot.WriteI32(_iter219);
+            CityConfigMap[_iter219].Write(oprot);
           }
           oprot.WriteMapEnd();
         }

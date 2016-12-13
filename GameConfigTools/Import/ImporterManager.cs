@@ -115,6 +115,8 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.GUILD_EXP_CONFIG, new GuildExpConfigImporter());
             importerDic.Add(SysConstant.WEAPON_CONFIG, new WeaponConfigImporter());
             importerDic.Add(SysConstant.WEAPON_ATTRIBUTE_CONFIG, new WeaponAttributeConfigImporter());
+            importerDic.Add(SysConstant.FASHION_CUSTOMIZED_CONFIG, new FashionCustomizedConfigImporter());
+            importerDic.Add(SysConstant.FASHION_DYEING_CONFIG, new FashionDyeingConfigImporter());
         }
         /// <summary>
         /// 加载关联导入
