@@ -593,6 +593,17 @@
     <Compile Include="ScriptGenTool\ScriptGenTool.cs" />
     <Compile Include="ScriptGenTool\XmlConfigBase.cs" />
     <Compile Include="TApplicationException.cs" />
+    <Compile Include="Test\ThriftFormateTest.cs" />
+    <Compile Include="Test\Tool\TesetCompose.cs" />
+    <Compile Include="Test\Tool\TestBool.cs" />
+    <Compile Include="Test\Tool\TestByte.cs" />
+    <Compile Include="Test\Tool\TestCompose1.cs" />
+    <Compile Include="Test\Tool\TestCompose2.cs" />
+    <Compile Include="Test\Tool\TestCompose3.cs" />
+    <Compile Include="Test\Tool\TestCompose4.cs" />
+    <Compile Include="Test\Tool\Testfloat.cs" />
+    <Compile Include="Test\Tool\TestInt.cs" />
+    <Compile Include="Test\Tool\TestString.cs" />
     <Compile Include="TException.cs" />
     <Compile Include="ThriftSerialize.cs" />
     <Compile Include="TProcessor.cs" />
