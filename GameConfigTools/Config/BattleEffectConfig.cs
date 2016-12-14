@@ -40,15 +40,19 @@ namespace Config
     private int _deadLimitId;
     private int _deadFunId;
     private int _type;
+    private int _targetId;
     private int _followInterval;
     private int _coordType;
     private int _floatTime;
     private int _posX;
     private int _posY;
+    private int _poxZ;
     private int _initSpeedX;
     private int _initSpeedY;
+    private int _initSpeedZ;
     private int _addSpeedX;
     private int _addSpeedY;
+    private int _addSpeedZ;
     private string _dieEffect;
     private int _bornRotate;
 
@@ -273,6 +277,19 @@ namespace Config
       }
     }
 
+    public int TargetId
+    {
+      get
+      {
+        return _targetId;
+      }
+      set
+      {
+        __isset.targetId = true;
+        this._targetId = value;
+      }
+    }
+
     public int FollowInterval
     {
       get
@@ -338,6 +355,19 @@ namespace Config
       }
     }
 
+    public int PoxZ
+    {
+      get
+      {
+        return _poxZ;
+      }
+      set
+      {
+        __isset.poxZ = true;
+        this._poxZ = value;
+      }
+    }
+
     public int InitSpeedX
     {
       get
@@ -364,6 +394,19 @@ namespace Config
       }
     }
 
+    public int InitSpeedZ
+    {
+      get
+      {
+        return _initSpeedZ;
+      }
+      set
+      {
+        __isset.initSpeedZ = true;
+        this._initSpeedZ = value;
+      }
+    }
+
     public int AddSpeedX
     {
       get
@@ -387,6 +430,19 @@ namespace Config
       {
         __isset.addSpeedY = true;
         this._addSpeedY = value;
+      }
+    }
+
+    public int AddSpeedZ
+    {
+      get
+      {
+        return _addSpeedZ;
+      }
+      set
+      {
+        __isset.addSpeedZ = true;
+        this._addSpeedZ = value;
       }
     }
 
@@ -439,15 +495,19 @@ namespace Config
       public bool deadLimitId;
       public bool deadFunId;
       public bool type;
+      public bool targetId;
       public bool followInterval;
       public bool coordType;
       public bool floatTime;
       public bool posX;
       public bool posY;
+      public bool poxZ;
       public bool initSpeedX;
       public bool initSpeedY;
+      public bool initSpeedZ;
       public bool addSpeedX;
       public bool addSpeedY;
+      public bool addSpeedZ;
       public bool dieEffect;
       public bool bornRotate;
     }
@@ -586,6 +646,13 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 91:
+            if (field.Type == TType.I32) {
+              TargetId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           case 95:
             if (field.Type == TType.I32) {
               FollowInterval = iprot.ReadI32();
@@ -621,6 +688,13 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 121:
+            if (field.Type == TType.I32) {
+              PoxZ = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           case 130:
             if (field.Type == TType.I32) {
               InitSpeedX = iprot.ReadI32();
@@ -635,6 +709,13 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 141:
+            if (field.Type == TType.I32) {
+              InitSpeedZ = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           case 150:
             if (field.Type == TType.I32) {
               AddSpeedX = iprot.ReadI32();
@@ -645,6 +726,13 @@ namespace Config
           case 160:
             if (field.Type == TType.I32) {
               AddSpeedY = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 170:
+            if (field.Type == TType.I32) {
+              AddSpeedZ = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -812,6 +900,14 @@ namespace Config
         oprot.WriteI32(Type);
         oprot.WriteFieldEnd();
       }
+      if (__isset.targetId) {
+        field.Name = "targetId";
+        field.Type = TType.I32;
+        field.ID = 91;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(TargetId);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.followInterval) {
         field.Name = "followInterval";
         field.Type = TType.I32;
@@ -852,6 +948,14 @@ namespace Config
         oprot.WriteI32(PosY);
         oprot.WriteFieldEnd();
       }
+      if (__isset.poxZ) {
+        field.Name = "poxZ";
+        field.Type = TType.I32;
+        field.ID = 121;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(PoxZ);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.initSpeedX) {
         field.Name = "initSpeedX";
         field.Type = TType.I32;
@@ -868,6 +972,14 @@ namespace Config
         oprot.WriteI32(InitSpeedY);
         oprot.WriteFieldEnd();
       }
+      if (__isset.initSpeedZ) {
+        field.Name = "initSpeedZ";
+        field.Type = TType.I32;
+        field.ID = 141;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(InitSpeedZ);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.addSpeedX) {
         field.Name = "addSpeedX";
         field.Type = TType.I32;
@@ -882,6 +994,14 @@ namespace Config
         field.ID = 160;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(AddSpeedY);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.addSpeedZ) {
+        field.Name = "addSpeedZ";
+        field.Type = TType.I32;
+        field.ID = 170;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(AddSpeedZ);
         oprot.WriteFieldEnd();
       }
       if (DieEffect != null && __isset.dieEffect) {
@@ -940,6 +1060,8 @@ namespace Config
       sb.Append(DeadFunId);
       sb.Append(",Type: ");
       sb.Append(Type);
+      sb.Append(",TargetId: ");
+      sb.Append(TargetId);
       sb.Append(",FollowInterval: ");
       sb.Append(FollowInterval);
       sb.Append(",CoordType: ");
@@ -950,14 +1072,20 @@ namespace Config
       sb.Append(PosX);
       sb.Append(",PosY: ");
       sb.Append(PosY);
+      sb.Append(",PoxZ: ");
+      sb.Append(PoxZ);
       sb.Append(",InitSpeedX: ");
       sb.Append(InitSpeedX);
       sb.Append(",InitSpeedY: ");
       sb.Append(InitSpeedY);
+      sb.Append(",InitSpeedZ: ");
+      sb.Append(InitSpeedZ);
       sb.Append(",AddSpeedX: ");
       sb.Append(AddSpeedX);
       sb.Append(",AddSpeedY: ");
       sb.Append(AddSpeedY);
+      sb.Append(",AddSpeedZ: ");
+      sb.Append(AddSpeedZ);
       sb.Append(",DieEffect: ");
       sb.Append(DieEffect);
       sb.Append(",BornRotate: ");
