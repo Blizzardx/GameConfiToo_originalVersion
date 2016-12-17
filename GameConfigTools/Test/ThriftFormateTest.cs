@@ -11,23 +11,30 @@ namespace GameConfigTools.Test
 {
     class ThriftFormateTest
     {
-        private class Types
-        {
-            public const byte STOP = 0x00;
-            public const byte BOOLEAN_TRUE = 0x01;
-            public const byte BOOLEAN_FALSE = 0x02;
-            public const byte BYTE = 0x03;
-            public const byte I16 = 0x04;
-            public const byte I32 = 0x05;
-            public const byte I64 = 0x06;
-            public const byte DOUBLE = 0x07;
-            public const byte BINARY = 0x08;
-            public const byte LIST = 0x09;
-            public const byte SET = 0x0A;
-            public const byte MAP = 0x0B;
-            public const byte STRUCT = 0x0C;
-        }
         public void Main1()
+        {
+            int testValue = int.MinValue;
+            ThriftPacker tmp = new ThriftPacker();
+            ThriftPacker.TField tmpFile = new ThriftPacker.TField();
+            tmpFile.ID = 1;
+            tmpFile.Name = "id";
+            tmpFile.Type = ThriftPacker.TType.I32;
+
+            tmp.WriteStructBegin();
+            tmp.WriteFieldBegin(tmpFile);
+            tmp.WriteI32(testValue);
+            tmp.WriteFieldEnd();
+            tmp.WriteFieldStop();
+            tmp.WriteStructEnd();
+
+            TestInt testInt = new TestInt();
+            //testInt.Id = 100;
+            //var bytes = ThriftSerialize.Serialize(testInt);
+            ThriftSerialize.DeSerialize(testInt, tmp.GetBuffer());
+            int a = testInt.Id;
+        }
+
+        public void Test1()
         {
             
         }

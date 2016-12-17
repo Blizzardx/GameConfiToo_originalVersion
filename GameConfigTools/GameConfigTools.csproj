@@ -593,6 +593,11 @@
     <Compile Include="ScriptGenTool\ScriptGenTool.cs" />
     <Compile Include="ScriptGenTool\XmlConfigBase.cs" />
     <Compile Include="TApplicationException.cs" />
+    <Compile Include="Test\AutoPackData\Base\ByteStream.cs" />
+    <Compile Include="Test\AutoPackData\Base\IPacker.cs" />
+    <Compile Include="Test\AutoPackData\Base\PackDataElementType.cs" />
+    <Compile Include="Test\AutoPackData\Base\PackDataStruct.cs" />
+    <Compile Include="Test\AutoPackData\Impl\Thrift\ThriftPacker.cs" />
     <Compile Include="Test\ThriftFormateTest.cs" />
     <Compile Include="Test\Tool\TesetCompose.cs" />
     <Compile Include="Test\Tool\TestBool.cs" />
@@ -775,7 +780,11 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Test\AutoPackData\Impl\Json\" />
+    <Folder Include="Test\AutoPackData\Impl\Other\" />
+    <Folder Include="Test\AutoPackData\Impl\Xml\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
