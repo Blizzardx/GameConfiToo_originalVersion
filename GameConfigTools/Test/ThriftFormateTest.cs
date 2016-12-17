@@ -11,34 +11,92 @@ namespace GameConfigTools.Test
 {
     class ThriftFormateTest
     {
-        public void Main1()
+        public void Main()
         {
-            int testValue = int.MinValue;
-            ThriftPacker tmp = new ThriftPacker();
-            ThriftPacker.TField tmpFile = new ThriftPacker.TField();
-            tmpFile.ID = 1;
-            tmpFile.Name = "id";
-            tmpFile.Type = ThriftPacker.TType.I32;
+            PackDataStruct data = new PackDataStruct();
+            data.m_ElemList = new List<PackDataElement>();
 
-            tmp.WriteStructBegin();
-            tmp.WriteFieldBegin(tmpFile);
-            tmp.WriteI32(testValue);
-            tmp.WriteFieldEnd();
-            tmp.WriteFieldStop();
-            tmp.WriteStructEnd();
+            PackDataElement elem1 = new PackDataElement();
+            elem1.m_Id = 1;
+            elem1.m_strName = "tmpList";
+            elem1.m_Type = PackDataElementType.List;
+            data.m_ElemList.Add(elem1);
+            var list = new List<PackDataElement>();
+            elem1.m_Value = list;
+            for (int i = 0; i < 100; ++i)
+            {
+                PackDataStruct subElem = new PackDataStruct();
+                subElem.m_ElemList = new List<PackDataElement>();
+                PackDataElement elem2 = new PackDataElement();
+                elem2.m_Id = 1;
+                elem2.m_strName = "tmpList";
+                elem2.m_Type = PackDataElementType.List;
+                subElem.m_ElemList.Add(elem2);
+                var subList = new List<PackDataElement>();
+                elem2.m_Value = subList;
+                for (int j = 0; j < 100; ++j)
+                {
+                    PackDataElement subsubElem = new PackDataElement();
+                    subsubElem.m_Type = PackDataElementType.I32;
+                    subsubElem.m_Value = j + 1;
+                    subList.Add(subsubElem);
+                }
 
-            TestInt testInt = new TestInt();
-            //testInt.Id = 100;
-            //var bytes = ThriftSerialize.Serialize(testInt);
-            ThriftSerialize.DeSerialize(testInt, tmp.GetBuffer());
-            int a = testInt.Id;
+                var tmpElem = new PackDataElement();
+                tmpElem.m_Type = PackDataElementType.Struct;
+                tmpElem.m_Value = subElem;
+                tmpElem.m_strName = "TestCompose1";
+                list.Add(tmpElem);
+            }
+
+            var packer = new Packer_Thrift();
+            var bytes = packer.DoPack(data);
+            TestCompose3 realData = new TestCompose3();
+             ThriftSerialize.DeSerialize(realData, bytes);
+            int a = 0;
         }
 
+        private void GetStructInfo(PackDataStruct data)
+        {
+            for (int i = 0; i < data.m_ElemList.Count; ++i)
+            {
+                var elem = data.m_ElemList[i];
+                switch (elem.m_Type)
+                {
+                    case PackDataElementType.Bool:
+                        break;
+                    case PackDataElementType.Byte:
+                        break;
+                    case PackDataElementType.Double:
+                        break;
+                    case PackDataElementType.I16:
+                        break;
+                    case PackDataElementType.I32:
+                        break;
+                    case PackDataElementType.I64:
+                        break;
+                    case PackDataElementType.String:
+                        break;
+                    case PackDataElementType.Struct:
+                        break;
+                    case PackDataElementType.Map:
+                        break;
+                    case PackDataElementType.Set:
+                        break;
+                    case PackDataElementType.List:
+                        break;
+                    default:
+                        {
+                            throw new Exception("Error type");
+                        }
+                }
+            }
+        }
         public void Test1()
         {
             
         }
-        public void Main()
+        public void Main2()
         {
             TestInt testInt = new TestInt();
             testInt.Id = 3;

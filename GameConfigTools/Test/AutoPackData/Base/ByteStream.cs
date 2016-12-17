@@ -31,7 +31,7 @@ public class ByteStream
     }
     public byte[] Read(int offset, int size)
     {
-        byte[] source = buffer.ToArray(); ;
+        byte[] source = buffer.ToArray();
         byte[] res = new byte[size];
         Array.Copy(source, offset, res, 0, size);
         return res;

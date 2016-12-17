@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-public class ThriftPacker:IPacker
+public class Packer_Thrift:IPacker
 {
     public byte[] DoPack(PackDataStruct Data)
     {
@@ -105,7 +105,7 @@ public class ThriftPacker:IPacker
     }
     private void EncodeDouble(PackDataElement elem)
     {
-        WriteDouble((int)elem.m_Value);
+        WriteDouble((double)elem.m_Value);
     }
     private void EncodeByte(PackDataElement elem)
     {
@@ -325,7 +325,7 @@ public class ThriftPacker:IPacker
         public const byte MAP = 0x0B;
         public const byte STRUCT = 0x0C;
     }
-    public ThriftPacker()
+    public Packer_Thrift()
     {
         trans = new ByteStream();
         ttypeToCompactType[(int)TType.Stop] = Types.STOP;
