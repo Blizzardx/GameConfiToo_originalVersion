@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 public class ThriftPacker:IPacker
 {
@@ -31,46 +32,7 @@ public class ThriftPacker:IPacker
         {
             var elem = data.m_ElemList[i];
             WriteFieldBegin(GetFiledByDesc(elem));
-            switch (elem.m_Type)
-            {
-                case PackDataElementType.Bool:
-                    EncodeBool(elem);
-                    break;
-                case PackDataElementType.Byte:
-                    EncodeByte(elem);
-                    break;
-                case PackDataElementType.Double:
-                    EncodeDouble(elem);
-                    break;
-                case PackDataElementType.I16:
-                    EncodeI16(elem);
-                    break;
-                case PackDataElementType.I32:
-                    EncodeI32(elem);
-                    break;
-                case PackDataElementType.I64:
-                    EncodeI64(elem);
-                    break;
-                case PackDataElementType.String:
-                    EncodeString(elem);
-                    break;
-                case PackDataElementType.Struct:
-                    EncodeStruct(elem);
-                    break;
-                case PackDataElementType.Map:
-                    EncodeMap(elem);
-                    break;
-                case PackDataElementType.Set:
-                    EncodeSet(elem);
-                    break;
-                case PackDataElementType.List:
-                    EncodeList(elem);
-                    break;
-                default:
-                    {
-                        throw new Exception("Error type");
-                    }
-            }
+            EncodeDataElement(elem);
             WriteFieldEnd();
         }
     }
@@ -175,38 +137,7 @@ public class ThriftPacker:IPacker
                 {
                     throw new Exception("error type in same list");
                 }
-                switch (subElem.m_Type)
-                {
-                    case PackDataElementType.Bool:
-                        EncodeBool(subElem);
-                        break;
-                    case PackDataElementType.Byte:
-                        EncodeByte(subElem);
-                        break;
-                    case PackDataElementType.Double:
-                        EncodeDouble(subElem);
-                        break;
-                    case PackDataElementType.I16:
-                        EncodeI16(subElem);
-                        break;
-                    case PackDataElementType.I32:
-                        EncodeI32(subElem);
-                        break;
-                    case PackDataElementType.I64:
-                        EncodeI64(subElem);
-                        break;
-                    case PackDataElementType.String:
-                        EncodeString(subElem);
-                        break;
-                    case PackDataElementType.Struct:
-                        BeginPackData(subElem.m_Value as PackDataStruct);
-                        break;
-                    default:
-                        {
-                            throw new NotImplementedException();
-                        }
-                        break;
-                }
+                EncodeDataElement(subElem);
             }
         }
 
@@ -214,11 +145,104 @@ public class ThriftPacker:IPacker
     }
     private void EncodeSet(PackDataElement elem)
     {
-        throw new NotImplementedException();
+        HashSet<PackDataElement> set = elem.m_Value as HashSet<PackDataElement>;
+        if (null == set || set.Count == 0)
+        {
+            WriteSetBegin(TType.I32, 0);
+        }
+        else
+        {
+            var filed = GetFiledByDesc(set.First());
+            WriteSetBegin(filed.Type, set.Count);
+            var targetType = set.First().m_Type;
+            foreach (var subElem in set)
+            {
+                if (subElem.m_Type != targetType)
+                {
+                    throw new Exception("error type in same list");
+                }
+                EncodeDataElement(subElem);
+            }
+        }
+        WriteSetEnd();
     }
     private void EncodeMap(PackDataElement elem)
     {
-        throw new NotImplementedException();
+        Dictionary<PackDataElement, PackDataElement> map = elem.m_Value as Dictionary<PackDataElement, PackDataElement>;
+        if (null == map || map.Count == 0)
+        {
+            WriteMapBegin(TType.I32, TType.I32, 0);
+        }
+        else
+        {
+            var keyFiled = GetFiledByDesc(map.First().Key);
+            var targetKeyType = map.First().Key.m_Type;
+            var vlaueFiled = GetFiledByDesc(map.First().Key);
+            var targetValueType = map.First().Key.m_Type;
+            WriteMapBegin(keyFiled.Type, vlaueFiled.Type,map.Count);
+
+            foreach (var tmpElem in map)
+            {
+                PackDataElement subKeyElem = tmpElem.Key;
+                PackDataElement subValueElem = tmpElem.Key;
+
+                if (subKeyElem.m_Type != targetKeyType)
+                {
+                    throw new Exception("error type in same list");
+                }
+                EncodeDataElement(subKeyElem);
+
+                if (subValueElem.m_Type != targetValueType)
+                {
+                    throw new Exception("error type in same list");
+                }
+                EncodeDataElement(subValueElem);
+            }
+        }
+        WriteSetEnd();
+    }
+    private void EncodeDataElement(PackDataElement elem)
+    {
+        switch (elem.m_Type)
+        {
+            case PackDataElementType.Bool:
+                EncodeBool(elem);
+                break;
+            case PackDataElementType.Byte:
+                EncodeByte(elem);
+                break;
+            case PackDataElementType.Double:
+                EncodeDouble(elem);
+                break;
+            case PackDataElementType.I16:
+                EncodeI16(elem);
+                break;
+            case PackDataElementType.I32:
+                EncodeI32(elem);
+                break;
+            case PackDataElementType.I64:
+                EncodeI64(elem);
+                break;
+            case PackDataElementType.String:
+                EncodeString(elem);
+                break;
+            case PackDataElementType.Struct:
+                EncodeStruct(elem);
+                break;
+            case PackDataElementType.Map:
+                EncodeMap(elem);
+                break;
+            case PackDataElementType.Set:
+                EncodeSet(elem);
+                break;
+            case PackDataElementType.List:
+                EncodeList(elem);
+                break;
+            default:
+                {
+                    throw new Exception("Error type");
+                }
+        }
     }
     #endregion
 

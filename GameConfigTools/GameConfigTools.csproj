@@ -599,6 +599,12 @@
     <Compile Include="Test\AutoPackData\Base\PackDataStruct.cs" />
     <Compile Include="Test\AutoPackData\Impl\Thrift\ThriftPacker.cs" />
     <Compile Include="Test\ThriftFormateTest.cs" />
+    <Compile Include="Test\Tool\ListList.cs" />
+    <Compile Include="Test\Tool\Listmap.cs" />
+    <Compile Include="Test\Tool\Listset.cs" />
+    <Compile Include="Test\Tool\Maplist.cs" />
+    <Compile Include="Test\Tool\MapMap.cs" />
+    <Compile Include="Test\Tool\Mapset.cs" />
     <Compile Include="Test\Tool\TesetCompose.cs" />
     <Compile Include="Test\Tool\TestBool.cs" />
     <Compile Include="Test\Tool\TestByte.cs" />

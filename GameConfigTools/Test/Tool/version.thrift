@@ -46,3 +46,27 @@ struct TestCompose4
 {
 	1: map<i32,TestCompose3> tmpMap
 }
+struct ListList
+{
+	1:list<list<i32>> tmpList
+}
+struct Listmap
+{
+	1:list<map<i32,i32>> tmpList
+}
+struct Listset
+{
+	1:list<set<i32>> tmpList
+}
+struct Maplist
+{
+	1:map<i32,list<i32>> tmpMap
+}
+struct MapMap
+{
+	1:map<i32,map<i32,i32>> tmpMap
+}
+struct Mapset
+{
+	1:map<i32,set<i32>> tmpMap
+}
