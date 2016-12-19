@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using GameConfigTools.Constant;
 using System.IO;
+using GameConfigTools.Test;
 using GameConfigTools.Util;
 using GameConfigTools.Model;
 using Newtonsoft.Json;
@@ -26,6 +27,8 @@ namespace GameConfigTools
     {
         public MainForm(string[] args)
         {
+            ThriftFormateTest a = new ThriftFormateTest();
+            a.Main();
             if (args.Length == 0 || args[0] != "123456")
             {
                 DialogResult result = MessageBox.Show(this, "请从正常渠道打开工具", "询问");
