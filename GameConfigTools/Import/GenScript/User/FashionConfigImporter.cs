@@ -17,7 +17,7 @@ namespace GameConfigTools.Import
         private FashionConfigTable config;
         protected override void GenerateConfig(List<string[][]> sheetValues, ref string errMsg, out XElement root, out TBase tbase)
         {
-            root = null;
+            root = xmlRoot;
             tbase = config;
         }
         protected override string GetConfigName()

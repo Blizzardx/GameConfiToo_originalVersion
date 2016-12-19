@@ -27,9 +27,16 @@ namespace GameConfigTools.Import
 
         protected override void OnAutoParasLine(string sheetName,int row,string[] line, ref string errMsg)
         {
+            if (!VaildUtil.VaildColor(RgbaValue))
+            {
+                errMsg = string.Format("{0}.xlsx RgbaValue formate error", this.GetConfigName());
+                return;
+            }
             FashionDyeingConfig c = new FashionDyeingConfig();
             c.Id = id;
-            c.Color = RgbaValue;
+            c.Color = "#" + RgbaValue;
+
+
             if (config.DyeingConfigMap.ContainsKey(id))
             {
                 errMsg = string.Format("{0}.xlsx id{1}£¨÷ÿ∏¥", this.GetConfigName(), id);

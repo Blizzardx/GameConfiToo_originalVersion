@@ -206,5 +206,6 @@ namespace GameConfigTools.Constant
 
         public static readonly string FASHION_CUSTOMIZED_CONFIG = "fashionCustomizedConfig";
 
+        public static readonly string BATTLE_COLOR_CONFIG = "battleColorConfig";
     }
 }

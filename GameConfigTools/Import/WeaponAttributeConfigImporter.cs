@@ -223,6 +223,7 @@ namespace GameConfigTools.Import
                             attributesE.Add(attributeE);
                         }
                     }
+                    dic.Add(c.Level, c);
                 }
             }
         }

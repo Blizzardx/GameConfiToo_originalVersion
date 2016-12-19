@@ -40,6 +40,7 @@ namespace Config
     private int _mainPanelTipType;
     private int _posPanelTipType;
     private int _funcDescMessageId;
+    private int _activeLimitDescMessageId;
 
     public int Id
     {
@@ -262,6 +263,19 @@ namespace Config
       }
     }
 
+    public int ActiveLimitDescMessageId
+    {
+      get
+      {
+        return _activeLimitDescMessageId;
+      }
+      set
+      {
+        __isset.activeLimitDescMessageId = true;
+        this._activeLimitDescMessageId = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -285,6 +299,7 @@ namespace Config
       public bool mainPanelTipType;
       public bool posPanelTipType;
       public bool funcDescMessageId;
+      public bool activeLimitDescMessageId;
     }
 
     public DecorateConfig() {
@@ -428,6 +443,13 @@ namespace Config
           case 160:
             if (field.Type == TType.I32) {
               FuncDescMessageId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 170:
+            if (field.Type == TType.I32) {
+              ActiveLimitDescMessageId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -588,6 +610,14 @@ namespace Config
         oprot.WriteI32(FuncDescMessageId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.activeLimitDescMessageId) {
+        field.Name = "activeLimitDescMessageId";
+        field.Type = TType.I32;
+        field.ID = 170;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ActiveLimitDescMessageId);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -628,6 +658,8 @@ namespace Config
       sb.Append(PosPanelTipType);
       sb.Append(",FuncDescMessageId: ");
       sb.Append(FuncDescMessageId);
+      sb.Append(",ActiveLimitDescMessageId: ");
+      sb.Append(ActiveLimitDescMessageId);
       sb.Append(")");
       return sb.ToString();
     }

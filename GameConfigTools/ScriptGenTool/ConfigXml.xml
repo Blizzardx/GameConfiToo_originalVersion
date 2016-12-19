@@ -259,5 +259,12 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="costId"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="BattleColorConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="color1"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="color2"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
   </classConfigList>
 </root>

@@ -28,6 +28,7 @@ namespace Config
     private string _name;
     private bool _canMove;
     private bool _canJump;
+    private bool _canSkill;
     private int _totalTime;
     private bool _isLoop;
 
@@ -96,6 +97,19 @@ namespace Config
       }
     }
 
+    public bool CanSkill
+    {
+      get
+      {
+        return _canSkill;
+      }
+      set
+      {
+        __isset.canSkill = true;
+        this._canSkill = value;
+      }
+    }
+
     public int TotalTime
     {
       get
@@ -133,6 +147,7 @@ namespace Config
       public bool name;
       public bool canMove;
       public bool canJump;
+      public bool canSkill;
       public bool totalTime;
       public bool isLoop;
     }
@@ -183,6 +198,13 @@ namespace Config
           case 50:
             if (field.Type == TType.Bool) {
               CanJump = iprot.ReadBool();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 51:
+            if (field.Type == TType.Bool) {
+              CanSkill = iprot.ReadBool();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -254,6 +276,14 @@ namespace Config
         oprot.WriteBool(CanJump);
         oprot.WriteFieldEnd();
       }
+      if (__isset.canSkill) {
+        field.Name = "canSkill";
+        field.Type = TType.Bool;
+        field.ID = 51;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteBool(CanSkill);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.totalTime) {
         field.Name = "totalTime";
         field.Type = TType.I32;
@@ -286,6 +316,8 @@ namespace Config
       sb.Append(CanMove);
       sb.Append(",CanJump: ");
       sb.Append(CanJump);
+      sb.Append(",CanSkill: ");
+      sb.Append(CanSkill);
       sb.Append(",TotalTime: ");
       sb.Append(TotalTime);
       sb.Append(",IsLoop: ");

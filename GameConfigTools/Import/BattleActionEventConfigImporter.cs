@@ -48,8 +48,8 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，对应动作id必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int eventFrame;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out eventFrame))
+                    int eventTime;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out eventTime))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，触发事件的帧必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
@@ -69,7 +69,7 @@ namespace GameConfigTools.Import
 
                     BattleActionEventConfig c = new BattleActionEventConfig();
                     c.ActionId = actionId;
-                    c.EventFrame = eventFrame;
+                    c.EventFrame = eventTime / SysConstant.CLIENT_FRAME_TIME;
                     c.FrameLimitId = frameLimitId;
                     c.FrameFuncId = frameFuncId;
 

@@ -138,6 +138,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，特效类型必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    int targetId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out targetId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，目标ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     int followInterval;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out followInterval))
                     {
@@ -173,6 +179,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，初始位置Y必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
                         return;
                     }
+                    int posZ;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out posZ, int.MinValue, int.MaxValue))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，初始位置Z必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
+                        return;
+                    }
                     //if (posY > 0 && posY < 10000)
                     //{
                     //    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，浮点型最小单位为10000", this.GetConfigName(), sheetName, row, index);
@@ -195,6 +207,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，初始速度Y必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
                         return;
                     }
+                    int initSpeedZ;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out initSpeedZ, int.MinValue, int.MaxValue))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，初始速度Z必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
+                        return;
+                    }
                     //if (initSpeedY > 0 && initSpeedY < 10000)
                     //{
                     //    errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，浮点型最小单位为10000", this.GetConfigName(), sheetName, row, index);
@@ -215,6 +233,12 @@ namespace GameConfigTools.Import
                     if (!VaildUtil.TryConvertInt(values[i][index++], out addSpeedY, int.MinValue, int.MaxValue))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，加速度Y必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
+                        return;
+                    }
+                    int addSpeedZ;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out addSpeedZ, int.MinValue, int.MaxValue))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，加速度Z必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
                         return;
                     }
                     string dieEffect = values[i][index++];
@@ -257,14 +281,18 @@ namespace GameConfigTools.Import
                     c.DeadLimitId = deadLimitId;
                     c.DeadFunId = deadFunId;
                     c.Type = type;
+                    c.TargetId = targetId;
                     c.FollowInterval = followInterval;
                     c.CoordType = coordType;
                     c.PosX = posX;
                     c.PosY = posY;
+                    c.PoxZ = posZ;
                     c.InitSpeedX = initSpeedX;
                     c.InitSpeedY = initSpeedY;
+                    c.InitSpeedZ = initSpeedZ;
                     c.AddSpeedX = addSpeedX;
                     c.AddSpeedY = addSpeedY;
+                    c.AddSpeedZ = addSpeedZ;
                     c.DieEffect = dieEffect;
                     c.BornRotate = bornRotate;
                     config.BattleEffectConfigMap.Add(c.Id, c);

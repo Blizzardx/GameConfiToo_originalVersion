@@ -153,6 +153,14 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，resource 列表 和 attach列表个数不相同或者为空",this.GetConfigName(), sheetName, row, index);
                         return;
                     }
+
+                    int activeLimitDescMsgId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeLimitDescMsgId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，activeLimitDescMsgId必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+
                     XElement monsterE = new XElement("decorate");
                     root.Add(monsterE);
                     monsterE.Add(new XAttribute("id", id));
@@ -190,6 +198,7 @@ namespace GameConfigTools.Import
                         elem.Resource = resourceList[tmpi];
                         c.Resource.Add(elem);
                     }
+                    c.ActiveLimitDescMessageId = activeLimitDescMsgId;
                     config.DecorateConfigMap.Add(c.Id, c);
                 }
             }

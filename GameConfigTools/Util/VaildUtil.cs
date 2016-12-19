@@ -8,6 +8,24 @@ namespace GameConfigTools.Util
 {
     public static class VaildUtil
     {
+        public static bool IsColor(string color)
+        {
+            if(color.Length != 6)
+            {
+                return false;
+            }
+            char[] chs = color.ToArray();
+            int succCount = 0;
+            foreach(char c in chs)
+            {
+                if((c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F') || (c >= '0' && c <= '9'))
+                {
+                    succCount++;
+                }
+            }
+            return succCount == color.Length;
+        }
+
         #region string
 
         public static bool TryConvert(string s, out string n, string min, string max)

@@ -69,6 +69,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否可以跳必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
+                    int canSkill;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out canSkill, 0, 1))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，是否可以放技能必须为0 - 1整型", this.GetConfigName(), sheetName, row, index);
+                        return;
+                    }
                     int totalTime;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out totalTime))
                     {
@@ -88,6 +94,7 @@ namespace GameConfigTools.Import
                     c.Name = name;
                     c.CanMove = canMove != 0;
                     c.CanJump = canJump != 0;
+                    c.CanSkill = canSkill != 0;
                     c.TotalTime = totalTime / SysConstant.CLIENT_FRAME_TIME;
                     c.IsLoop = isLoop != 0;
 
