@@ -137,7 +137,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 0:无效 1:被动技能 2:主动技能
+    /// 0:脦脼脨搂 1:卤禄露炉录录脛脺 2:脰梅露炉录录脛脺
     /// </summary>
     public sbyte SkillType
     {
@@ -153,7 +153,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 使用方式，0:无效，1:进入副本自动释放一次，2:进入游戏、技能升级、技能升级品质都释放
+    /// 脢鹿脫脙路陆脢陆拢卢0:脦脼脨搂拢卢1:陆酶脠毛赂卤卤戮脳脭露炉脢脥路脜脪禄麓脦拢卢2:陆酶脠毛脫脦脧路隆垄录录脛脺脡媒录露隆垄录录脛脺脡媒录露脝路脰脢露录脢脥路脜
     /// </summary>
     public sbyte UseType
     {
@@ -169,7 +169,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 攻击距离
+    /// 鹿楼禄梅戮脿脌毛
     /// </summary>
     public int AtkRange
     {
@@ -185,7 +185,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 0:非无双技 1:无双技
+    /// 0:路脟脦脼脣芦录录 1:脦脼脣芦录录
     /// </summary>
     public sbyte SkillFlag
     {
@@ -201,7 +201,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 0：无效，1：单体，2：群体
+    /// 0拢潞脦脼脨搂拢卢1拢潞碌楼脤氓拢卢2拢潞脠潞脤氓
     /// </summary>
     public sbyte AtkScopeType
     {
@@ -217,7 +217,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 1:瞬发 2:持续
+    /// 1:脣虏路垄 2:鲁脰脨酶
     /// </summary>
     public sbyte CastEffect
     {
@@ -233,7 +233,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 0:无效 1:近战锁定 2:近战不锁定 3:远程锁定 4:远程不锁定
+    /// 0:脦脼脨搂 1:陆眉脮陆脣酶露篓 2:陆眉脮陆虏禄脣酶露篓 3:脭露鲁脤脣酶露篓 4:脭露鲁脤虏禄脣酶露篓
     /// </summary>
     public sbyte CastType
     {
@@ -249,7 +249,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 无锁定类型 0:无效 1:矩形攻击 2:点攻击 3:扇形60度
+    /// 脦脼脣酶露篓脌脿脨脥 0:脦脼脨搂 1:戮脴脨脦鹿楼禄梅 2:碌茫鹿楼禄梅 3:脡脠脨脦60露脠
     /// </summary>
     public sbyte NoLockType
     {
@@ -265,7 +265,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 无锁定攻击范围，打击到敌人是判断，范围内所有敌人都受影响
+    /// 脦脼脣酶露篓鹿楼禄梅路露脦搂拢卢麓貌禄梅碌陆碌脨脠脣脢脟脜脨露脧拢卢路露脦搂脛脷脣霉脫脨碌脨脠脣露录脢脺脫掳脧矛
     /// </summary>
     public int NoLockAtkScope
     {
@@ -294,7 +294,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 移动打断
+    /// 脪脝露炉麓貌露脧
     /// </summary>
     public bool MoveCancel
     {
@@ -310,7 +310,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 眩晕打断
+    /// 脩拢脭脦麓貌露脧
     /// </summary>
     public bool VertigoCancel
     {
@@ -326,7 +326,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 沉默打断
+    /// 鲁脕脛卢麓貌露脧
     /// </summary>
     public bool SilentCancel
     {
@@ -342,7 +342,7 @@ namespace Config
     }
 
     /// <summary>
-    /// 变羊打断
+    /// 卤盲脩貌麓貌露脧
     /// </summary>
     public bool SheepCancel
     {

@@ -30,6 +30,7 @@ namespace Config
     private int _count;
     private int _cycleId;
     private int _cycleCounterId;
+    private int _honer;
 
     public int Id
     {
@@ -126,6 +127,19 @@ namespace Config
       }
     }
 
+    public int Honer
+    {
+      get
+      {
+        return _honer;
+      }
+      set
+      {
+        __isset.honer = true;
+        this._honer = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -139,6 +153,7 @@ namespace Config
       public bool count;
       public bool cycleId;
       public bool cycleCounterId;
+      public bool honer;
     }
 
     public GuildDonateConfig() {
@@ -201,6 +216,13 @@ namespace Config
           case 70:
             if (field.Type == TType.I32) {
               CycleCounterId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 80:
+            if (field.Type == TType.I32) {
+              Honer = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -274,6 +296,14 @@ namespace Config
         oprot.WriteI32(CycleCounterId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.honer) {
+        field.Name = "honer";
+        field.Type = TType.I32;
+        field.ID = 80;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(Honer);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -294,6 +324,8 @@ namespace Config
       sb.Append(CycleId);
       sb.Append(",CycleCounterId: ");
       sb.Append(CycleCounterId);
+      sb.Append(",Honer: ");
+      sb.Append(Honer);
       sb.Append(")");
       return sb.ToString();
     }

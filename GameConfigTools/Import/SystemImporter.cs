@@ -558,11 +558,18 @@ namespace GameConfigTools.Import
                     errMsg = "<donate> cycleCounterId属性必须为整数";
                     return false;
                 }
+                int honer;
+                if (!int.TryParse(donateE.Attribute("honer").Value, out honer))
+                {
+                    errMsg = "<donate> honor属性必须为整数";
+                    return false;
+                }
                 c.Id = id;
-                c.Type = (GuildDonateType)type;
+                c.Type = type == 1 ? GuildDonateType.Currency : GuildDonateType.Item;
                 c.Count = count;
                 c.CycleId = cycleId;
                 c.CycleCounterId = cycleCounterId;
+                c.Honer = honer;
                 config.DonateConfigList.Add(c);
             }
             return true;

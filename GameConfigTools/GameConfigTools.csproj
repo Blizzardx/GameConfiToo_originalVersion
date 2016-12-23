@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -288,6 +288,7 @@
     <Compile Include="Config\GuildDonateConfig.cs" />
     <Compile Include="Config\GuildDonateType.cs" />
     <Compile Include="Config\GuildExpConfig.cs" />
+    <Compile Include="Config\GuildFlagConfig.cs" />
     <Compile Include="Config\GuildPowerConfig.cs" />
     <Compile Include="Config\GuildPrizeConfig.cs" />
     <Compile Include="Config\GuildRightConfig.cs" />
@@ -391,6 +392,7 @@
     <Compile Include="Config\Table\FashionGroupConfigTable.cs" />
     <Compile Include="Config\Table\FuncConfigTable.cs" />
     <Compile Include="Config\Table\GuildExpConfigTable.cs" />
+    <Compile Include="Config\Table\GuildFlagConfigTable.cs" />
     <Compile Include="Config\Table\GuildPrizeConfigTable.cs" />
     <Compile Include="Config\Table\ItemGeneratorConfigTable.cs" />
     <Compile Include="Config\Table\LimitConfigTable.cs" />
@@ -436,8 +438,10 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
-<Compile Include="Import\GenScript\User\BattleColorConfigImporter.cs" />
-<Compile Include="Import\GenScript\Auto\BattleColorConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\GuildFlagConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\GuildFlagConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\BattleColorConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\BattleColorConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\FashionCustomizedConfigImporter.cs" />
     <Compile Include="Import\GenScript\Auto\FashionCustomizedConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\FashionDyeingConfigImporter.cs" />
@@ -595,30 +599,6 @@
     <Compile Include="ScriptGenTool\ScriptGenTool.cs" />
     <Compile Include="ScriptGenTool\XmlConfigBase.cs" />
     <Compile Include="TApplicationException.cs" />
-    <Compile Include="Test\AutoPackData\Base\ByteStream.cs" />
-    <Compile Include="Test\AutoPackData\Base\IPacker.cs" />
-    <Compile Include="Test\AutoPackData\Base\PackDataElementType.cs" />
-    <Compile Include="Test\AutoPackData\Base\PackDataStruct.cs" />
-    <Compile Include="Test\AutoPackData\Impl\Json\Packer_Json.cs" />
-    <Compile Include="Test\AutoPackData\Impl\Thrift\Packer_Thrift.cs" />
-    <Compile Include="Test\AutoPackData\Impl\Xml\Packer_Xml.cs" />
-    <Compile Include="Test\ThriftFormateTest.cs" />
-    <Compile Include="Test\Tool\ListList.cs" />
-    <Compile Include="Test\Tool\Listmap.cs" />
-    <Compile Include="Test\Tool\Listset.cs" />
-    <Compile Include="Test\Tool\Maplist.cs" />
-    <Compile Include="Test\Tool\MapMap.cs" />
-    <Compile Include="Test\Tool\Mapset.cs" />
-    <Compile Include="Test\Tool\TesetCompose.cs" />
-    <Compile Include="Test\Tool\TestBool.cs" />
-    <Compile Include="Test\Tool\TestByte.cs" />
-    <Compile Include="Test\Tool\TestCompose1.cs" />
-    <Compile Include="Test\Tool\TestCompose2.cs" />
-    <Compile Include="Test\Tool\TestCompose3.cs" />
-    <Compile Include="Test\Tool\TestCompose4.cs" />
-    <Compile Include="Test\Tool\Testfloat.cs" />
-    <Compile Include="Test\Tool\TestInt.cs" />
-    <Compile Include="Test\Tool\TestString.cs" />
     <Compile Include="TException.cs" />
     <Compile Include="ThriftSerialize.cs" />
     <Compile Include="TProcessor.cs" />
@@ -790,9 +770,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Test\AutoPackData\Impl\Other\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -21,13 +21,12 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class TesetCompose : TBase
+  public partial class GuildFlagConfig : TBase
   {
     private int _id;
-    private double _doubleId;
-    private string _stringId;
-    private bool _boolId;
-    private sbyte _byteId;
+    private int _flagType;
+    private string _texture;
+    private List<string> _optionColorList;
 
     public int Id
     {
@@ -42,55 +41,42 @@ namespace Config
       }
     }
 
-    public double DoubleId
+    public int FlagType
     {
       get
       {
-        return _doubleId;
+        return _flagType;
       }
       set
       {
-        __isset.doubleId = true;
-        this._doubleId = value;
+        __isset.flagType = true;
+        this._flagType = value;
       }
     }
 
-    public string StringId
+    public string Texture
     {
       get
       {
-        return _stringId;
+        return _texture;
       }
       set
       {
-        __isset.stringId = true;
-        this._stringId = value;
+        __isset.texture = true;
+        this._texture = value;
       }
     }
 
-    public bool BoolId
+    public List<string> OptionColorList
     {
       get
       {
-        return _boolId;
+        return _optionColorList;
       }
       set
       {
-        __isset.boolId = true;
-        this._boolId = value;
-      }
-    }
-
-    public sbyte ByteId
-    {
-      get
-      {
-        return _byteId;
-      }
-      set
-      {
-        __isset.byteId = true;
-        this._byteId = value;
+        __isset.optionColorList = true;
+        this._optionColorList = value;
       }
     }
 
@@ -101,13 +87,12 @@ namespace Config
     #endif
     public struct Isset {
       public bool id;
-      public bool doubleId;
-      public bool stringId;
-      public bool boolId;
-      public bool byteId;
+      public bool flagType;
+      public bool texture;
+      public bool optionColorList;
     }
 
-    public TesetCompose() {
+    public GuildFlagConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -122,37 +107,40 @@ namespace Config
         }
         switch (field.ID)
         {
-          case 1:
+          case 10:
             if (field.Type == TType.I32) {
               Id = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 2:
-            if (field.Type == TType.Double) {
-              DoubleId = iprot.ReadDouble();
+          case 20:
+            if (field.Type == TType.I32) {
+              FlagType = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 3:
+          case 30:
             if (field.Type == TType.String) {
-              StringId = iprot.ReadString();
+              Texture = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 4:
-            if (field.Type == TType.Bool) {
-              BoolId = iprot.ReadBool();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 5:
-            if (field.Type == TType.Byte) {
-              ByteId = iprot.ReadByte();
+          case 40:
+            if (field.Type == TType.List) {
+              {
+                OptionColorList = new List<string>();
+                TList _list243 = iprot.ReadListBegin();
+                for( int _i244 = 0; _i244 < _list243.Count; ++_i244)
+                {
+                  string _elem245 = null;
+                  _elem245 = iprot.ReadString();
+                  OptionColorList.Add(_elem245);
+                }
+                iprot.ReadListEnd();
+              }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -167,47 +155,46 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("TesetCompose");
+      TStruct struc = new TStruct("GuildFlagConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
       if (__isset.id) {
         field.Name = "id";
         field.Type = TType.I32;
-        field.ID = 1;
+        field.ID = 10;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(Id);
         oprot.WriteFieldEnd();
       }
-      if (__isset.doubleId) {
-        field.Name = "doubleId";
-        field.Type = TType.Double;
-        field.ID = 2;
+      if (__isset.flagType) {
+        field.Name = "flagType";
+        field.Type = TType.I32;
+        field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteDouble(DoubleId);
+        oprot.WriteI32(FlagType);
         oprot.WriteFieldEnd();
       }
-      if (StringId != null && __isset.stringId) {
-        field.Name = "stringId";
+      if (Texture != null && __isset.texture) {
+        field.Name = "texture";
         field.Type = TType.String;
-        field.ID = 3;
+        field.ID = 30;
         oprot.WriteFieldBegin(field);
-        oprot.WriteString(StringId);
+        oprot.WriteString(Texture);
         oprot.WriteFieldEnd();
       }
-      if (__isset.boolId) {
-        field.Name = "boolId";
-        field.Type = TType.Bool;
-        field.ID = 4;
+      if (OptionColorList != null && __isset.optionColorList) {
+        field.Name = "optionColorList";
+        field.Type = TType.List;
+        field.ID = 40;
         oprot.WriteFieldBegin(field);
-        oprot.WriteBool(BoolId);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.byteId) {
-        field.Name = "byteId";
-        field.Type = TType.Byte;
-        field.ID = 5;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteByte(ByteId);
+        {
+          oprot.WriteListBegin(new TList(TType.String, OptionColorList.Count));
+          foreach (string _iter246 in OptionColorList)
+          {
+            oprot.WriteString(_iter246);
+          }
+          oprot.WriteListEnd();
+        }
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -215,17 +202,15 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("TesetCompose(");
+      StringBuilder sb = new StringBuilder("GuildFlagConfig(");
       sb.Append("Id: ");
       sb.Append(Id);
-      sb.Append(",DoubleId: ");
-      sb.Append(DoubleId);
-      sb.Append(",StringId: ");
-      sb.Append(StringId);
-      sb.Append(",BoolId: ");
-      sb.Append(BoolId);
-      sb.Append(",ByteId: ");
-      sb.Append(ByteId);
+      sb.Append(",FlagType: ");
+      sb.Append(FlagType);
+      sb.Append(",Texture: ");
+      sb.Append(Texture);
+      sb.Append(",OptionColorList: ");
+      sb.Append(OptionColorList);
       sb.Append(")");
       return sb.ToString();
     }

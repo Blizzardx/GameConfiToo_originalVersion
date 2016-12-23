@@ -266,5 +266,13 @@
         <GenScriptLineXmlConfig classTypeName="string" memberName="color2"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
+      <GenScriptClassXmlConfig className="GuildFlagConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id" rangeMin="0" rangeMax ="65535"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="flagType" rangeMin="1" rangeMax ="2"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="texture"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="colorList" isList="true"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
   </classConfigList>
 </root>

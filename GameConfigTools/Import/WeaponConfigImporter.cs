@@ -68,6 +68,18 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，描述ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    int firstType;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out firstType, 1, 3))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，一级分类必须为1 - 3整型", this.GetConfigName(), sheetName, row, index);
+                        return;
+                    }
+                    int secondType;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out secondType, 1, int.MaxValue))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，二级分类必须为1 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     string model = values[i][index++];
                     string prefab = values[i][index++];
                     string icon = values[i][index++];
@@ -84,6 +96,8 @@ namespace GameConfigTools.Import
                     weapon.Add(new XAttribute("id", id));
                     weapon.Add(new XAttribute("name", name));
                     weapon.Add(new XAttribute("decomposeId", decomposeId));
+                    weapon.Add(new XAttribute("firstType", firstType));
+                    weapon.Add(new XAttribute("secondType", secondType));
                     weapon.Add(new XAttribute("quality", quality));
 
                     WeaponConfig c = new WeaponConfig();
@@ -91,6 +105,8 @@ namespace GameConfigTools.Import
                     c.DecomposeId = decomposeId;
                     c.NameMessageId = nameMessageId;
                     c.DescMessageId = descMessageId;
+                    c.FirstType = firstType;
+                    c.SecondType = secondType;
                     c.Model = model;
                     c.Prefab = prefab;
                     c.Icon = icon;

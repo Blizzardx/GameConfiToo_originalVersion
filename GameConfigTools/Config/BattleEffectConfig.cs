@@ -42,7 +42,8 @@ namespace Config
     private int _type;
     private int _targetId;
     private int _followInterval;
-    private int _coordType;
+    private int _posCoordType;
+    private int _speedCoordType;
     private int _floatTime;
     private int _posX;
     private int _posY;
@@ -303,16 +304,29 @@ namespace Config
       }
     }
 
-    public int CoordType
+    public int PosCoordType
     {
       get
       {
-        return _coordType;
+        return _posCoordType;
       }
       set
       {
-        __isset.coordType = true;
-        this._coordType = value;
+        __isset.posCoordType = true;
+        this._posCoordType = value;
+      }
+    }
+
+    public int SpeedCoordType
+    {
+      get
+      {
+        return _speedCoordType;
+      }
+      set
+      {
+        __isset.speedCoordType = true;
+        this._speedCoordType = value;
       }
     }
 
@@ -497,7 +511,8 @@ namespace Config
       public bool type;
       public bool targetId;
       public bool followInterval;
-      public bool coordType;
+      public bool posCoordType;
+      public bool speedCoordType;
       public bool floatTime;
       public bool posX;
       public bool posY;
@@ -662,12 +677,19 @@ namespace Config
             break;
           case 100:
             if (field.Type == TType.I32) {
-              CoordType = iprot.ReadI32();
+              PosCoordType = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 101:
+            if (field.Type == TType.I32) {
+              SpeedCoordType = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 102:
             if (field.Type == TType.I32) {
               FloatTime = iprot.ReadI32();
             } else { 
@@ -916,18 +938,26 @@ namespace Config
         oprot.WriteI32(FollowInterval);
         oprot.WriteFieldEnd();
       }
-      if (__isset.coordType) {
-        field.Name = "coordType";
+      if (__isset.posCoordType) {
+        field.Name = "posCoordType";
         field.Type = TType.I32;
         field.ID = 100;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(CoordType);
+        oprot.WriteI32(PosCoordType);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.speedCoordType) {
+        field.Name = "speedCoordType";
+        field.Type = TType.I32;
+        field.ID = 101;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(SpeedCoordType);
         oprot.WriteFieldEnd();
       }
       if (__isset.floatTime) {
         field.Name = "floatTime";
         field.Type = TType.I32;
-        field.ID = 101;
+        field.ID = 102;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(FloatTime);
         oprot.WriteFieldEnd();
@@ -1064,8 +1094,10 @@ namespace Config
       sb.Append(TargetId);
       sb.Append(",FollowInterval: ");
       sb.Append(FollowInterval);
-      sb.Append(",CoordType: ");
-      sb.Append(CoordType);
+      sb.Append(",PosCoordType: ");
+      sb.Append(PosCoordType);
+      sb.Append(",SpeedCoordType: ");
+      sb.Append(SpeedCoordType);
       sb.Append(",FloatTime: ");
       sb.Append(FloatTime);
       sb.Append(",PosX: ");

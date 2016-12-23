@@ -27,6 +27,8 @@ namespace Config
     private int _decomposeId;
     private int _nameMessageId;
     private int _descMessageId;
+    private int _firstType;
+    private int _secondType;
     private string _model;
     private string _prefab;
     private string _icon;
@@ -82,6 +84,32 @@ namespace Config
       {
         __isset.descMessageId = true;
         this._descMessageId = value;
+      }
+    }
+
+    public int FirstType
+    {
+      get
+      {
+        return _firstType;
+      }
+      set
+      {
+        __isset.firstType = true;
+        this._firstType = value;
+      }
+    }
+
+    public int SecondType
+    {
+      get
+      {
+        return _secondType;
+      }
+      set
+      {
+        __isset.secondType = true;
+        this._secondType = value;
       }
     }
 
@@ -160,6 +188,8 @@ namespace Config
       public bool decomposeId;
       public bool nameMessageId;
       public bool descMessageId;
+      public bool firstType;
+      public bool secondType;
       public bool model;
       public bool prefab;
       public bool icon;
@@ -206,6 +236,20 @@ namespace Config
           case 40:
             if (field.Type == TType.I32) {
               DescMessageId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 45:
+            if (field.Type == TType.I32) {
+              FirstType = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 46:
+            if (field.Type == TType.I32) {
+              SecondType = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -290,6 +334,22 @@ namespace Config
         oprot.WriteI32(DescMessageId);
         oprot.WriteFieldEnd();
       }
+      if (__isset.firstType) {
+        field.Name = "firstType";
+        field.Type = TType.I32;
+        field.ID = 45;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(FirstType);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.secondType) {
+        field.Name = "secondType";
+        field.Type = TType.I32;
+        field.ID = 46;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(SecondType);
+        oprot.WriteFieldEnd();
+      }
       if (Model != null && __isset.model) {
         field.Name = "model";
         field.Type = TType.String;
@@ -344,6 +404,10 @@ namespace Config
       sb.Append(NameMessageId);
       sb.Append(",DescMessageId: ");
       sb.Append(DescMessageId);
+      sb.Append(",FirstType: ");
+      sb.Append(FirstType);
+      sb.Append(",SecondType: ");
+      sb.Append(SecondType);
       sb.Append(",Model: ");
       sb.Append(Model);
       sb.Append(",Prefab: ");

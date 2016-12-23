@@ -150,10 +150,16 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，追踪检查间隔时间必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int coordType;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out coordType))
+                    int posCoordType;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out posCoordType))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，参考坐标系必须为整型", this.GetConfigName(), sheetName, row, index);
+                        return;
+                    }
+                    int speedCoordType;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out speedCoordType))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，speedCoordType必须为整型", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
                     int floatTime;
@@ -283,7 +289,8 @@ namespace GameConfigTools.Import
                     c.Type = type;
                     c.TargetId = targetId;
                     c.FollowInterval = followInterval;
-                    c.CoordType = coordType;
+                    c.PosCoordType = posCoordType;
+                    c.SpeedCoordType = speedCoordType;
                     c.PosX = posX;
                     c.PosY = posY;
                     c.PoxZ = posZ;

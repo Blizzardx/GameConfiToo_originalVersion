@@ -118,6 +118,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.FASHION_CUSTOMIZED_CONFIG, new FashionCustomizedConfigImporter());
             importerDic.Add(SysConstant.FASHION_DYEING_CONFIG, new FashionDyeingConfigImporter());
             importerDic.Add(SysConstant.BATTLE_COLOR_CONFIG, new BattleColorConfigImporter());
+            importerDic.Add(SysConstant.GUILD_FLAG_CONFIG, new GuildFlagConfigImporter());
         }
         /// <summary>
         /// 加载关联导入
