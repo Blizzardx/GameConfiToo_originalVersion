@@ -35,10 +35,9 @@ namespace Config
     private int _sortId;
     private int _activeLimitId;
     private int _activeCostId;
-    private int _activeType;
     private int _displayLimitId;
-    private int _mainPanelTipType;
-    private int _posPanelTipType;
+    private int _displayTipType;
+    private int _activeTipType;
     private int _funcDescMessageId;
     private int _activeLimitDescMessageId;
 
@@ -198,19 +197,6 @@ namespace Config
       }
     }
 
-    public int ActiveType
-    {
-      get
-      {
-        return _activeType;
-      }
-      set
-      {
-        __isset.activeType = true;
-        this._activeType = value;
-      }
-    }
-
     public int DisplayLimitId
     {
       get
@@ -224,29 +210,29 @@ namespace Config
       }
     }
 
-    public int MainPanelTipType
+    public int DisplayTipType
     {
       get
       {
-        return _mainPanelTipType;
+        return _displayTipType;
       }
       set
       {
-        __isset.mainPanelTipType = true;
-        this._mainPanelTipType = value;
+        __isset.displayTipType = true;
+        this._displayTipType = value;
       }
     }
 
-    public int PosPanelTipType
+    public int ActiveTipType
     {
       get
       {
-        return _posPanelTipType;
+        return _activeTipType;
       }
       set
       {
-        __isset.posPanelTipType = true;
-        this._posPanelTipType = value;
+        __isset.activeTipType = true;
+        this._activeTipType = value;
       }
     }
 
@@ -294,10 +280,9 @@ namespace Config
       public bool sortId;
       public bool activeLimitId;
       public bool activeCostId;
-      public bool activeType;
       public bool displayLimitId;
-      public bool mainPanelTipType;
-      public bool posPanelTipType;
+      public bool displayTipType;
+      public bool activeTipType;
       public bool funcDescMessageId;
       public bool activeLimitDescMessageId;
     }
@@ -412,13 +397,6 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
-          case 112:
-            if (field.Type == TType.I32) {
-              ActiveType = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
           case 120:
             if (field.Type == TType.I32) {
               DisplayLimitId = iprot.ReadI32();
@@ -428,14 +406,14 @@ namespace Config
             break;
           case 130:
             if (field.Type == TType.I32) {
-              MainPanelTipType = iprot.ReadI32();
+              DisplayTipType = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 140:
             if (field.Type == TType.I32) {
-              PosPanelTipType = iprot.ReadI32();
+              ActiveTipType = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -570,14 +548,6 @@ namespace Config
         oprot.WriteI32(ActiveCostId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.activeType) {
-        field.Name = "activeType";
-        field.Type = TType.I32;
-        field.ID = 112;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(ActiveType);
-        oprot.WriteFieldEnd();
-      }
       if (__isset.displayLimitId) {
         field.Name = "displayLimitId";
         field.Type = TType.I32;
@@ -586,20 +556,20 @@ namespace Config
         oprot.WriteI32(DisplayLimitId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.mainPanelTipType) {
-        field.Name = "mainPanelTipType";
+      if (__isset.displayTipType) {
+        field.Name = "displayTipType";
         field.Type = TType.I32;
         field.ID = 130;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(MainPanelTipType);
+        oprot.WriteI32(DisplayTipType);
         oprot.WriteFieldEnd();
       }
-      if (__isset.posPanelTipType) {
-        field.Name = "posPanelTipType";
+      if (__isset.activeTipType) {
+        field.Name = "activeTipType";
         field.Type = TType.I32;
         field.ID = 140;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(PosPanelTipType);
+        oprot.WriteI32(ActiveTipType);
         oprot.WriteFieldEnd();
       }
       if (__isset.funcDescMessageId) {
@@ -648,14 +618,12 @@ namespace Config
       sb.Append(ActiveLimitId);
       sb.Append(",ActiveCostId: ");
       sb.Append(ActiveCostId);
-      sb.Append(",ActiveType: ");
-      sb.Append(ActiveType);
       sb.Append(",DisplayLimitId: ");
       sb.Append(DisplayLimitId);
-      sb.Append(",MainPanelTipType: ");
-      sb.Append(MainPanelTipType);
-      sb.Append(",PosPanelTipType: ");
-      sb.Append(PosPanelTipType);
+      sb.Append(",DisplayTipType: ");
+      sb.Append(DisplayTipType);
+      sb.Append(",ActiveTipType: ");
+      sb.Append(ActiveTipType);
       sb.Append(",FuncDescMessageId: ");
       sb.Append(FuncDescMessageId);
       sb.Append(",ActiveLimitDescMessageId: ");

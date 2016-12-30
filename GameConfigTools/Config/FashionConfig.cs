@@ -35,6 +35,11 @@ namespace Config
     private int _dyeingCostId;
     private List<int> _dyeingList;
     private List<int> _CustomizedList;
+    private int _displayLimitId;
+    private int _displayTipType;
+    private int _activeTipType;
+    private int _activeLimitDescMessageId;
+    private string _bigIcon;
 
     public int Id
     {
@@ -192,6 +197,71 @@ namespace Config
       }
     }
 
+    public int DisplayLimitId
+    {
+      get
+      {
+        return _displayLimitId;
+      }
+      set
+      {
+        __isset.displayLimitId = true;
+        this._displayLimitId = value;
+      }
+    }
+
+    public int DisplayTipType
+    {
+      get
+      {
+        return _displayTipType;
+      }
+      set
+      {
+        __isset.displayTipType = true;
+        this._displayTipType = value;
+      }
+    }
+
+    public int ActiveTipType
+    {
+      get
+      {
+        return _activeTipType;
+      }
+      set
+      {
+        __isset.activeTipType = true;
+        this._activeTipType = value;
+      }
+    }
+
+    public int ActiveLimitDescMessageId
+    {
+      get
+      {
+        return _activeLimitDescMessageId;
+      }
+      set
+      {
+        __isset.activeLimitDescMessageId = true;
+        this._activeLimitDescMessageId = value;
+      }
+    }
+
+    public string BigIcon
+    {
+      get
+      {
+        return _bigIcon;
+      }
+      set
+      {
+        __isset.bigIcon = true;
+        this._bigIcon = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -210,6 +280,11 @@ namespace Config
       public bool dyeingCostId;
       public bool dyeingList;
       public bool CustomizedList;
+      public bool displayLimitId;
+      public bool displayTipType;
+      public bool activeTipType;
+      public bool activeLimitDescMessageId;
+      public bool bigIcon;
     }
 
     public FashionConfig() {
@@ -327,6 +402,41 @@ namespace Config
                 }
                 iprot.ReadListEnd();
               }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 120:
+            if (field.Type == TType.I32) {
+              DisplayLimitId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 130:
+            if (field.Type == TType.I32) {
+              DisplayTipType = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 140:
+            if (field.Type == TType.I32) {
+              ActiveTipType = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 160:
+            if (field.Type == TType.I32) {
+              ActiveLimitDescMessageId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 170:
+            if (field.Type == TType.String) {
+              BigIcon = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -454,6 +564,46 @@ namespace Config
         }
         oprot.WriteFieldEnd();
       }
+      if (__isset.displayLimitId) {
+        field.Name = "displayLimitId";
+        field.Type = TType.I32;
+        field.ID = 120;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(DisplayLimitId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.displayTipType) {
+        field.Name = "displayTipType";
+        field.Type = TType.I32;
+        field.ID = 130;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(DisplayTipType);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.activeTipType) {
+        field.Name = "activeTipType";
+        field.Type = TType.I32;
+        field.ID = 140;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ActiveTipType);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.activeLimitDescMessageId) {
+        field.Name = "activeLimitDescMessageId";
+        field.Type = TType.I32;
+        field.ID = 160;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ActiveLimitDescMessageId);
+        oprot.WriteFieldEnd();
+      }
+      if (BigIcon != null && __isset.bigIcon) {
+        field.Name = "bigIcon";
+        field.Type = TType.String;
+        field.ID = 170;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(BigIcon);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -484,6 +634,16 @@ namespace Config
       sb.Append(DyeingList);
       sb.Append(",CustomizedList: ");
       sb.Append(CustomizedList);
+      sb.Append(",DisplayLimitId: ");
+      sb.Append(DisplayLimitId);
+      sb.Append(",DisplayTipType: ");
+      sb.Append(DisplayTipType);
+      sb.Append(",ActiveTipType: ");
+      sb.Append(ActiveTipType);
+      sb.Append(",ActiveLimitDescMessageId: ");
+      sb.Append(ActiveLimitDescMessageId);
+      sb.Append(",BigIcon: ");
+      sb.Append(BigIcon);
       sb.Append(")");
       return sb.ToString();
     }

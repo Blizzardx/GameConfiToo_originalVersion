@@ -71,6 +71,11 @@ namespace GameConfigTools.Import
             c.CustomizedList = CustomizedIdList;
             c.Animation = animation;
             c.DyeingCostId = dyeingCostId;
+            c.DisplayTipType = displayTipType;
+            c.ActiveTipType = activeTipType;
+            c.DisplayLimitId = displayLimitId;
+            c.ActiveLimitDescMessageId = activeLimitDescMessageId;
+            c.BigIcon = bigIcon;
 
             if (config.FashionConfigMap.ContainsKey(id))
             {

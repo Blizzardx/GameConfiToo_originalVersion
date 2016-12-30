@@ -244,6 +244,11 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="dyeingCostId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="dyeingIdList"  isList="true"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="CustomizedIdList"  isList="true"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="displayLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="displayTipType" rangeMin="1" rangeMax ="3"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeTipType" rangeMin="1" rangeMax ="3"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeLimitDescMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="bigIcon"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
     <GenScriptClassXmlConfig className="FashionDyeingConfig">

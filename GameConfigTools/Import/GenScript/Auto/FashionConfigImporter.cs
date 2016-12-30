@@ -33,6 +33,11 @@ namespace GameConfigTools.Import
 		private int dyeingCostId;
 		private List<int> dyeingIdList;
 		private List<int> CustomizedIdList;
+		private int displayLimitId;
+		private int displayTipType;
+		private int activeTipType;
+		private int activeLimitDescMessageId;
+		private string bigIcon;
     
         protected override void AutoParasTable(List<string[][]> sheetValues, ref string errMsg)
         {
@@ -135,7 +140,32 @@ catch (Exception e)
     errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,14+1, "CustomizedIdList");
     errMsg += " " + e.Message;
     return;
-}                        
+}    if (!VaildUtil.TryConvert(values[i][15], out displayLimitId,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,15+1, displayLimitId,int.MinValue,int.MaxValue,"int","displayLimitId");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][16], out displayTipType,1,3))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,16+1, displayTipType,1,3,"int","displayTipType");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][17], out activeTipType,1,3))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,17+1, activeTipType,1,3,"int","activeTipType");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][18], out activeLimitDescMessageId,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,18+1, activeLimitDescMessageId,int.MinValue,int.MaxValue,"int","activeLimitDescMessageId");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][19], out bigIcon,string.Empty,string.Empty))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,19+1, bigIcon,string.Empty,string.Empty,"string","bigIcon");
+	return;
+}
+                    
                     
                     OnAutoParasLine(sheetName,row,values[i],ref errMsg);
                     if (!string.IsNullOrEmpty(errMsg))

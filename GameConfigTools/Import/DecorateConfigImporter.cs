@@ -122,26 +122,20 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int activeType;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeType))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
-                        return;
-                    }
                     int displayLimitId;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out displayLimitId))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int mainPanelTipType;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out mainPanelTipType))
+                    int displayTipType;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out displayTipType))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int posPanelTipType;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out posPanelTipType))
+                    int activeTipType;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out activeTipType))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总帧数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
@@ -185,10 +179,9 @@ namespace GameConfigTools.Import
                     c.SortId = sortId;
                     c.ActiveLimitId = activeLimitId;
                     c.ActiveCostId = activeCostId;
-                    c.ActiveType = activeType;
                     c.DisplayLimitId = displayLimitId;
-                    c.MainPanelTipType = mainPanelTipType;
-                    c.PosPanelTipType = posPanelTipType;
+                    c.DisplayTipType = displayTipType;
+                    c.ActiveTipType = activeTipType;
                     c.FuncDescMessageId = funcDescMessageId;
                     c.Resource = new List<DecorateResourceInfo>();
                     for (int tmpi = 0; tmpi < resourceList.Count; ++tmpi)
