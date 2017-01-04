@@ -560,6 +560,7 @@
     <Compile Include="Import\FuncImporter.cs" />
     <Compile Include="Import\RandomNameImporter.cs" />
     <Compile Include="Import\SystemImporter.cs" />
+    <Compile Include="Import\TerrainConfigImporter.cs" />
     <Compile Include="Import\WeaponAttributeConfigImporter.cs" />
     <Compile Include="Import\WeaponConfigImporter.cs" />
     <Compile Include="Import\WeatherPlanConfigImporter.cs" />

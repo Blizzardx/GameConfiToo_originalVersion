@@ -209,5 +209,7 @@ namespace GameConfigTools.Constant
         public static readonly string BATTLE_COLOR_CONFIG = "battleColorConfig";
 
         public static readonly string GUILD_FLAG_CONFIG = "guildFlagConfig";
+
+        public static readonly string TERRAIN_CONFIG = "terrainConfig";
     }
 }

@@ -75,6 +75,8 @@ namespace GameConfigTools.Import
                     }
                     LogQueue.instance.Add("生成服务器配置成功.");
                     LogQueue.instance.Add("正在上传服务器配置...");
+                    string tmpcontent = root.ToString();
+
                     string content = HttpUtility.UrlEncode(root.ToString(), Encoding.UTF8).Replace(" ", "%26").Replace("+", "%20");
                     string postString = string.Format("game_type={0}&server_version={1}&name={2}&content={3}", Context.instance.GetGame(), Context.instance.GetVersion(), this.GetConfigName(), content);
                     string html = HttpUtil.HttpPost(config.ConfigCenterUrl + SysConstant.UPDATE_CONFIG, postString);
