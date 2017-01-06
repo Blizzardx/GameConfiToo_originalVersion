@@ -279,5 +279,40 @@
         <GenScriptLineXmlConfig classTypeName="string" memberName="colorList" isList="true"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
+  <GenScriptClassXmlConfig className="WeaponCustomizedConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="textureName"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="costId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nameMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="name"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="WeaponConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="name"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="decomposeId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nameMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="descMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="firstType" rangeMin="1" rangeMax ="3"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="secondType" rangeMin="1" />
+        <GenScriptLineXmlConfig classTypeName="string" memberName="model"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="prefab"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="icon"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="quality"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="attachPoint"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="textureList" isList="true"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeConsumeId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="sortId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="showLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="showTipType" rangeMin="1" rangeMax ="3"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="showEventType"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeEnterType" rangeMin="1" rangeMax ="3"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeIconTip"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeTipType" rangeMin="1" rangeMax ="3"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="motionList" isList="true"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
   </classConfigList>
 </root>

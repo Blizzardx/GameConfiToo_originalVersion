@@ -27,6 +27,7 @@ namespace Config
     private string _model;
     private string _dataPrefab;
     private string _blush;
+    private int _blushType;
     private int _totalTime;
     private int _maxTime;
     private int _collisionLimitId;
@@ -106,6 +107,19 @@ namespace Config
       {
         __isset.blush = true;
         this._blush = value;
+      }
+    }
+
+    public int BlushType
+    {
+      get
+      {
+        return _blushType;
+      }
+      set
+      {
+        __isset.blushType = true;
+        this._blushType = value;
       }
     }
 
@@ -496,6 +510,7 @@ namespace Config
       public bool model;
       public bool dataPrefab;
       public bool blush;
+      public bool blushType;
       public bool totalTime;
       public bool maxTime;
       public bool collisionLimitId;
@@ -566,6 +581,13 @@ namespace Config
           case 22:
             if (field.Type == TType.String) {
               Blush = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 23:
+            if (field.Type == TType.I32) {
+              BlushType = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -818,6 +840,14 @@ namespace Config
         oprot.WriteString(Blush);
         oprot.WriteFieldEnd();
       }
+      if (__isset.blushType) {
+        field.Name = "blushType";
+        field.Type = TType.I32;
+        field.ID = 23;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(BlushType);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.totalTime) {
         field.Name = "totalTime";
         field.Type = TType.I32;
@@ -1064,6 +1094,8 @@ namespace Config
       sb.Append(DataPrefab);
       sb.Append(",Blush: ");
       sb.Append(Blush);
+      sb.Append(",BlushType: ");
+      sb.Append(BlushType);
       sb.Append(",TotalTime: ");
       sb.Append(TotalTime);
       sb.Append(",MaxTime: ");

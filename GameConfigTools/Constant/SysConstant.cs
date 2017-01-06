@@ -211,5 +211,7 @@ namespace GameConfigTools.Constant
         public static readonly string GUILD_FLAG_CONFIG = "guildFlagConfig";
 
         public static readonly string TERRAIN_CONFIG = "terrainConfig";
+
+        public static readonly string WEAPON_CUSTOMIZED_CONFIG = "weaponCustomizedConfig";
     }
 }

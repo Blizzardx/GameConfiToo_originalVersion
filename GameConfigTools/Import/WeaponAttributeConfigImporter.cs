@@ -48,10 +48,10 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，武器ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int level;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out level))
+                    int star;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out star))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，武器等级必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，武器星级必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
                     int normalSkill;
@@ -60,18 +60,14 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，普通攻击技能必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int skill1;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out skill1))
+                    int upStarConsumeId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out upStarConsumeId))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，技能1必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，普通攻击技能必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int skill2;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out skill2))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，技能2必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
-                        return;
-                    }
+                    string bulletTexture = values[i][index++];
+
                     int passiveSkill1;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out passiveSkill1))
                     {
@@ -108,9 +104,9 @@ namespace GameConfigTools.Import
                         config.WeaponAttributeConfigMap.Add(weaponId, new Dictionary<int, WeaponAttributeConfig>());
                     }
                     Dictionary<int, WeaponAttributeConfig> dic = config.WeaponAttributeConfigMap[weaponId];
-                    if (dic.ContainsKey(level))
+                    if (dic.ContainsKey(star))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2}行]读取出现错误，Id:{3} level:{4}配置重复", this.GetConfigName(), sheetName, row, weaponId, level);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2}行]读取出现错误，Id:{3} level:{4}配置重复", this.GetConfigName(), sheetName, row, weaponId, star);
                         return;
                     }
 
@@ -122,7 +118,7 @@ namespace GameConfigTools.Import
                     List<List<string>> resultList = this.ParseBracket(list);
                     if (resultList == null || resultList.Count < 1)
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2}行]读取出现错误，Id:{3} level:{4}没有配置属性", this.GetConfigName(), sheetName, row, weaponId, level);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2}行]读取出现错误，Id:{3} level:{4}没有配置属性", this.GetConfigName(), sheetName, row, weaponId, star);
                         return;
                     }
                     List<string> attrList = new List<string>();
@@ -137,17 +133,16 @@ namespace GameConfigTools.Import
                     }
                     if((attrList.Count() & 1) == 1)
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2}行]读取出现错误，Id:{3} level:{4}属性配置不合法", this.GetConfigName(), sheetName, row, weaponId, level);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2}行]读取出现错误，Id:{3} level:{4}属性配置不合法", this.GetConfigName(), sheetName, row, weaponId, star);
                         return;
                     }
 
                     XElement weaponAttributeE = new XElement("weaponAttribute");
                     root.Add(weaponAttributeE);
                     weaponAttributeE.Add(new XAttribute("weaponId", weaponId));
-                    weaponAttributeE.Add(new XAttribute("level", level));
+                    weaponAttributeE.Add(new XAttribute("star", star));
                     weaponAttributeE.Add(new XAttribute("normalSkill", normalSkill));
-                    weaponAttributeE.Add(new XAttribute("skill1", skill1));
-                    weaponAttributeE.Add(new XAttribute("skill2", skill2));
+                    weaponAttributeE.Add(new XAttribute("upStarConsumeId", upStarConsumeId));
                     XElement passiveSkillsE = new XElement("passiveSkills");
                     weaponAttributeE.Add(passiveSkillsE);
 
@@ -157,10 +152,10 @@ namespace GameConfigTools.Import
 
                     WeaponAttributeConfig c = new WeaponAttributeConfig();
                     c.WeaponId = weaponId;
-                    c.Level = level;
+                    c.Star = star;
                     c.NormalSkill = normalSkill;
-                    c.Skill1 = skill1;
-                    c.Skill2 = skill2;
+                    c.UpStarConsumeId = upStarConsumeId;
+                    c.BulletTexture = bulletTexture;
                     c.PassiveSkillList = new List<int>();
                     if(passiveSkill1 > 0)
                     {
@@ -223,7 +218,7 @@ namespace GameConfigTools.Import
                             attributesE.Add(attributeE);
                         }
                     }
-                    dic.Add(c.Level, c);
+                    dic.Add(c.Star, c);
                 }
             }
         }

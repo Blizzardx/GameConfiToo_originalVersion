@@ -120,6 +120,7 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.BATTLE_COLOR_CONFIG, new BattleColorConfigImporter());
             importerDic.Add(SysConstant.GUILD_FLAG_CONFIG, new GuildFlagConfigImporter());
             importerDic.Add(SysConstant.TERRAIN_CONFIG, new TerrainConfigImporter());
+            importerDic.Add(SysConstant.WEAPON_CUSTOMIZED_CONFIG, new WeaponCustomizedConfigImporter());
         }
         /// <summary>
         /// 加载关联导入

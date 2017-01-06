@@ -31,6 +31,7 @@ namespace Config
     private bool _canSkill;
     private int _totalTime;
     private bool _isLoop;
+    private int _loopEventTime;
 
     public int Id
     {
@@ -136,6 +137,19 @@ namespace Config
       }
     }
 
+    public int LoopEventTime
+    {
+      get
+      {
+        return _loopEventTime;
+      }
+      set
+      {
+        __isset.loopEventTime = true;
+        this._loopEventTime = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -150,6 +164,7 @@ namespace Config
       public bool canSkill;
       public bool totalTime;
       public bool isLoop;
+      public bool loopEventTime;
     }
 
     public BattleActionConfig() {
@@ -219,6 +234,13 @@ namespace Config
           case 70:
             if (field.Type == TType.Bool) {
               IsLoop = iprot.ReadBool();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 80:
+            if (field.Type == TType.I32) {
+              LoopEventTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -300,6 +322,14 @@ namespace Config
         oprot.WriteBool(IsLoop);
         oprot.WriteFieldEnd();
       }
+      if (__isset.loopEventTime) {
+        field.Name = "loopEventTime";
+        field.Type = TType.I32;
+        field.ID = 80;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(LoopEventTime);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -322,6 +352,8 @@ namespace Config
       sb.Append(TotalTime);
       sb.Append(",IsLoop: ");
       sb.Append(IsLoop);
+      sb.Append(",LoopEventTime: ");
+      sb.Append(LoopEventTime);
       sb.Append(")");
       return sb.ToString();
     }

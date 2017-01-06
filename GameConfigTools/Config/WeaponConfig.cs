@@ -34,6 +34,16 @@ namespace Config
     private string _icon;
     private int _quality;
     private string _attachPoint;
+    private List<int> _textureList;
+    private int _activeCostId;
+    private int _sortId;
+    private int _showLimitId;
+    private int _showTipType;
+    private int _showEventType;
+    private int _activeIconTip;
+    private int _activeTipType;
+    private int _activeEnterType;
+    private List<string> _motionList;
 
     public int Id
     {
@@ -178,6 +188,136 @@ namespace Config
       }
     }
 
+    public List<int> TextureList
+    {
+      get
+      {
+        return _textureList;
+      }
+      set
+      {
+        __isset.textureList = true;
+        this._textureList = value;
+      }
+    }
+
+    public int ActiveCostId
+    {
+      get
+      {
+        return _activeCostId;
+      }
+      set
+      {
+        __isset.activeCostId = true;
+        this._activeCostId = value;
+      }
+    }
+
+    public int SortId
+    {
+      get
+      {
+        return _sortId;
+      }
+      set
+      {
+        __isset.sortId = true;
+        this._sortId = value;
+      }
+    }
+
+    public int ShowLimitId
+    {
+      get
+      {
+        return _showLimitId;
+      }
+      set
+      {
+        __isset.showLimitId = true;
+        this._showLimitId = value;
+      }
+    }
+
+    public int ShowTipType
+    {
+      get
+      {
+        return _showTipType;
+      }
+      set
+      {
+        __isset.showTipType = true;
+        this._showTipType = value;
+      }
+    }
+
+    public int ShowEventType
+    {
+      get
+      {
+        return _showEventType;
+      }
+      set
+      {
+        __isset.showEventType = true;
+        this._showEventType = value;
+      }
+    }
+
+    public int ActiveIconTip
+    {
+      get
+      {
+        return _activeIconTip;
+      }
+      set
+      {
+        __isset.activeIconTip = true;
+        this._activeIconTip = value;
+      }
+    }
+
+    public int ActiveTipType
+    {
+      get
+      {
+        return _activeTipType;
+      }
+      set
+      {
+        __isset.activeTipType = true;
+        this._activeTipType = value;
+      }
+    }
+
+    public int ActiveEnterType
+    {
+      get
+      {
+        return _activeEnterType;
+      }
+      set
+      {
+        __isset.activeEnterType = true;
+        this._activeEnterType = value;
+      }
+    }
+
+    public List<string> MotionList
+    {
+      get
+      {
+        return _motionList;
+      }
+      set
+      {
+        __isset.motionList = true;
+        this._motionList = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -195,6 +335,16 @@ namespace Config
       public bool icon;
       public bool quality;
       public bool attachPoint;
+      public bool textureList;
+      public bool activeCostId;
+      public bool sortId;
+      public bool showLimitId;
+      public bool showTipType;
+      public bool showEventType;
+      public bool activeIconTip;
+      public bool activeTipType;
+      public bool activeEnterType;
+      public bool motionList;
     }
 
     public WeaponConfig() {
@@ -285,6 +435,96 @@ namespace Config
           case 90:
             if (field.Type == TType.String) {
               AttachPoint = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 100:
+            if (field.Type == TType.List) {
+              {
+                TextureList = new List<int>();
+                TList _list234 = iprot.ReadListBegin();
+                for( int _i235 = 0; _i235 < _list234.Count; ++_i235)
+                {
+                  int _elem236 = 0;
+                  _elem236 = iprot.ReadI32();
+                  TextureList.Add(_elem236);
+                }
+                iprot.ReadListEnd();
+              }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 110:
+            if (field.Type == TType.I32) {
+              ActiveCostId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 120:
+            if (field.Type == TType.I32) {
+              SortId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 130:
+            if (field.Type == TType.I32) {
+              ShowLimitId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 140:
+            if (field.Type == TType.I32) {
+              ShowTipType = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 150:
+            if (field.Type == TType.I32) {
+              ShowEventType = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 160:
+            if (field.Type == TType.I32) {
+              ActiveIconTip = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 170:
+            if (field.Type == TType.I32) {
+              ActiveTipType = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 171:
+            if (field.Type == TType.I32) {
+              ActiveEnterType = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 180:
+            if (field.Type == TType.List) {
+              {
+                MotionList = new List<string>();
+                TList _list237 = iprot.ReadListBegin();
+                for( int _i238 = 0; _i238 < _list237.Count; ++_i238)
+                {
+                  string _elem239 = null;
+                  _elem239 = iprot.ReadString();
+                  MotionList.Add(_elem239);
+                }
+                iprot.ReadListEnd();
+              }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -390,6 +630,100 @@ namespace Config
         oprot.WriteString(AttachPoint);
         oprot.WriteFieldEnd();
       }
+      if (TextureList != null && __isset.textureList) {
+        field.Name = "textureList";
+        field.Type = TType.List;
+        field.ID = 100;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.I32, TextureList.Count));
+          foreach (int _iter240 in TextureList)
+          {
+            oprot.WriteI32(_iter240);
+          }
+          oprot.WriteListEnd();
+        }
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.activeCostId) {
+        field.Name = "activeCostId";
+        field.Type = TType.I32;
+        field.ID = 110;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ActiveCostId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.sortId) {
+        field.Name = "sortId";
+        field.Type = TType.I32;
+        field.ID = 120;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(SortId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.showLimitId) {
+        field.Name = "showLimitId";
+        field.Type = TType.I32;
+        field.ID = 130;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ShowLimitId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.showTipType) {
+        field.Name = "showTipType";
+        field.Type = TType.I32;
+        field.ID = 140;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ShowTipType);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.showEventType) {
+        field.Name = "showEventType";
+        field.Type = TType.I32;
+        field.ID = 150;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ShowEventType);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.activeIconTip) {
+        field.Name = "activeIconTip";
+        field.Type = TType.I32;
+        field.ID = 160;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ActiveIconTip);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.activeTipType) {
+        field.Name = "activeTipType";
+        field.Type = TType.I32;
+        field.ID = 170;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ActiveTipType);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.activeEnterType) {
+        field.Name = "activeEnterType";
+        field.Type = TType.I32;
+        field.ID = 171;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ActiveEnterType);
+        oprot.WriteFieldEnd();
+      }
+      if (MotionList != null && __isset.motionList) {
+        field.Name = "motionList";
+        field.Type = TType.List;
+        field.ID = 180;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.String, MotionList.Count));
+          foreach (string _iter241 in MotionList)
+          {
+            oprot.WriteString(_iter241);
+          }
+          oprot.WriteListEnd();
+        }
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -418,6 +752,26 @@ namespace Config
       sb.Append(Quality);
       sb.Append(",AttachPoint: ");
       sb.Append(AttachPoint);
+      sb.Append(",TextureList: ");
+      sb.Append(TextureList);
+      sb.Append(",ActiveCostId: ");
+      sb.Append(ActiveCostId);
+      sb.Append(",SortId: ");
+      sb.Append(SortId);
+      sb.Append(",ShowLimitId: ");
+      sb.Append(ShowLimitId);
+      sb.Append(",ShowTipType: ");
+      sb.Append(ShowTipType);
+      sb.Append(",ShowEventType: ");
+      sb.Append(ShowEventType);
+      sb.Append(",ActiveIconTip: ");
+      sb.Append(ActiveIconTip);
+      sb.Append(",ActiveTipType: ");
+      sb.Append(ActiveTipType);
+      sb.Append(",ActiveEnterType: ");
+      sb.Append(ActiveEnterType);
+      sb.Append(",MotionList: ");
+      sb.Append(MotionList);
       sb.Append(")");
       return sb.ToString();
     }

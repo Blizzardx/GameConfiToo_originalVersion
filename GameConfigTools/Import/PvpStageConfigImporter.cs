@@ -62,7 +62,7 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，标签ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    string stagemap = values[i][index++];
+                    string stageMapResource = values[i][index++];
                     string icon = values[i][index++];
                     int endLimitId;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out endLimitId))
@@ -158,6 +158,7 @@ namespace GameConfigTools.Import
                     root.Add(stageE);
                     stageE.Add(new XAttribute("id", id));
                     stageE.Add(new XAttribute("name", name));
+                    stageE.Add(new XAttribute("stageMapResource", stageMapResource));
                     stageE.Add(new XAttribute("endLimitId", endLimitId));
                     stageE.Add(new XAttribute("endFuncId", endFuncId));
                     stageE.Add(new XAttribute("modeId", modeId));
@@ -174,7 +175,7 @@ namespace GameConfigTools.Import
                     c.Id = id;
                     c.NameMessageId = nameMessageId;
                     c.DescMessageId = descMessageId;
-                    c.StageMapResource = stagemap;
+                    c.StageMapResource = stageMapResource;
                     c.IconPic = icon;
                     c.EndLimitId = endLimitId;
                     c.EndFuncId = endFuncId;

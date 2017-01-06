@@ -88,6 +88,13 @@ namespace GameConfigTools.Import
                         return;
                     }
 
+                    int loopEventTime;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out loopEventTime))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，loopEventTime必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+
                     BattleActionConfig c = new BattleActionConfig();
                     c.Id = id;
                     c.SkillId = skillId;
@@ -97,6 +104,7 @@ namespace GameConfigTools.Import
                     c.CanSkill = canSkill != 0;
                     c.TotalTime = totalTime / SysConstant.CLIENT_FRAME_TIME;
                     c.IsLoop = isLoop != 0;
+                    c.LoopEventTime = loopEventTime;
 
                     List<BattleActionConfig> list = null;
                     if (!config.BattleActionConfigMap.ContainsKey(c.SkillId))

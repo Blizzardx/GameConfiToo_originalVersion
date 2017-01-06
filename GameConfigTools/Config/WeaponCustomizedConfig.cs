@@ -21,76 +21,62 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class BattleActionEventConfig : TBase
+  public partial class WeaponCustomizedConfig : TBase
   {
-    private int _actionId;
-    private int _loopTime;
-    private int _eventFrame;
-    private int _frameLimitId;
-    private int _frameFuncId;
+    private int _id;
+    private string _textureName;
+    private int _costId;
+    private int _nameMessageId;
 
-    public int ActionId
+    public int Id
     {
       get
       {
-        return _actionId;
+        return _id;
       }
       set
       {
-        __isset.actionId = true;
-        this._actionId = value;
+        __isset.id = true;
+        this._id = value;
       }
     }
 
-    public int LoopTime
+    public string TextureName
     {
       get
       {
-        return _loopTime;
+        return _textureName;
       }
       set
       {
-        __isset.loopTime = true;
-        this._loopTime = value;
+        __isset.textureName = true;
+        this._textureName = value;
       }
     }
 
-    public int EventFrame
+    public int CostId
     {
       get
       {
-        return _eventFrame;
+        return _costId;
       }
       set
       {
-        __isset.eventFrame = true;
-        this._eventFrame = value;
+        __isset.costId = true;
+        this._costId = value;
       }
     }
 
-    public int FrameLimitId
+    public int NameMessageId
     {
       get
       {
-        return _frameLimitId;
+        return _nameMessageId;
       }
       set
       {
-        __isset.frameLimitId = true;
-        this._frameLimitId = value;
-      }
-    }
-
-    public int FrameFuncId
-    {
-      get
-      {
-        return _frameFuncId;
-      }
-      set
-      {
-        __isset.frameFuncId = true;
-        this._frameFuncId = value;
+        __isset.nameMessageId = true;
+        this._nameMessageId = value;
       }
     }
 
@@ -100,14 +86,13 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool actionId;
-      public bool loopTime;
-      public bool eventFrame;
-      public bool frameLimitId;
-      public bool frameFuncId;
+      public bool id;
+      public bool textureName;
+      public bool costId;
+      public bool nameMessageId;
     }
 
-    public BattleActionEventConfig() {
+    public WeaponCustomizedConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -124,35 +109,28 @@ namespace Config
         {
           case 10:
             if (field.Type == TType.I32) {
-              ActionId = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 15:
-            if (field.Type == TType.I32) {
-              LoopTime = iprot.ReadI32();
+              Id = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 20:
-            if (field.Type == TType.I32) {
-              EventFrame = iprot.ReadI32();
+            if (field.Type == TType.String) {
+              TextureName = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 30:
             if (field.Type == TType.I32) {
-              FrameLimitId = iprot.ReadI32();
+              CostId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 40:
             if (field.Type == TType.I32) {
-              FrameFuncId = iprot.ReadI32();
+              NameMessageId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -167,47 +145,39 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("BattleActionEventConfig");
+      TStruct struc = new TStruct("WeaponCustomizedConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (__isset.actionId) {
-        field.Name = "actionId";
+      if (__isset.id) {
+        field.Name = "id";
         field.Type = TType.I32;
         field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(ActionId);
+        oprot.WriteI32(Id);
         oprot.WriteFieldEnd();
       }
-      if (__isset.loopTime) {
-        field.Name = "loopTime";
-        field.Type = TType.I32;
-        field.ID = 15;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(LoopTime);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.eventFrame) {
-        field.Name = "eventFrame";
-        field.Type = TType.I32;
+      if (TextureName != null && __isset.textureName) {
+        field.Name = "textureName";
+        field.Type = TType.String;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(EventFrame);
+        oprot.WriteString(TextureName);
         oprot.WriteFieldEnd();
       }
-      if (__isset.frameLimitId) {
-        field.Name = "frameLimitId";
+      if (__isset.costId) {
+        field.Name = "costId";
         field.Type = TType.I32;
         field.ID = 30;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(FrameLimitId);
+        oprot.WriteI32(CostId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.frameFuncId) {
-        field.Name = "frameFuncId";
+      if (__isset.nameMessageId) {
+        field.Name = "nameMessageId";
         field.Type = TType.I32;
         field.ID = 40;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(FrameFuncId);
+        oprot.WriteI32(NameMessageId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -215,17 +185,15 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("BattleActionEventConfig(");
-      sb.Append("ActionId: ");
-      sb.Append(ActionId);
-      sb.Append(",LoopTime: ");
-      sb.Append(LoopTime);
-      sb.Append(",EventFrame: ");
-      sb.Append(EventFrame);
-      sb.Append(",FrameLimitId: ");
-      sb.Append(FrameLimitId);
-      sb.Append(",FrameFuncId: ");
-      sb.Append(FrameFuncId);
+      StringBuilder sb = new StringBuilder("WeaponCustomizedConfig(");
+      sb.Append("Id: ");
+      sb.Append(Id);
+      sb.Append(",TextureName: ");
+      sb.Append(TextureName);
+      sb.Append(",CostId: ");
+      sb.Append(CostId);
+      sb.Append(",NameMessageId: ");
+      sb.Append(NameMessageId);
       sb.Append(")");
       return sb.ToString();
     }

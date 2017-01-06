@@ -12,7 +12,7 @@ using Thrift.Protocol;
 
 namespace GameConfigTools.Import
 {
-    public class WeaponConfigImporter : AbstractExcelImporter
+    public class WeaponConfigImporter1 : AbstractExcelImporter
     {
         protected override void GenerateConfig(List<string[][]> sheetValues, ref string errMsg, out XElement root, out TBase tbase)
         {

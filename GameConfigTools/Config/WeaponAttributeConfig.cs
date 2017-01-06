@@ -24,12 +24,12 @@ namespace Config
   public partial class WeaponAttributeConfig : TBase
   {
     private int _weaponId;
-    private int _level;
+    private int _star;
     private int _normalSkill;
-    private int _skill1;
-    private int _skill2;
+    private int _upStarConsumeId;
     private List<int> _passiveSkillList;
     private Dictionary<int, int> _attrMap;
+    private string _bulletTexture;
 
     public int WeaponId
     {
@@ -44,16 +44,16 @@ namespace Config
       }
     }
 
-    public int Level
+    public int Star
     {
       get
       {
-        return _level;
+        return _star;
       }
       set
       {
-        __isset.level = true;
-        this._level = value;
+        __isset.star = true;
+        this._star = value;
       }
     }
 
@@ -70,29 +70,16 @@ namespace Config
       }
     }
 
-    public int Skill1
+    public int UpStarConsumeId
     {
       get
       {
-        return _skill1;
+        return _upStarConsumeId;
       }
       set
       {
-        __isset.skill1 = true;
-        this._skill1 = value;
-      }
-    }
-
-    public int Skill2
-    {
-      get
-      {
-        return _skill2;
-      }
-      set
-      {
-        __isset.skill2 = true;
-        this._skill2 = value;
+        __isset.upStarConsumeId = true;
+        this._upStarConsumeId = value;
       }
     }
 
@@ -122,6 +109,19 @@ namespace Config
       }
     }
 
+    public string BulletTexture
+    {
+      get
+      {
+        return _bulletTexture;
+      }
+      set
+      {
+        __isset.bulletTexture = true;
+        this._bulletTexture = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -129,12 +129,12 @@ namespace Config
     #endif
     public struct Isset {
       public bool weaponId;
-      public bool level;
+      public bool star;
       public bool normalSkill;
-      public bool skill1;
-      public bool skill2;
+      public bool upStarConsumeId;
       public bool passiveSkillList;
       public bool attrMap;
+      public bool bulletTexture;
     }
 
     public WeaponAttributeConfig() {
@@ -161,7 +161,7 @@ namespace Config
             break;
           case 20:
             if (field.Type == TType.I32) {
-              Level = iprot.ReadI32();
+              Star = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -175,14 +175,7 @@ namespace Config
             break;
           case 40:
             if (field.Type == TType.I32) {
-              Skill1 = iprot.ReadI32();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 50:
-            if (field.Type == TType.I32) {
-              Skill2 = iprot.ReadI32();
+              UpStarConsumeId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -191,12 +184,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 PassiveSkillList = new List<int>();
-                TList _list234 = iprot.ReadListBegin();
-                for( int _i235 = 0; _i235 < _list234.Count; ++_i235)
+                TList _list242 = iprot.ReadListBegin();
+                for( int _i243 = 0; _i243 < _list242.Count; ++_i243)
                 {
-                  int _elem236 = 0;
-                  _elem236 = iprot.ReadI32();
-                  PassiveSkillList.Add(_elem236);
+                  int _elem244 = 0;
+                  _elem244 = iprot.ReadI32();
+                  PassiveSkillList.Add(_elem244);
                 }
                 iprot.ReadListEnd();
               }
@@ -208,17 +201,24 @@ namespace Config
             if (field.Type == TType.Map) {
               {
                 AttrMap = new Dictionary<int, int>();
-                TMap _map237 = iprot.ReadMapBegin();
-                for( int _i238 = 0; _i238 < _map237.Count; ++_i238)
+                TMap _map245 = iprot.ReadMapBegin();
+                for( int _i246 = 0; _i246 < _map245.Count; ++_i246)
                 {
-                  int _key239;
-                  int _val240;
-                  _key239 = iprot.ReadI32();
-                  _val240 = iprot.ReadI32();
-                  AttrMap[_key239] = _val240;
+                  int _key247;
+                  int _val248;
+                  _key247 = iprot.ReadI32();
+                  _val248 = iprot.ReadI32();
+                  AttrMap[_key247] = _val248;
                 }
                 iprot.ReadMapEnd();
               }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 80:
+            if (field.Type == TType.String) {
+              BulletTexture = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -244,12 +244,12 @@ namespace Config
         oprot.WriteI32(WeaponId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.level) {
-        field.Name = "level";
+      if (__isset.star) {
+        field.Name = "star";
         field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Level);
+        oprot.WriteI32(Star);
         oprot.WriteFieldEnd();
       }
       if (__isset.normalSkill) {
@@ -260,20 +260,12 @@ namespace Config
         oprot.WriteI32(NormalSkill);
         oprot.WriteFieldEnd();
       }
-      if (__isset.skill1) {
-        field.Name = "skill1";
+      if (__isset.upStarConsumeId) {
+        field.Name = "upStarConsumeId";
         field.Type = TType.I32;
         field.ID = 40;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Skill1);
-        oprot.WriteFieldEnd();
-      }
-      if (__isset.skill2) {
-        field.Name = "skill2";
-        field.Type = TType.I32;
-        field.ID = 50;
-        oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Skill2);
+        oprot.WriteI32(UpStarConsumeId);
         oprot.WriteFieldEnd();
       }
       if (PassiveSkillList != null && __isset.passiveSkillList) {
@@ -283,9 +275,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, PassiveSkillList.Count));
-          foreach (int _iter241 in PassiveSkillList)
+          foreach (int _iter249 in PassiveSkillList)
           {
-            oprot.WriteI32(_iter241);
+            oprot.WriteI32(_iter249);
           }
           oprot.WriteListEnd();
         }
@@ -298,13 +290,21 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.I32, AttrMap.Count));
-          foreach (int _iter242 in AttrMap.Keys)
+          foreach (int _iter250 in AttrMap.Keys)
           {
-            oprot.WriteI32(_iter242);
-            oprot.WriteI32(AttrMap[_iter242]);
+            oprot.WriteI32(_iter250);
+            oprot.WriteI32(AttrMap[_iter250]);
           }
           oprot.WriteMapEnd();
         }
+        oprot.WriteFieldEnd();
+      }
+      if (BulletTexture != null && __isset.bulletTexture) {
+        field.Name = "bulletTexture";
+        field.Type = TType.String;
+        field.ID = 80;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(BulletTexture);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -315,18 +315,18 @@ namespace Config
       StringBuilder sb = new StringBuilder("WeaponAttributeConfig(");
       sb.Append("WeaponId: ");
       sb.Append(WeaponId);
-      sb.Append(",Level: ");
-      sb.Append(Level);
+      sb.Append(",Star: ");
+      sb.Append(Star);
       sb.Append(",NormalSkill: ");
       sb.Append(NormalSkill);
-      sb.Append(",Skill1: ");
-      sb.Append(Skill1);
-      sb.Append(",Skill2: ");
-      sb.Append(Skill2);
+      sb.Append(",UpStarConsumeId: ");
+      sb.Append(UpStarConsumeId);
       sb.Append(",PassiveSkillList: ");
       sb.Append(PassiveSkillList);
       sb.Append(",AttrMap: ");
       sb.Append(AttrMap);
+      sb.Append(",BulletTexture: ");
+      sb.Append(BulletTexture);
       sb.Append(")");
       return sb.ToString();
     }

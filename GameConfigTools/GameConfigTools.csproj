@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -421,12 +421,14 @@
     <Compile Include="Config\Table\TargetConfigTable.cs" />
     <Compile Include="Config\Table\WeaponAttributeConfigTable.cs" />
     <Compile Include="Config\Table\WeaponConfigTable.cs" />
+    <Compile Include="Config\Table\WeaponCustomizedConfigTable.cs" />
     <Compile Include="Config\Table\WeatherPlanConfigTable.cs" />
     <Compile Include="Config\TargetData.cs" />
     <Compile Include="Config\TargetGroup.cs" />
     <Compile Include="Config\ThriftVector3.cs" />
     <Compile Include="Config\WeaponAttributeConfig.cs" />
     <Compile Include="Config\WeaponConfig.cs" />
+    <Compile Include="Config\WeaponCustomizedConfig.cs" />
     <Compile Include="Config\WeatherElement.cs" />
     <Compile Include="Config\WeatherPlanConfig.cs" />
     <Compile Include="Config\WeatherType.cs" />
@@ -438,6 +440,10 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
+<Compile Include="Import\GenScript\User\WeaponConfigImporter.cs" />
+<Compile Include="Import\GenScript\Auto\WeaponConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\WeaponCustomizedConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\WeaponCustomizedConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\GuildFlagConfigImporter.cs" />
     <Compile Include="Import\GenScript\Auto\GuildFlagConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\BattleColorConfigImporter.cs" />

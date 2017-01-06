@@ -55,6 +55,12 @@ namespace GameConfigTools.Import
                     string model = values[i][index++];
                     string dataPrefab = values[i][index++];
                     string blush = values[i][index++];
+                    int blushType;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out blushType))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，blushType为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     int totalTime;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out totalTime))
                     {
@@ -274,6 +280,7 @@ namespace GameConfigTools.Import
                     c.Model = model;
                     c.DataPrefab = dataPrefab;
                     c.Blush = blush;
+                    c.BlushType = blushType;
                     c.TotalTime = totalTime / SysConstant.CLIENT_FRAME_TIME;
                     c.MaxTime= maxTime / SysConstant.CLIENT_FRAME_TIME;
                     c.CollisionLimitId = collisionLimitId;
@@ -291,6 +298,7 @@ namespace GameConfigTools.Import
                     c.FollowInterval = followInterval;
                     c.PosCoordType = posCoordType;
                     c.SpeedCoordType = speedCoordType;
+                    c.FloatTime = floatTime / SysConstant.CLIENT_FRAME_TIME;
                     c.PosX = posX;
                     c.PosY = posY;
                     c.PoxZ = posZ;
