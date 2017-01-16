@@ -327,6 +327,69 @@ namespace GameConfigTools.Util
             }
             return string.Format("{0:yyyy-MM-dd HH:mm:ss}", time);
         }
+        public static List<List<string>> ParseBracket(int startIndex,string[] line)
+        {
+            List<string> strList = new List<string>();
+            for (int i = startIndex; i < line.Length; ++i)
+            {
+                strList.Add(line[i]);
+            }
+
+            Stack<string> stack = new Stack<string>();
+            int index = 0;
+            int beginIndex = 0;
+            int endIndex = 0;
+            List<List<string>> list = null;
+            foreach (string str in strList)
+            {
+                string s = str;
+                index++;
+                if (s == null)
+                {
+                    s = "";
+                }
+                s = s.Trim();
+                if (s == "(")
+                {
+                    beginIndex = index;
+                    stack.Push(str);
+                    continue;
+                }
+                if (s == ")")
+                {
+                    if (stack.Count == 0)
+                    {
+                        return null;
+                    }
+                    //括号没有匹配上
+                    if (stack.Pop() != "(")
+                    {
+                        return null;
+                    }
+                    endIndex = index - 1;
+                    if (list == null)
+                    {
+                        list = new List<List<string>>();
+                    }
+                    List<string> result = new List<string>();
+                    list.Add(result);
+                    for (int i = beginIndex; i < endIndex; i++)
+                    {
+                        if (strList[i] == null)
+                        {
+                            continue;
+                        }
+                        result.Add(strList[i]);
+                    }
+                }
+            }
+            //括号不匹配
+            if (stack.Count > 0)
+            {
+                return null;
+            }
+            return list;
+        }
         #endregion
     }
 }

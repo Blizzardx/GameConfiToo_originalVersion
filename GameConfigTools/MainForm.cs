@@ -19,6 +19,7 @@ using System.Xml.Linq;
 using System.Net;
 using ExcelImporter.Importer;
 using GameConfigTools.AIForm;
+using GameConfigTools.FuncForm;
 
 namespace GameConfigTools
 {
@@ -127,6 +128,7 @@ namespace GameConfigTools
                 configComboBox.SelectedIndex = 0;
             }
             aIToolStripMenuItem.Enabled = true;
+            limitToolStripMenuItem.Enabled = true;
         }
 
         private void exportSingleButton_Click(object sender, EventArgs e)
@@ -472,6 +474,21 @@ namespace GameConfigTools
         private void 自动生成解析代码ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ScriptGenTool.GenAllScript();
+        }
+
+        private void limitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCollection coll = Application.OpenForms;
+            foreach (Form form in coll)
+            {
+                if (form is LimitForm)
+                {
+                    form.Focus();
+                    return;
+                }
+            }
+            LimitForm limitForm = new LimitForm();
+            limitForm.Show();
         }
     }
 }

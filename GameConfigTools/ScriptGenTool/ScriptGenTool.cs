@@ -26,6 +26,7 @@ namespace ExcelImporter.Importer
             string memberParasTempalte = File.ReadAllText(resourcePath + "ExcelImporterParasTemplate.txt");
             string memberListParasTempalte = File.ReadAllText(resourcePath + "ExcelImporterListParasTemplate.txt");
             string memberDatetimeParasTempalte = File.ReadAllText(resourcePath + "ExcelImporterDatetimeParasTemplate.txt");
+            string memberStructParserTemplate = File.ReadAllText(resourcePath + "ExcelImporterStructParserTemmplate.txt");
 
             StringBuilder parasClass = new StringBuilder(autoParasTemplate);
             StringBuilder userClass = new StringBuilder(autoParasUserTemplate);
@@ -42,6 +43,10 @@ namespace ExcelImporter.Importer
                 if (elem.isList)
                 {
                     member = member.Replace("{classname}", "List<" + elem.classTypeName+">");
+                }
+                else if (elem.isStruct)
+                {
+                    member = member.Replace("{classname}", "List<List<string>>");
                 }
                 else
                 {
@@ -65,6 +70,14 @@ namespace ExcelImporter.Importer
                 if (elem.isList)
                 {
                     paras = new StringBuilder(memberListParasTempalte);
+                    paras = paras.Replace("{index}", elem.index.ToString());
+                    paras = paras.Replace("{classname}", elem.classTypeName);
+                    paras = paras.Replace("{desc}", elem.desc);
+                    paras = paras.Replace("{membername}", elem.memberName);
+                }
+                else if (elem.isStruct)
+                {
+                    paras = new StringBuilder(memberStructParserTemplate);
                     paras = paras.Replace("{index}", elem.index.ToString());
                     paras = paras.Replace("{classname}", elem.classTypeName);
                     paras = paras.Replace("{desc}", elem.desc);
@@ -185,6 +198,7 @@ namespace ExcelImporter.Importer
                     {
                         infoLine.desc = line.memberName;
                     }
+                    infoLine.isStruct = line.isStruct;
                     infoLine.isList = line.isList;
                     infoLine.memberName = line.memberName;
                     infoLine.rangeMax = line.rangeMax;

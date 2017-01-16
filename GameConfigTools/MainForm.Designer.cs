@@ -33,8 +33,10 @@
             this.选项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.编辑客户端资源版本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.自动生成解析代码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.特殊配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.limitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.importAllButton = new System.Windows.Forms.Button();
             this.importSingleButton = new System.Windows.Forms.Button();
@@ -53,7 +55,6 @@
             this.exportAllBgw = new System.ComponentModel.BackgroundWorker();
             this.importAllBwg = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.自动生成解析代码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -93,10 +94,18 @@
             this.编辑客户端资源版本ToolStripMenuItem.Text = "编辑客户端资源版本";
             this.编辑客户端资源版本ToolStripMenuItem.Click += new System.EventHandler(this.编辑客户端资源版本ToolStripMenuItem_Click);
             // 
+            // 自动生成解析代码ToolStripMenuItem
+            // 
+            this.自动生成解析代码ToolStripMenuItem.Name = "自动生成解析代码ToolStripMenuItem";
+            this.自动生成解析代码ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.自动生成解析代码ToolStripMenuItem.Text = "自动生成解析代码";
+            this.自动生成解析代码ToolStripMenuItem.Click += new System.EventHandler(this.自动生成解析代码ToolStripMenuItem_Click);
+            // 
             // 特殊配置ToolStripMenuItem
             // 
             this.特殊配置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aIToolStripMenuItem});
+            this.aIToolStripMenuItem,
+            this.limitToolStripMenuItem});
             this.特殊配置ToolStripMenuItem.Name = "特殊配置ToolStripMenuItem";
             this.特殊配置ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.特殊配置ToolStripMenuItem.Text = "特殊配置";
@@ -105,9 +114,17 @@
             // 
             this.aIToolStripMenuItem.Enabled = false;
             this.aIToolStripMenuItem.Name = "aIToolStripMenuItem";
-            this.aIToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.aIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aIToolStripMenuItem.Text = "编辑AI";
             this.aIToolStripMenuItem.Click += new System.EventHandler(this.编辑AIToolStripMenuItem_Click);
+            // 
+            // limitToolStripMenuItem
+            // 
+            this.limitToolStripMenuItem.Enabled = false;
+            this.limitToolStripMenuItem.Name = "limitToolStripMenuItem";
+            this.limitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.limitToolStripMenuItem.Text = "编辑条件函数";
+            this.limitToolStripMenuItem.Click += new System.EventHandler(this.limitToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -268,13 +285,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // 自动生成解析代码ToolStripMenuItem
-            // 
-            this.自动生成解析代码ToolStripMenuItem.Name = "自动生成解析代码ToolStripMenuItem";
-            this.自动生成解析代码ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.自动生成解析代码ToolStripMenuItem.Text = "自动生成解析代码";
-            this.自动生成解析代码ToolStripMenuItem.Click += new System.EventHandler(this.自动生成解析代码ToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -324,6 +334,7 @@
         private System.Windows.Forms.ToolStripMenuItem 特殊配置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自动生成解析代码ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem limitToolStripMenuItem;
     }
 }
 

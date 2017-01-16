@@ -131,7 +131,8 @@ catch (Exception e)
     errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,13+1, "dyeingIdList");
     errMsg += " " + e.Message;
     return;
-}     try
+} 
+ try
 {
     CustomizedIdList = VaildUtil.SplitToList_int(values[i][14]);
 }
@@ -140,7 +141,8 @@ catch (Exception e)
     errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,14+1, "CustomizedIdList");
     errMsg += " " + e.Message;
     return;
-}    if (!VaildUtil.TryConvert(values[i][15], out displayLimitId,int.MinValue,int.MaxValue))
+} 
+if (!VaildUtil.TryConvert(values[i][15], out displayLimitId,int.MinValue,int.MaxValue))
 {
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,15+1, displayLimitId,int.MinValue,int.MaxValue,"int","displayLimitId");
 	return;

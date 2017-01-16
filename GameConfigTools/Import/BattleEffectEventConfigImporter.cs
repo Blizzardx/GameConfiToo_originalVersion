@@ -69,7 +69,7 @@ namespace GameConfigTools.Import
                     
                     BattleEffectEventConfig c = new BattleEffectEventConfig();
                     c.EffectId = effectId;
-                    c.EventTime = eventTime / SysConstant.CLIENT_FRAME_TIME;
+                    c.EventTime = eventTime;
                     c.LimitId = limitId;
                     c.FuncId = funcId;
 

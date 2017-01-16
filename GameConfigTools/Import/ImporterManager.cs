@@ -121,6 +121,8 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.GUILD_FLAG_CONFIG, new GuildFlagConfigImporter());
             importerDic.Add(SysConstant.TERRAIN_CONFIG, new TerrainConfigImporter());
             importerDic.Add(SysConstant.WEAPON_CUSTOMIZED_CONFIG, new WeaponCustomizedConfigImporter());
+            importerDic.Add(SysConstant.MAIN_MISSION_CONFIG, new MainMissionConfigImporter());
+            importerDic.Add(SysConstant.DAILY_MISSION_CONFIG, new DailyMissionConfigImporter());
         }
         /// <summary>
         /// 加载关联导入

@@ -29,6 +29,7 @@ namespace Config
     private int _descMessageId;
     private int _firstType;
     private int _secondType;
+    private int _secondTypeMessageId;
     private string _model;
     private string _prefab;
     private string _icon;
@@ -44,6 +45,7 @@ namespace Config
     private int _activeTipType;
     private int _activeEnterType;
     private List<string> _motionList;
+    private int _activeLimitId;
 
     public int Id
     {
@@ -120,6 +122,19 @@ namespace Config
       {
         __isset.secondType = true;
         this._secondType = value;
+      }
+    }
+
+    public int SecondTypeMessageId
+    {
+      get
+      {
+        return _secondTypeMessageId;
+      }
+      set
+      {
+        __isset.secondTypeMessageId = true;
+        this._secondTypeMessageId = value;
       }
     }
 
@@ -318,6 +333,19 @@ namespace Config
       }
     }
 
+    public int ActiveLimitId
+    {
+      get
+      {
+        return _activeLimitId;
+      }
+      set
+      {
+        __isset.activeLimitId = true;
+        this._activeLimitId = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -330,6 +358,7 @@ namespace Config
       public bool descMessageId;
       public bool firstType;
       public bool secondType;
+      public bool secondTypeMessageId;
       public bool model;
       public bool prefab;
       public bool icon;
@@ -345,6 +374,7 @@ namespace Config
       public bool activeTipType;
       public bool activeEnterType;
       public bool motionList;
+      public bool activeLimitId;
     }
 
     public WeaponConfig() {
@@ -400,6 +430,13 @@ namespace Config
           case 46:
             if (field.Type == TType.I32) {
               SecondType = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 47:
+            if (field.Type == TType.I32) {
+              SecondTypeMessageId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -529,6 +566,13 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 190:
+            if (field.Type == TType.I32) {
+              ActiveLimitId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           default: 
             TProtocolUtil.Skip(iprot, field.Type);
             break;
@@ -588,6 +632,14 @@ namespace Config
         field.ID = 46;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(SecondType);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.secondTypeMessageId) {
+        field.Name = "secondTypeMessageId";
+        field.Type = TType.I32;
+        field.ID = 47;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(SecondTypeMessageId);
         oprot.WriteFieldEnd();
       }
       if (Model != null && __isset.model) {
@@ -724,6 +776,14 @@ namespace Config
         }
         oprot.WriteFieldEnd();
       }
+      if (__isset.activeLimitId) {
+        field.Name = "activeLimitId";
+        field.Type = TType.I32;
+        field.ID = 190;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ActiveLimitId);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -742,6 +802,8 @@ namespace Config
       sb.Append(FirstType);
       sb.Append(",SecondType: ");
       sb.Append(SecondType);
+      sb.Append(",SecondTypeMessageId: ");
+      sb.Append(SecondTypeMessageId);
       sb.Append(",Model: ");
       sb.Append(Model);
       sb.Append(",Prefab: ");
@@ -772,6 +834,8 @@ namespace Config
       sb.Append(ActiveEnterType);
       sb.Append(",MotionList: ");
       sb.Append(MotionList);
+      sb.Append(",ActiveLimitId: ");
+      sb.Append(ActiveLimitId);
       sb.Append(")");
       return sb.ToString();
     }

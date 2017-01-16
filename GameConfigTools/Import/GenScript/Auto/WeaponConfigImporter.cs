@@ -26,6 +26,7 @@ namespace GameConfigTools.Import
 		private int descMessageId;
 		private int firstType;
 		private int secondType;
+		private int secondTypeMessageId;
 		private string model;
 		private string prefab;
 		private string icon;
@@ -41,6 +42,7 @@ namespace GameConfigTools.Import
 		private int activeIconTip;
 		private int activeTipType;
 		private List<string> motionList;
+		private int activeLimitId;
     
         protected override void AutoParasTable(List<string[][]> sheetValues, ref string errMsg)
         {
@@ -100,90 +102,102 @@ if (!VaildUtil.TryConvert(values[i][6], out secondType,1,int.MaxValue))
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,6+1, secondType,1,int.MaxValue,"int","secondType");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][7], out model,string.Empty,string.Empty))
+if (!VaildUtil.TryConvert(values[i][7], out secondTypeMessageId,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,7+1, model,string.Empty,string.Empty,"string","model");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,7+1, secondTypeMessageId,int.MinValue,int.MaxValue,"int","secondTypeMessageId");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][8], out prefab,string.Empty,string.Empty))
+if (!VaildUtil.TryConvert(values[i][8], out model,string.Empty,string.Empty))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,8+1, prefab,string.Empty,string.Empty,"string","prefab");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,8+1, model,string.Empty,string.Empty,"string","model");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][9], out icon,string.Empty,string.Empty))
+if (!VaildUtil.TryConvert(values[i][9], out prefab,string.Empty,string.Empty))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,9+1, icon,string.Empty,string.Empty,"string","icon");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,9+1, prefab,string.Empty,string.Empty,"string","prefab");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][10], out quality,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][10], out icon,string.Empty,string.Empty))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,10+1, quality,int.MinValue,int.MaxValue,"int","quality");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,10+1, icon,string.Empty,string.Empty,"string","icon");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][11], out attachPoint,string.Empty,string.Empty))
+if (!VaildUtil.TryConvert(values[i][11], out quality,int.MinValue,int.MaxValue))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,11+1, attachPoint,string.Empty,string.Empty,"string","attachPoint");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,11+1, quality,int.MinValue,int.MaxValue,"int","quality");
 	return;
 }
- try
+if (!VaildUtil.TryConvert(values[i][12], out attachPoint,string.Empty,string.Empty))
 {
-    textureList = VaildUtil.SplitToList_int(values[i][12]);
-}
-catch (Exception e)
-{
-    errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,12+1, "textureList");
-    errMsg += " " + e.Message;
-    return;
-}    if (!VaildUtil.TryConvert(values[i][13], out activeConsumeId,int.MinValue,int.MaxValue))
-{
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,13+1, activeConsumeId,int.MinValue,int.MaxValue,"int","activeConsumeId");
-	return;
-}
-if (!VaildUtil.TryConvert(values[i][14], out sortId,int.MinValue,int.MaxValue))
-{
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,14+1, sortId,int.MinValue,int.MaxValue,"int","sortId");
-	return;
-}
-if (!VaildUtil.TryConvert(values[i][15], out showLimitId,int.MinValue,int.MaxValue))
-{
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,15+1, showLimitId,int.MinValue,int.MaxValue,"int","showLimitId");
-	return;
-}
-if (!VaildUtil.TryConvert(values[i][16], out showTipType,1,3))
-{
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,16+1, showTipType,1,3,"int","showTipType");
-	return;
-}
-if (!VaildUtil.TryConvert(values[i][17], out showEventType,int.MinValue,int.MaxValue))
-{
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,17+1, showEventType,int.MinValue,int.MaxValue,"int","showEventType");
-	return;
-}
-if (!VaildUtil.TryConvert(values[i][18], out activeEnterType,1,3))
-{
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,18+1, activeEnterType,1,3,"int","activeEnterType");
-	return;
-}
-if (!VaildUtil.TryConvert(values[i][19], out activeIconTip,int.MinValue,int.MaxValue))
-{
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,19+1, activeIconTip,int.MinValue,int.MaxValue,"int","activeIconTip");
-	return;
-}
-if (!VaildUtil.TryConvert(values[i][20], out activeTipType,1,3))
-{
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,20+1, activeTipType,1,3,"int","activeTipType");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,12+1, attachPoint,string.Empty,string.Empty,"string","attachPoint");
 	return;
 }
  try
 {
-    motionList = VaildUtil.SplitToList_string(values[i][21]);
+    textureList = VaildUtil.SplitToList_int(values[i][13]);
 }
 catch (Exception e)
 {
-    errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,21+1, "motionList");
+    errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,13+1, "textureList");
     errMsg += " " + e.Message;
     return;
-}                        
+} 
+if (!VaildUtil.TryConvert(values[i][14], out activeConsumeId,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,14+1, activeConsumeId,int.MinValue,int.MaxValue,"int","activeConsumeId");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][15], out sortId,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,15+1, sortId,int.MinValue,int.MaxValue,"int","sortId");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][16], out showLimitId,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,16+1, showLimitId,int.MinValue,int.MaxValue,"int","showLimitId");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][17], out showTipType,1,3))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,17+1, showTipType,1,3,"int","showTipType");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][18], out showEventType,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,18+1, showEventType,int.MinValue,int.MaxValue,"int","showEventType");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][19], out activeEnterType,1,3))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,19+1, activeEnterType,1,3,"int","activeEnterType");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][20], out activeIconTip,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,20+1, activeIconTip,int.MinValue,int.MaxValue,"int","activeIconTip");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][21], out activeTipType,1,3))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,21+1, activeTipType,1,3,"int","activeTipType");
+	return;
+}
+ try
+{
+    motionList = VaildUtil.SplitToList_string(values[i][22]);
+}
+catch (Exception e)
+{
+    errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,22+1, "motionList");
+    errMsg += " " + e.Message;
+    return;
+} 
+if (!VaildUtil.TryConvert(values[i][23], out activeLimitId,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,23+1, activeLimitId,int.MinValue,int.MaxValue,"int","activeLimitId");
+	return;
+}
+                    
                     
                     OnAutoParasLine(sheetName,row,values[i],ref errMsg);
                     if (!string.IsNullOrEmpty(errMsg))

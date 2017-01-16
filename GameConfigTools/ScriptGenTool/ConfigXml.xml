@@ -297,6 +297,7 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="descMessageId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="firstType" rangeMin="1" rangeMax ="3"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="secondType" rangeMin="1" />
+        <GenScriptLineXmlConfig classTypeName="int" memberName="secondTypeMessageId"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="model"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="prefab"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="icon"/>
@@ -312,6 +313,43 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="activeIconTip"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="activeTipType" rangeMin="1" rangeMax ="3"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="motionList" isList="true"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeLimitId" />
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="MainMissionConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="name"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nameMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="desc"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="descMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nextMissionId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="sceneId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="sceneLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="sceneFuncId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="completeLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="awardLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="awardFuncId"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="DailyMissionConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="name"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nameMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="desc"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="descMessageId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="type"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="sceneId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="sceneLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="sceneFuncId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="completeLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="awardLimitId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="awardFuncId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="activeValue"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="weight"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="order"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
   </classConfigList>

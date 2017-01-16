@@ -80,6 +80,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，二级分类必须为1 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    int secondTypeMessageId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out secondTypeMessageId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，二级分类名称ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
                     string model = values[i][index++];
                     string prefab = values[i][index++];
                     string icon = values[i][index++];
@@ -107,6 +113,7 @@ namespace GameConfigTools.Import
                     c.DescMessageId = descMessageId;
                     c.FirstType = firstType;
                     c.SecondType = secondType;
+                    c.SecondTypeMessageId = secondTypeMessageId;
                     c.Model = model;
                     c.Prefab = prefab;
                     c.Icon = icon;

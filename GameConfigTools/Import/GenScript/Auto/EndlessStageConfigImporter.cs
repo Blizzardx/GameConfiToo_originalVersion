@@ -118,7 +118,8 @@ catch (Exception e)
     errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,10+1, "rewardMessageId");
     errMsg += " " + e.Message;
     return;
-}    if (!VaildUtil.TryConvert(values[i][11], out thumbnail,string.Empty,string.Empty))
+} 
+if (!VaildUtil.TryConvert(values[i][11], out thumbnail,string.Empty,string.Empty))
 {
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,11+1, thumbnail,string.Empty,string.Empty,"string","thumbnail");
 	return;
@@ -132,7 +133,8 @@ catch (Exception e)
     errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,12+1, "scenceIds");
     errMsg += " " + e.Message;
     return;
-}    if (!VaildUtil.TryConvert(values[i][13], out sequenceNum,int.MinValue,int.MaxValue))
+} 
+if (!VaildUtil.TryConvert(values[i][13], out sequenceNum,int.MinValue,int.MaxValue))
 {
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,13+1, sequenceNum,int.MinValue,int.MaxValue,"int","sequenceNum");
 	return;
@@ -151,7 +153,8 @@ catch (Exception e)
     errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,15+1, "rewardItemIds");
     errMsg += " " + e.Message;
     return;
-}                        
+} 
+                    
                     
                     OnAutoParasLine(sheetName,row,values[i],ref errMsg);
                     if (!string.IsNullOrEmpty(errMsg))

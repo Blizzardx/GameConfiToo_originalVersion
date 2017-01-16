@@ -148,10 +148,16 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，标签ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int birthBuff;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out birthBuff))
+                    int bornLimitId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out bornLimitId))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，标签ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，出生条件ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
+                    int bornFuncId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out bornFuncId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，出生功能ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
                     XElement stageE = new XElement("pvpStage");
@@ -169,7 +175,9 @@ namespace GameConfigTools.Import
                     stageE.Add(new XAttribute("bekillCraditPet", bekillCraditPet));
                     stageE.Add(new XAttribute("killCraditPet", killCraditPet));
                     stageE.Add(new XAttribute("otherUserCol", otherUserCol));
-                    
+                    stageE.Add(new XAttribute("bornLimitId", bornLimitId));
+                    stageE.Add(new XAttribute("bornFuncId", bornFuncId));
+
 
                     PvpStageConfig c  =new PvpStageConfig();
                     c.Id = id;
@@ -190,7 +198,8 @@ namespace GameConfigTools.Import
                     c.BekillCraditPet = bekillCraditPet;
                     c.OtherPlayerCol = otherUserCol;
                     c.KillPet = killPet;
-                    c.BirthBuff = birthBuff;
+                    c.BornLimitId = bornLimitId;
+                    c.BornFuncId = bornFuncId;
                     config.StageConfigMap.Add(c.Id, c);
                 }
             }

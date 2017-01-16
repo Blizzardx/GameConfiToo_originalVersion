@@ -42,7 +42,8 @@ namespace Config
     private int _bekillCraditPet;
     private int _otherPlayerCol;
     private int _killPet;
-    private int _birthBuff;
+    private int _bornLimitId;
+    private int _bornFuncId;
 
     public int Id
     {
@@ -291,16 +292,29 @@ namespace Config
       }
     }
 
-    public int BirthBuff
+    public int BornLimitId
     {
       get
       {
-        return _birthBuff;
+        return _bornLimitId;
       }
       set
       {
-        __isset.birthBuff = true;
-        this._birthBuff = value;
+        __isset.bornLimitId = true;
+        this._bornLimitId = value;
+      }
+    }
+
+    public int BornFuncId
+    {
+      get
+      {
+        return _bornFuncId;
+      }
+      set
+      {
+        __isset.bornFuncId = true;
+        this._bornFuncId = value;
       }
     }
 
@@ -329,7 +343,8 @@ namespace Config
       public bool bekillCraditPet;
       public bool otherPlayerCol;
       public bool killPet;
-      public bool birthBuff;
+      public bool bornLimitId;
+      public bool bornFuncId;
     }
 
     public PvpStageConfig() {
@@ -492,7 +507,14 @@ namespace Config
             break;
           case 200:
             if (field.Type == TType.I32) {
-              BirthBuff = iprot.ReadI32();
+              BornLimitId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 210:
+            if (field.Type == TType.I32) {
+              BornFuncId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -669,12 +691,20 @@ namespace Config
         oprot.WriteI32(KillPet);
         oprot.WriteFieldEnd();
       }
-      if (__isset.birthBuff) {
-        field.Name = "birthBuff";
+      if (__isset.bornLimitId) {
+        field.Name = "bornLimitId";
         field.Type = TType.I32;
         field.ID = 200;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(BirthBuff);
+        oprot.WriteI32(BornLimitId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.bornFuncId) {
+        field.Name = "bornFuncId";
+        field.Type = TType.I32;
+        field.ID = 210;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(BornFuncId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -721,8 +751,10 @@ namespace Config
       sb.Append(OtherPlayerCol);
       sb.Append(",KillPet: ");
       sb.Append(KillPet);
-      sb.Append(",BirthBuff: ");
-      sb.Append(BirthBuff);
+      sb.Append(",BornLimitId: ");
+      sb.Append(BornLimitId);
+      sb.Append(",BornFuncId: ");
+      sb.Append(BornFuncId);
       sb.Append(")");
       return sb.ToString();
     }

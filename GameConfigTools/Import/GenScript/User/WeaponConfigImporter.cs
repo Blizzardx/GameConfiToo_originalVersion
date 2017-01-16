@@ -44,19 +44,20 @@ namespace GameConfigTools.Import
             weapon.Add(new XAttribute("secondType", secondType));
             weapon.Add(new XAttribute("quality", quality));
             weapon.Add(new XAttribute("activeConsumeId", activeConsumeId));
-            weapon.Add(new XAttribute("sortId", sortId));
-            weapon.Add(new XAttribute("showLimitId", showLimitId));
-            weapon.Add(new XAttribute("showTipType", showTipType));
-            weapon.Add(new XAttribute("showEventType", showEventType));
-            weapon.Add(new XAttribute("activeEnterType", activeEnterType));
-            weapon.Add(new XAttribute("activeIconTip", activeIconTip));
-            weapon.Add(new XAttribute("activeTipType", activeTipType));
-            XElement motions = new XElement("mothions");
-            weapon.Add(motions);
-            foreach (var elem in motionList)
-            {
-                motions.Add(new XElement("motion", elem));
-            }
+            //weapon.Add(new XAttribute("sortId", sortId));
+            //weapon.Add(new XAttribute("showLimitId", showLimitId));
+            //weapon.Add(new XAttribute("showTipType", showTipType));
+            //weapon.Add(new XAttribute("showEventType", showEventType));
+            //weapon.Add(new XAttribute("activeEnterType", activeEnterType));
+            //weapon.Add(new XAttribute("activeIconTip", activeIconTip));
+            //weapon.Add(new XAttribute("activeTipType", activeTipType));
+            weapon.Add(new XAttribute("activeLimitId", activeLimitId));
+            //XElement motions = new XElement("mothions");
+            //weapon.Add(motions);
+            //foreach (var elem in motionList)
+            //{
+            //    motions.Add(new XElement("motion", elem));
+            //}
 
             XElement textures = new XElement("textures");
             weapon.Add(textures);
@@ -71,6 +72,7 @@ namespace GameConfigTools.Import
             c.NameMessageId = nameMessageId;
             c.DescMessageId = descMessageId;
             c.FirstType = firstType;
+            c.SecondTypeMessageId = secondTypeMessageId;
             c.SecondType = secondType;
             c.Model = model;
             c.Prefab = prefab;
@@ -87,6 +89,7 @@ namespace GameConfigTools.Import
             c.ActiveTipType = activeTipType;
             c.MotionList = motionList;
             c.TextureList = textureList;
+            c.ActiveLimitId = activeLimitId;
             m_ClientConfig.WeaponConfigMap.Add(id, c);
         }
 

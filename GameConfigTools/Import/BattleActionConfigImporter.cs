@@ -102,7 +102,7 @@ namespace GameConfigTools.Import
                     c.CanMove = canMove != 0;
                     c.CanJump = canJump != 0;
                     c.CanSkill = canSkill != 0;
-                    c.TotalTime = totalTime / SysConstant.CLIENT_FRAME_TIME;
+                    c.TotalTime = totalTime;
                     c.IsLoop = isLoop != 0;
                     c.LoopEventTime = loopEventTime;
 

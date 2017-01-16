@@ -42,4 +42,7 @@ public class GenScriptLineXmlConfig : XmlConfigBase
 
     [XmlAttribute("isNullable")]
     public bool isNullable { get; set; }
+
+    [XmlAttribute("isStruct")]
+    public bool isStruct { get; set; }
 }

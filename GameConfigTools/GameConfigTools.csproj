@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -440,8 +440,25 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
-<Compile Include="Import\GenScript\User\WeaponConfigImporter.cs" />
-<Compile Include="Import\GenScript\Auto\WeaponConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\DailyMissionConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\DailyMissionConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\MainMissionConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\MainMissionConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\WeaponConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\WeaponConfigImporter.cs" />
+    <Compile Include="FuncForm\LimitConfig.cs" />
+    <Compile Include="FuncForm\LimitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuncForm\LimitForm.Designer.cs">
+      <DependentUpon>LimitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuncForm\LimitPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuncForm\LimitPanel.Designer.cs">
+      <DependentUpon>LimitPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Import\GenScript\User\WeaponCustomizedConfigImporter.cs" />
     <Compile Include="Import\GenScript\Auto\WeaponCustomizedConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\GuildFlagConfigImporter.cs" />
@@ -684,6 +701,12 @@
     <EmbeddedResource Include="AIForm\EditAIConfigForm.resx">
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FuncForm\LimitForm.resx">
+      <DependentUpon>LimitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuncForm\LimitPanel.resx">
+      <DependentUpon>LimitPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -720,6 +743,7 @@
     <Content Include="ScriptGenTool\ExcelImporterParasTemplate.txt" />
     <Content Include="ScriptGenTool\ExcelImporterProjfixAuto.txt" />
     <Content Include="ScriptGenTool\ExcelImporterProjfixUser.txt" />
+    <Content Include="ScriptGenTool\ExcelImporterStructParserTemmplate.txt" />
     <Content Include="ScriptGenTool\ExcelImporterUserTemplate.txt" />
     <Content Include="ScriptGenTool\ConfigXml.xml">
       <SubType>Designer</SubType>

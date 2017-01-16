@@ -21,6 +21,9 @@ namespace GameConfigTools.Import
             {
                 return;
             }
+
+            root = new XElement("root");
+
             BattleBuffConfigTable config = new BattleBuffConfigTable();
             tbase = config;
             config.BuffConfigMap = new Dictionary<int, BattleBuffConfig>();
@@ -53,12 +56,6 @@ namespace GameConfigTools.Import
                     if (!VaildUtil.TryConvertInt(values[i][index++], out type, 0 , sbyte.MaxValue))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，buff 类型必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, sbyte.MaxValue);
-                        return;
-                    }
-                    int affectType;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out affectType, 0, sbyte.MaxValue))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，buff效果 类型必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, sbyte.MaxValue);
                         return;
                     }
                     string icon = values[i][index++];
@@ -147,18 +144,6 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，buff 消失功能ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index);
                         return;
                     }
-                    int triggerProb;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out triggerProb,0, 10000))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，buff 消失功能ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, 10000);
-                        return;
-                    }
-                    int bindingAction;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out bindingAction))
-                    {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，bindingAction 必须为整型", this.GetConfigName(), sheetName, row, index, 10000);
-                        return;
-                    }
                     int buffDurability;
                     if (!VaildUtil.TryConvertInt(values[i][index++], out buffDurability))
                     {
@@ -166,29 +151,28 @@ namespace GameConfigTools.Import
                         return;
                     }
 
-                    //XElement buffE = new XElement("buff");
-                    //root.Add(buffE);
+                    XElement buffE = new XElement("buff");
+                    root.Add(buffE);
 
-                    //buffE.Add(new XAttribute("id", id));
-                    //buffE.Add(new XAttribute("name", name));
-                    //buffE.Add(new XAttribute("type", type));
-                    //buffE.Add(new XAttribute("tickTime", tickTime));
-                    //buffE.Add(new XAttribute("continueTime", continueTime));
-                    //buffE.Add(new XAttribute("transferType", transferType));
-                    //buffE.Add(new XAttribute("maxTransferCount", maxTransferCount));
-                    //buffE.Add(new XAttribute("addTargetId", addTargetId));
-                    //buffE.Add(new XAttribute("addLimitId", addLimitId));
-                    //buffE.Add(new XAttribute("addFuncId", addFuncId));
-                    //buffE.Add(new XAttribute("tickTargetId", tickTargetId));
-                    //buffE.Add(new XAttribute("tickLimitId", tickLimitId));
-                    //buffE.Add(new XAttribute("tickFuncId", tickFuncId));
-                    //buffE.Add(new XAttribute("delTargetId", delTargetId));
-                    //buffE.Add(new XAttribute("delLimitId", delLimitId));
-                    //buffE.Add(new XAttribute("delFuncId", delFuncId));
+                    buffE.Add(new XAttribute("id", id));
+                    buffE.Add(new XAttribute("name", name));
+                    buffE.Add(new XAttribute("type", type));
+                    buffE.Add(new XAttribute("tickTime", tickTime));
+                    buffE.Add(new XAttribute("continueTime", continueTime));
+                    buffE.Add(new XAttribute("addTargetId", addTargetId));
+                    buffE.Add(new XAttribute("addLimitId", addLimitId));
+                    buffE.Add(new XAttribute("addFuncId", addFuncId));
+                    buffE.Add(new XAttribute("tickTargetId", tickTargetId));
+                    buffE.Add(new XAttribute("tickLimitId", tickLimitId));
+                    buffE.Add(new XAttribute("tickFuncId", tickFuncId));
+                    buffE.Add(new XAttribute("delTargetId", delTargetId));
+                    buffE.Add(new XAttribute("delLimitId", delLimitId));
+                    buffE.Add(new XAttribute("delFuncId", delFuncId));
+                    buffE.Add(new XAttribute("buffDurability", buffDurability));
 
                     BattleBuffConfig c = new BattleBuffConfig();
                     c.Id = id;
-                    c.Type = (sbyte)type;
+                    c.Type = type;
                     c.Icon = icon;
                     c.EffectResource = effectResource;
                     c.BindPoint = bindPoint;
@@ -203,8 +187,6 @@ namespace GameConfigTools.Import
                     c.DelTargetId = delTargetId;
                     c.DelLimitId = delLimitId;
                     c.DelFuncId = delFuncId;
-                    c.TrigProb = triggerProb;
-                    c.BindingAction = bindingAction;
                     c.BuffDurability = buffDurability;
                     config.BuffConfigMap.Add(c.Id, c);
                 }

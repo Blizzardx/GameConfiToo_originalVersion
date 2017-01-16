@@ -213,5 +213,9 @@ namespace GameConfigTools.Constant
         public static readonly string TERRAIN_CONFIG = "terrainConfig";
 
         public static readonly string WEAPON_CUSTOMIZED_CONFIG = "weaponCustomizedConfig";
+
+        public static readonly string MAIN_MISSION_CONFIG = "mainMissionConfig";
+
+        public static readonly string DAILY_MISSION_CONFIG = "dailyMissionConfig";
     }
 }

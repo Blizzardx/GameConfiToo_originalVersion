@@ -281,8 +281,8 @@ namespace GameConfigTools.Import
                     c.DataPrefab = dataPrefab;
                     c.Blush = blush;
                     c.BlushType = blushType;
-                    c.TotalTime = totalTime / SysConstant.CLIENT_FRAME_TIME;
-                    c.MaxTime= maxTime / SysConstant.CLIENT_FRAME_TIME;
+                    c.TotalTime = totalTime;
+                    c.MaxTime = maxTime;
                     c.CollisionLimitId = collisionLimitId;
                     c.CollisionFuncId = collisionFuncId;
                     c.EnterLimitId = enterLimitId;
@@ -298,7 +298,7 @@ namespace GameConfigTools.Import
                     c.FollowInterval = followInterval;
                     c.PosCoordType = posCoordType;
                     c.SpeedCoordType = speedCoordType;
-                    c.FloatTime = floatTime / SysConstant.CLIENT_FRAME_TIME;
+                    c.FloatTime = floatTime;
                     c.PosX = posX;
                     c.PosY = posY;
                     c.PoxZ = posZ;

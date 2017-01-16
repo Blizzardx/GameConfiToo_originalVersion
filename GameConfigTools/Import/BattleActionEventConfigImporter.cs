@@ -76,7 +76,7 @@ namespace GameConfigTools.Import
                     BattleActionEventConfig c = new BattleActionEventConfig();
                     c.ActionId = actionId;
                     c.LoopTime = loopTime;
-                    c.EventFrame = eventTime / SysConstant.CLIENT_FRAME_TIME;
+                    c.EventFrame = eventTime;
                     c.FrameLimitId = frameLimitId;
                     c.FrameFuncId = frameFuncId;
 

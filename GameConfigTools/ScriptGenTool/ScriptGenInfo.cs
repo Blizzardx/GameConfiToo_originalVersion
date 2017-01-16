@@ -21,5 +21,6 @@ namespace ExcelImporter.Importer
         public string memberName;
         public bool isList;
         public bool isNullable;
+        public bool isStruct;
     }
 }

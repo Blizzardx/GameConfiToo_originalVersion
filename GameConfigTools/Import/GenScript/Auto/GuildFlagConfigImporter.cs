@@ -71,7 +71,8 @@ catch (Exception e)
     errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,3+1, "colorList");
     errMsg += " " + e.Message;
     return;
-}                        
+} 
+                    
                     
                     OnAutoParasLine(sheetName,row,values[i],ref errMsg);
                     if (!string.IsNullOrEmpty(errMsg))
