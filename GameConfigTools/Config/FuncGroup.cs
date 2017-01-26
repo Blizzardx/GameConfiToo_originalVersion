@@ -88,13 +88,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 FuncDataList = new List<FuncData>();
-                TList _list81 = iprot.ReadListBegin();
-                for( int _i82 = 0; _i82 < _list81.Count; ++_i82)
+                TList _list85 = iprot.ReadListBegin();
+                for( int _i86 = 0; _i86 < _list85.Count; ++_i86)
                 {
-                  FuncData _elem83 = new FuncData();
-                  _elem83 = new FuncData();
-                  _elem83.Read(iprot);
-                  FuncDataList.Add(_elem83);
+                  FuncData _elem87 = new FuncData();
+                  _elem87 = new FuncData();
+                  _elem87.Read(iprot);
+                  FuncDataList.Add(_elem87);
                 }
                 iprot.ReadListEnd();
               }
@@ -130,9 +130,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, FuncDataList.Count));
-          foreach (FuncData _iter84 in FuncDataList)
+          foreach (FuncData _iter88 in FuncDataList)
           {
-            _iter84.Write(oprot);
+            _iter88.Write(oprot);
           }
           oprot.WriteListEnd();
         }

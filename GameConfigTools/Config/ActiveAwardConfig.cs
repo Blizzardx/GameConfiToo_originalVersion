@@ -21,34 +21,48 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class DiyPositionInfo : TBase
+  public partial class ActiveAwardConfig : TBase
   {
-    private int _positionId;
-    private List<DiyVertexInfo> _vertexList;
+    private int _value;
+    private int _cycleCounterId;
+    private int _funcId;
 
-    public int PositionId
+    public int Value
     {
       get
       {
-        return _positionId;
+        return _value;
       }
       set
       {
-        __isset.positionId = true;
-        this._positionId = value;
+        __isset.value = true;
+        this._value = value;
       }
     }
 
-    public List<DiyVertexInfo> VertexList
+    public int CycleCounterId
     {
       get
       {
-        return _vertexList;
+        return _cycleCounterId;
       }
       set
       {
-        __isset.vertexList = true;
-        this._vertexList = value;
+        __isset.cycleCounterId = true;
+        this._cycleCounterId = value;
+      }
+    }
+
+    public int FuncId
+    {
+      get
+      {
+        return _funcId;
+      }
+      set
+      {
+        __isset.funcId = true;
+        this._funcId = value;
       }
     }
 
@@ -58,11 +72,12 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool positionId;
-      public bool vertexList;
+      public bool value;
+      public bool cycleCounterId;
+      public bool funcId;
     }
 
-    public DiyPositionInfo() {
+    public ActiveAwardConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -79,25 +94,21 @@ namespace Config
         {
           case 10:
             if (field.Type == TType.I32) {
-              PositionId = iprot.ReadI32();
+              Value = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 20:
-            if (field.Type == TType.List) {
-              {
-                VertexList = new List<DiyVertexInfo>();
-                TList _list196 = iprot.ReadListBegin();
-                for( int _i197 = 0; _i197 < _list196.Count; ++_i197)
-                {
-                  DiyVertexInfo _elem198 = new DiyVertexInfo();
-                  _elem198 = new DiyVertexInfo();
-                  _elem198.Read(iprot);
-                  VertexList.Add(_elem198);
-                }
-                iprot.ReadListEnd();
-              }
+            if (field.Type == TType.I32) {
+              CycleCounterId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 30:
+            if (field.Type == TType.I32) {
+              FuncId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -112,30 +123,31 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("DiyPositionInfo");
+      TStruct struc = new TStruct("ActiveAwardConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (__isset.positionId) {
-        field.Name = "positionId";
+      if (__isset.value) {
+        field.Name = "value";
         field.Type = TType.I32;
         field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(PositionId);
+        oprot.WriteI32(Value);
         oprot.WriteFieldEnd();
       }
-      if (VertexList != null && __isset.vertexList) {
-        field.Name = "vertexList";
-        field.Type = TType.List;
+      if (__isset.cycleCounterId) {
+        field.Name = "cycleCounterId";
+        field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteListBegin(new TList(TType.Struct, VertexList.Count));
-          foreach (DiyVertexInfo _iter199 in VertexList)
-          {
-            _iter199.Write(oprot);
-          }
-          oprot.WriteListEnd();
-        }
+        oprot.WriteI32(CycleCounterId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.funcId) {
+        field.Name = "funcId";
+        field.Type = TType.I32;
+        field.ID = 30;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(FuncId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -143,11 +155,13 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("DiyPositionInfo(");
-      sb.Append("PositionId: ");
-      sb.Append(PositionId);
-      sb.Append(",VertexList: ");
-      sb.Append(VertexList);
+      StringBuilder sb = new StringBuilder("ActiveAwardConfig(");
+      sb.Append("Value: ");
+      sb.Append(Value);
+      sb.Append(",CycleCounterId: ");
+      sb.Append(CycleCounterId);
+      sb.Append(",FuncId: ");
+      sb.Append(FuncId);
       sb.Append(")");
       return sb.ToString();
     }

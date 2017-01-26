@@ -30,6 +30,8 @@ namespace Config.Table
     private Config.SystemLoverConfig _loverConfig;
     private Config.SystemEndlessConfig _endlessConfig;
     private Config.SystemGuildConfig _guildConfig;
+    private Config.SystemDefaultClothConfig _clothConfig;
+    private Config.SystemMissionConfig _missionConfig;
 
     public Config.SystemRoomConfig RoomConfig
     {
@@ -122,6 +124,32 @@ namespace Config.Table
       }
     }
 
+    public Config.SystemDefaultClothConfig ClothConfig
+    {
+      get
+      {
+        return _clothConfig;
+      }
+      set
+      {
+        __isset.clothConfig = true;
+        this._clothConfig = value;
+      }
+    }
+
+    public Config.SystemMissionConfig MissionConfig
+    {
+      get
+      {
+        return _missionConfig;
+      }
+      set
+      {
+        __isset.missionConfig = true;
+        this._missionConfig = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -135,6 +163,8 @@ namespace Config.Table
       public bool loverConfig;
       public bool endlessConfig;
       public bool guildConfig;
+      public bool clothConfig;
+      public bool missionConfig;
     }
 
     public SystemConfigTable() {
@@ -208,6 +238,22 @@ namespace Config.Table
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 80:
+            if (field.Type == TType.Struct) {
+              ClothConfig = new Config.SystemDefaultClothConfig();
+              ClothConfig.Read(iprot);
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 90:
+            if (field.Type == TType.Struct) {
+              MissionConfig = new Config.SystemMissionConfig();
+              MissionConfig.Read(iprot);
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           default: 
             TProtocolUtil.Skip(iprot, field.Type);
             break;
@@ -277,6 +323,22 @@ namespace Config.Table
         GuildConfig.Write(oprot);
         oprot.WriteFieldEnd();
       }
+      if (ClothConfig != null && __isset.clothConfig) {
+        field.Name = "clothConfig";
+        field.Type = TType.Struct;
+        field.ID = 80;
+        oprot.WriteFieldBegin(field);
+        ClothConfig.Write(oprot);
+        oprot.WriteFieldEnd();
+      }
+      if (MissionConfig != null && __isset.missionConfig) {
+        field.Name = "missionConfig";
+        field.Type = TType.Struct;
+        field.ID = 90;
+        oprot.WriteFieldBegin(field);
+        MissionConfig.Write(oprot);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -297,6 +359,10 @@ namespace Config.Table
       sb.Append(EndlessConfig== null ? "<null>" : EndlessConfig.ToString());
       sb.Append(",GuildConfig: ");
       sb.Append(GuildConfig== null ? "<null>" : GuildConfig.ToString());
+      sb.Append(",ClothConfig: ");
+      sb.Append(ClothConfig== null ? "<null>" : ClothConfig.ToString());
+      sb.Append(",MissionConfig: ");
+      sb.Append(MissionConfig== null ? "<null>" : MissionConfig.ToString());
       sb.Append(")");
       return sb.ToString();
     }

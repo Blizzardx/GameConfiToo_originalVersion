@@ -88,22 +88,22 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 SkillList = new List<List<int>>();
-                TList _list117 = iprot.ReadListBegin();
-                for( int _i118 = 0; _i118 < _list117.Count; ++_i118)
+                TList _list126 = iprot.ReadListBegin();
+                for( int _i127 = 0; _i127 < _list126.Count; ++_i127)
                 {
-                  List<int> _elem119 = new List<int>();
+                  List<int> _elem128 = new List<int>();
                   {
-                    _elem119 = new List<int>();
-                    TList _list120 = iprot.ReadListBegin();
-                    for( int _i121 = 0; _i121 < _list120.Count; ++_i121)
+                    _elem128 = new List<int>();
+                    TList _list129 = iprot.ReadListBegin();
+                    for( int _i130 = 0; _i130 < _list129.Count; ++_i130)
                     {
-                      int _elem122 = 0;
-                      _elem122 = iprot.ReadI32();
-                      _elem119.Add(_elem122);
+                      int _elem131 = 0;
+                      _elem131 = iprot.ReadI32();
+                      _elem128.Add(_elem131);
                     }
                     iprot.ReadListEnd();
                   }
-                  SkillList.Add(_elem119);
+                  SkillList.Add(_elem128);
                 }
                 iprot.ReadListEnd();
               }
@@ -139,13 +139,13 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.List, SkillList.Count));
-          foreach (List<int> _iter123 in SkillList)
+          foreach (List<int> _iter132 in SkillList)
           {
             {
-              oprot.WriteListBegin(new TList(TType.I32, _iter123.Count));
-              foreach (int _iter124 in _iter123)
+              oprot.WriteListBegin(new TList(TType.I32, _iter132.Count));
+              foreach (int _iter133 in _iter132)
               {
-                oprot.WriteI32(_iter124);
+                oprot.WriteI32(_iter133);
               }
               oprot.WriteListEnd();
             }

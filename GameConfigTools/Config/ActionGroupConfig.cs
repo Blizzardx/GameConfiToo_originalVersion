@@ -88,24 +88,24 @@ namespace Config
             if (field.Type == TType.Map) {
               {
                 ActionGroupMap = new Dictionary<int, List<string>>();
-                TMap _map129 = iprot.ReadMapBegin();
-                for( int _i130 = 0; _i130 < _map129.Count; ++_i130)
+                TMap _map138 = iprot.ReadMapBegin();
+                for( int _i139 = 0; _i139 < _map138.Count; ++_i139)
                 {
-                  int _key131;
-                  List<string> _val132;
-                  _key131 = iprot.ReadI32();
+                  int _key140;
+                  List<string> _val141;
+                  _key140 = iprot.ReadI32();
                   {
-                    _val132 = new List<string>();
-                    TList _list133 = iprot.ReadListBegin();
-                    for( int _i134 = 0; _i134 < _list133.Count; ++_i134)
+                    _val141 = new List<string>();
+                    TList _list142 = iprot.ReadListBegin();
+                    for( int _i143 = 0; _i143 < _list142.Count; ++_i143)
                     {
-                      string _elem135 = null;
-                      _elem135 = iprot.ReadString();
-                      _val132.Add(_elem135);
+                      string _elem144 = null;
+                      _elem144 = iprot.ReadString();
+                      _val141.Add(_elem144);
                     }
                     iprot.ReadListEnd();
                   }
-                  ActionGroupMap[_key131] = _val132;
+                  ActionGroupMap[_key140] = _val141;
                 }
                 iprot.ReadMapEnd();
               }
@@ -141,14 +141,14 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.List, ActionGroupMap.Count));
-          foreach (int _iter136 in ActionGroupMap.Keys)
+          foreach (int _iter145 in ActionGroupMap.Keys)
           {
-            oprot.WriteI32(_iter136);
+            oprot.WriteI32(_iter145);
             {
-              oprot.WriteListBegin(new TList(TType.String, ActionGroupMap[_iter136].Count));
-              foreach (string _iter137 in ActionGroupMap[_iter136])
+              oprot.WriteListBegin(new TList(TType.String, ActionGroupMap[_iter145].Count));
+              foreach (string _iter146 in ActionGroupMap[_iter145])
               {
-                oprot.WriteString(_iter137);
+                oprot.WriteString(_iter146);
               }
               oprot.WriteListEnd();
             }

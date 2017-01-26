@@ -376,12 +376,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 DyeingList = new List<int>();
-                TList _list174 = iprot.ReadListBegin();
-                for( int _i175 = 0; _i175 < _list174.Count; ++_i175)
+                TList _list183 = iprot.ReadListBegin();
+                for( int _i184 = 0; _i184 < _list183.Count; ++_i184)
                 {
-                  int _elem176 = 0;
-                  _elem176 = iprot.ReadI32();
-                  DyeingList.Add(_elem176);
+                  int _elem185 = 0;
+                  _elem185 = iprot.ReadI32();
+                  DyeingList.Add(_elem185);
                 }
                 iprot.ReadListEnd();
               }
@@ -393,12 +393,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 CustomizedList = new List<int>();
-                TList _list177 = iprot.ReadListBegin();
-                for( int _i178 = 0; _i178 < _list177.Count; ++_i178)
+                TList _list186 = iprot.ReadListBegin();
+                for( int _i187 = 0; _i187 < _list186.Count; ++_i187)
                 {
-                  int _elem179 = 0;
-                  _elem179 = iprot.ReadI32();
-                  CustomizedList.Add(_elem179);
+                  int _elem188 = 0;
+                  _elem188 = iprot.ReadI32();
+                  CustomizedList.Add(_elem188);
                 }
                 iprot.ReadListEnd();
               }
@@ -541,9 +541,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, DyeingList.Count));
-          foreach (int _iter180 in DyeingList)
+          foreach (int _iter189 in DyeingList)
           {
-            oprot.WriteI32(_iter180);
+            oprot.WriteI32(_iter189);
           }
           oprot.WriteListEnd();
         }
@@ -556,9 +556,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, CustomizedList.Count));
-          foreach (int _iter181 in CustomizedList)
+          foreach (int _iter190 in CustomizedList)
           {
-            oprot.WriteI32(_iter181);
+            oprot.WriteI32(_iter190);
           }
           oprot.WriteListEnd();
         }

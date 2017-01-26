@@ -125,13 +125,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 NeedItemConfigList = new List<NeedItemConfig>();
-                TList _list85 = iprot.ReadListBegin();
-                for( int _i86 = 0; _i86 < _list85.Count; ++_i86)
+                TList _list89 = iprot.ReadListBegin();
+                for( int _i90 = 0; _i90 < _list89.Count; ++_i90)
                 {
-                  NeedItemConfig _elem87 = new NeedItemConfig();
-                  _elem87 = new NeedItemConfig();
-                  _elem87.Read(iprot);
-                  NeedItemConfigList.Add(_elem87);
+                  NeedItemConfig _elem91 = new NeedItemConfig();
+                  _elem91 = new NeedItemConfig();
+                  _elem91.Read(iprot);
+                  NeedItemConfigList.Add(_elem91);
                 }
                 iprot.ReadListEnd();
               }
@@ -143,13 +143,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 NeedCurrencyConfigList = new List<NeedCurrencyConfig>();
-                TList _list88 = iprot.ReadListBegin();
-                for( int _i89 = 0; _i89 < _list88.Count; ++_i89)
+                TList _list92 = iprot.ReadListBegin();
+                for( int _i93 = 0; _i93 < _list92.Count; ++_i93)
                 {
-                  NeedCurrencyConfig _elem90 = new NeedCurrencyConfig();
-                  _elem90 = new NeedCurrencyConfig();
-                  _elem90.Read(iprot);
-                  NeedCurrencyConfigList.Add(_elem90);
+                  NeedCurrencyConfig _elem94 = new NeedCurrencyConfig();
+                  _elem94 = new NeedCurrencyConfig();
+                  _elem94.Read(iprot);
+                  NeedCurrencyConfigList.Add(_elem94);
                 }
                 iprot.ReadListEnd();
               }
@@ -193,9 +193,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, NeedItemConfigList.Count));
-          foreach (NeedItemConfig _iter91 in NeedItemConfigList)
+          foreach (NeedItemConfig _iter95 in NeedItemConfigList)
           {
-            _iter91.Write(oprot);
+            _iter95.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -208,9 +208,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, NeedCurrencyConfigList.Count));
-          foreach (NeedCurrencyConfig _iter92 in NeedCurrencyConfigList)
+          foreach (NeedCurrencyConfig _iter96 in NeedCurrencyConfigList)
           {
-            _iter92.Write(oprot);
+            _iter96.Write(oprot);
           }
           oprot.WriteListEnd();
         }

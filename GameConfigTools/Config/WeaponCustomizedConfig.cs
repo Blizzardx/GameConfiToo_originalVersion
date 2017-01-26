@@ -25,6 +25,7 @@ namespace Config
   {
     private int _id;
     private string _textureName;
+    private string _textureBundle;
     private int _costId;
     private int _nameMessageId;
 
@@ -51,6 +52,19 @@ namespace Config
       {
         __isset.textureName = true;
         this._textureName = value;
+      }
+    }
+
+    public string TextureBundle
+    {
+      get
+      {
+        return _textureBundle;
+      }
+      set
+      {
+        __isset.textureBundle = true;
+        this._textureBundle = value;
       }
     }
 
@@ -88,6 +102,7 @@ namespace Config
     public struct Isset {
       public bool id;
       public bool textureName;
+      public bool textureBundle;
       public bool costId;
       public bool nameMessageId;
     }
@@ -117,6 +132,13 @@ namespace Config
           case 20:
             if (field.Type == TType.String) {
               TextureName = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 21:
+            if (field.Type == TType.String) {
+              TextureBundle = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -164,6 +186,14 @@ namespace Config
         oprot.WriteString(TextureName);
         oprot.WriteFieldEnd();
       }
+      if (TextureBundle != null && __isset.textureBundle) {
+        field.Name = "textureBundle";
+        field.Type = TType.String;
+        field.ID = 21;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(TextureBundle);
+        oprot.WriteFieldEnd();
+      }
       if (__isset.costId) {
         field.Name = "costId";
         field.Type = TType.I32;
@@ -190,6 +220,8 @@ namespace Config
       sb.Append(Id);
       sb.Append(",TextureName: ");
       sb.Append(TextureName);
+      sb.Append(",TextureBundle: ");
+      sb.Append(TextureBundle);
       sb.Append(",CostId: ");
       sb.Append(CostId);
       sb.Append(",NameMessageId: ");

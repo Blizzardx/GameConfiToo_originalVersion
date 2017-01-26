@@ -21,34 +21,34 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class DiyPositionInfo : TBase
+  public partial class DefaultCloth : TBase
   {
-    private int _positionId;
-    private List<DiyVertexInfo> _vertexList;
+    private string _resource;
+    private string _attachPosition;
 
-    public int PositionId
+    public string Resource
     {
       get
       {
-        return _positionId;
+        return _resource;
       }
       set
       {
-        __isset.positionId = true;
-        this._positionId = value;
+        __isset.resource = true;
+        this._resource = value;
       }
     }
 
-    public List<DiyVertexInfo> VertexList
+    public string AttachPosition
     {
       get
       {
-        return _vertexList;
+        return _attachPosition;
       }
       set
       {
-        __isset.vertexList = true;
-        this._vertexList = value;
+        __isset.attachPosition = true;
+        this._attachPosition = value;
       }
     }
 
@@ -58,11 +58,11 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool positionId;
-      public bool vertexList;
+      public bool resource;
+      public bool attachPosition;
     }
 
-    public DiyPositionInfo() {
+    public DefaultCloth() {
     }
 
     public void Read (TProtocol iprot)
@@ -78,26 +78,15 @@ namespace Config
         switch (field.ID)
         {
           case 10:
-            if (field.Type == TType.I32) {
-              PositionId = iprot.ReadI32();
+            if (field.Type == TType.String) {
+              Resource = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 20:
-            if (field.Type == TType.List) {
-              {
-                VertexList = new List<DiyVertexInfo>();
-                TList _list196 = iprot.ReadListBegin();
-                for( int _i197 = 0; _i197 < _list196.Count; ++_i197)
-                {
-                  DiyVertexInfo _elem198 = new DiyVertexInfo();
-                  _elem198 = new DiyVertexInfo();
-                  _elem198.Read(iprot);
-                  VertexList.Add(_elem198);
-                }
-                iprot.ReadListEnd();
-              }
+            if (field.Type == TType.String) {
+              AttachPosition = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -112,30 +101,23 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("DiyPositionInfo");
+      TStruct struc = new TStruct("DefaultCloth");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (__isset.positionId) {
-        field.Name = "positionId";
-        field.Type = TType.I32;
+      if (Resource != null && __isset.resource) {
+        field.Name = "resource";
+        field.Type = TType.String;
         field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(PositionId);
+        oprot.WriteString(Resource);
         oprot.WriteFieldEnd();
       }
-      if (VertexList != null && __isset.vertexList) {
-        field.Name = "vertexList";
-        field.Type = TType.List;
+      if (AttachPosition != null && __isset.attachPosition) {
+        field.Name = "attachPosition";
+        field.Type = TType.String;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        {
-          oprot.WriteListBegin(new TList(TType.Struct, VertexList.Count));
-          foreach (DiyVertexInfo _iter199 in VertexList)
-          {
-            _iter199.Write(oprot);
-          }
-          oprot.WriteListEnd();
-        }
+        oprot.WriteString(AttachPosition);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -143,11 +125,11 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("DiyPositionInfo(");
-      sb.Append("PositionId: ");
-      sb.Append(PositionId);
-      sb.Append(",VertexList: ");
-      sb.Append(VertexList);
+      StringBuilder sb = new StringBuilder("DefaultCloth(");
+      sb.Append("Resource: ");
+      sb.Append(Resource);
+      sb.Append(",AttachPosition: ");
+      sb.Append(AttachPosition);
       sb.Append(")");
       return sb.ToString();
     }

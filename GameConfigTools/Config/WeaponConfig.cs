@@ -46,6 +46,7 @@ namespace Config
     private int _activeEnterType;
     private List<string> _motionList;
     private int _activeLimitId;
+    private int _actionGroupId;
 
     public int Id
     {
@@ -346,6 +347,19 @@ namespace Config
       }
     }
 
+    public int ActionGroupId
+    {
+      get
+      {
+        return _actionGroupId;
+      }
+      set
+      {
+        __isset.actionGroupId = true;
+        this._actionGroupId = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -375,6 +389,7 @@ namespace Config
       public bool activeEnterType;
       public bool motionList;
       public bool activeLimitId;
+      public bool actionGroupId;
     }
 
     public WeaponConfig() {
@@ -480,12 +495,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 TextureList = new List<int>();
-                TList _list234 = iprot.ReadListBegin();
-                for( int _i235 = 0; _i235 < _list234.Count; ++_i235)
+                TList _list243 = iprot.ReadListBegin();
+                for( int _i244 = 0; _i244 < _list243.Count; ++_i244)
                 {
-                  int _elem236 = 0;
-                  _elem236 = iprot.ReadI32();
-                  TextureList.Add(_elem236);
+                  int _elem245 = 0;
+                  _elem245 = iprot.ReadI32();
+                  TextureList.Add(_elem245);
                 }
                 iprot.ReadListEnd();
               }
@@ -553,12 +568,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 MotionList = new List<string>();
-                TList _list237 = iprot.ReadListBegin();
-                for( int _i238 = 0; _i238 < _list237.Count; ++_i238)
+                TList _list246 = iprot.ReadListBegin();
+                for( int _i247 = 0; _i247 < _list246.Count; ++_i247)
                 {
-                  string _elem239 = null;
-                  _elem239 = iprot.ReadString();
-                  MotionList.Add(_elem239);
+                  string _elem248 = null;
+                  _elem248 = iprot.ReadString();
+                  MotionList.Add(_elem248);
                 }
                 iprot.ReadListEnd();
               }
@@ -569,6 +584,13 @@ namespace Config
           case 190:
             if (field.Type == TType.I32) {
               ActiveLimitId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 200:
+            if (field.Type == TType.I32) {
+              ActionGroupId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -689,9 +711,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, TextureList.Count));
-          foreach (int _iter240 in TextureList)
+          foreach (int _iter249 in TextureList)
           {
-            oprot.WriteI32(_iter240);
+            oprot.WriteI32(_iter249);
           }
           oprot.WriteListEnd();
         }
@@ -768,9 +790,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.String, MotionList.Count));
-          foreach (string _iter241 in MotionList)
+          foreach (string _iter250 in MotionList)
           {
-            oprot.WriteString(_iter241);
+            oprot.WriteString(_iter250);
           }
           oprot.WriteListEnd();
         }
@@ -782,6 +804,14 @@ namespace Config
         field.ID = 190;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(ActiveLimitId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.actionGroupId) {
+        field.Name = "actionGroupId";
+        field.Type = TType.I32;
+        field.ID = 200;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ActionGroupId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -836,6 +866,8 @@ namespace Config
       sb.Append(MotionList);
       sb.Append(",ActiveLimitId: ");
       sb.Append(ActiveLimitId);
+      sb.Append(",ActionGroupId: ");
+      sb.Append(ActionGroupId);
       sb.Append(")");
       return sb.ToString();
     }

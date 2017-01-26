@@ -110,13 +110,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 LimitDataList = new List<LimitData>();
-                TList _list57 = iprot.ReadListBegin();
-                for( int _i58 = 0; _i58 < _list57.Count; ++_i58)
+                TList _list61 = iprot.ReadListBegin();
+                for( int _i62 = 0; _i62 < _list61.Count; ++_i62)
                 {
-                  LimitData _elem59 = new LimitData();
-                  _elem59 = new LimitData();
-                  _elem59.Read(iprot);
-                  LimitDataList.Add(_elem59);
+                  LimitData _elem63 = new LimitData();
+                  _elem63 = new LimitData();
+                  _elem63.Read(iprot);
+                  LimitDataList.Add(_elem63);
                 }
                 iprot.ReadListEnd();
               }
@@ -160,9 +160,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, LimitDataList.Count));
-          foreach (LimitData _iter60 in LimitDataList)
+          foreach (LimitData _iter64 in LimitDataList)
           {
-            _iter60.Write(oprot);
+            _iter64.Write(oprot);
           }
           oprot.WriteListEnd();
         }

@@ -386,12 +386,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 PassiveSkillList = new List<int>();
-                TList _list113 = iprot.ReadListBegin();
-                for( int _i114 = 0; _i114 < _list113.Count; ++_i114)
+                TList _list122 = iprot.ReadListBegin();
+                for( int _i123 = 0; _i123 < _list122.Count; ++_i123)
                 {
-                  int _elem115 = 0;
-                  _elem115 = iprot.ReadI32();
-                  PassiveSkillList.Add(_elem115);
+                  int _elem124 = 0;
+                  _elem124 = iprot.ReadI32();
+                  PassiveSkillList.Add(_elem124);
                 }
                 iprot.ReadListEnd();
               }
@@ -557,9 +557,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, PassiveSkillList.Count));
-          foreach (int _iter116 in PassiveSkillList)
+          foreach (int _iter125 in PassiveSkillList)
           {
-            oprot.WriteI32(_iter116);
+            oprot.WriteI32(_iter125);
           }
           oprot.WriteListEnd();
         }

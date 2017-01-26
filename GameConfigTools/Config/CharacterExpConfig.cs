@@ -27,6 +27,7 @@ namespace Config
     private int _totalExp;
     private int _levelUpLimitId;
     private int _LevelUpFuncId;
+    private Dictionary<int, int> _attrMap;
 
     public int Level
     {
@@ -80,6 +81,19 @@ namespace Config
       }
     }
 
+    public Dictionary<int, int> AttrMap
+    {
+      get
+      {
+        return _attrMap;
+      }
+      set
+      {
+        __isset.attrMap = true;
+        this._attrMap = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -90,6 +104,7 @@ namespace Config
       public bool totalExp;
       public bool levelUpLimitId;
       public bool LevelUpFuncId;
+      public bool attrMap;
     }
 
     public CharacterExpConfig() {
@@ -131,6 +146,25 @@ namespace Config
           case 40:
             if (field.Type == TType.I32) {
               LevelUpFuncId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 50:
+            if (field.Type == TType.Map) {
+              {
+                AttrMap = new Dictionary<int, int>();
+                TMap _map113 = iprot.ReadMapBegin();
+                for( int _i114 = 0; _i114 < _map113.Count; ++_i114)
+                {
+                  int _key115;
+                  int _val116;
+                  _key115 = iprot.ReadI32();
+                  _val116 = iprot.ReadI32();
+                  AttrMap[_key115] = _val116;
+                }
+                iprot.ReadMapEnd();
+              }
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -180,6 +214,22 @@ namespace Config
         oprot.WriteI32(LevelUpFuncId);
         oprot.WriteFieldEnd();
       }
+      if (AttrMap != null && __isset.attrMap) {
+        field.Name = "attrMap";
+        field.Type = TType.Map;
+        field.ID = 50;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteMapBegin(new TMap(TType.I32, TType.I32, AttrMap.Count));
+          foreach (int _iter117 in AttrMap.Keys)
+          {
+            oprot.WriteI32(_iter117);
+            oprot.WriteI32(AttrMap[_iter117]);
+          }
+          oprot.WriteMapEnd();
+        }
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -194,6 +244,8 @@ namespace Config
       sb.Append(LevelUpLimitId);
       sb.Append(",LevelUpFuncId: ");
       sb.Append(LevelUpFuncId);
+      sb.Append(",AttrMap: ");
+      sb.Append(AttrMap);
       sb.Append(")");
       return sb.ToString();
     }

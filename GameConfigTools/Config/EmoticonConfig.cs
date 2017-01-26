@@ -110,12 +110,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 ResourceList = new List<string>();
-                TList _list199 = iprot.ReadListBegin();
-                for( int _i200 = 0; _i200 < _list199.Count; ++_i200)
+                TList _list208 = iprot.ReadListBegin();
+                for( int _i209 = 0; _i209 < _list208.Count; ++_i209)
                 {
-                  string _elem201 = null;
-                  _elem201 = iprot.ReadString();
-                  ResourceList.Add(_elem201);
+                  string _elem210 = null;
+                  _elem210 = iprot.ReadString();
+                  ResourceList.Add(_elem210);
                 }
                 iprot.ReadListEnd();
               }
@@ -159,9 +159,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.String, ResourceList.Count));
-          foreach (string _iter202 in ResourceList)
+          foreach (string _iter211 in ResourceList)
           {
-            oprot.WriteString(_iter202);
+            oprot.WriteString(_iter211);
           }
           oprot.WriteListEnd();
         }

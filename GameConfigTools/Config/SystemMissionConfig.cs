@@ -21,62 +21,48 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class GuildFlagConfig : TBase
+  public partial class SystemMissionConfig : TBase
   {
-    private int _id;
-    private int _flagType;
-    private string _texture;
-    private List<string> _optionColorList;
+    private int _daliyMissionCycleId;
+    private int _activeValueCycleCounterId;
+    private List<ActiveAwardConfig> _activeAwardConfigList;
 
-    public int Id
+    public int DaliyMissionCycleId
     {
       get
       {
-        return _id;
+        return _daliyMissionCycleId;
       }
       set
       {
-        __isset.id = true;
-        this._id = value;
+        __isset.daliyMissionCycleId = true;
+        this._daliyMissionCycleId = value;
       }
     }
 
-    public int FlagType
+    public int ActiveValueCycleCounterId
     {
       get
       {
-        return _flagType;
+        return _activeValueCycleCounterId;
       }
       set
       {
-        __isset.flagType = true;
-        this._flagType = value;
+        __isset.activeValueCycleCounterId = true;
+        this._activeValueCycleCounterId = value;
       }
     }
 
-    public string Texture
+    public List<ActiveAwardConfig> ActiveAwardConfigList
     {
       get
       {
-        return _texture;
+        return _activeAwardConfigList;
       }
       set
       {
-        __isset.texture = true;
-        this._texture = value;
-      }
-    }
-
-    public List<string> OptionColorList
-    {
-      get
-      {
-        return _optionColorList;
-      }
-      set
-      {
-        __isset.optionColorList = true;
-        this._optionColorList = value;
+        __isset.activeAwardConfigList = true;
+        this._activeAwardConfigList = value;
       }
     }
 
@@ -86,13 +72,12 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool id;
-      public bool flagType;
-      public bool texture;
-      public bool optionColorList;
+      public bool daliyMissionCycleId;
+      public bool activeValueCycleCounterId;
+      public bool activeAwardConfigList;
     }
 
-    public GuildFlagConfig() {
+    public SystemMissionConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -109,35 +94,29 @@ namespace Config
         {
           case 10:
             if (field.Type == TType.I32) {
-              Id = iprot.ReadI32();
+              DaliyMissionCycleId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 20:
             if (field.Type == TType.I32) {
-              FlagType = iprot.ReadI32();
+              ActiveValueCycleCounterId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
           case 30:
-            if (field.Type == TType.String) {
-              Texture = iprot.ReadString();
-            } else { 
-              TProtocolUtil.Skip(iprot, field.Type);
-            }
-            break;
-          case 40:
             if (field.Type == TType.List) {
               {
-                OptionColorList = new List<string>();
-                TList _list260 = iprot.ReadListBegin();
-                for( int _i261 = 0; _i261 < _list260.Count; ++_i261)
+                ActiveAwardConfigList = new List<ActiveAwardConfig>();
+                TList _list16 = iprot.ReadListBegin();
+                for( int _i17 = 0; _i17 < _list16.Count; ++_i17)
                 {
-                  string _elem262 = null;
-                  _elem262 = iprot.ReadString();
-                  OptionColorList.Add(_elem262);
+                  ActiveAwardConfig _elem18 = new ActiveAwardConfig();
+                  _elem18 = new ActiveAwardConfig();
+                  _elem18.Read(iprot);
+                  ActiveAwardConfigList.Add(_elem18);
                 }
                 iprot.ReadListEnd();
               }
@@ -155,43 +134,35 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("GuildFlagConfig");
+      TStruct struc = new TStruct("SystemMissionConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (__isset.id) {
-        field.Name = "id";
+      if (__isset.daliyMissionCycleId) {
+        field.Name = "daliyMissionCycleId";
         field.Type = TType.I32;
         field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(Id);
+        oprot.WriteI32(DaliyMissionCycleId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.flagType) {
-        field.Name = "flagType";
+      if (__isset.activeValueCycleCounterId) {
+        field.Name = "activeValueCycleCounterId";
         field.Type = TType.I32;
         field.ID = 20;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(FlagType);
+        oprot.WriteI32(ActiveValueCycleCounterId);
         oprot.WriteFieldEnd();
       }
-      if (Texture != null && __isset.texture) {
-        field.Name = "texture";
-        field.Type = TType.String;
+      if (ActiveAwardConfigList != null && __isset.activeAwardConfigList) {
+        field.Name = "activeAwardConfigList";
+        field.Type = TType.List;
         field.ID = 30;
         oprot.WriteFieldBegin(field);
-        oprot.WriteString(Texture);
-        oprot.WriteFieldEnd();
-      }
-      if (OptionColorList != null && __isset.optionColorList) {
-        field.Name = "optionColorList";
-        field.Type = TType.List;
-        field.ID = 40;
-        oprot.WriteFieldBegin(field);
         {
-          oprot.WriteListBegin(new TList(TType.String, OptionColorList.Count));
-          foreach (string _iter263 in OptionColorList)
+          oprot.WriteListBegin(new TList(TType.Struct, ActiveAwardConfigList.Count));
+          foreach (ActiveAwardConfig _iter19 in ActiveAwardConfigList)
           {
-            oprot.WriteString(_iter263);
+            _iter19.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -202,15 +173,13 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("GuildFlagConfig(");
-      sb.Append("Id: ");
-      sb.Append(Id);
-      sb.Append(",FlagType: ");
-      sb.Append(FlagType);
-      sb.Append(",Texture: ");
-      sb.Append(Texture);
-      sb.Append(",OptionColorList: ");
-      sb.Append(OptionColorList);
+      StringBuilder sb = new StringBuilder("SystemMissionConfig(");
+      sb.Append("DaliyMissionCycleId: ");
+      sb.Append(DaliyMissionCycleId);
+      sb.Append(",ActiveValueCycleCounterId: ");
+      sb.Append(ActiveValueCycleCounterId);
+      sb.Append(",ActiveAwardConfigList: ");
+      sb.Append(ActiveAwardConfigList);
       sb.Append(")");
       return sb.ToString();
     }

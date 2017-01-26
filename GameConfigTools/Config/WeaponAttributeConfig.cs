@@ -28,6 +28,7 @@ namespace Config
     private int _normalSkill;
     private int _upStarConsumeId;
     private List<int> _passiveSkillList;
+    private int _fireDistance;
     private Dictionary<int, int> _attrMap;
     private string _bulletTexture;
 
@@ -96,6 +97,19 @@ namespace Config
       }
     }
 
+    public int FireDistance
+    {
+      get
+      {
+        return _fireDistance;
+      }
+      set
+      {
+        __isset.fireDistance = true;
+        this._fireDistance = value;
+      }
+    }
+
     public Dictionary<int, int> AttrMap
     {
       get
@@ -133,6 +147,7 @@ namespace Config
       public bool normalSkill;
       public bool upStarConsumeId;
       public bool passiveSkillList;
+      public bool fireDistance;
       public bool attrMap;
       public bool bulletTexture;
     }
@@ -184,15 +199,22 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 PassiveSkillList = new List<int>();
-                TList _list242 = iprot.ReadListBegin();
-                for( int _i243 = 0; _i243 < _list242.Count; ++_i243)
+                TList _list251 = iprot.ReadListBegin();
+                for( int _i252 = 0; _i252 < _list251.Count; ++_i252)
                 {
-                  int _elem244 = 0;
-                  _elem244 = iprot.ReadI32();
-                  PassiveSkillList.Add(_elem244);
+                  int _elem253 = 0;
+                  _elem253 = iprot.ReadI32();
+                  PassiveSkillList.Add(_elem253);
                 }
                 iprot.ReadListEnd();
               }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 65:
+            if (field.Type == TType.I32) {
+              FireDistance = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -201,14 +223,14 @@ namespace Config
             if (field.Type == TType.Map) {
               {
                 AttrMap = new Dictionary<int, int>();
-                TMap _map245 = iprot.ReadMapBegin();
-                for( int _i246 = 0; _i246 < _map245.Count; ++_i246)
+                TMap _map254 = iprot.ReadMapBegin();
+                for( int _i255 = 0; _i255 < _map254.Count; ++_i255)
                 {
-                  int _key247;
-                  int _val248;
-                  _key247 = iprot.ReadI32();
-                  _val248 = iprot.ReadI32();
-                  AttrMap[_key247] = _val248;
+                  int _key256;
+                  int _val257;
+                  _key256 = iprot.ReadI32();
+                  _val257 = iprot.ReadI32();
+                  AttrMap[_key256] = _val257;
                 }
                 iprot.ReadMapEnd();
               }
@@ -275,12 +297,20 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, PassiveSkillList.Count));
-          foreach (int _iter249 in PassiveSkillList)
+          foreach (int _iter258 in PassiveSkillList)
           {
-            oprot.WriteI32(_iter249);
+            oprot.WriteI32(_iter258);
           }
           oprot.WriteListEnd();
         }
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.fireDistance) {
+        field.Name = "fireDistance";
+        field.Type = TType.I32;
+        field.ID = 65;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(FireDistance);
         oprot.WriteFieldEnd();
       }
       if (AttrMap != null && __isset.attrMap) {
@@ -290,10 +320,10 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteMapBegin(new TMap(TType.I32, TType.I32, AttrMap.Count));
-          foreach (int _iter250 in AttrMap.Keys)
+          foreach (int _iter259 in AttrMap.Keys)
           {
-            oprot.WriteI32(_iter250);
-            oprot.WriteI32(AttrMap[_iter250]);
+            oprot.WriteI32(_iter259);
+            oprot.WriteI32(AttrMap[_iter259]);
           }
           oprot.WriteMapEnd();
         }
@@ -323,6 +353,8 @@ namespace Config
       sb.Append(UpStarConsumeId);
       sb.Append(",PassiveSkillList: ");
       sb.Append(PassiveSkillList);
+      sb.Append(",FireDistance: ");
+      sb.Append(FireDistance);
       sb.Append(",AttrMap: ");
       sb.Append(AttrMap);
       sb.Append(",BulletTexture: ");

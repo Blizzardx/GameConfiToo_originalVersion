@@ -21,20 +21,20 @@ namespace Config
   #if !SILVERLIGHT
   [Serializable]
   #endif
-  public partial class SystemDecorateTypeSortConfig : TBase
+  public partial class SystemDefaultClothConfig : TBase
   {
-    private List<SystemDecorateTypeSortInfo> _sortInfoList;
+    private List<DefaultCloth> _cloths;
 
-    public List<SystemDecorateTypeSortInfo> SortInfoList
+    public List<DefaultCloth> Cloths
     {
       get
       {
-        return _sortInfoList;
+        return _cloths;
       }
       set
       {
-        __isset.sortInfoList = true;
-        this._sortInfoList = value;
+        __isset.cloths = true;
+        this._cloths = value;
       }
     }
 
@@ -44,10 +44,10 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool sortInfoList;
+      public bool cloths;
     }
 
-    public SystemDecorateTypeSortConfig() {
+    public SystemDefaultClothConfig() {
     }
 
     public void Read (TProtocol iprot)
@@ -62,17 +62,17 @@ namespace Config
         }
         switch (field.ID)
         {
-          case 1:
+          case 10:
             if (field.Type == TType.List) {
               {
-                SortInfoList = new List<SystemDecorateTypeSortInfo>();
-                TList _list25 = iprot.ReadListBegin();
-                for( int _i26 = 0; _i26 < _list25.Count; ++_i26)
+                Cloths = new List<DefaultCloth>();
+                TList _list264 = iprot.ReadListBegin();
+                for( int _i265 = 0; _i265 < _list264.Count; ++_i265)
                 {
-                  SystemDecorateTypeSortInfo _elem27 = new SystemDecorateTypeSortInfo();
-                  _elem27 = new SystemDecorateTypeSortInfo();
-                  _elem27.Read(iprot);
-                  SortInfoList.Add(_elem27);
+                  DefaultCloth _elem266 = new DefaultCloth();
+                  _elem266 = new DefaultCloth();
+                  _elem266.Read(iprot);
+                  Cloths.Add(_elem266);
                 }
                 iprot.ReadListEnd();
               }
@@ -90,19 +90,19 @@ namespace Config
     }
 
     public void Write(TProtocol oprot) {
-      TStruct struc = new TStruct("SystemDecorateTypeSortConfig");
+      TStruct struc = new TStruct("SystemDefaultClothConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (SortInfoList != null && __isset.sortInfoList) {
-        field.Name = "sortInfoList";
+      if (Cloths != null && __isset.cloths) {
+        field.Name = "cloths";
         field.Type = TType.List;
-        field.ID = 1;
+        field.ID = 10;
         oprot.WriteFieldBegin(field);
         {
-          oprot.WriteListBegin(new TList(TType.Struct, SortInfoList.Count));
-          foreach (SystemDecorateTypeSortInfo _iter28 in SortInfoList)
+          oprot.WriteListBegin(new TList(TType.Struct, Cloths.Count));
+          foreach (DefaultCloth _iter267 in Cloths)
           {
-            _iter28.Write(oprot);
+            _iter267.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -113,9 +113,9 @@ namespace Config
     }
 
     public override string ToString() {
-      StringBuilder sb = new StringBuilder("SystemDecorateTypeSortConfig(");
-      sb.Append("SortInfoList: ");
-      sb.Append(SortInfoList);
+      StringBuilder sb = new StringBuilder("SystemDefaultClothConfig(");
+      sb.Append("Cloths: ");
+      sb.Append(Cloths);
       sb.Append(")");
       return sb.ToString();
     }

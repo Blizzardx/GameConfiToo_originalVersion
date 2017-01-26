@@ -220,13 +220,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 MonsterWeightConfigList = new List<MonsterWeightConfig>();
-                TList _list195 = iprot.ReadListBegin();
-                for( int _i196 = 0; _i196 < _list195.Count; ++_i196)
+                TList _list204 = iprot.ReadListBegin();
+                for( int _i205 = 0; _i205 < _list204.Count; ++_i205)
                 {
-                  MonsterWeightConfig _elem197 = new MonsterWeightConfig();
-                  _elem197 = new MonsterWeightConfig();
-                  _elem197.Read(iprot);
-                  MonsterWeightConfigList.Add(_elem197);
+                  MonsterWeightConfig _elem206 = new MonsterWeightConfig();
+                  _elem206 = new MonsterWeightConfig();
+                  _elem206.Read(iprot);
+                  MonsterWeightConfigList.Add(_elem206);
                 }
                 iprot.ReadListEnd();
               }
@@ -310,9 +310,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, MonsterWeightConfigList.Count));
-          foreach (MonsterWeightConfig _iter198 in MonsterWeightConfigList)
+          foreach (MonsterWeightConfig _iter207 in MonsterWeightConfigList)
           {
-            _iter198.Write(oprot);
+            _iter207.Write(oprot);
           }
           oprot.WriteListEnd();
         }
