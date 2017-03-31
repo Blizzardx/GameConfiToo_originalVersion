@@ -33,7 +33,7 @@ namespace Config
     private int _unlockLimitId;
     private int _showMonsterId;
     private int _failLimitId;
-    private int _limitTime;
+    private int _totalTime;
     private int _winLimitId;
     private int _targetLimitId1;
     private int _targetFunc1;
@@ -183,16 +183,16 @@ namespace Config
       }
     }
 
-    public int LimitTime
+    public int TotalTime
     {
       get
       {
-        return _limitTime;
+        return _totalTime;
       }
       set
       {
-        __isset.limitTime = true;
-        this._limitTime = value;
+        __isset.totalTime = true;
+        this._totalTime = value;
       }
     }
 
@@ -446,7 +446,7 @@ namespace Config
       public bool unlockLimitId;
       public bool showMonsterId;
       public bool failLimitId;
-      public bool limitTime;
+      public bool totalTime;
       public bool winLimitId;
       public bool targetLimitId1;
       public bool targetFunc1;
@@ -554,7 +554,7 @@ namespace Config
             break;
           case 35:
             if (field.Type == TType.I32) {
-              LimitTime = iprot.ReadI32();
+              TotalTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -778,12 +778,12 @@ namespace Config
         oprot.WriteI32(FailLimitId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.limitTime) {
-        field.Name = "limitTime";
+      if (__isset.totalTime) {
+        field.Name = "totalTime";
         field.Type = TType.I32;
         field.ID = 35;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(LimitTime);
+        oprot.WriteI32(TotalTime);
         oprot.WriteFieldEnd();
       }
       if (__isset.winLimitId) {
@@ -956,8 +956,8 @@ namespace Config
       sb.Append(ShowMonsterId);
       sb.Append(",FailLimitId: ");
       sb.Append(FailLimitId);
-      sb.Append(",LimitTime: ");
-      sb.Append(LimitTime);
+      sb.Append(",TotalTime: ");
+      sb.Append(TotalTime);
       sb.Append(",WinLimitId: ");
       sb.Append(WinLimitId);
       sb.Append(",TargetLimitId1: ");

@@ -106,10 +106,10 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，标签ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int godStateTime;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out godStateTime))
+                    int totalTime;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out totalTime))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，标签ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总时长必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
                     int initCradit;
@@ -169,7 +169,7 @@ namespace GameConfigTools.Import
                     stageE.Add(new XAttribute("endFuncId", endFuncId));
                     stageE.Add(new XAttribute("modeId", modeId));
                     stageE.Add(new XAttribute("resultId", resultId));
-                    stageE.Add(new XAttribute("godStateTime", godStateTime));
+                    stageE.Add(new XAttribute("totalTime", totalTime));
                     stageE.Add(new XAttribute("initCradit", initCradit));
                     stageE.Add(new XAttribute("atkCraditPet", atkCraditPet));
                     stageE.Add(new XAttribute("bekillCraditPet", bekillCraditPet));
@@ -191,7 +191,7 @@ namespace GameConfigTools.Import
                     c.ShowDropItemIdList = dropIdList;
                     c.StarBit4CountId = starbyteCounterId;
                     c.WeatherPlanId = weatherPlanId;
-                    c.GodStatusTime = godStateTime;
+                    c.TotalTime = totalTime;
                     c.InitCradit = initCradit;
                     c.AtkCraditPet = atkCraditPet;
                     c.KillCraditPet = killCraditPet;

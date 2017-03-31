@@ -37,8 +37,11 @@ namespace GameConfigTools.Import
             WeaponCustomizedConfig c = new WeaponCustomizedConfig();
             c.Id = id;
             c.TextureName = textureName;
+            c.TextureBundle = textureBundle;
             c.CostId = costId;
             c.NameMessageId = nameMessageId;
+            c.Icon = icon;
+            c.Material = material;
 
             if (m_ClientConfig.WeaponMap.ContainsKey(id))
             {

@@ -35,7 +35,7 @@ namespace Config
     private List<int> _showDropItemIdList;
     private int _starBit4CountId;
     private int _weatherPlanId;
-    private int _godStatusTime;
+    private int _totalTime;
     private int _initCradit;
     private int _atkCraditPet;
     private int _killCraditPet;
@@ -201,16 +201,16 @@ namespace Config
       }
     }
 
-    public int GodStatusTime
+    public int TotalTime
     {
       get
       {
-        return _godStatusTime;
+        return _totalTime;
       }
       set
       {
-        __isset.godStatusTime = true;
-        this._godStatusTime = value;
+        __isset.totalTime = true;
+        this._totalTime = value;
       }
     }
 
@@ -336,7 +336,7 @@ namespace Config
       public bool showDropItemIdList;
       public bool starBit4CountId;
       public bool weatherPlanId;
-      public bool godStatusTime;
+      public bool totalTime;
       public bool initCradit;
       public bool atkCraditPet;
       public bool killCraditPet;
@@ -429,12 +429,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 ShowDropItemIdList = new List<int>();
-                TList _list167 = iprot.ReadListBegin();
-                for( int _i168 = 0; _i168 < _list167.Count; ++_i168)
+                TList _list171 = iprot.ReadListBegin();
+                for( int _i172 = 0; _i172 < _list171.Count; ++_i172)
                 {
-                  int _elem169 = 0;
-                  _elem169 = iprot.ReadI32();
-                  ShowDropItemIdList.Add(_elem169);
+                  int _elem173 = 0;
+                  _elem173 = iprot.ReadI32();
+                  ShowDropItemIdList.Add(_elem173);
                 }
                 iprot.ReadListEnd();
               }
@@ -458,7 +458,7 @@ namespace Config
             break;
           case 130:
             if (field.Type == TType.I32) {
-              GodStatusTime = iprot.ReadI32();
+              TotalTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -611,9 +611,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, ShowDropItemIdList.Count));
-          foreach (int _iter170 in ShowDropItemIdList)
+          foreach (int _iter174 in ShowDropItemIdList)
           {
-            oprot.WriteI32(_iter170);
+            oprot.WriteI32(_iter174);
           }
           oprot.WriteListEnd();
         }
@@ -635,12 +635,12 @@ namespace Config
         oprot.WriteI32(WeatherPlanId);
         oprot.WriteFieldEnd();
       }
-      if (__isset.godStatusTime) {
-        field.Name = "godStatusTime";
+      if (__isset.totalTime) {
+        field.Name = "totalTime";
         field.Type = TType.I32;
         field.ID = 130;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(GodStatusTime);
+        oprot.WriteI32(TotalTime);
         oprot.WriteFieldEnd();
       }
       if (__isset.initCradit) {
@@ -737,8 +737,8 @@ namespace Config
       sb.Append(StarBit4CountId);
       sb.Append(",WeatherPlanId: ");
       sb.Append(WeatherPlanId);
-      sb.Append(",GodStatusTime: ");
-      sb.Append(GodStatusTime);
+      sb.Append(",TotalTime: ");
+      sb.Append(TotalTime);
       sb.Append(",InitCradit: ");
       sb.Append(InitCradit);
       sb.Append(",AtkCraditPet: ");

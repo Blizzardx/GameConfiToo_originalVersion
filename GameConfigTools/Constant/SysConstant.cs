@@ -217,5 +217,17 @@ namespace GameConfigTools.Constant
         public static readonly string MAIN_MISSION_CONFIG = "mainMissionConfig";
 
         public static readonly string DAILY_MISSION_CONFIG = "dailyMissionConfig";
+
+        public static readonly string CHARACTER_ACTION_CONFIG = "characterActionConfig";
+
+        public static readonly string TIER_CONFIG = "tierConfig";
+
+        public static readonly string SEASON_AWARD_CONFIG = "seasonAwardConfig";
+
+        public static readonly string ACHIEVE_CONFIG = "achieveConfig";
+
+        public static readonly string SCENE_PRELOAD_ASSET_CONFIG = "scenePreloadAssetConfig";
+
+        public static readonly string DIY_FACE_DATA_CONFIG = "diyFaceDataConfig";
     }
 }

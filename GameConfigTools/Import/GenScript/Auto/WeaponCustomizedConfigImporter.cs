@@ -20,7 +20,10 @@ namespace GameConfigTools.Import
     public partial class WeaponCustomizedConfigImporter : AbstractExcelImporter
     {
 		private int id;
+		private string icon;
+		private string material;
 		private string textureName;
+		private string textureBundle;
 		private int costId;
 		private int nameMessageId;
 		private string name;
@@ -53,24 +56,39 @@ if (!VaildUtil.TryConvert(values[i][0], out id,int.MinValue,int.MaxValue))
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,0+1, id,int.MinValue,int.MaxValue,"int","id");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][1], out textureName,string.Empty,string.Empty))
+if (!VaildUtil.TryConvert(values[i][1], out icon,string.Empty,string.Empty))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,1+1, textureName,string.Empty,string.Empty,"string","textureName");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,1+1, icon,string.Empty,string.Empty,"string","icon");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][2], out costId,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][2], out material,string.Empty,string.Empty))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,2+1, costId,int.MinValue,int.MaxValue,"int","costId");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,2+1, material,string.Empty,string.Empty,"string","material");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][3], out nameMessageId,int.MinValue,int.MaxValue))
+if (!VaildUtil.TryConvert(values[i][3], out textureName,string.Empty,string.Empty))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,3+1, nameMessageId,int.MinValue,int.MaxValue,"int","nameMessageId");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,3+1, textureName,string.Empty,string.Empty,"string","textureName");
 	return;
 }
-if (!VaildUtil.TryConvert(values[i][4], out name,string.Empty,string.Empty))
+if (!VaildUtil.TryConvert(values[i][4], out textureBundle,string.Empty,string.Empty))
 {
-	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,4+1, name,string.Empty,string.Empty,"string","name");
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,4+1, textureBundle,string.Empty,string.Empty,"string","textureBundle");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][5], out costId,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,5+1, costId,int.MinValue,int.MaxValue,"int","costId");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][6], out nameMessageId,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,6+1, nameMessageId,int.MinValue,int.MaxValue,"int","nameMessageId");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][7], out name,string.Empty,string.Empty))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,7+1, name,string.Empty,string.Empty,"string","name");
 	return;
 }
                     

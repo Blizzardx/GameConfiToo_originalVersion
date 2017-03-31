@@ -770,12 +770,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 SkillIdList = new List<int>();
-                TList _list37 = iprot.ReadListBegin();
-                for( int _i38 = 0; _i38 < _list37.Count; ++_i38)
+                TList _list41 = iprot.ReadListBegin();
+                for( int _i42 = 0; _i42 < _list41.Count; ++_i42)
                 {
-                  int _elem39 = 0;
-                  _elem39 = iprot.ReadI32();
-                  SkillIdList.Add(_elem39);
+                  int _elem43 = 0;
+                  _elem43 = iprot.ReadI32();
+                  SkillIdList.Add(_elem43);
                 }
                 iprot.ReadListEnd();
               }
@@ -1059,9 +1059,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, SkillIdList.Count));
-          foreach (int _iter40 in SkillIdList)
+          foreach (int _iter44 in SkillIdList)
           {
-            oprot.WriteI32(_iter40);
+            oprot.WriteI32(_iter44);
           }
           oprot.WriteListEnd();
         }

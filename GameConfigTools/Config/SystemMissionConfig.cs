@@ -110,13 +110,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 ActiveAwardConfigList = new List<ActiveAwardConfig>();
-                TList _list16 = iprot.ReadListBegin();
-                for( int _i17 = 0; _i17 < _list16.Count; ++_i17)
+                TList _list20 = iprot.ReadListBegin();
+                for( int _i21 = 0; _i21 < _list20.Count; ++_i21)
                 {
-                  ActiveAwardConfig _elem18 = new ActiveAwardConfig();
-                  _elem18 = new ActiveAwardConfig();
-                  _elem18.Read(iprot);
-                  ActiveAwardConfigList.Add(_elem18);
+                  ActiveAwardConfig _elem22 = new ActiveAwardConfig();
+                  _elem22 = new ActiveAwardConfig();
+                  _elem22.Read(iprot);
+                  ActiveAwardConfigList.Add(_elem22);
                 }
                 iprot.ReadListEnd();
               }
@@ -160,9 +160,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, ActiveAwardConfigList.Count));
-          foreach (ActiveAwardConfig _iter19 in ActiveAwardConfigList)
+          foreach (ActiveAwardConfig _iter23 in ActiveAwardConfigList)
           {
-            _iter19.Write(oprot);
+            _iter23.Write(oprot);
           }
           oprot.WriteListEnd();
         }

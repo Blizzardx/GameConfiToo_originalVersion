@@ -98,10 +98,10 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，关卡描述ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int limitTime;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out limitTime))
+                    int totalTime;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out totalTime))
                     {
-                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，关卡描述ID必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，总时长必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
                     int winLimitID;
@@ -204,8 +204,9 @@ namespace GameConfigTools.Import
                     stageE.Add(new XAttribute("chapterId", chapterId));
                     stageE.Add(new XAttribute("titleResource", titleResource));
                     stageE.Add(new XAttribute("type", stageType));
+                    stageE.Add(new XAttribute("stageMaprResource", stageMaprResource));
                     stageE.Add(new XAttribute("unlockLimitId", unlockLimitId));
-                    stageE.Add(new XAttribute("limitTime", limitTime));
+                    stageE.Add(new XAttribute("totalTime", totalTime));
                     stageE.Add(new XAttribute("winLimitID", winLimitID));
                     stageE.Add(new XAttribute("targetLimitId1", targetLimitId1));
                     stageE.Add(new XAttribute("targetFunc1", targetFunc1));
@@ -238,7 +239,7 @@ namespace GameConfigTools.Import
                     c.UnlockLimitId = unlockLimitId;
                     c.ShowMonsterId = showMonster;
                     c.FailLimitId = failLimitId;
-                    c.LimitTime = limitTime;
+                    c.TotalTime = totalTime;
                     c.WinLimitId = winLimitID;
                     c.TargetLimitId1 = targetLimitId1;
                     c.TargetFunc1 = targetFunc1;

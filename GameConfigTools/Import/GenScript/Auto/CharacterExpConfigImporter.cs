@@ -23,6 +23,7 @@ namespace GameConfigTools.Import
 		private int totalExp;
 		private int levelUpLimitId;
 		private int levelUpFuncId;
+		private List<List<string>> resultList;
     
         protected override void AutoParasTable(List<string[][]> sheetValues, ref string errMsg)
         {
@@ -66,6 +67,22 @@ if (!VaildUtil.TryConvert(values[i][3], out levelUpFuncId,int.MinValue,int.MaxVa
 {
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,3+1, levelUpFuncId,int.MinValue,int.MaxValue,"int","levelUpFuncId");
 	return;
+}
+try
+{
+    
+    resultList = VaildUtil.ParseBracket(4,values[i]);
+    if (null == resultList)
+    {
+		errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,4+1, "resultList");
+        return;
+    }
+}
+catch (Exception e)
+{
+    errMsg = string.Format("{4} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误 ", this.GetConfigName(), sheetName, row,4+1, "resultList");              
+    errMsg += " " + e.Message;
+    return;
 }
                     
                     

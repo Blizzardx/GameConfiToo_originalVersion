@@ -261,6 +261,30 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，bornRotate必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
                         return;
                     }
+                    int moveForward;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out moveForward, int.MinValue, int.MaxValue))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，moveForward必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
+                        return;
+                    }
+                    int score;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out score))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，积分必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
+                        return;
+                    }
+                    int specialMpRate;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out specialMpRate))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，特殊能量倍数必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
+                        return;
+                    }
+                    int dieDelayTime;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out dieDelayTime))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，dieDelayTime必须为{4} - {5}整型", this.GetConfigName(), sheetName, row, index, int.MinValue, int.MaxValue);
+                        return;
+                    }
 
                     XElement effectE = new XElement("effect");
                     root.Add(effectE);
@@ -273,6 +297,8 @@ namespace GameConfigTools.Import
                     effectE.Add(new XAttribute("enterFuncId", enterFuncId));
                     effectE.Add(new XAttribute("stayLimitId", stayLimitId));
                     effectE.Add(new XAttribute("stayFuncId", stayFuncId));
+                    effectE.Add(new XAttribute("score", score));
+                    effectE.Add(new XAttribute("specialMpRate", specialMpRate));
 
 
                     BattleEffectConfig c = new BattleEffectConfig();
@@ -310,6 +336,10 @@ namespace GameConfigTools.Import
                     c.AddSpeedZ = addSpeedZ;
                     c.DieEffect = dieEffect;
                     c.BornRotate = bornRotate;
+                    c.MoveForward = moveForward;
+                    c.Score = score;
+                    c.SpecialMpRate = specialMpRate;
+                    c.DieDelayTime = dieDelayTime;
                     config.BattleEffectConfigMap.Add(c.Id, c);
                 }
             }

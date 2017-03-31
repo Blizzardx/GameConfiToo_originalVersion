@@ -66,13 +66,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 Cloths = new List<DefaultCloth>();
-                TList _list264 = iprot.ReadListBegin();
-                for( int _i265 = 0; _i265 < _list264.Count; ++_i265)
+                TList _list268 = iprot.ReadListBegin();
+                for( int _i269 = 0; _i269 < _list268.Count; ++_i269)
                 {
-                  DefaultCloth _elem266 = new DefaultCloth();
-                  _elem266 = new DefaultCloth();
-                  _elem266.Read(iprot);
-                  Cloths.Add(_elem266);
+                  DefaultCloth _elem270 = new DefaultCloth();
+                  _elem270 = new DefaultCloth();
+                  _elem270.Read(iprot);
+                  Cloths.Add(_elem270);
                 }
                 iprot.ReadListEnd();
               }
@@ -100,9 +100,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, Cloths.Count));
-          foreach (DefaultCloth _iter267 in Cloths)
+          foreach (DefaultCloth _iter271 in Cloths)
           {
-            _iter267.Write(oprot);
+            _iter271.Write(oprot);
           }
           oprot.WriteListEnd();
         }

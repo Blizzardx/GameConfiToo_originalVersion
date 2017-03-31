@@ -123,6 +123,12 @@ namespace GameConfigTools.Import
             importerDic.Add(SysConstant.WEAPON_CUSTOMIZED_CONFIG, new WeaponCustomizedConfigImporter());
             importerDic.Add(SysConstant.MAIN_MISSION_CONFIG, new MainMissionConfigImporter());
             importerDic.Add(SysConstant.DAILY_MISSION_CONFIG, new DailyMissionConfigImporter());
+            importerDic.Add(SysConstant.CHARACTER_ACTION_CONFIG, new CharacterActionConfigImporter());
+            importerDic.Add(SysConstant.TIER_CONFIG, new TierConfigImporter());
+            importerDic.Add(SysConstant.SEASON_AWARD_CONFIG, new SeasonAwardConfigImporter());
+            importerDic.Add(SysConstant.ACHIEVE_CONFIG, new AchieveConfigImporter());
+            importerDic.Add(SysConstant.SCENE_PRELOAD_ASSET_CONFIG, new ScenePreloadAssetConfigImporter());
+            importerDic.Add(SysConstant.DIY_FACE_DATA_CONFIG, new DiyFaceDataConfigImporter());
         }
         /// <summary>
         /// 加载关联导入

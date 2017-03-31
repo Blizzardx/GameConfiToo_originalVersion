@@ -26,6 +26,7 @@ namespace Config
     private List<InitDIYConfig> _maleInitDIYList;
     private List<InitDIYConfig> _femaleInitDIYList;
     private int _maxLevel;
+    private List<AchieveHonerAward> _achieveHonerAwardList;
 
     public List<InitDIYConfig> MaleInitDIYList
     {
@@ -66,6 +67,19 @@ namespace Config
       }
     }
 
+    public List<AchieveHonerAward> AchieveHonerAwardList
+    {
+      get
+      {
+        return _achieveHonerAwardList;
+      }
+      set
+      {
+        __isset.achieveHonerAwardList = true;
+        this._achieveHonerAwardList = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -75,6 +89,7 @@ namespace Config
       public bool maleInitDIYList;
       public bool femaleInitDIYList;
       public bool maxLevel;
+      public bool achieveHonerAwardList;
     }
 
     public SystemCharacterConfig() {
@@ -135,6 +150,24 @@ namespace Config
               TProtocolUtil.Skip(iprot, field.Type);
             }
             break;
+          case 40:
+            if (field.Type == TType.List) {
+              {
+                AchieveHonerAwardList = new List<AchieveHonerAward>();
+                TList _list14 = iprot.ReadListBegin();
+                for( int _i15 = 0; _i15 < _list14.Count; ++_i15)
+                {
+                  AchieveHonerAward _elem16 = new AchieveHonerAward();
+                  _elem16 = new AchieveHonerAward();
+                  _elem16.Read(iprot);
+                  AchieveHonerAwardList.Add(_elem16);
+                }
+                iprot.ReadListEnd();
+              }
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
           default: 
             TProtocolUtil.Skip(iprot, field.Type);
             break;
@@ -155,9 +188,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, MaleInitDIYList.Count));
-          foreach (InitDIYConfig _iter14 in MaleInitDIYList)
+          foreach (InitDIYConfig _iter17 in MaleInitDIYList)
           {
-            _iter14.Write(oprot);
+            _iter17.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -170,9 +203,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, FemaleInitDIYList.Count));
-          foreach (InitDIYConfig _iter15 in FemaleInitDIYList)
+          foreach (InitDIYConfig _iter18 in FemaleInitDIYList)
           {
-            _iter15.Write(oprot);
+            _iter18.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -184,6 +217,21 @@ namespace Config
         field.ID = 30;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(MaxLevel);
+        oprot.WriteFieldEnd();
+      }
+      if (AchieveHonerAwardList != null && __isset.achieveHonerAwardList) {
+        field.Name = "achieveHonerAwardList";
+        field.Type = TType.List;
+        field.ID = 40;
+        oprot.WriteFieldBegin(field);
+        {
+          oprot.WriteListBegin(new TList(TType.Struct, AchieveHonerAwardList.Count));
+          foreach (AchieveHonerAward _iter19 in AchieveHonerAwardList)
+          {
+            _iter19.Write(oprot);
+          }
+          oprot.WriteListEnd();
+        }
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -198,6 +246,8 @@ namespace Config
       sb.Append(FemaleInitDIYList);
       sb.Append(",MaxLevel: ");
       sb.Append(MaxLevel);
+      sb.Append(",AchieveHonerAwardList: ");
+      sb.Append(AchieveHonerAwardList);
       sb.Append(")");
       return sb.ToString();
     }

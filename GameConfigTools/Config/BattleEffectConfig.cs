@@ -57,6 +57,10 @@ namespace Config
     private int _addSpeedZ;
     private string _dieEffect;
     private int _bornRotate;
+    private int _moveForward;
+    private int _score;
+    private int _specialMpRate;
+    private int _dieDelayTime;
 
     public int Id
     {
@@ -500,6 +504,58 @@ namespace Config
       }
     }
 
+    public int MoveForward
+    {
+      get
+      {
+        return _moveForward;
+      }
+      set
+      {
+        __isset.moveForward = true;
+        this._moveForward = value;
+      }
+    }
+
+    public int Score
+    {
+      get
+      {
+        return _score;
+      }
+      set
+      {
+        __isset.score = true;
+        this._score = value;
+      }
+    }
+
+    public int SpecialMpRate
+    {
+      get
+      {
+        return _specialMpRate;
+      }
+      set
+      {
+        __isset.specialMpRate = true;
+        this._specialMpRate = value;
+      }
+    }
+
+    public int DieDelayTime
+    {
+      get
+      {
+        return _dieDelayTime;
+      }
+      set
+      {
+        __isset.dieDelayTime = true;
+        this._dieDelayTime = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -540,6 +596,10 @@ namespace Config
       public bool addSpeedZ;
       public bool dieEffect;
       public bool bornRotate;
+      public bool moveForward;
+      public bool score;
+      public bool specialMpRate;
+      public bool dieDelayTime;
     }
 
     public BattleEffectConfig() {
@@ -791,6 +851,34 @@ namespace Config
           case 190:
             if (field.Type == TType.I32) {
               BornRotate = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 200:
+            if (field.Type == TType.I32) {
+              MoveForward = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 210:
+            if (field.Type == TType.I32) {
+              Score = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 220:
+            if (field.Type == TType.I32) {
+              SpecialMpRate = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 230:
+            if (field.Type == TType.I32) {
+              DieDelayTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -1080,6 +1168,38 @@ namespace Config
         oprot.WriteI32(BornRotate);
         oprot.WriteFieldEnd();
       }
+      if (__isset.moveForward) {
+        field.Name = "moveForward";
+        field.Type = TType.I32;
+        field.ID = 200;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(MoveForward);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.score) {
+        field.Name = "score";
+        field.Type = TType.I32;
+        field.ID = 210;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(Score);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.specialMpRate) {
+        field.Name = "specialMpRate";
+        field.Type = TType.I32;
+        field.ID = 220;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(SpecialMpRate);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.dieDelayTime) {
+        field.Name = "dieDelayTime";
+        field.Type = TType.I32;
+        field.ID = 230;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(DieDelayTime);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -1154,6 +1274,14 @@ namespace Config
       sb.Append(DieEffect);
       sb.Append(",BornRotate: ");
       sb.Append(BornRotate);
+      sb.Append(",MoveForward: ");
+      sb.Append(MoveForward);
+      sb.Append(",Score: ");
+      sb.Append(Score);
+      sb.Append(",SpecialMpRate: ");
+      sb.Append(SpecialMpRate);
+      sb.Append(",DieDelayTime: ");
+      sb.Append(DieDelayTime);
       sb.Append(")");
       return sb.ToString();
     }

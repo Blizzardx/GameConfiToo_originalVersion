@@ -22,6 +22,8 @@ namespace GameConfigTools.Import
 		private int id;
 		private string color1;
 		private string color2;
+		private string effectcolor1;
+		private string effectcolor2;
     
         protected override void AutoParasTable(List<string[][]> sheetValues, ref string errMsg)
         {
@@ -59,6 +61,16 @@ if (!VaildUtil.TryConvert(values[i][1], out color1,string.Empty,string.Empty))
 if (!VaildUtil.TryConvert(values[i][2], out color2,string.Empty,string.Empty))
 {
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,2+1, color2,string.Empty,string.Empty,"string","color2");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][3], out effectcolor1,string.Empty,string.Empty))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,3+1, effectcolor1,string.Empty,string.Empty,"string","effectcolor1");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][4], out effectcolor2,string.Empty,string.Empty))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,4+1, effectcolor2,string.Empty,string.Empty,"string","effectcolor2");
 	return;
 }
                     

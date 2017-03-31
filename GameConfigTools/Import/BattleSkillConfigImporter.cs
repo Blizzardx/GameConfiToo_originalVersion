@@ -77,8 +77,8 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，条件函数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
-                    int useFunId;
-                    if (!VaildUtil.TryConvertInt(values[i][index++], out useFunId))
+                    int useFuncId;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out useFuncId))
                     {
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，功能函数必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
@@ -96,7 +96,7 @@ namespace GameConfigTools.Import
                     skillE.Add(new XAttribute("cdTime", cdTime));
                     skillE.Add(new XAttribute("name", name));
                     skillE.Add(new XAttribute("useLimitId", useLimitId));
-                    skillE.Add(new XAttribute("useFunId", useFunId));
+                    skillE.Add(new XAttribute("useFuncId", useFuncId));
                     skillE.Add(new XAttribute("passive", passive != 0));
 
                     BattleSkillConfig c = new BattleSkillConfig();
@@ -106,7 +106,7 @@ namespace GameConfigTools.Import
                     c.Icon = icon;
                     c.CdTime = cdTime / SysConstant.CLIENT_FRAME_TIME;
                     c.UseLimitId = useLimitId;
-                    c.UseFunId = useFunId;
+                    c.UseFunId = useFuncId;
                     c.Passive = passive != 0;
                     config.BattleSkillConfigMap.Add(c.Id, c);
                 }

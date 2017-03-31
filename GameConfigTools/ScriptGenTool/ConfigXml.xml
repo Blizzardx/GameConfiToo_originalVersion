@@ -129,6 +129,7 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="totalExp"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="levelUpLimitId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="levelUpFuncId"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="resultList" isStruct="true"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
     <GenScriptClassXmlConfig className="BattleResultConfig">
@@ -269,6 +270,8 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="color1"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="color2"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="effectcolor1"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="effectcolor2"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
       <GenScriptClassXmlConfig className="GuildFlagConfig">
@@ -282,7 +285,10 @@
   <GenScriptClassXmlConfig className="WeaponCustomizedConfig">
       <lineConfigList>
         <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="icon"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="material"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="textureName"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="textureBundle"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="costId"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="nameMessageId"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="name"/>
@@ -314,6 +320,8 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="activeTipType" rangeMin="1" rangeMax ="3"/>
         <GenScriptLineXmlConfig classTypeName="string" memberName="motionList" isList="true"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="activeLimitId" />
+        <GenScriptLineXmlConfig classTypeName="int" memberName="actionGroupId" />
+        <GenScriptLineXmlConfig classTypeName="int" memberName="changeSkillId" />
       </lineConfigList>
     </GenScriptClassXmlConfig>
     <GenScriptClassXmlConfig className="MainMissionConfig">
@@ -350,6 +358,73 @@
         <GenScriptLineXmlConfig classTypeName="int" memberName="activeValue"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="weight"/>
         <GenScriptLineXmlConfig classTypeName="int" memberName="order"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="CharacterActionConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="born"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="bornTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="idle"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="idleTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="walk"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="walkTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="jump"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="jumpTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="drop"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="dropTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="landing"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="landingTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="death"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="deathTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="back"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="backTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="left"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="leftTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="right"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="rightTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="relaxIdle"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="relaxIdleTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="relaxWalk"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="relaxWalkTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="idleFire"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="idleFireTime"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="TierConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="type"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="name"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="nameResource"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="bedgeResource"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="star"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nextSeasonTierType"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nextSeasonStar"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="nextMessageId"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="SeasonAwardConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="id"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="beginTime"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="endTime"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="awardFuncId"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+    <GenScriptClassXmlConfig className="ScenePreloadAssetConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="sceneClassType"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="preloadAssetName"/>
+      </lineConfigList>
+    </GenScriptClassXmlConfig>
+  <GenScriptClassXmlConfig className="DiyFaceDataConfig">
+      <lineConfigList>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="positionId" rangeMin="1" rangeMax ="11"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="modeId"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="faceDataMin"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="faceDataNormal"/>
+        <GenScriptLineXmlConfig classTypeName="int" memberName="faceDataMax"/>
+        <GenScriptLineXmlConfig classTypeName="string" memberName="faceCmdValueInfo"  isStruct="true"/>
       </lineConfigList>
     </GenScriptClassXmlConfig>
   </classConfigList>

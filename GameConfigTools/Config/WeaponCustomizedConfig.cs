@@ -28,6 +28,8 @@ namespace Config
     private string _textureBundle;
     private int _costId;
     private int _nameMessageId;
+    private string _icon;
+    private string _material;
 
     public int Id
     {
@@ -94,6 +96,32 @@ namespace Config
       }
     }
 
+    public string Icon
+    {
+      get
+      {
+        return _icon;
+      }
+      set
+      {
+        __isset.icon = true;
+        this._icon = value;
+      }
+    }
+
+    public string Material
+    {
+      get
+      {
+        return _material;
+      }
+      set
+      {
+        __isset.material = true;
+        this._material = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -105,6 +133,8 @@ namespace Config
       public bool textureBundle;
       public bool costId;
       public bool nameMessageId;
+      public bool icon;
+      public bool material;
     }
 
     public WeaponCustomizedConfig() {
@@ -153,6 +183,20 @@ namespace Config
           case 40:
             if (field.Type == TType.I32) {
               NameMessageId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 50:
+            if (field.Type == TType.String) {
+              Icon = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 60:
+            if (field.Type == TType.String) {
+              Material = iprot.ReadString();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -210,6 +254,22 @@ namespace Config
         oprot.WriteI32(NameMessageId);
         oprot.WriteFieldEnd();
       }
+      if (Icon != null && __isset.icon) {
+        field.Name = "icon";
+        field.Type = TType.String;
+        field.ID = 50;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Icon);
+        oprot.WriteFieldEnd();
+      }
+      if (Material != null && __isset.material) {
+        field.Name = "material";
+        field.Type = TType.String;
+        field.ID = 60;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(Material);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -226,6 +286,10 @@ namespace Config
       sb.Append(CostId);
       sb.Append(",NameMessageId: ");
       sb.Append(NameMessageId);
+      sb.Append(",Icon: ");
+      sb.Append(Icon);
+      sb.Append(",Material: ");
+      sb.Append(Material);
       sb.Append(")");
       return sb.ToString();
     }

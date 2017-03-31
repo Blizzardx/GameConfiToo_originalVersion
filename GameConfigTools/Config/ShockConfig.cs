@@ -198,13 +198,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 OptionList = new List<OptionElement>();
-                TList _list147 = iprot.ReadListBegin();
-                for( int _i148 = 0; _i148 < _list147.Count; ++_i148)
+                TList _list151 = iprot.ReadListBegin();
+                for( int _i152 = 0; _i152 < _list151.Count; ++_i152)
                 {
-                  OptionElement _elem149 = new OptionElement();
-                  _elem149 = new OptionElement();
-                  _elem149.Read(iprot);
-                  OptionList.Add(_elem149);
+                  OptionElement _elem153 = new OptionElement();
+                  _elem153 = new OptionElement();
+                  _elem153.Read(iprot);
+                  OptionList.Add(_elem153);
                 }
                 iprot.ReadListEnd();
               }
@@ -280,9 +280,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, OptionList.Count));
-          foreach (OptionElement _iter150 in OptionList)
+          foreach (OptionElement _iter154 in OptionList)
           {
-            _iter150.Write(oprot);
+            _iter154.Write(oprot);
           }
           oprot.WriteListEnd();
         }

@@ -44,6 +44,12 @@ namespace Config
     private int _leftTime;
     private string _right;
     private int _rightTime;
+    private string _relaxIdle;
+    private int _relaxIdleTime;
+    private string _relaxWalk;
+    private int _relaxWalkTime;
+    private string _idleFire;
+    private int _idleFireTime;
 
     public int Id
     {
@@ -318,6 +324,84 @@ namespace Config
       }
     }
 
+    public string RelaxIdle
+    {
+      get
+      {
+        return _relaxIdle;
+      }
+      set
+      {
+        __isset.relaxIdle = true;
+        this._relaxIdle = value;
+      }
+    }
+
+    public int RelaxIdleTime
+    {
+      get
+      {
+        return _relaxIdleTime;
+      }
+      set
+      {
+        __isset.relaxIdleTime = true;
+        this._relaxIdleTime = value;
+      }
+    }
+
+    public string RelaxWalk
+    {
+      get
+      {
+        return _relaxWalk;
+      }
+      set
+      {
+        __isset.relaxWalk = true;
+        this._relaxWalk = value;
+      }
+    }
+
+    public int RelaxWalkTime
+    {
+      get
+      {
+        return _relaxWalkTime;
+      }
+      set
+      {
+        __isset.relaxWalkTime = true;
+        this._relaxWalkTime = value;
+      }
+    }
+
+    public string IdleFire
+    {
+      get
+      {
+        return _idleFire;
+      }
+      set
+      {
+        __isset.idleFire = true;
+        this._idleFire = value;
+      }
+    }
+
+    public int IdleFireTime
+    {
+      get
+      {
+        return _idleFireTime;
+      }
+      set
+      {
+        __isset.idleFireTime = true;
+        this._idleFireTime = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -345,6 +429,12 @@ namespace Config
       public bool leftTime;
       public bool right;
       public bool rightTime;
+      public bool relaxIdle;
+      public bool relaxIdleTime;
+      public bool relaxWalk;
+      public bool relaxWalkTime;
+      public bool idleFire;
+      public bool idleFireTime;
     }
 
     public CharacterActionConfig() {
@@ -505,6 +595,48 @@ namespace Config
           case 210:
             if (field.Type == TType.I32) {
               RightTime = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 211:
+            if (field.Type == TType.String) {
+              RelaxIdle = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 212:
+            if (field.Type == TType.I32) {
+              RelaxIdleTime = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 213:
+            if (field.Type == TType.String) {
+              RelaxWalk = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 214:
+            if (field.Type == TType.I32) {
+              RelaxWalkTime = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 215:
+            if (field.Type == TType.String) {
+              IdleFire = iprot.ReadString();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 216:
+            if (field.Type == TType.I32) {
+              IdleFireTime = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -690,6 +822,54 @@ namespace Config
         oprot.WriteI32(RightTime);
         oprot.WriteFieldEnd();
       }
+      if (RelaxIdle != null && __isset.relaxIdle) {
+        field.Name = "relaxIdle";
+        field.Type = TType.String;
+        field.ID = 211;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(RelaxIdle);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.relaxIdleTime) {
+        field.Name = "relaxIdleTime";
+        field.Type = TType.I32;
+        field.ID = 212;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(RelaxIdleTime);
+        oprot.WriteFieldEnd();
+      }
+      if (RelaxWalk != null && __isset.relaxWalk) {
+        field.Name = "relaxWalk";
+        field.Type = TType.String;
+        field.ID = 213;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(RelaxWalk);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.relaxWalkTime) {
+        field.Name = "relaxWalkTime";
+        field.Type = TType.I32;
+        field.ID = 214;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(RelaxWalkTime);
+        oprot.WriteFieldEnd();
+      }
+      if (IdleFire != null && __isset.idleFire) {
+        field.Name = "idleFire";
+        field.Type = TType.String;
+        field.ID = 215;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteString(IdleFire);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.idleFireTime) {
+        field.Name = "idleFireTime";
+        field.Type = TType.I32;
+        field.ID = 216;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(IdleFireTime);
+        oprot.WriteFieldEnd();
+      }
       oprot.WriteFieldStop();
       oprot.WriteStructEnd();
     }
@@ -738,6 +918,18 @@ namespace Config
       sb.Append(Right);
       sb.Append(",RightTime: ");
       sb.Append(RightTime);
+      sb.Append(",RelaxIdle: ");
+      sb.Append(RelaxIdle);
+      sb.Append(",RelaxIdleTime: ");
+      sb.Append(RelaxIdleTime);
+      sb.Append(",RelaxWalk: ");
+      sb.Append(RelaxWalk);
+      sb.Append(",RelaxWalkTime: ");
+      sb.Append(RelaxWalkTime);
+      sb.Append(",IdleFire: ");
+      sb.Append(IdleFire);
+      sb.Append(",IdleFireTime: ");
+      sb.Append(IdleFireTime);
       sb.Append(")");
       return sb.ToString();
     }

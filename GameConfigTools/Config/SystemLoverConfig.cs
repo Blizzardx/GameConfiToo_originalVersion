@@ -201,13 +201,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 ExpStepInfoList = new List<SystemLoverExpStepInfo>();
-                TList _list29 = iprot.ReadListBegin();
-                for( int _i30 = 0; _i30 < _list29.Count; ++_i30)
+                TList _list33 = iprot.ReadListBegin();
+                for( int _i34 = 0; _i34 < _list33.Count; ++_i34)
                 {
-                  SystemLoverExpStepInfo _elem31 = new SystemLoverExpStepInfo();
-                  _elem31 = new SystemLoverExpStepInfo();
-                  _elem31.Read(iprot);
-                  ExpStepInfoList.Add(_elem31);
+                  SystemLoverExpStepInfo _elem35 = new SystemLoverExpStepInfo();
+                  _elem35 = new SystemLoverExpStepInfo();
+                  _elem35.Read(iprot);
+                  ExpStepInfoList.Add(_elem35);
                 }
                 iprot.ReadListEnd();
               }
@@ -275,13 +275,13 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 GiftInfoList = new List<SystemLoverGiftInfo>();
-                TList _list32 = iprot.ReadListBegin();
-                for( int _i33 = 0; _i33 < _list32.Count; ++_i33)
+                TList _list36 = iprot.ReadListBegin();
+                for( int _i37 = 0; _i37 < _list36.Count; ++_i37)
                 {
-                  SystemLoverGiftInfo _elem34 = new SystemLoverGiftInfo();
-                  _elem34 = new SystemLoverGiftInfo();
-                  _elem34.Read(iprot);
-                  GiftInfoList.Add(_elem34);
+                  SystemLoverGiftInfo _elem38 = new SystemLoverGiftInfo();
+                  _elem38 = new SystemLoverGiftInfo();
+                  _elem38.Read(iprot);
+                  GiftInfoList.Add(_elem38);
                 }
                 iprot.ReadListEnd();
               }
@@ -309,9 +309,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, ExpStepInfoList.Count));
-          foreach (SystemLoverExpStepInfo _iter35 in ExpStepInfoList)
+          foreach (SystemLoverExpStepInfo _iter39 in ExpStepInfoList)
           {
-            _iter35.Write(oprot);
+            _iter39.Write(oprot);
           }
           oprot.WriteListEnd();
         }
@@ -388,9 +388,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.Struct, GiftInfoList.Count));
-          foreach (SystemLoverGiftInfo _iter36 in GiftInfoList)
+          foreach (SystemLoverGiftInfo _iter40 in GiftInfoList)
           {
-            _iter36.Write(oprot);
+            _iter40.Write(oprot);
           }
           oprot.WriteListEnd();
         }

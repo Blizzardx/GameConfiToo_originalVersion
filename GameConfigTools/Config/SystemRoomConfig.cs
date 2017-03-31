@@ -23,18 +23,46 @@ namespace Config
   #endif
   public partial class SystemRoomConfig : TBase
   {
-    private int _likeOnResultFuncId;
+    private int _killScore;
+    private int _maxSpecialMp;
+    private int _superJumpSkillId;
 
-    public int LikeOnResultFuncId
+    public int KillScore
     {
       get
       {
-        return _likeOnResultFuncId;
+        return _killScore;
       }
       set
       {
-        __isset.likeOnResultFuncId = true;
-        this._likeOnResultFuncId = value;
+        __isset.killScore = true;
+        this._killScore = value;
+      }
+    }
+
+    public int MaxSpecialMp
+    {
+      get
+      {
+        return _maxSpecialMp;
+      }
+      set
+      {
+        __isset.maxSpecialMp = true;
+        this._maxSpecialMp = value;
+      }
+    }
+
+    public int SuperJumpSkillId
+    {
+      get
+      {
+        return _superJumpSkillId;
+      }
+      set
+      {
+        __isset.superJumpSkillId = true;
+        this._superJumpSkillId = value;
       }
     }
 
@@ -44,7 +72,9 @@ namespace Config
     [Serializable]
     #endif
     public struct Isset {
-      public bool likeOnResultFuncId;
+      public bool killScore;
+      public bool maxSpecialMp;
+      public bool superJumpSkillId;
     }
 
     public SystemRoomConfig() {
@@ -62,9 +92,23 @@ namespace Config
         }
         switch (field.ID)
         {
-          case 1:
+          case 10:
             if (field.Type == TType.I32) {
-              LikeOnResultFuncId = iprot.ReadI32();
+              KillScore = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 20:
+            if (field.Type == TType.I32) {
+              MaxSpecialMp = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 30:
+            if (field.Type == TType.I32) {
+              SuperJumpSkillId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -82,12 +126,28 @@ namespace Config
       TStruct struc = new TStruct("SystemRoomConfig");
       oprot.WriteStructBegin(struc);
       TField field = new TField();
-      if (__isset.likeOnResultFuncId) {
-        field.Name = "likeOnResultFuncId";
+      if (__isset.killScore) {
+        field.Name = "killScore";
         field.Type = TType.I32;
-        field.ID = 1;
+        field.ID = 10;
         oprot.WriteFieldBegin(field);
-        oprot.WriteI32(LikeOnResultFuncId);
+        oprot.WriteI32(KillScore);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.maxSpecialMp) {
+        field.Name = "maxSpecialMp";
+        field.Type = TType.I32;
+        field.ID = 20;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(MaxSpecialMp);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.superJumpSkillId) {
+        field.Name = "superJumpSkillId";
+        field.Type = TType.I32;
+        field.ID = 30;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(SuperJumpSkillId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -96,8 +156,12 @@ namespace Config
 
     public override string ToString() {
       StringBuilder sb = new StringBuilder("SystemRoomConfig(");
-      sb.Append("LikeOnResultFuncId: ");
-      sb.Append(LikeOnResultFuncId);
+      sb.Append("KillScore: ");
+      sb.Append(KillScore);
+      sb.Append(",MaxSpecialMp: ");
+      sb.Append(MaxSpecialMp);
+      sb.Append(",SuperJumpSkillId: ");
+      sb.Append(SuperJumpSkillId);
       sb.Append(")");
       return sb.ToString();
     }

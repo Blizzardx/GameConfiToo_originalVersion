@@ -98,6 +98,12 @@ namespace GameConfigTools.Import
                         errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，被动技能5必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
                         return;
                     }
+                    int fireDistance;
+                    if (!VaildUtil.TryConvertInt(values[i][index++], out fireDistance))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，射程必须为0 - {4}整型", this.GetConfigName(), sheetName, row, index, int.MaxValue);
+                        return;
+                    }
 
                     if (!config.WeaponAttributeConfigMap.ContainsKey(weaponId))
                     {
@@ -187,6 +193,7 @@ namespace GameConfigTools.Import
                         XElement skillE = new XElement("passiveSkill", passiveSkill5);
                         passiveSkillsE.Add(skillE);
                     }
+                    c.FireDistance = fireDistance;
                     c.AttrMap = new Dictionary<int, int>();
                     for(int j = 0; j < attrList.Count(); j++)
                     {

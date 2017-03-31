@@ -52,6 +52,7 @@ namespace GameConfigTools.Import
             //weapon.Add(new XAttribute("activeIconTip", activeIconTip));
             //weapon.Add(new XAttribute("activeTipType", activeTipType));
             weapon.Add(new XAttribute("activeLimitId", activeLimitId));
+            weapon.Add(new XAttribute("changeSkillId", changeSkillId));
             //XElement motions = new XElement("mothions");
             //weapon.Add(motions);
             //foreach (var elem in motionList)
@@ -90,6 +91,8 @@ namespace GameConfigTools.Import
             c.MotionList = motionList;
             c.TextureList = textureList;
             c.ActiveLimitId = activeLimitId;
+            c.ActionGroupId = actionGroupId;
+            c.ChangeSkillId = changeSkillId;
             m_ClientConfig.WeaponConfigMap.Add(id, c);
         }
 

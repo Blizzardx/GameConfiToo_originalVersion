@@ -47,6 +47,29 @@ namespace GameConfigTools.Import
                     return;
                 }
             }
+
+            if(resultList == null || resultList.Count == 0)
+            {
+                errMsg = string.Format("{0}.xlsx 当前等级{1}，属性值不能为空", this.GetConfigName(), level);
+                return;
+            }
+
+            List<string> attrList = new List<string>();
+
+            foreach (string str in resultList[0])
+            {
+                if (str == null || str.Trim() == "")
+                {
+                    continue;
+                }
+                attrList.Add(str);
+            }
+            if ((attrList.Count() & 1) == 1)
+            {
+                errMsg = string.Format("{0}.xlsx 当前等级{1}，属性值不合法", this.GetConfigName(), level);
+                return;
+            }
+
             CharacterExpConfig c = new CharacterExpConfig();
             c.Level = level;
             c.TotalExp = totalExp;
@@ -61,6 +84,42 @@ namespace GameConfigTools.Import
             levelConfigE.Add(new XAttribute("totalExp", totalExp));
             levelConfigE.Add(new XAttribute("levelUpLimitId", levelUpLimitId));
             levelConfigE.Add(new XAttribute("levelUpFuncId", levelUpFuncId));
+
+            XElement attributesE = new XElement("attributes");
+            levelConfigE.Add(attributesE);
+
+            c.AttrMap = new Dictionary<int, int>();
+            for (int j = 0; j < attrList.Count(); j++)
+            {
+                int attrId = 0;
+                int value = 0;
+                if ((j & 1) == 0)
+                {
+                    if (!int.TryParse(attrList[j], out attrId))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2}行]读取出现错误，属性ID:[{3}]必须为整型", this.GetConfigName(), sheetName, row, attrList[j]);
+                        return;
+                    }
+                    if (!int.TryParse(attrList[j + 1], out value))
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2}行]读取出现错误，属性值:[{3}]必须为整型", this.GetConfigName(), sheetName, row, attrList[j + 1]);
+                        return;
+                    }
+                    if (attrId == 0 || value == 0)
+                    {
+                        errMsg = string.Format("{0}.xlsx sheet:[{1}] [{2}行]读取出现错误，属性ID或属性值不能为0", this.GetConfigName(), sheetName, row);
+                        return;
+                    }
+
+                    c.AttrMap.Add(attrId, value);
+
+                    XElement attributeE = new XElement("attribute");
+                    attributeE.Add(new XAttribute("id", attrId));
+                    attributeE.Add(new XAttribute("value", value));
+                    attributesE.Add(attributeE);
+                }
+            }
+
         }
 
         protected override void OnAutoParasBegin()

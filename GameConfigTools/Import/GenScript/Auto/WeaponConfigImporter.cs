@@ -43,6 +43,8 @@ namespace GameConfigTools.Import
 		private int activeTipType;
 		private List<string> motionList;
 		private int activeLimitId;
+		private int actionGroupId;
+		private int changeSkillId;
     
         protected override void AutoParasTable(List<string[][]> sheetValues, ref string errMsg)
         {
@@ -195,6 +197,16 @@ catch (Exception e)
 if (!VaildUtil.TryConvert(values[i][23], out activeLimitId,int.MinValue,int.MaxValue))
 {
 	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,23+1, activeLimitId,int.MinValue,int.MaxValue,"int","activeLimitId");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][24], out actionGroupId,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,24+1, actionGroupId,int.MinValue,int.MaxValue,"int","actionGroupId");
+	return;
+}
+if (!VaildUtil.TryConvert(values[i][25], out changeSkillId,int.MinValue,int.MaxValue))
+{
+	errMsg = string.Format("{8} {0}.xlsx sheet:[{1}] [{2},{3}]读取出现错误，{4}必须为{5} - {6} {7}型", this.GetConfigName(), sheetName, row,25+1, changeSkillId,int.MinValue,int.MaxValue,"int","changeSkillId");
 	return;
 }
                     

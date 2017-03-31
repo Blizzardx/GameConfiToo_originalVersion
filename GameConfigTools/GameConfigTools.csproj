@@ -232,7 +232,10 @@
     <Compile Include="ConfigForm.Designer.cs">
       <DependentUpon>ConfigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Config\AchieveConfig.cs" />
+    <Compile Include="Config\AchieveHonerAward.cs" />
     <Compile Include="Config\ActionGroupConfig.cs" />
+    <Compile Include="Config\ActiveAwardConfig.cs" />
     <Compile Include="Config\ActiviyMallConfig.cs" />
     <Compile Include="Config\AeroAttributeConfig.cs" />
     <Compile Include="Config\AeroConfig.cs" />
@@ -243,6 +246,7 @@
     <Compile Include="Config\BattleActionConfig.cs" />
     <Compile Include="Config\BattleActionEventConfig.cs" />
     <Compile Include="Config\BattleBuffConfig.cs" />
+    <Compile Include="Config\BattleColorConfig.cs" />
     <Compile Include="Config\BattleEffectConfig.cs" />
     <Compile Include="Config\BattleEffectEventConfig.cs" />
     <Compile Include="Config\BattleItemConfig.cs" />
@@ -254,6 +258,7 @@
     <Compile Include="Config\CarryHeroConfig.cs" />
     <Compile Include="Config\CarryHerosConfig.cs" />
     <Compile Include="Config\ChapterConfig.cs" />
+    <Compile Include="Config\CharacterActionConfig.cs" />
     <Compile Include="Config\CharacterBaseConfig.cs" />
     <Compile Include="Config\CharacterExpConfig.cs" />
     <Compile Include="Config\ChatChannelConfig.cs" />
@@ -265,9 +270,12 @@
     <Compile Include="Config\DarkCloudConfig.cs" />
     <Compile Include="Config\DecorateConfig.cs" />
     <Compile Include="Config\DecorateResourceInfo.cs" />
+    <Compile Include="Config\DefaultCloth.cs" />
     <Compile Include="Config\DialogConfig.cs" />
     <Compile Include="Config\DifficultyCurveConfig.cs" />
     <Compile Include="Config\DiyCharConfig.cs" />
+    <Compile Include="Config\DiyFaceDataCmdValueInfo.cs" />
+    <Compile Include="Config\DiyFaceDataConfig.cs" />
     <Compile Include="Config\DiyMallConfig.cs" />
     <Compile Include="Config\DiyPositionInfo.cs" />
     <Compile Include="Config\DiyPresetConfig.cs" />
@@ -340,12 +348,15 @@
     <Compile Include="Config\SystemChatConfig.cs" />
     <Compile Include="Config\SystemDecorateTypeSortConfig.cs" />
     <Compile Include="Config\SystemDecorateTypeSortInfo.cs" />
+    <Compile Include="Config\SystemDefaultClothConfig.cs" />
     <Compile Include="Config\SystemEndlessConfig.cs" />
     <Compile Include="Config\SystemGuildConfig.cs" />
     <Compile Include="Config\SystemLoverConfig.cs" />
     <Compile Include="Config\SystemLoverExpStepInfo.cs" />
     <Compile Include="Config\SystemLoverGiftInfo.cs" />
+    <Compile Include="Config\SystemMissionConfig.cs" />
     <Compile Include="Config\SystemRoomConfig.cs" />
+    <Compile Include="Config\Table\AchieveConfigTable.cs" />
     <Compile Include="Config\Table\ActionGroupConfigTable.cs" />
     <Compile Include="Config\Table\ActiviyMallConfigTable.cs" />
     <Compile Include="Config\Table\AeroAttributeConfigTable.cs" />
@@ -357,6 +368,7 @@
     <Compile Include="Config\Table\BattleActionConfigTable.cs" />
     <Compile Include="Config\Table\BattleActionEventConfigTable.cs" />
     <Compile Include="Config\Table\BattleBuffConfigTable.cs" />
+    <Compile Include="Config\Table\BattleColorConfigTable.cs" />
     <Compile Include="Config\Table\BattleEffectConfigTable.cs" />
     <Compile Include="Config\Table\BattleEffectEventConfigTable.cs" />
     <Compile Include="Config\Table\BattleItemConfigTable.cs" />
@@ -367,6 +379,7 @@
     <Compile Include="Config\Table\CadPlayerAttrConfigTable.cs" />
     <Compile Include="Config\Table\CadPlayerConfigTable.cs" />
     <Compile Include="Config\Table\ChapterConfigTable.cs" />
+    <Compile Include="Config\Table\CharacterActionConfigTable.cs" />
     <Compile Include="Config\Table\CharacterBaseConfigTable.cs" />
     <Compile Include="Config\Table\CharacterExpConfigTable.cs" />
     <Compile Include="Config\Table\CloudConfigTable.cs" />
@@ -378,6 +391,7 @@
     <Compile Include="Config\Table\DifficultyCurveConfigTable.cs" />
     <Compile Include="Config\Table\DirtywordConfigTable.cs" />
     <Compile Include="Config\Table\DiyCharConfigTable.cs" />
+    <Compile Include="Config\Table\DiyFaceDataConfigTable.cs" />
     <Compile Include="Config\Table\DiyMallConfigTable.cs" />
     <Compile Include="Config\Table\DiyPresetConfigTable.cs" />
     <Compile Include="Config\Table\DropConfigTable.cs" />
@@ -410,6 +424,7 @@
     <Compile Include="Config\Table\RainConfigTable.cs" />
     <Compile Include="Config\Table\RoomActionConfigTable.cs" />
     <Compile Include="Config\Table\RoomActionMallConfigTable.cs" />
+    <Compile Include="Config\Table\ScenePreloadAssetConfigTable.cs" />
     <Compile Include="Config\Table\ShockConfigTable.cs" />
     <Compile Include="Config\Table\SpellCardConfigTable.cs" />
     <Compile Include="Config\Table\SpellCardLevelupConfigTable.cs" />
@@ -419,6 +434,7 @@
     <Compile Include="Config\Table\StoryConfigTable.cs" />
     <Compile Include="Config\Table\SystemConfigTable.cs" />
     <Compile Include="Config\Table\TargetConfigTable.cs" />
+    <Compile Include="Config\Table\TierConfigTable.cs" />
     <Compile Include="Config\Table\WeaponAttributeConfigTable.cs" />
     <Compile Include="Config\Table\WeaponConfigTable.cs" />
     <Compile Include="Config\Table\WeaponCustomizedConfigTable.cs" />
@@ -426,6 +442,7 @@
     <Compile Include="Config\TargetData.cs" />
     <Compile Include="Config\TargetGroup.cs" />
     <Compile Include="Config\ThriftVector3.cs" />
+    <Compile Include="Config\TierConfig.cs" />
     <Compile Include="Config\WeaponAttributeConfig.cs" />
     <Compile Include="Config\WeaponConfig.cs" />
     <Compile Include="Config\WeaponCustomizedConfig.cs" />
@@ -440,6 +457,17 @@
       <DependentUpon>EditAIConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Export\AbstractExcelExporter.cs" />
+    <Compile Include="Import\GenScript\User\DiyFaceDataConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\DiyFaceDataConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\ScenePreloadAssetConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\ScenePreloadAssetConfigImporter.cs" />
+    <Compile Include="Import\AchieveConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\SeasonAwardConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\SeasonAwardConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\TierConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\TierConfigImporter.cs" />
+    <Compile Include="Import\GenScript\User\CharacterActionConfigImporter.cs" />
+    <Compile Include="Import\GenScript\Auto\CharacterActionConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\DailyMissionConfigImporter.cs" />
     <Compile Include="Import\GenScript\Auto\DailyMissionConfigImporter.cs" />
     <Compile Include="Import\GenScript\User\MainMissionConfigImporter.cs" />

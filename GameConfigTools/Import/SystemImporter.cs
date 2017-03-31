@@ -24,6 +24,8 @@ namespace GameConfigTools.Import
             systemConfig.LoverConfig = new SystemLoverConfig();
             systemConfig.EndlessConfig = new SystemEndlessConfig();
             systemConfig.GuildConfig = new SystemGuildConfig();
+            systemConfig.ClothConfig = new SystemDefaultClothConfig();
+            systemConfig.MissionConfig = new SystemMissionConfig();
 
             if (!ValidRoomConfig(root, systemConfig.RoomConfig, ref errMsg))
             {
@@ -33,11 +35,11 @@ namespace GameConfigTools.Import
             {
                 return false;
             }
-            if(!ValidChatConfig(root, systemConfig.ChatConfig, ref errMsg))
+            if (!ValidChatConfig(root, systemConfig.ChatConfig, ref errMsg))
             {
                 return false;
             }
-            if(!ValidCharacterConfig(root, systemConfig.CharacterConfig, ref errMsg))
+            if (!ValidCharacterConfig(root, systemConfig.CharacterConfig, ref errMsg))
             {
                 return false;
             }
@@ -53,21 +55,41 @@ namespace GameConfigTools.Import
             {
                 return false;
             }
+            if (!ValidDefaultColthConfig(root,systemConfig.ClothConfig, ref errMsg))
+            {
+                return false;
+            }
+            if (!ValidMissionConfig(root, systemConfig.MissionConfig, ref errMsg))
+            {
+                return false;
+            }
             return true;
         }
 
         private bool ValidRoomConfig(XElement e, SystemRoomConfig config, ref string errMsg)
         {
             e = e.Element("room");
-            var funcId = e.Element("likeOnResultFuncId");
-            if (funcId == null)
+            int killScore;
+            if (!int.TryParse(e.Element("killScore").Value, out killScore))
             {
-                errMsg = "<characterConfig> - <heads>节点不能为空";
+                errMsg = "<killScore> 必须为整数";
                 return false;
             }
-            int id = 0;
-            int.TryParse(funcId.Value, out id);
-            config.LikeOnResultFuncId = id;
+            int maxSpecialMp;
+            if (!int.TryParse(e.Element("maxSpecialMp").Value, out maxSpecialMp))
+            {
+                errMsg = "<maxSpecialMp> 必须为整数";
+                return false;
+            }
+            int superJumpSkillId;
+            if (!int.TryParse(e.Element("superJumpSkillId").Value, out superJumpSkillId))
+            {
+                errMsg = "<superJumpSkillId> 必须为整数";
+                return false;
+            }
+            config.KillScore = killScore;
+            config.MaxSpecialMp = maxSpecialMp;
+            config.SuperJumpSkillId = superJumpSkillId;
             return true;
         }
         private bool ValidDecorateTypeSortConfig(XElement e, SystemDecorateTypeSortConfig config, ref string errMsg)
@@ -106,7 +128,7 @@ namespace GameConfigTools.Import
             }
             config.ChatChannelConfigMap = new Dictionary<int, ChatChannelConfig>();
             var channelsE = chatE.Element("channels").Elements("channel");
-            foreach(var channel in channelsE)
+            foreach (var channel in channelsE)
             {
                 int id;
                 if (!int.TryParse(channel.Attribute("id").Value, out id))
@@ -163,7 +185,7 @@ namespace GameConfigTools.Import
 
             HashSet<int> posSet = new HashSet<int>();
 
-            foreach(var maleDiy in maleDiys)
+            foreach (var maleDiy in maleDiys)
             {
                 int pos;
                 if (!int.TryParse(maleDiy.Attribute("pos").Value, out pos))
@@ -212,8 +234,45 @@ namespace GameConfigTools.Import
                 c.ItemId = itemId;
                 config.FemaleInitDIYList.Add(c);
             }
+            config.AchieveHonerAwardList = new List<AchieveHonerAward>();
+
+            var achieveHonerAwardsE = characterE.Elements("achieveHonerAwards").Elements("achieveHonerAward");
+            foreach(var achieveHonerAwardE in achieveHonerAwardsE)
+            {
+                int honer;
+                if (!int.TryParse(achieveHonerAwardE.Attribute("honer").Value, out honer))
+                {
+                    errMsg = "<achieveHonerAward> honer属性必须为整数";
+                    return false;
+                }
+                int awardFuncId;
+                if (!int.TryParse(achieveHonerAwardE.Attribute("awardFuncId").Value, out awardFuncId))
+                {
+                    errMsg = "<achieveHonerAward> awardFuncId属性必须为整数";
+                    return false;
+                }
+                AchieveHonerAward c = new AchieveHonerAward();
+                c.Honer = honer;
+                c.AwardFuncId = awardFuncId;
+                config.AchieveHonerAwardList.Add(c);
+            }
+            config.AchieveHonerAwardList.Sort(ComparerAchieveHonerAward);
             return true;
         }
+
+        private int ComparerAchieveHonerAward(AchieveHonerAward o1, AchieveHonerAward o2)
+        {
+            if(o1.Honer > o2.Honer)
+            {
+                return 1;
+            }
+            if(o1.Honer < o2.Honer)
+            {
+                return -1;
+            }
+            return 0;
+        }
+
         private bool ValidLoverConfig(XElement root, SystemLoverConfig config, ref string errMsg)
         {
             root = root.Element("friend");
@@ -306,7 +365,7 @@ namespace GameConfigTools.Import
             foreach (var elem in giftlist)
             {
                 SystemLoverGiftInfo elemInfo = new SystemLoverGiftInfo();
-                int itemId, counterId, max,broadcastMessageId;
+                int itemId, counterId, max, broadcastMessageId;
 
                 if (!int.TryParse(elem.Attribute("itemId").Value, out itemId))
                 {
@@ -345,9 +404,9 @@ namespace GameConfigTools.Import
             int friendInvitationCd;
             int guildInvitationCd;
             int IdleInvitationCd;
-            int treasureCountId ;
-            int treasureFreeCountId ;
-            int treasureInitNum ;
+            int treasureCountId;
+            int treasureFreeCountId;
+            int treasureInitNum;
             int treasureBuyNum;
 
             if (!int.TryParse(root.Element("friendInvitationCd").Value, out friendInvitationCd))
@@ -539,7 +598,7 @@ namespace GameConfigTools.Import
                         return false;
                     }
                 }
-                
+
                 int count;
                 if (!int.TryParse(donateE.Attribute("count").Value, out count))
                 {
@@ -572,6 +631,73 @@ namespace GameConfigTools.Import
                 c.Honer = honer;
                 config.DonateConfigList.Add(c);
             }
+            return true;
+        }
+
+        private bool ValidDefaultColthConfig(XElement root, SystemDefaultClothConfig config, ref string errMsg)
+        {
+            XElement clothE = root.Element("defaultCloth");
+            config.Cloths = new List<DefaultCloth>();
+            var cloths = clothE.Element("cloths").Elements("cloth");
+            foreach (var cloth in cloths)
+            {
+                DefaultCloth c = new DefaultCloth();
+                c.Resource = cloth.Attribute("resource").Value;
+                if (string.IsNullOrEmpty(c.Resource))
+                {
+                    errMsg = "<cloth> resource属性不能为空";
+                    return false;
+                }
+                c.AttachPosition = cloth.Attribute("attach").Value;
+                config.Cloths.Add(c);
+            }
+            return true;
+        }
+
+        private bool ValidMissionConfig(XElement root, SystemMissionConfig config, ref string errMsg)
+        {
+            XElement missionE = root.Element("mission");
+            int daliyMissionCycleId;
+            if (!int.TryParse(missionE.Element("daliyMissionCycleId").Value, out daliyMissionCycleId))
+            {
+                errMsg = "<daliyMissionCycleId> 必须为整数";
+                return false;
+            }
+            int activeValueCycleCounterId;
+            if (!int.TryParse(missionE.Element("activeValueCycleCounterId").Value, out activeValueCycleCounterId))
+            {
+                errMsg = "<activeValueCycleCounterId> 必须为整数";
+                return false;
+            }
+            config.ActiveAwardConfigList = new List<ActiveAwardConfig>();
+            var activeAwardsE = missionE.Elements("activeAward");
+            foreach (var activeAwardeE in activeAwardsE)
+            {
+                int value;
+                if (!int.TryParse(activeAwardeE.Attribute("value").Value, out value))
+                {
+                    errMsg = "<activeAward> value属性必须为整数";
+                    return false;
+                }
+                int cycleCounterId;
+                if (!int.TryParse(activeAwardeE.Attribute("cycleCounterId").Value, out cycleCounterId))
+                {
+                    errMsg = "<activeAward> cycleCounterId属性必须为整数";
+                    return false;
+                }
+                int funcId;
+                if (!int.TryParse(activeAwardeE.Attribute("funcId").Value, out funcId))
+                {
+                    errMsg = "<activeAward> funcId属性必须为整数";
+                    return false;
+                }
+                ActiveAwardConfig c = new ActiveAwardConfig();
+                c.Value = value;
+                c.CycleCounterId = cycleCounterId;
+                c.FuncId = funcId;
+                config.ActiveAwardConfigList.Add(c);
+            }
+            config.ActiveValueCycleCounterId = activeValueCycleCounterId;
             return true;
         }
 

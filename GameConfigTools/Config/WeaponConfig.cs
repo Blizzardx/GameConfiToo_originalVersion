@@ -47,6 +47,7 @@ namespace Config
     private List<string> _motionList;
     private int _activeLimitId;
     private int _actionGroupId;
+    private int _changeSkillId;
 
     public int Id
     {
@@ -360,6 +361,19 @@ namespace Config
       }
     }
 
+    public int ChangeSkillId
+    {
+      get
+      {
+        return _changeSkillId;
+      }
+      set
+      {
+        __isset.changeSkillId = true;
+        this._changeSkillId = value;
+      }
+    }
+
 
     public Isset __isset;
     #if !SILVERLIGHT
@@ -390,6 +404,7 @@ namespace Config
       public bool motionList;
       public bool activeLimitId;
       public bool actionGroupId;
+      public bool changeSkillId;
     }
 
     public WeaponConfig() {
@@ -495,12 +510,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 TextureList = new List<int>();
-                TList _list243 = iprot.ReadListBegin();
-                for( int _i244 = 0; _i244 < _list243.Count; ++_i244)
+                TList _list247 = iprot.ReadListBegin();
+                for( int _i248 = 0; _i248 < _list247.Count; ++_i248)
                 {
-                  int _elem245 = 0;
-                  _elem245 = iprot.ReadI32();
-                  TextureList.Add(_elem245);
+                  int _elem249 = 0;
+                  _elem249 = iprot.ReadI32();
+                  TextureList.Add(_elem249);
                 }
                 iprot.ReadListEnd();
               }
@@ -568,12 +583,12 @@ namespace Config
             if (field.Type == TType.List) {
               {
                 MotionList = new List<string>();
-                TList _list246 = iprot.ReadListBegin();
-                for( int _i247 = 0; _i247 < _list246.Count; ++_i247)
+                TList _list250 = iprot.ReadListBegin();
+                for( int _i251 = 0; _i251 < _list250.Count; ++_i251)
                 {
-                  string _elem248 = null;
-                  _elem248 = iprot.ReadString();
-                  MotionList.Add(_elem248);
+                  string _elem252 = null;
+                  _elem252 = iprot.ReadString();
+                  MotionList.Add(_elem252);
                 }
                 iprot.ReadListEnd();
               }
@@ -591,6 +606,13 @@ namespace Config
           case 200:
             if (field.Type == TType.I32) {
               ActionGroupId = iprot.ReadI32();
+            } else { 
+              TProtocolUtil.Skip(iprot, field.Type);
+            }
+            break;
+          case 210:
+            if (field.Type == TType.I32) {
+              ChangeSkillId = iprot.ReadI32();
             } else { 
               TProtocolUtil.Skip(iprot, field.Type);
             }
@@ -711,9 +733,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.I32, TextureList.Count));
-          foreach (int _iter249 in TextureList)
+          foreach (int _iter253 in TextureList)
           {
-            oprot.WriteI32(_iter249);
+            oprot.WriteI32(_iter253);
           }
           oprot.WriteListEnd();
         }
@@ -790,9 +812,9 @@ namespace Config
         oprot.WriteFieldBegin(field);
         {
           oprot.WriteListBegin(new TList(TType.String, MotionList.Count));
-          foreach (string _iter250 in MotionList)
+          foreach (string _iter254 in MotionList)
           {
-            oprot.WriteString(_iter250);
+            oprot.WriteString(_iter254);
           }
           oprot.WriteListEnd();
         }
@@ -812,6 +834,14 @@ namespace Config
         field.ID = 200;
         oprot.WriteFieldBegin(field);
         oprot.WriteI32(ActionGroupId);
+        oprot.WriteFieldEnd();
+      }
+      if (__isset.changeSkillId) {
+        field.Name = "changeSkillId";
+        field.Type = TType.I32;
+        field.ID = 210;
+        oprot.WriteFieldBegin(field);
+        oprot.WriteI32(ChangeSkillId);
         oprot.WriteFieldEnd();
       }
       oprot.WriteFieldStop();
@@ -868,6 +898,8 @@ namespace Config
       sb.Append(ActiveLimitId);
       sb.Append(",ActionGroupId: ");
       sb.Append(ActionGroupId);
+      sb.Append(",ChangeSkillId: ");
+      sb.Append(ChangeSkillId);
       sb.Append(")");
       return sb.ToString();
     }
